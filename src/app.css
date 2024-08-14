@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@layer components {
+    .container {
+        margin-inline: auto;
+        padding: 1rem;
+
+        @media (width >= 640px) {
+            max-width: 640px;
+        }
+
+        @media (width >= 768px) {
+            max-width: 768px;
+            padding: 1.25rem;
+        }
+
+        @media (width >= 1024px) {
+            max-width: 1024px;
+            padding: 1.5rem;
+        }
+    }
+}
