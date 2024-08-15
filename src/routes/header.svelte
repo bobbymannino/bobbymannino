@@ -8,7 +8,7 @@
     ];
 </script>
 
-<header class="bg-white sticky top-0">
+<header class="bg-white sticky top-0 z-10">
     <div
         class="container flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
     >
