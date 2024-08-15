@@ -26,7 +26,7 @@
                         <div
                             class="bg-white/80 p-2 justify-self-start place-self-end transition-opacity md:not-group-hover:opacity-0"
                         >
-                            <h2>{title}</h2>
+                            <h2 class="dark:text-zinc-900">{title}</h2>
                         </div>
                     </a>
                 </li>

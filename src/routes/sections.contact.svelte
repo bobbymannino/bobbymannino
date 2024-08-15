@@ -12,8 +12,8 @@
         <ul class="space-x-4">
             {#each links as [text, href]}
                 <li class="inline-block">
-                    <a {href} target="_blank" class="hover:underline">
-                        <h2>#{text}</h2>
+                    <a {href} target="_blank" class="group">
+                        <h2 class="group-hover:underline">#{text}</h2>
                     </a>
                 </li>
             {/each}
