@@ -1,9 +1,2 @@
-<script lang="ts">
-    import AboutSection from "./sections.about.svelte";
-    import ProjectsSection from "./sections.projects.svelte";
-    import ContactSection from "./sections.contact.svelte";
-</script>
-
-<AboutSection />
-<ProjectsSection />
-<ContactSection />
+<h1>Welcome to SvelteKit</h1>
+<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
