@@ -4,7 +4,7 @@
 
 <section class="container" id="about">
     <div class="card">
-        <Picture src="/images/lego-me" alt="Bobby Mannino" class="w-40" />
+        <Picture src="/images/lego-me" alt="Bobby Mannino" class="size-40" />
 
         <h1>
             Welcome to SvelteKit. A really good tutorial on how to be awesome
