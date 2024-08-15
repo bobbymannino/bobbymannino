@@ -18,8 +18,6 @@
     <div class="card">
         <h1>projects</h1>
 
-        <hr />
-
         <ul class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
             {#each projects as { href, src, title }}
                 <li>
