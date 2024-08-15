@@ -21,10 +21,10 @@
         <ul class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
             {#each projects as { href, src, title }}
                 <li>
-                    <a {href} target="_blank" class="pile group">
+                    <a {href} target="_blank" class="group pile">
                         <Picture alt={title} {src} />
                         <div
-                            class="p-2 text-center bg-white/50 backdrop-blur w-full h-full not-group-hover:opacity-0 transition-opacity pile"
+                            class="bg-white/80 p-2 justify-self-start place-self-end transition-opacity md:not-group-hover:opacity-0"
                         >
                             <h2>{title}</h2>
                         </div>
