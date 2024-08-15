@@ -1,19 +1,43 @@
 @import "tailwindcss";
 
+@theme {
+    --color-accent-50: #edf8ff;
+    --color-accent-100: #d6eeff;
+    --color-accent-200: #b5e3ff;
+    --color-accent-300: #83d3ff;
+    --color-accent-400: #48b9ff;
+    --color-accent-500: #1e96ff;
+    --color-accent-600: #0675ff; /* Primary */
+    --color-accent-700: #0061ff;
+    --color-accent-800: #084ac5;
+    --color-accent-900: #0d439b;
+    --color-accent-950: #0e295d;
+}
+
 @layer base {
     body {
-        font-family: "Noto Sans", sans-serif;
+        font-family: "DM Sans";
         font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-        font-variation-settings: "wdth" 100;
-        -webkit-font-smoothing: antialiased;
     }
 
     h1 {
-        font-weight: 900;
-        font-size: 2.5rem;
+        font-weight: 1000;
+        font-size: 2.8rem;
         text-wrap: balance;
+        line-height: 1.1;
+        color: var(--color-accent-600);
+    }
+
+    h2 {
+        font-weight: 700;
+        font-size: 1.9rem;
+        text-wrap: balance;
+        line-height: 1.1;
+    }
+
+    p {
+        text-wrap: pretty;
+        line-height: 1.6;
     }
 }
 
@@ -21,6 +45,7 @@
     .container {
         margin-inline: auto;
         padding: 1rem;
+        scroll-margin-block-start: 5rem;
 
         @media (width >= 640px) {
             max-width: 640px;
@@ -29,10 +54,24 @@
         @media (width >= 768px) {
             max-width: 768px;
             padding: 1.25rem;
+            scroll-margin-block-start: 3.5rem;
         }
 
         @media (width >= 1024px) {
             max-width: 1024px;
+            padding: 1.5rem;
+        }
+    }
+
+    .card {
+        padding: 1rem;
+        background-color: white;
+
+        @media (width >= 768px) {
+            padding: 1.25rem;
+        }
+
+        @media (width >= 1024px) {
             padding: 1.5rem;
         }
     }
