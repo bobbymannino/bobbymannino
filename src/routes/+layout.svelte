@@ -4,6 +4,7 @@
     import Header from './header.svelte';
     import Fonts from './fonts.svelte';
     import Footer from './footer.svelte';
+    import Analytics from './analytics.svelte';
 
     type Props = {
         children: Snippet;
@@ -13,6 +14,7 @@
 </script>
 
 <Fonts />
+<Analytics />
 
 <Header />
 

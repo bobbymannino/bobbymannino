@@ -4,15 +4,13 @@
 
 <section class="container" id="about">
     <div class="card">
+        <h1>about</h1>
+
+        <hr />
+
         <Picture src="/images/lego-me" alt="Bobby Mannino" class="size-40" />
 
-        <h1>
-            Welcome to SvelteKit. A really good tutorial on how to be awesome
-        </h1>
-
-        <h2>
-            Welcome to SvelteKit. A really good tutorial on how to be awesome
-        </h2>
+        <hr />
 
         <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
