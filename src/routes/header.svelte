@@ -3,6 +3,7 @@
 
     const links = [
         ["#about", "about"],
+        ["#technologies", "technologies"],
         ["#projects", "projects"],
         ["#contact", "contact"],
     ];

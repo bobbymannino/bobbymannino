@@ -11,15 +11,13 @@
     ];
 </script>
 
-<section class="container" id="about">
+<section class="container" id="technologies">
     <div class="card">
         <h1>technologies</h1>
 
         <p>
             these are technologies i have an interest in personally or have some
-            knowledge of {#each techs as tech, i}<b>{tech}</b
-                >{#if i !== techs.length - 1},&nbsp;
-                {/if}{/each}
+            knowledge of {#each techs as tech}<b>{tech} </b>{/each}
         </p>
 
         <p>
