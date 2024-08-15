@@ -94,7 +94,7 @@
 
     .card {
         padding: var(--space);
-        background-color: white;
+        background-color: #fff;
 
         & > * + * {
             margin-block-start: var(--space);

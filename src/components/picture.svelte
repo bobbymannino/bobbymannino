@@ -20,7 +20,7 @@ This picutre components uses the src prop to
 server the best img format for the browser.
 -->
 
-<picture>
+<picture class="block">
     <source srcset="{src}.avif" />
     <source srcset="{src}.webp" />
     <source srcset="{src}.heic" />
