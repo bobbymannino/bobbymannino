@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@layer base {
+    body {
+        font-family: "Noto Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1 {
+        font-weight: 900;
+        font-size: 2.5rem;
+        text-wrap: balance;
+    }
+}
+
 @layer components {
     .container {
         margin-inline: auto;
