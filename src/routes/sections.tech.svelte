@@ -9,6 +9,8 @@
         "postgres",
         "stripe",
     ];
+
+    const tech = new Intl.ListFormat().format(techs);
 </script>
 
 <section class="container" id="technologies">
@@ -17,7 +19,7 @@
 
         <p>
             these are technologies i have an interest in personally or have some
-            knowledge of {#each techs as tech}<b>{tech} </b>{/each}
+            knowledge of <b>{tech}</b>
         </p>
 
         <p>
