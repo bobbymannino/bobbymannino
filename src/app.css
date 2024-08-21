@@ -20,7 +20,7 @@
     }
 
     body {
-        background-color: var(--color-gray-50);
+        background-color: var(--color-zinc-100);
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
 
