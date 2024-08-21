@@ -25,5 +25,5 @@ server the best img format for the browser.
     <source srcset="{src}.webp" />
     <source srcset="{src}.heic" />
     <source srcset="{src}.jpg" />
-    <img src="{src}.jpg" {alt} class={classname} />
+    <img src="{src}.jpg" {alt} class={classname} loading="lazy" />
 </picture>
