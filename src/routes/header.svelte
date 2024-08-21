@@ -49,5 +49,9 @@ class="transition-colors px-3 py-1 relative hover:text-white after:content-[''] 
 </ul>
 </nav>
 </div>
+<<<<<<< Updated upstream
 >>>>>>> main
+=======
+>>>>>>> 5796209 (ui: darken bg color)
+>>>>>>> Stashed changes
 </header>
