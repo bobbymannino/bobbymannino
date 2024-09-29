@@ -2,12 +2,12 @@
     const techs = [
         "typescript",
         "git/github",
-        "html",
-        "css",
+        "html/css",
         "svelte/kit",
         "react/next",
-        "postgres",
-        "stripe",
+        "postgres/sql",
+        "rust",
+        "c/c#",
     ];
 
     const tech = new Intl.ListFormat().format(techs);
@@ -23,11 +23,9 @@
         </p>
 
         <p>
-            i am at the moment learning <b>swift</b> to help my ability to develops
-            ios apps as well as developing my own wrapper for a s3 bucket alternative,
-            as a university student i look for ways to save money and one way i found
-            was by creating my own solutions for next to nothing instead of paying
-            for a service
+            i am at the moment learning <b>swift</b> to help my ability to
+            develops ios apps as well as as taking on <b>rust</b> to learn an incredibly
+            effiencent and rapily growing language
         </p>
     </div>
 </section>

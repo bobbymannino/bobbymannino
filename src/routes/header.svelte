@@ -1,15 +1,14 @@
 <script lang="ts">
-import Logo from "./logo.svelte";
+    import Logo from "./logo.svelte";
 
-const links = [
-    ["#about", "about"],
-    ["#technologies", "technologies"],
-    ["#projects", "projects"],
-    ["#contact", "contact"],
-];
+    const links = [
+        ["#about", "about"],
+        ["#technologies", "technologies"],
+        ["#projects", "projects"],
+        ["#contact", "contact"],
+    ];
 </script>
 
-<<<<<<< HEAD
 <header class="bg-white sticky top-0 z-10 dark:bg-zinc-900">
     <div
         class="container flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
@@ -29,29 +28,4 @@ const links = [
             </ul>
         </nav>
     </div>
-=======
-<header class="bg-white sticky top-0 z-10">
-<div
-class="container flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
->
-<Logo />
-<nav>
-<ul class="flex">
-{#each links as [href, text]}
-<li>
-<a
-{href}
-class="transition-colors px-3 py-1 relative hover:text-white after:content-[''] after:-z-10 isolate after:scale-y-0 hover:after:scale-y-100 after:transition-transform overflow-hidden hover:after:origin-top after:origin-bottom after:bg-accent-600 after:absolute after:inset-0"
->{text}</a
->
-</li>
-{/each}
-</ul>
-</nav>
-</div>
-<<<<<<< Updated upstream
->>>>>>> main
-=======
->>>>>>> 5796209 (ui: darken bg color)
->>>>>>> Stashed changes
 </header>
