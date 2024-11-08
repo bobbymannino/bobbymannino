@@ -7,12 +7,17 @@
     import { onMount } from "svelte";
 
     onMount(() => {
-         console.info("%c bobman.dev", "font-weight:900;font-size:2.5rem;color:white;background-color:blue")
-         console.warn("%c i dont think you should be here!", "font-size:1.2rem;background-color:amber")
-    })
+        console.log(
+            "%cbobman.dev",
+            "font-weight:900;font-size:2.5rem;color:#0675ff",
+        );
+        console.log("%cyou found me!", "font-size:1rem;color:green");
+    });
 </script>
 
 <Meta title="Bobby Mannino" description="Software Engineering Undergraduate" />
+
+<!-- <a href="#">Hi there</a> -->
 
 <AboutSection />
 <TechSection />
