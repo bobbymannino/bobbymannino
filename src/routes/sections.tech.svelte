@@ -1,6 +1,6 @@
 <script lang="ts">
     const techs = [
-        "typescript",
+        "js/ts",
         "git/github",
         "html/css",
         "svelte/kit",
@@ -18,14 +18,19 @@
         <h1>technologies</h1>
 
         <p>
-            these are technologies i have an interest in personally or have some
-            knowledge of <b>{tech}</b>
+            these are technologies i have an interest in personally or have
+            various amounts of knowledge in; <b>{tech}</b>
         </p>
 
         <p>
-            i am at the moment learning <b>swift</b> to help my ability to
-            develops ios apps as well as as taking on <b>rust</b> to learn an incredibly
-            effiencent and rapily growing language
+            at the moment i am learning java for android apps as well as limited
+            xml for the same reason.
+        </p>
+
+        <p>
+            my favourite language to type out would be typescript or rust
+            although admittedly my rust is...a little rusty, but thats nothing
+            that cannot be fixed with some practice.
         </p>
     </div>
 </section>
