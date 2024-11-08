@@ -19,7 +19,7 @@
 <Meta />
 
 <Header />
-<main>
+<main id="main-content">
     {@render children()}
 </main>
 <Footer />

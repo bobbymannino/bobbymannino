@@ -4,4 +4,4 @@ This is my personal portfolio
 
 ## TODO
 
-- [ ] Add a "skip to main content" button
+- [x] Add a "skip to main content" button

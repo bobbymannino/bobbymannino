@@ -13,6 +13,11 @@
     <div
         class="container flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
     >
+        <a
+            href="#main-content"
+            class="z-50 absolute bg-accent-600 px-2 py-1 text-white not-focus:pointer-events-none not-focus:opacity-0"
+            >Skip to main content</a
+        >
         <Logo />
         <nav>
             <ul class="flex">
