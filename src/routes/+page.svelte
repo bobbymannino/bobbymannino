@@ -17,8 +17,6 @@
 
 <Meta title="Bobby Mannino" description="Software Engineering Undergraduate" />
 
-<!-- <a href="#">Hi there</a> -->
-
 <AboutSection />
 <TechSection />
 <ProjectsSection />
