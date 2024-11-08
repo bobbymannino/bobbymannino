@@ -2,6 +2,7 @@
     const links = [
         ["github", "https://www.github.com/bobbymannino"],
         ["email", "mailto:manninobobby@icloud.com"],
+        ["linkedin", "https://www.linkedin.com/in/bobbymannino/"],
     ];
 </script>
 
