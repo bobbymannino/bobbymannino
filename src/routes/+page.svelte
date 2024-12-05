@@ -20,14 +20,14 @@
         inView("section", (info) => {
             animate(
                 info.target,
-                { scale: prefersReducedMotion.current ? 1 : [0.4, 1] },
+                { scale: prefersReducedMotion.current ? 1 : [0.75, 1] },
                 { ease: "circInOut" },
             );
 
             return () =>
                 animate(
                     info.target,
-                    { scale: prefersReducedMotion.current ? 1 : 0.4 },
+                    { scale: prefersReducedMotion.current ? 1 : 0.75 },
                     { duration: 0 },
                 );
         });
@@ -44,7 +44,7 @@
 <style>
     :global(section) {
         @media (prefers-reduced-motion: no-preference) {
-            transform: scale(0.4);
+            transform: scale(0.75);
         }
     }
 </style>
