@@ -5,8 +5,6 @@
     import ContactSection from "./sections.contact.svelte";
     import Meta from "$components/meta.svelte";
     import { onMount } from "svelte";
-    import { prefersReducedMotion } from "svelte/motion";
-    import { inView, animate } from "motion";
 
     onMount(() => {
         console.log(
@@ -14,23 +12,6 @@
             "font-weight:900;font-size:2.5rem;color:#0675ff",
         );
         console.log("%cyou found me!", "font-size:1rem;color:green");
-    });
-
-    onMount(() => {
-        inView("section", (info) => {
-            animate(
-                info.target,
-                { scale: prefersReducedMotion.current ? 1 : [0.75, 1] },
-                { ease: "circInOut" },
-            );
-
-            return () =>
-                animate(
-                    info.target,
-                    { scale: prefersReducedMotion.current ? 1 : 0.75 },
-                    { duration: 0 },
-                );
-        });
     });
 </script>
 
@@ -40,11 +21,3 @@
 <TechSection />
 <ProjectsSection />
 <ContactSection />
-
-<style>
-    :global(section) {
-        @media (prefers-reduced-motion: no-preference) {
-            transform: scale(0.75);
-        }
-    }
-</style>

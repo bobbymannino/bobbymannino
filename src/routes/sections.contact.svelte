@@ -1,4 +1,7 @@
 <script lang="ts">
+    import { hacker } from "$lib/hacker";
+    import { inview } from "svelte-inview";
+
     const links = [
         ["github", "https://www.github.com/bobbymannino"],
         ["email", "mailto:manninobobby@icloud.com"],
@@ -8,7 +11,18 @@
 
 <section class="container" id="contact">
     <div class="card">
-        <h1>contact</h1>
+        <h1
+            use:inview
+            on:inview_enter={(e) => {
+                const { node } = e.detail;
+
+                const clean = hacker(node);
+
+                return () => clean();
+            }}
+        >
+            contact
+        </h1>
 
         <ul class="space-x-4">
             {#each links as [text, href]}

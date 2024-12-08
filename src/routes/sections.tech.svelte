@@ -1,4 +1,7 @@
 <script lang="ts">
+    import { hacker } from "$lib/hacker";
+    import { inview } from "svelte-inview";
+
     const techs = [
         "js/ts",
         "git/github",
@@ -15,7 +18,18 @@
 
 <section class="container" id="technologies">
     <div class="card">
-        <h1>technologies</h1>
+        <h1
+            use:inview
+            on:inview_enter={(e) => {
+                const { node } = e.detail;
+
+                const clean = hacker(node);
+
+                return () => clean();
+            }}
+        >
+            technologies
+        </h1>
 
         <p>
             these are technologies i have an interest in personally or have

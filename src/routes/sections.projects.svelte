@@ -1,5 +1,7 @@
 <script lang="ts">
     import Picture from "$components/picture.svelte";
+    import { hacker } from "$lib/hacker";
+    import { inview } from "svelte-inview";
     const projects = [
         {
             title: "CPC Travel",
@@ -16,7 +18,18 @@
 
 <section class="container" id="projects">
     <div class="card">
-        <h1>projects</h1>
+        <h1
+            use:inview
+            on:inview_enter={(e) => {
+                const { node } = e.detail;
+
+                const clean = hacker(node);
+
+                return () => clean();
+            }}
+        >
+            projects
+        </h1>
 
         <ul class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
             {#each projects as { href, src, title }}

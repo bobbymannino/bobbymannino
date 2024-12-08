@@ -1,10 +1,23 @@
 <script lang="ts">
     import Picture from "$components/picture.svelte";
+    import { hacker } from "$lib/hacker";
+    import { inview } from "svelte-inview";
 </script>
 
 <section class="container" id="about">
     <div class="card">
-        <h1>about bob</h1>
+        <h1
+            use:inview
+            on:inview_enter={(e) => {
+                const { node } = e.detail;
+
+                const clean = hacker(node);
+
+                return () => clean();
+            }}
+        >
+            about bob
+        </h1>
 
         <Picture src="/images/lego-me" alt="Bobby Mannino" class="w-32" />
 
