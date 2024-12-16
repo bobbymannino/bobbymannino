@@ -1,17 +1,19 @@
 <script lang="ts">
-    import Picture from "$components/picture.svelte";
     import { hacker } from "$lib/hacker";
     import { inview } from "svelte-inview";
+    import CPCTravel from "$lib/images/cpc-travel.png?enhanced";
+    import CPCBureau from "$lib/images/cpc-bureau.png?enhanced";
+
     const projects = [
         {
             title: "CPC Travel",
             href: "https://www.cpc-travel.co.uk",
-            src: "/images/cpc-travel",
+            src: CPCTravel,
         },
         {
             title: "CPC Bureau de Change",
             href: "https://www.cpc-bureau-de-change.co.uk",
-            src: "/images/cpc-bureau",
+            src: CPCBureau,
         },
     ];
 </script>
@@ -35,7 +37,7 @@
             {#each projects as { href, src, title }}
                 <li>
                     <a {href} target="_blank" class="group pile">
-                        <Picture alt={title} {src} />
+                        <enhanced:img alt={title} {src} />
                         <div
                             class="bg-white/80 p-2 justify-self-start place-self-end transition-opacity md:not-group-hover:opacity-0"
                         >

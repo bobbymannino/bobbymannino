@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Picture from "$components/picture.svelte";
     import { hacker } from "$lib/hacker";
     import { inview } from "svelte-inview";
 </script>
@@ -9,20 +8,21 @@
         <h1
             use:inview
             on:inview_enter={(e) => {
-                const { node } = e.detail;
-
-                const clean = hacker(node);
-
+                const clean = hacker(e.detail.node);
                 return () => clean();
             }}
         >
             about bob
         </h1>
 
-        <Picture src="/images/lego-me" alt="Bobby Mannino" class="w-32" />
+        <enhanced:img
+            src="$lib/images/lego-me.png"
+            alt="Bobby Mannino"
+            class="w-32"
+        />
 
         <p>
-            hey. im bob, i study software engineering in a university in the
+            hey, im bob, i study software engineering in a university in the
             south of england. im 20 years old and absolutely in love with
             programming. my goal is to get a placement year in university and
             then when the time comes to graduate i can call upon the experience
