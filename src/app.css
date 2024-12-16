@@ -58,6 +58,16 @@
             color: var(--color-zinc-200);
         }
     }
+
+    hr {
+        height: 2px;
+        border: none;
+        background-color: var(--color-zinc-200);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--color-zinc-950);
+        }
+    }
 }
 
 @layer utilities {
@@ -71,26 +81,10 @@
     }
 }
 
-:root {
-    --space: 1rem;
-}
-
-@media (width >= 768px) {
-    :root {
-        --space: 1.25rem;
-    }
-}
-
-@media (width >= 1024px) {
-    :root {
-        --space: 1.5rem;
-    }
-}
-
 @layer components {
     .container {
         margin-inline: auto;
-        padding: var(--space);
+        padding: calc(var(--spacing) * 4);
         scroll-margin-block-start: 5rem;
 
         @media (width >= 640px) {
@@ -98,6 +92,7 @@
         }
 
         @media (width >= 768px) {
+            padding: calc(var(--spacing) * 6);
             max-width: 768px;
             scroll-margin-block-start: 3.5rem;
         }
@@ -108,11 +103,19 @@
     }
 
     .card {
-        padding: var(--space);
+        padding: calc(var(--spacing) * 4);
         background-color: #fff;
 
         & > * + * {
-            margin-block-start: var(--space);
+            margin-block-start: calc(var(--spacing) * 4);
+        }
+
+        @media (width >= 768px) {
+            padding: calc(var(--spacing) * 6);
+
+            & > * + * {
+                margin-block-start: calc(var(--spacing) * 6);
+            }
         }
 
         @media (prefers-color-scheme: dark) {
