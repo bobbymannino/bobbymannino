@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Picture from "$components/picture.svelte";
     import { hacker } from "$lib/hacker";
     import { inview } from "svelte-inview";
 </script>
@@ -16,7 +15,11 @@
             about bob
         </h1>
 
-        <Picture src="/images/lego-me" alt="Bobby Mannino" class="w-32" />
+        <enhanced:img
+            src="$lib/images/lego-me.png"
+            alt="Bobby Mannino"
+            class="w-32"
+        />
 
         <p>
             hey, im bob, i study software engineering in a university in the
