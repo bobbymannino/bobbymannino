@@ -44,7 +44,7 @@ export function hacker(node: HTMLElement, options?: Options) {
         .join("");
   }, 33);
 
-  let decrementInterval: number;
+  let decrementInterval: NodeJS.Timer;
   setTimeout(() => {
     decrementInterval = setInterval(() => {
       i++;
