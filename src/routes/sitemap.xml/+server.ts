@@ -1,9 +1,12 @@
+import { getPost, listPosts } from "$lib/posts";
+
 const BASE_URL = "https://bobman.dev/";
 
-export async function GET() {
+export function GET() {
+  const posts = listPosts().map(getPost);
+
   return new Response(
-    `
-		<?xml version="1.0" encoding="UTF-8" ?>
+    `<?xml version="1.0" encoding="UTF-8" ?>
 		<urlset
 			xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
 			xmlns:xhtml="https://www.w3.org/1999/xhtml"
@@ -16,11 +19,20 @@ export async function GET() {
 				<loc>${BASE_URL}</loc>
 				<priority>1.0</priority>
 			</url>
-		</urlset>`.trim(),
-    {
-      headers: {
-        "Content-Type": "application/xml",
-      },
-    },
+			<url>
+			  <loc>${BASE_URL}blog/</loc>
+				<priority>0.8</priority>
+			</url>${posts
+        .map(
+          (p) =>
+            `
+			<url>
+			  <loc>${BASE_URL}blog/${p.meta.slug}/</loc>
+				<priority>0.8</priority>
+			</url>`,
+        )
+        .join("")}
+		</urlset>`,
+    { headers: { "Content-Type": "application/xml" } },
   );
 }

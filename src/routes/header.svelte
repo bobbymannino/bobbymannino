@@ -2,10 +2,11 @@
     import Logo from "./logo.svelte";
 
     const links = [
-        ["#about", "about"],
-        ["#technologies", "technologies"],
-        ["#projects", "projects"],
-        ["#contact", "contact"],
+        ["/#about", "about"],
+        ["/blog", "blog"],
+        ["/#technologies", "technologies"],
+        ["/#projects", "projects"],
+        ["/#contact", "contact"],
     ];
 </script>
 
