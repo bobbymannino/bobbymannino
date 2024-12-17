@@ -1,5 +1,7 @@
 <script lang="ts">
     import Meta from "$components/meta.svelte";
+    import ListItem from "$lib/renderers/list-item.svelte";
+    import List from "$lib/renderers/list.svelte";
     import type { PageData } from "./$types";
     import MD from "svelte-markdown";
 
@@ -13,11 +15,15 @@
 
 <div class="container">
     <div class="card">
-        <div class="flex justify-between">
-            <h2>{data.post.meta.title}</h2>
+        <MD
+            source={data.post.content}
+            renderers={{ listitem: ListItem, list: List }}
+        />
+
+        <hr />
+
+        <div class="flex justify-end">
             <p>{data.post.meta.publishedOn.toLocaleDateString()}</p>
         </div>
-        <hr />
-        <MD source={data.post.content} />
     </div>
 </div>

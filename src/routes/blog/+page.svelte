@@ -26,7 +26,7 @@
                                 </small>
                             </p>
                         </div>
-                        <p class="line-clamp-2 pt-2">{post.content}</p>
+                        <p class="line-clamp-2 pt-2">{post.meta.tagline}</p>
                     </a>
                 </li>
             {/each}

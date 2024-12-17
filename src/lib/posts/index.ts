@@ -40,4 +40,5 @@ const postMetadataSchema = object({
   title: string(),
   slug: string(),
   publishedOn: date(),
+  tagline: string(),
 });
