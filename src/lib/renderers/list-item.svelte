@@ -1,11 +1,11 @@
 <script lang="ts">
-    type Props = {
-        text: string;
-    };
+  type Props = {
+    text: string;
+  };
 
-    let { text }: Props = $props();
+  let { text }: Props = $props();
 </script>
 
 <li>
-    <p>{text}</p>
+  <p>{text}</p>
 </li>

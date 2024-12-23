@@ -1,13 +1,13 @@
 <script lang="ts">
-    import type { Snippet } from "svelte";
+  import type { Snippet } from "svelte";
 
-    type Props = {
-        children: Snippet;
-    };
+  type Props = {
+    children: Snippet;
+  };
 
-    let { children }: Props = $props();
+  let { children }: Props = $props();
 </script>
 
-<ul class="list-disc list-inside marker:text-accent-600">
-    {@render children()}
+<ul class="marker:text-accent-600 list-inside list-disc">
+  {@render children()}
 </ul>
