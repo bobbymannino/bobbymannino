@@ -15,6 +15,7 @@
             about bob
         </h1>
 
+        <br />
         <enhanced:img
             src="$lib/images/lego-me.png"
             alt="Bobby Mannino"
