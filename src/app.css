@@ -81,14 +81,12 @@
     }
 }
 
-@layer utilities {
-    .pile {
-        display: grid;
-        place-items: center;
+@utility pile {
+    display: grid;
+    place-items: center;
 
-        & > * {
-            grid-area: 1 / -1;
-        }
+    & > * {
+        grid-area: 1 / -1;
     }
 }
 
