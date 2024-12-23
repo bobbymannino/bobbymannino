@@ -1,8 +1,9 @@
 ---
-title: Config Files
+title: "Config Files"
 publishedOn: 2024-12-17
-slug: config-files
-tagline: Backing up every config file
+slug: "config-files"
+tagline: "Backing up every config file"
+tags: ["config", "backup", "shell"]
 ---
 
 # Config Files

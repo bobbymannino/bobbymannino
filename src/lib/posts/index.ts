@@ -1,5 +1,5 @@
 import { readdirSync } from "node:fs";
-import { object, date, string, safeParse } from "valibot";
+import * as v from "valibot";
 import grayMatter from "gray-matter";
 
 /**
@@ -23,7 +23,7 @@ export function listPosts() {
 export function getPost(file: string) {
   const post = grayMatter.read(file);
 
-  const parsed = safeParse(postMetadataSchema, post.data);
+  const parsed = v.safeParse(postMetadataSchema, post.data);
 
   if (!parsed.success) {
     console.error(parsed.issues);
@@ -36,9 +36,10 @@ export function getPost(file: string) {
   };
 }
 
-const postMetadataSchema = object({
-  title: string(),
-  slug: string(),
-  publishedOn: date(),
-  tagline: string(),
+const postMetadataSchema = v.object({
+  title: v.string(),
+  slug: v.string(),
+  publishedOn: v.date(),
+  tagline: v.string(),
+  tags: v.array(v.string()),
 });
