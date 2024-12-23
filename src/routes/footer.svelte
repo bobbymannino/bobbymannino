@@ -1,5 +1,9 @@
 <script lang="ts">
-  const cmdOrCtrl = navigator.platform.includes("Mac") ? "⌘" : "Ctrl";
+  import { browser } from "$app/environment";
+
+  const cmdOrCtrl = $derived(
+    browser && navigator.platform.includes("Mac") ? "⌘" : "Ctrl",
+  );
 </script>
 
 <footer class="bg-white dark:bg-zinc-900">
