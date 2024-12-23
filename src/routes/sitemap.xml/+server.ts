@@ -1,10 +1,8 @@
-import { getPost, listPosts } from "$lib/posts";
+import { listPosts } from "$lib/posts";
 
 const BASE_URL = "https://bobman.dev/";
 
 export function GET() {
-  const posts = listPosts().map(getPost);
-
   return new Response(
     `<?xml version="1.0" encoding="UTF-8" ?>
 		<urlset
@@ -22,7 +20,7 @@ export function GET() {
 			<url>
 			  <loc>${BASE_URL}blog/</loc>
 				<priority>0.8</priority>
-			</url>${posts
+			</url>${listPosts()
         .map(
           (p) =>
             `
