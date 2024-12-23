@@ -6,6 +6,7 @@
     import Footer from "./footer.svelte";
     import Fonts from "./fonts.svelte";
     import Meta from "./meta.svelte";
+    import SearchModal from "./search-modal.svelte";
 
     type Props = {
         children: Snippet;
@@ -18,6 +19,7 @@
 <Fonts />
 <Meta />
 
+<SearchModal />
 <Header />
 <main id="main-content">
     {@render children()}
