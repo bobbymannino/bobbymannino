@@ -6,7 +6,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "^5.2.11",
@@ -16,6 +17,9 @@
     "@tailwindcss/vite": "^4.0.0-beta.8",
     "@types/bun": "^1.1.14",
     "gray-matter": "^4.0.3",
+    "prettier": "^3.4.2",
+    "prettier-plugin-svelte": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "svelte": "^5.15.0",
     "svelte-check": "^4.1.1",
     "svelte-inview": "^4.0.4",

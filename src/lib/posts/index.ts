@@ -48,3 +48,10 @@ const postMetadataSchema = v.object({
   tagline: v.string(),
   tags: v.array(v.string()),
 });
+
+type PostMetadata = v.InferOutput<typeof postMetadataSchema>;
+
+export type Post = {
+  content: string;
+  meta: PostMetadata;
+};
