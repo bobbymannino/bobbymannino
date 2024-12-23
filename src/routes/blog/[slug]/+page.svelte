@@ -11,6 +11,7 @@
 <Meta
     title="{data.post.meta.title} | Bobby Mannino"
     description="Read a blog post written by Bobby Mannino"
+    tags={data.post.meta.tags}
 />
 
 <div class="container">
