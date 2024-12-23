@@ -22,8 +22,19 @@
 
         <hr />
 
-        <div class="flex justify-end">
-            <p>Published {data.post.meta.publishedOn.toLocaleDateString()}</p>
+        <div class="flex justify-between items-center flex-wrap">
+            <ul>
+                {#each data.post.meta.tags as tag}
+                    <li class="inline-block mr-2">
+                        <p class="text-accent-600">
+                            #{tag}
+                        </p>
+                    </li>
+                {/each}
+            </ul>
+            <p>
+                Published {data.post.meta.publishedOn.toLocaleDateString()}
+            </p>
         </div>
     </div>
 </div>
