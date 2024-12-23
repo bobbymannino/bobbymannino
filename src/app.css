@@ -68,6 +68,17 @@
             background-color: var(--color-zinc-950);
         }
     }
+
+    pre {
+        padding: calc(var(--spacing) * 4);
+        background-color: var(--color-zinc-100);
+        color: var(--color-zinc-800);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--color-zinc-800);
+            color: var(--color-zinc-200);
+        }
+    }
 }
 
 @layer utilities {
