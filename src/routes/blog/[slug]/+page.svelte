@@ -23,7 +23,7 @@
         <hr />
 
         <div class="flex justify-end">
-            <p>{data.post.meta.publishedOn.toLocaleDateString()}</p>
+            <p>Published {data.post.meta.publishedOn.toLocaleDateString()}</p>
         </div>
     </div>
 </div>
