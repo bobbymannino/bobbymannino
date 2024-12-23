@@ -79,6 +79,12 @@
       color: var(--color-zinc-200);
     }
   }
+
+  kbd {
+    background-color: var(--color-accent-600);
+    color: var(--color-zinc-50);
+    padding: var(--spacing) calc(var(--spacing) * 2);
+  }
 }
 
 @utility input {
