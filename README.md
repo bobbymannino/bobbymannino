@@ -1,5 +1,7 @@
 # Bob
 
+<img src='bob.jpg' alt='bob' style="width:10rem;height:10rem">
+
 Hi there, im a software engineering undergraduate at the university of Plymouth
 and i love to create and code things.
 
