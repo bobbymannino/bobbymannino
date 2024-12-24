@@ -1,5 +1,11 @@
 <script lang="ts">
   import Logo from "./logo.svelte";
+  import SearchIcon from "$lib/icons/search.svelte";
+
+  // TODO Wrap navbar links
+  // TODO wrap code blocks in markdown
+  // TODO remove cmd hint if no keyboard
+  // TODO add search icon to header
 
   const links = [
     ["/#about", "about"],
@@ -7,6 +13,7 @@
     ["/#technologies", "technologies"],
     ["/#projects", "projects"],
     ["/#contact", "contact"],
+    // [() => undefined, SearchIcon],
   ];
 </script>
 
@@ -21,7 +28,7 @@
     >
     <Logo />
     <nav>
-      <ul class="flex">
+      <ul class="flex flex-wrap">
         {#each links as [href, text]}
           <li>
             <a
