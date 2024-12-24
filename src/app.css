@@ -88,6 +88,8 @@
   }
 }
 
+@variant hoverable (@media (hover: hover));
+
 @utility input {
   padding: 0.25rem;
   background-color: var(--color-zinc-200);

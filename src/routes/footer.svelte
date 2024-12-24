@@ -11,7 +11,7 @@
     <p>
       <small>&copy; bobman.dev 2024</small>
     </p>
-    <div>
+    <div class="not-hoverable:hidden">
       <kbd>{cmdOrCtrl}</kbd>
       <kbd>K</kbd>
     </div>
