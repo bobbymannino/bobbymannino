@@ -12,7 +12,7 @@
     if (event.key === "Meta") isMetaKeyPressed = true;
 
     if (isMetaKeyPressed && event.key === "k") {
-      dialog.showModal();
+      open();
 
       onopen?.();
     }
@@ -20,6 +20,10 @@
 
   export function close() {
     dialog.close();
+  }
+
+  export function open() {
+    dialog.showModal();
   }
 
   type Props = {

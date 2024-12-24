@@ -14,7 +14,7 @@
       "%cbobman.dev",
       "font-weight:900;font-size:2.5rem;color:#0675ff",
     );
-    console.log("%cyou found me!", "font-size:1rem;color:green");
+    console.log("%cyou found me 👋", "font-size:1rem;color:green");
   });
 
   type Props = {
@@ -22,14 +22,16 @@
   };
 
   let { children }: Props = $props();
+
+  let searchModal: { open: () => void } = $state({});
 </script>
 
 <Analytics />
 <Fonts />
 <Meta />
 
-<SearchModal />
-<Header />
+<SearchModal bind:this={searchModal} />
+<Header openSearchModal={searchModal.open} />
 <main id="main-content">
   {@render children()}
 </main>

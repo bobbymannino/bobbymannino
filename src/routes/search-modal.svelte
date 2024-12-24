@@ -5,7 +5,7 @@
   import XIcon from "$lib/icons/x.svelte";
 
   let query = $state("");
-  let modal: { close: () => void };
+  let modal: { close: () => void; open: () => void };
 
   const filteredPosts = $derived.by(() => {
     if (!query.trim()) return [];
@@ -19,6 +19,10 @@
       );
     });
   });
+
+  export function open() {
+    modal.open();
+  }
 
   function handleKeyPress(
     event: KeyboardEvent & { currentTarget: HTMLInputElement },
