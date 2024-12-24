@@ -17,7 +17,7 @@
     <ul class="grid gap-4">
       {#each data.posts as post}
         <li>
-          <a href="/blog/{post.meta.slug}">
+          <a href="/blog/{post.meta.slug}" class="hover:underline">
             <div class="flex justify-between">
               <h2>{post.meta.title}</h2>
               <p>
