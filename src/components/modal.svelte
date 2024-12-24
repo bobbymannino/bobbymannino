@@ -40,7 +40,7 @@
 <dialog
   {onclose}
   bind:this={dialog}
-  class="w-full max-w-full bg-transparent pt-6 backdrop:bg-black/50"
+  class="w-full max-w-full touch-none bg-transparent pt-6 backdrop:bg-black/50"
 >
   <div class="mx-auto w-full max-w-prose bg-zinc-50 p-6 dark:bg-zinc-800">
     {@render children()}
