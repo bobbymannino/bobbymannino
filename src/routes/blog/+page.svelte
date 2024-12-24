@@ -14,7 +14,7 @@
   <div class="card">
     <h1>blog</h1>
 
-    <ul class="grid gap-4">
+    <ul class="grid gap-4" id="main-content">
       {#each data.posts as post}
         <li>
           <a href="/blog/{post.meta.slug}" class="hover:underline">

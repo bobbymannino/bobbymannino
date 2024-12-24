@@ -15,29 +15,27 @@
 />
 
 <div class="container">
-  <article>
-    <div class="card">
-      <MD
-        source={data.post.content}
-        renderers={{ listitem: ListItem, list: List }}
-      />
+  <article class="card" id="main-content">
+    <MD
+      source={data.post.content}
+      renderers={{ listitem: ListItem, list: List }}
+    />
 
-      <hr />
+    <hr />
 
-      <div class="flex flex-wrap items-center justify-between">
-        <ul>
-          {#each data.post.meta.tags as tag}
-            <li class="mr-2 inline-block">
-              <p class="text-accent-600">
-                #{tag}
-              </p>
-            </li>
-          {/each}
-        </ul>
-        <p>
-          Published {data.post.meta.publishedOn.toLocaleDateString()}
-        </p>
-      </div>
+    <div class="flex flex-wrap items-center justify-between">
+      <ul>
+        {#each data.post.meta.tags as tag}
+          <li class="mr-2 inline-block">
+            <p class="text-accent-600">
+              #{tag}
+            </p>
+          </li>
+        {/each}
+      </ul>
+      <p>
+        Published {data.post.meta.publishedOn.toLocaleDateString()}
+      </p>
     </div>
   </article>
 </div>
