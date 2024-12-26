@@ -38,10 +38,10 @@
         <li>
           <a {href} target="_blank" class="group pile">
             <enhanced:img alt={title} {src} />
-            <div
-              class="place-self-end justify-self-start bg-white/80 p-2 transition-opacity md:not-group-hover:opacity-0"
-            >
-              <h2 class="dark:text-zinc-900">{title}</h2>
+            <div>
+              <h2 class="bg-white/75 p-2 text-center dark:text-zinc-900">
+                {title}
+              </h2>
             </div>
           </a>
         </li>
