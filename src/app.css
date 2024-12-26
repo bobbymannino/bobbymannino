@@ -77,7 +77,7 @@
     background-color: var(--color-zinc-200);
 
     @media (prefers-color-scheme: dark) {
-      background-color: var(--color-zinc-950);
+      background-color: var(--color-zinc-800);
     }
   }
 

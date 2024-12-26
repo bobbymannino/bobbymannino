@@ -8,6 +8,6 @@
   let { children }: Props = $props();
 </script>
 
-<ul class="marker:text-accent-600 list-inside list-disc">
+<ul class="list-inside list-disc marker:text-zinc-400">
   {@render children()}
 </ul>
