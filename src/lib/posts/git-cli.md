@@ -31,7 +31,7 @@ the specific flags of every command I most commonly use.
 - Have to memorize commands
 - Learning curve
 
-## Common Commands I Use
+## My Common Commands
 
 ```sh
 git add <.|-A|-i|-p>
