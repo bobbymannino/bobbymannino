@@ -24,9 +24,9 @@
     <hr />
 
     <div class="flex flex-wrap items-center justify-between">
-      <ul>
+      <ul class="flex flex-wrap gap-2">
         {#each data.post.meta.tags as tag}
-          <li class="mr-2 inline-block">
+          <li>
             <p class="text-accent-600">
               #{tag}
             </p>

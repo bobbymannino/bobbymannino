@@ -17,16 +17,30 @@
     <ul class="grid gap-4" id="main-content">
       {#each data.posts as post}
         <li>
-          <a href="/blog/{post.meta.slug}" class="hover:underline">
-            <div class="flex justify-between">
-              <h2>{post.meta.title}</h2>
+          <a href="/blog/{post.meta.slug}" class="group">
+            <div class="flex items-start justify-between">
+              <h2 class="group-hover:underline">{post.meta.title}</h2>
               <p>
                 <small>
                   {post.meta.publishedOn.toLocaleDateString()}
                 </small>
               </p>
             </div>
-            <p class="line-clamp-2 pt-2">{post.meta.tagline}</p>
+
+            <div class="mt-2 flex items-end justify-between">
+              <p>{post.meta.tagline}</p>
+              <ul class="flex flex-wrap gap-1">
+                {#each post.meta.tags as tag}
+                  <li>
+                    <p class="text-accent-600">
+                      <small>
+                        #{tag}
+                      </small>
+                    </p>
+                  </li>
+                {/each}
+              </ul>
+            </div>
           </a>
         </li>
       {/each}
