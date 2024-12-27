@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ChipSelection from "$components/chip-selection.svelte";
   import Meta from "$components/meta.svelte";
   import Select from "$components/select.svelte";
   import type { PageData } from "./$types";
@@ -6,10 +7,15 @@
   let { data }: { data: PageData } = $props();
 
   let sortBy = $state(data.sortBy || "date-desc");
+  let tags = $state(data.tags);
 
   let sortedPosts = $derived(
     data.posts.toSorted((a, b) => {
       switch (sortBy) {
+        case "title-asc":
+          return a.meta.title.localeCompare(b.meta.title);
+        case "title-desc":
+          return b.meta.title.localeCompare(a.meta.title);
         case "date-asc":
           return a.meta.publishedOn.getTime() - b.meta.publishedOn.getTime();
         case "date-desc":
@@ -18,6 +24,28 @@
       }
     }),
   );
+
+  let filteredPosts = $derived.by(() => {
+    if (tags.length < 1) return sortedPosts;
+
+    return sortedPosts.filter((p) => {
+      for (const postTag of p.meta.tags) {
+        if (tags.includes(postTag)) return true;
+      }
+
+      return false;
+    });
+  });
+
+  let chips = $derived.by(() => {
+    const allTags = data.posts.flatMap((p) =>
+      p.meta.tags.map((t) => ({ value: t, name: t, text: `#${t}` })),
+    );
+
+    return allTags.filter(
+      (tag, i, tags) => i === tags.findIndex((t) => tag.value === t.value),
+    );
+  });
 </script>
 
 <Meta
@@ -34,14 +62,18 @@
         label="Sort by"
         bind:value={sortBy}
         options={[
-          { value: "date-desc", text: "Date (Desc)" },
-          { value: "date-asc", text: "Date (Asc)" },
+          { value: "date-desc", text: "Date (New-Old)" },
+          { value: "date-asc", text: "Date (Old-New)" },
+          { value: "title-desc", text: "Title (Z-A)" },
+          { value: "title-asc", text: "Title (A-Z)" },
         ]}
       />
     </div>
 
+    <ChipSelection {chips} bind:selection={tags} />
+
     <ul class="grid gap-4" id="main-content">
-      {#each sortedPosts as post}
+      {#each filteredPosts as post}
         <li>
           <a href="/blog/{post.meta.slug}" class="group">
             <div class="flex items-start justify-between">
