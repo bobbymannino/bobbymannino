@@ -27,8 +27,13 @@
       <ul class="flex flex-wrap gap-2">
         {#each data.post.meta.tags as tag}
           <li>
-            <p class="text-accent-600">
-              #{tag}
+            <p>
+              <a
+                href="/blog?tags={tag}"
+                class="text-accent-600 hover:underline"
+              >
+                #{tag}
+              </a>
             </p>
           </li>
         {/each}
