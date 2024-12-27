@@ -3,22 +3,17 @@
   import { navigating, page } from "$app/state";
   import { goto } from "$app/navigation";
   import XIcon from "$lib/icons/x.svelte";
+  import Fuse from "fuse.js";
 
   let query = $state("");
   let modal: { close: () => void; open: () => void };
 
-  const filteredPosts = $derived.by(() => {
-    if (!query.trim()) return [];
-
-    return page.data.posts.filter((p) => {
-      const exp = new RegExp(query.trim(), "i");
-      return (
-        exp.test(p.meta.title) ||
-        exp.test(p.meta.tagline) ||
-        exp.test(p.meta.tags.join(" "))
-      );
-    });
+  const fuse = new Fuse(page.data.posts, {
+    keys: ["meta.title", "meta.tags", "meta.tagline"],
+    threshold: 0.4,
   });
+
+  const filteredPosts = $derived(fuse.search(query).map((p) => p.item));
 
   export function open() {
     modal.open();
