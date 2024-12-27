@@ -93,7 +93,7 @@
 
             <div class="mt-2 flex items-end justify-between">
               <p>{post.meta.tagline}</p>
-              <ul class="flex flex-wrap gap-1">
+              <ul class="hidden flex-wrap gap-1 md:flex">
                 {#each post.meta.tags as tag}
                   <li>
                     <p class="text-accent-600">
