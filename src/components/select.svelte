@@ -18,7 +18,7 @@
 <select
   bind:value
   {id}
-  class="appearance-none bg-zinc-100 p-2 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-300"
+  class="cursor-pointer appearance-none bg-zinc-100 p-2 text-zinc-800 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
   title={label}
 >
   {#each options as opt}
