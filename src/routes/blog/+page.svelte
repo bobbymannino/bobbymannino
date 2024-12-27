@@ -3,11 +3,17 @@
   import Meta from "$components/meta.svelte";
   import Select from "$components/select.svelte";
   import type { PageData } from "./$types";
+  import { page } from "$app/state";
 
   let { data }: { data: PageData } = $props();
 
-  let sortBy = $state(data.sortBy || "date-desc");
-  let tags = $state(data.tags);
+  let sortBy = $state("date-desc");
+  let tags: string[] = $state([]);
+
+  $effect.pre(() => {
+    sortBy = page.url.searchParams.get("sortBy") || "date-desc";
+    tags = page.url.searchParams.get("tags")?.split(",") || [];
+  });
 
   let sortedPosts = $derived(
     data.posts.toSorted((a, b) => {
