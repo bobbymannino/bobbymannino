@@ -50,7 +50,7 @@ tags: ["zed", "vscode", "vim", "editor"]
 ### Disadvantages
 
 - Doesn't support too many extensions (at the time of writing it is still in
-beta)
+  beta)
 
 ## What Do I Use?
 

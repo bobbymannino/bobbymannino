@@ -16,7 +16,7 @@
   });
 
   let sortedPosts = $derived(
-    data.posts.toSorted((a, b) => {
+    [...data.posts].sort((a, b) => {
       switch (sortBy) {
         case "title-asc":
           return a.meta.title.localeCompare(b.meta.title);
