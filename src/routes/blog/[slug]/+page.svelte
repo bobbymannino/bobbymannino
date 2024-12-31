@@ -1,5 +1,6 @@
 <script lang="ts">
   import Meta from "$components/meta.svelte";
+  import Code from "$lib/renderers/code.svelte";
   import ListItem from "$lib/renderers/list-item.svelte";
   import List from "$lib/renderers/list.svelte";
   import Table from "$lib/renderers/table.svelte";
@@ -19,7 +20,7 @@
   <article class="card" id="main-content">
     <MD
       source={data.post.content}
-      renderers={{ listitem: ListItem, list: List, table: Table }}
+      renderers={{ listitem: ListItem, list: List, table: Table, code: Code }}
     />
 
     <hr />
