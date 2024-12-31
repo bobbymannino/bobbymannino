@@ -35,7 +35,7 @@
   }
 
   $effect(() => {
-    if (!!navigating.to) modal.close();
+    if (navigating.to) modal.close();
   });
 </script>
 
