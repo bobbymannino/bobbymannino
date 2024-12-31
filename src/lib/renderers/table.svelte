@@ -8,6 +8,8 @@
   let { children }: Props = $props();
 </script>
 
-<table class="blog-post-table">
-  {@render children()}
-</table>
+<div class="overflow-x-auto">
+  <table class="blog-post-table">
+    {@render children()}
+  </table>
+</div>
