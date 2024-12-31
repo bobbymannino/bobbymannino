@@ -42,7 +42,7 @@
     font-size: 1.9rem;
     line-height: 1.13;
     text-wrap: balance;
-    color: var(--color-gray-900);
+    color: var(--color-zinc-900);
 
     @media (prefers-color-scheme: dark) {
       color: var(--color-zinc-100);
@@ -54,7 +54,7 @@
     font-size: 1.6rem;
     line-height: 1.1;
     text-wrap: balance;
-    color: var(--color-gray-800);
+    color: var(--color-zinc-800);
 
     @media (prefers-color-scheme: dark) {
       color: var(--color-zinc-200);
@@ -64,7 +64,7 @@
   p {
     text-wrap: pretty;
     line-height: 1.6;
-    color: var(--color-gray-800);
+    color: var(--color-zinc-800);
 
     a {
       @apply text-accent-600 hover:underline;

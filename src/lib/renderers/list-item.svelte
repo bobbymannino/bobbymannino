@@ -6,6 +6,4 @@
   let { text }: Props = $props();
 </script>
 
-<li>
-  <p>{text}</p>
-</li>
+<li class="text-zinc-800 dark:text-zinc-200">{text}</li>
