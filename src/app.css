@@ -85,18 +85,6 @@
     }
   }
 
-  pre {
-    padding: calc(var(--spacing) * 4);
-    background-color: var(--color-zinc-100);
-    color: var(--color-zinc-800);
-    overflow-x: auto;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-zinc-800);
-      color: var(--color-zinc-200);
-    }
-  }
-
   kbd {
     background-color: var(--color-accent-600);
     color: var(--color-zinc-50);
