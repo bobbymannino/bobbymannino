@@ -2,6 +2,7 @@
   import Meta from "$components/meta.svelte";
   import ListItem from "$lib/renderers/list-item.svelte";
   import List from "$lib/renderers/list.svelte";
+  import Table from "$lib/renderers/table.svelte";
   import type { PageData } from "./$types";
   import MD from "svelte-markdown";
 
@@ -18,7 +19,7 @@
   <article class="card" id="main-content">
     <MD
       source={data.post.content}
-      renderers={{ listitem: ListItem, list: List }}
+      renderers={{ listitem: ListItem, list: List, table: Table }}
     />
 
     <hr />

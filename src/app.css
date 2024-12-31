@@ -162,3 +162,27 @@
     }
   }
 }
+
+@utility blog-post-table {
+  @apply text-zinc-800 dark:text-zinc-200;
+
+  thead {
+    tr {
+      @apply bg-zinc-200 dark:bg-zinc-700;
+    }
+
+    th {
+      @apply px-2;
+    }
+  }
+
+  tbody {
+    tr {
+      @apply even:bg-zinc-100 dark:even:bg-zinc-800;
+    }
+
+    td {
+      @apply px-2;
+    }
+  }
+}
