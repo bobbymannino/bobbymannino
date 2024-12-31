@@ -81,7 +81,10 @@
     <ul class="grid gap-4" id="main-content">
       {#each filteredPosts as post}
         <li>
-          <a href="/blog/{post.meta.slug}" class="group">
+          <a
+            href="/blog/{post.meta.slug}"
+            class="group ring-accent-600 block ring-offset-2 focus-visible:ring-2 focus-visible:outline-none"
+          >
             <div class="flex items-start justify-between">
               <h2 class="group-hover:underline">{post.meta.title}</h2>
               <p>
