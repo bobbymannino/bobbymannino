@@ -4,6 +4,7 @@
   import Select from "$components/select.svelte";
   import type { PageData } from "./$types";
   import { page } from "$app/state";
+  import BlogPostCard from "$components/blog-post-card.svelte";
 
   let { data }: { data: PageData } = $props();
 
@@ -81,34 +82,7 @@
     <ul class="grid gap-4" id="main-content">
       {#each filteredPosts as post}
         <li>
-          <a
-            href="/blog/{post.meta.slug}"
-            class="group ring-accent-600 block ring-offset-2 focus-visible:ring-2 focus-visible:outline-none"
-          >
-            <div class="flex items-start justify-between">
-              <h2 class="group-hover:underline">{post.meta.title}</h2>
-              <p>
-                <small>
-                  {post.meta.publishedOn.toLocaleDateString()}
-                </small>
-              </p>
-            </div>
-
-            <div class="mt-2 flex items-end justify-between">
-              <p>{post.meta.tagline}</p>
-              <ul class="hidden flex-wrap gap-1 md:flex">
-                {#each post.meta.tags as tag}
-                  <li>
-                    <p class="text-accent-600">
-                      <small>
-                        #{tag}
-                      </small>
-                    </p>
-                  </li>
-                {/each}
-              </ul>
-            </div>
-          </a>
+          <BlogPostCard {...post} />
         </li>
       {/each}
     </ul>
