@@ -32,14 +32,14 @@
     </p>
 
     <p>
-      at the moment i am learning java for android apps as well as limited xml
-      for the same reason.
+      at the moment i am focusing my attention of learning more postgres/sql as
+      well as staying on top web technologies such as svelte and next.
     </p>
 
     <p>
-      my favourite language to type out would be typescript or rust although
-      admittedly my rust is...a little rusty, but thats nothing that cannot be
-      fixed with some practice.
+      my favourite language to type out would be typescript or sql, i enjoy the
+      complexity of relational databases as well as the simplicity of
+      typescript.
     </p>
   </div>
 </section>
