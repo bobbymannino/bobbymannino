@@ -46,3 +46,30 @@
     {@render children()}
   </div>
 </dialog>
+
+<!-- <style>
+  dialog {
+    z-index: 50;
+    opacity: 0;
+    translate: 0 -1rem;
+    transition:
+      display 200ms,
+      opacity 200ms,
+      translate 200ms;
+    transition-behavior: allow-discrete;
+
+    &::backdrop {
+      display: none;
+    }
+
+    &[open] {
+      opacity: 1;
+      translate: 0 0;
+
+      @starting-style {
+        opacity: 0;
+        translate: 0 1rem;
+      }
+    }
+  }
+</style> -->
