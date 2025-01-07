@@ -8,6 +8,7 @@
 
 <a
   href="/blog/{meta.slug}"
+  tabindex="0"
   class="group ring-accent-600 @container block ring-offset-2 focus-visible:ring-2 focus-visible:outline-none"
 >
   <div class="flex-wrap items-start justify-between @lg:flex">

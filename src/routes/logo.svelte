@@ -1,4 +1,4 @@
-<a href="/" class="group text-accent-600">
+<a href="/" class="group text-accent-600" tabindex="0">
   <b>
     <span>bob</span><span
       class="inline-block transition not-group-hover:-translate-y-4 not-group-hover:opacity-0 group-hover:delay-150"

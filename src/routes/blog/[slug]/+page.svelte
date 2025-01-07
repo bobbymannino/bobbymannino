@@ -38,6 +38,7 @@
           <li>
             <p>
               <a
+                tabindex="0"
                 href="/blog?tags={tag}"
                 class="text-accent-600 hover:underline"
               >

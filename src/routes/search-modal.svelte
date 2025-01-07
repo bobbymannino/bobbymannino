@@ -43,6 +43,7 @@
   <div class="flex flex-wrap items-center justify-between">
     <h2>search <span class="text-accent-600">blog</span></h2>
     <button
+      tabindex="0"
       onclick={() => modal.close()}
       class="cursor-pointer bg-zinc-200 p-1 text-lg font-bold text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600"
     >
@@ -52,6 +53,7 @@
   <search class="py-3">
     <label for="query" class="sr-only">Query</label>
     <input
+      tabindex="0"
       autofocus
       onkeydown={handleKeyPress}
       bind:value={query}
@@ -66,6 +68,7 @@
     {#each filteredPosts as post}
       <li>
         <a
+          tabindex="0"
           href="/blog/{post.meta.slug}"
           class="group flex flex-wrap items-center justify-between"
         >
