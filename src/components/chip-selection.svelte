@@ -16,7 +16,7 @@
 <div class="flex flex-wrap gap-1">
   {#each chips as { text, value, name }}
     <label
-      class="has-checked:bg-accent-600 ring-accent-600 cursor-pointer bg-zinc-100 p-1 text-sm text-zinc-700 ring-offset-2 hover:opacity-70 has-checked:text-zinc-50 has-focus-visible:ring-2 dark:bg-zinc-800 dark:text-zinc-400"
+      class="has-checked:bg-accent-600 ring-accent-600 cursor-pointer bg-zinc-100 p-1 text-sm text-zinc-700 ring-offset-2 hover:opacity-70 has-checked:text-zinc-50 has-focus-visible:ring-2 has-focus-visible:transition-shadow dark:bg-zinc-800 dark:text-zinc-400"
     >
       <input
         tabindex="0"
