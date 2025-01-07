@@ -33,7 +33,12 @@
     <ul class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
       {#each projects as { href, src, title }}
         <li>
-          <a {href} target="_blank" class="group pile" tabindex="0">
+          <a
+            {href}
+            target="_blank"
+            class="pile ring-on-focus-visible"
+            tabindex="0"
+          >
             <enhanced:img alt={title} {src} />
             <div>
               <h2 class="bg-white/75 p-2 text-center dark:text-zinc-900">

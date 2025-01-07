@@ -106,6 +106,10 @@
   }
 }
 
+@utility ring-on-focus-visible {
+  @apply ring-accent-600 ring-offset-2 focus-visible:ring-2 focus-visible:transition-shadow focus-visible:outline-none;
+}
+
 @utility pile {
   display: grid;
   place-items: center;

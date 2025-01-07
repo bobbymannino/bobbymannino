@@ -19,7 +19,7 @@
   tabindex="0"
   bind:value
   {id}
-  class="ring-accent-600 cursor-pointer appearance-none bg-zinc-100 p-2 text-zinc-800 ring-offset-2 hover:bg-zinc-200 focus-visible:ring-2 focus-visible:outline-none dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+  class="ring-on-focus-visible cursor-pointer appearance-none bg-zinc-100 p-2 text-zinc-800 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
   title={label}
 >
   {#each options as opt}

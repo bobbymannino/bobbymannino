@@ -25,7 +25,7 @@
     <a
       tabindex="0"
       href="#main-content"
-      class="bg-accent-600 absolute z-50 px-2 py-1 text-white not-focus:pointer-events-none not-focus:opacity-0"
+      class="bg-accent-600 ring-on-focus-visible absolute z-50 px-2 py-1 text-white not-focus-visible:pointer-events-none not-focus-visible:opacity-0"
       >Skip to main content</a
     >
     <Logo />
@@ -37,7 +37,7 @@
               <button
                 tabindex="0"
                 onclick={() => link.func()}
-                class="after:bg-accent-600 relative isolate block size-8 cursor-pointer overflow-hidden p-2 text-zinc-800 transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:transition-transform after:content-[''] hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
+                class="ring-on-focus-visible after:bg-accent-600 relative isolate block size-8 cursor-pointer overflow-hidden p-2 text-zinc-800 transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:transition-transform after:content-[''] hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
               >
                 <link.icon class="size-4" />
               </button>
@@ -45,7 +45,7 @@
               <a
                 tabindex="0"
                 href={link.href}
-                class="after:bg-accent-600 relative isolate block overflow-hidden px-3 py-1 text-zinc-800 transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:transition-transform after:content-[''] hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
+                class="ring-on-focus-visible after:bg-accent-600 relative isolate block overflow-hidden px-3 py-1 text-zinc-800 transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:transition-transform after:content-[''] hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
               >
                 {link.text}
               </a>

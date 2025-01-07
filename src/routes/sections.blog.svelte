@@ -16,8 +16,10 @@
     </h1>
 
     <p>
-      i also keep a <a href="/blog" class="text-accent-600 hover:underline"
-        >blog</a
+      i also keep a <a
+        href="/blog"
+        class="text-accent-600 ring-on-focus-visible hover:underline"
+        tabindex="0">blog</a
       > for things or projects that have interested me, to me its like a notebook
       of sorts, written in such a way that i can understand and revise quicker then
       i could reading somebody elses blog.

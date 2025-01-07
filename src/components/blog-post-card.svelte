@@ -9,7 +9,7 @@
 <a
   href="/blog/{meta.slug}"
   tabindex="0"
-  class="group ring-accent-600 @container block ring-offset-2 focus-visible:ring-2 focus-visible:outline-none"
+  class="group ring-on-focus-visible @container block"
 >
   <div class="flex-wrap items-start justify-between @lg:flex">
     <h2 class="group-hover:underline">{meta.title}</h2>

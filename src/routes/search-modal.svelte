@@ -45,7 +45,7 @@
     <button
       tabindex="0"
       onclick={() => modal.close()}
-      class="cursor-pointer bg-zinc-200 p-1 text-lg font-bold text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600"
+      class="ring-on-focus-visible cursor-pointer bg-zinc-200 p-1 text-lg font-bold text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600"
     >
       <XIcon class="size-6" />
     </button>
@@ -60,7 +60,7 @@
       name="query"
       type="search"
       id="query"
-      class="input"
+      class="input ring-on-focus-visible"
       placeholder="databases"
     />
   </search>
@@ -70,7 +70,7 @@
         <a
           tabindex="0"
           href="/blog/{post.meta.slug}"
-          class="group flex flex-wrap items-center justify-between"
+          class="group ring-on-focus-visible flex flex-wrap items-center justify-between"
         >
           <p class="group-hover:underline">
             <b>
