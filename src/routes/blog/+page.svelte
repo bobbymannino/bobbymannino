@@ -45,12 +45,22 @@
   });
 
   let chips = $derived.by(() => {
-    const allTags = data.posts.flatMap((p) =>
-      p.meta.tags.map((t) => ({ value: t, name: t, text: `#${t}` })),
-    );
+    const allTags = data.posts.flatMap((p) => p.meta.tags);
 
-    return allTags.filter(
-      (tag, i, tags) => i === tags.findIndex((t) => tag.value === t.value),
+    type Chip = {
+      text: string;
+      value: string;
+      name: string;
+    };
+
+    const map = new Map<string, Chip>();
+
+    for (const tag of allTags) {
+      map.set(tag, { text: `#${tag}`, value: tag, name: tag });
+    }
+
+    return Array.from(map.values()).sort((a, b) =>
+      a.text.localeCompare(b.text),
     );
   });
 </script>
