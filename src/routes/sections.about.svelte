@@ -6,7 +6,7 @@
 <section class="container" id="about">
   <div class="card">
     <h1
-      use:inview
+      use:inview={{ unobserveOnEnter: true }}
       on:inview_enter={(e) => {
         const clean = hacker(e.detail.node);
         return () => clean();

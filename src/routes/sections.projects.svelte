@@ -21,7 +21,7 @@
 <section class="container" id="projects">
   <div class="card">
     <h1
-      use:inview
+      use:inview={{ unobserveOnEnter: true }}
       on:inview_enter={(e) => {
         const { node } = e.detail;
 

@@ -12,19 +12,14 @@
     "rust",
     "c/c#",
   ];
-
-  const tech = new Intl.ListFormat().format(techs);
 </script>
 
 <section class="container" id="technologies">
   <div class="card">
     <h1
-      use:inview
+      use:inview={{ unobserveOnEnter: true }}
       on:inview_enter={(e) => {
-        const { node } = e.detail;
-
-        const clean = hacker(node);
-
+        const clean = hacker(e.detail.node);
         return () => clean();
       }}
     >
@@ -32,8 +27,8 @@
     </h1>
 
     <p>
-      these are technologies i have an interest in personally or have various
-      amounts of knowledge in; <b>{tech}</b>
+      these are technologies i have an interest in or have some amount of
+      knowledge in; <b>{new Intl.ListFormat().format(techs)}</b>
     </p>
 
     <p>
