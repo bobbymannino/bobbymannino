@@ -107,7 +107,11 @@
 }
 
 @utility ring-on-focus-visible {
-  @apply ring-accent-600 ring-offset-2 focus-visible:ring-2 focus-visible:transition-shadow focus-visible:outline-none;
+  @apply ring-accent-600 focus-visible:ring-3 focus-visible:transition-shadow focus-visible:outline-none;
+}
+
+@utility ring-on-has-focus-visible {
+  @apply ring-accent-600 has-focus-visible:ring-3 has-focus-visible:transition-shadow has-focus-visible:outline-none;
 }
 
 @utility pile {
