@@ -18,7 +18,7 @@
 />
 
 <div class="container">
-  <article class="card" id="main-content">
+  <article class="card">
     <MD
       source={data.post.content}
       renderers={{

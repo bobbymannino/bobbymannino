@@ -89,7 +89,7 @@
 
     <ChipSelection {chips} bind:selection={tags} />
 
-    <ul class="grid gap-4" id="main-content">
+    <ul class="grid gap-4">
       {#each filteredPosts as post}
         <li>
           <BlogPostCard {...post} />

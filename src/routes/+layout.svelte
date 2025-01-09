@@ -32,7 +32,7 @@
 
 <SearchModal bind:this={searchModal} />
 <Header openSearchModal={searchModal.open} />
-<main id="main-content">
+<main id="main-content" class="scroll-mt-16">
   {@render children()}
 </main>
 <Footer />
