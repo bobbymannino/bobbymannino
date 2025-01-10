@@ -38,7 +38,13 @@
 } */
 
 @layer base {
+  html {
+    @apply selection:bg-accent-600 scroll-smooth selection:text-white;
+  }
+
   body {
+    @apply bg-zinc-100 font-sans dark:bg-black;
+
     font-optical-sizing: auto;
   }
 
