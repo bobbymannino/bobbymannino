@@ -2,7 +2,9 @@
   import { browser } from "$app/environment";
   import GithubIcon from "$lib/icons/github.svelte";
 
-  const cmdOrCtrl = $derived(navigator.platform.includes("Mac") ? "⌘" : "Ctrl");
+  const cmdOrCtrl = $derived(
+    browser && navigator.platform.includes("Mac") ? "⌘" : "Ctrl",
+  );
 </script>
 
 <footer class="bg-white dark:bg-zinc-900">
