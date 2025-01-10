@@ -8,13 +8,8 @@
 
   let { data }: { data: PageData } = $props();
 
-  let sortBy = $state("date-desc");
-  let tags: string[] = $state([]);
-
-  $effect.pre(() => {
-    sortBy = page.url.searchParams.get("sortBy") || "date-desc";
-    tags = page.url.searchParams.get("tags")?.split(",") || [];
-  });
+  let sortBy = $state(data.sortBy);
+  let tags = $state(data.tags);
 
   let sortedPosts = $derived(
     [...data.posts].sort((a, b) => {

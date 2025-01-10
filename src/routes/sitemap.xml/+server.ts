@@ -30,7 +30,7 @@ export function GET() {
 			</url>`,
         )
         .join("")}
-		</urlset>`,
+		</urlset>`.trim(),
     { headers: { "Content-Type": "application/xml" } },
   );
 }
