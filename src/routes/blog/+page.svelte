@@ -3,7 +3,6 @@
   import Meta from "$components/meta.svelte";
   import Select from "$components/select.svelte";
   import type { PageData } from "./$types";
-  import { page } from "$app/state";
   import BlogPostCard from "$components/blog-post-card.svelte";
 
   let { data }: { data: PageData } = $props();
