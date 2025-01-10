@@ -18,7 +18,9 @@
   ];
 </script>
 
-<header class="sticky top-0 z-10 bg-white dark:bg-zinc-900">
+<header
+  class="sticky top-0 z-10 border-b border-zinc-200 bg-white dark:border-zinc-950 dark:bg-zinc-900"
+>
   <div
     class="container flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
   >
