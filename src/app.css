@@ -12,21 +12,34 @@
   --color-accent-800: #084ac5;
   --color-accent-900: #0d439b;
   --color-accent-950: #0e295d;
+
+  --font-sans: "Inter", sans-serif;
 }
 
+:root {
+  @apply accent-accent-600;
+}
+
+/* Scrollbar styles, not sure wether to add these or not?
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent-600;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent-700;
+} */
+
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
-    background-color: var(--color-zinc-100);
-    font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: black;
-    }
   }
 
   h1 {

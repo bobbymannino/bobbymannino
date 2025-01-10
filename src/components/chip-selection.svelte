@@ -2,25 +2,27 @@
   type Chip = {
     text: string;
     value: string;
-    name: string;
   };
 
   type Props = {
     chips: Chip[];
     selection: string[];
+    name: string;
+    legend: string;
   };
 
-  let { chips, selection = $bindable() }: Props = $props();
+  let { chips, legend, selection = $bindable(), name }: Props = $props();
 </script>
 
-<div class="flex flex-wrap gap-1">
-  {#each chips as { text, value, name }}
+<fieldset class="flex flex-wrap gap-1">
+  <legend class="sr-only">bob</legend>
+  {#each chips as { text, value }}
     <label
       class="ring-on-has-focus-visible has-checked:bg-accent-600 cursor-pointer bg-zinc-100 p-1 text-sm text-zinc-700 hover:opacity-70 has-checked:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-400"
     >
       <input
-        tabindex="0"
         type="checkbox"
+        tabindex="0"
         {name}
         {value}
         class="sr-only"
@@ -29,4 +31,4 @@
       {text}
     </label>
   {/each}
-</div>
+</fieldset>

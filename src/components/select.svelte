@@ -7,15 +7,17 @@
   type Props = {
     options: Option[];
     value: string;
+    name: string;
     label: string;
     id: string;
   };
 
-  let { id, options, value = $bindable(), label }: Props = $props();
+  let { id, name, options, value = $bindable(), label }: Props = $props();
 </script>
 
 <label for={id} class="sr-only">{label}</label>
 <select
+  {name}
   tabindex="0"
   bind:value
   {id}

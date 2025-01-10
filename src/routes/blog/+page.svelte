@@ -44,13 +44,12 @@
     type Chip = {
       text: string;
       value: string;
-      name: string;
     };
 
     const map = new Map<string, Chip>();
 
     for (const tag of allTags) {
-      map.set(tag, { text: `#${tag}`, value: tag, name: tag });
+      map.set(tag, { text: `#${tag}`, value: tag });
     }
 
     return Array.from(map.values()).sort((a, b) =>
@@ -71,6 +70,7 @@
       <Select
         id="sort-by"
         label="Sort by"
+        name="sortBy"
         bind:value={sortBy}
         options={[
           { value: "date-desc", text: "Date (New-Old)" },
@@ -81,7 +81,12 @@
       />
     </div>
 
-    <ChipSelection {chips} bind:selection={tags} />
+    <ChipSelection
+      {chips}
+      bind:selection={tags}
+      name="tags"
+      legend="Filter by tags"
+    />
 
     <ul class="grid gap-4">
       {#each filteredPosts as post}
