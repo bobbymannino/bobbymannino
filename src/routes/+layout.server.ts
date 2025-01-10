@@ -1,12 +1,10 @@
 import { listPosts } from "$lib/posts";
 import type { LayoutServerLoad } from "./$types";
 
+export const prerender = true;
+
 export const load: LayoutServerLoad = () => {
-  const posts = listPosts().sort(
-    (a, b) => b.meta.publishedOn.getTime() - a.meta.publishedOn.getTime(),
-  );
+  const posts = listPosts();
 
   return { posts };
 };
-
-export const prerender = true;

@@ -26,6 +26,7 @@
   let searchModal: { open: () => void } = $state({});
 </script>
 
+<!-- BTS  -->
 <Analytics />
 <Fonts />
 <Meta />
