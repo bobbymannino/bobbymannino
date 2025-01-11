@@ -91,3 +91,10 @@ git stash <list> <-m "<message>"> <pop> <drop>
 Stashing is taking files and stashing them away for later. Stashing takes on the
 style of a stack, first in is last out (unless using the index flag). Using the
 `-m` flag adds a message to the stash so you can easily see them in the list.
+
+```sh
+git tag -a <tag name> <commit sha> -m "<title>"
+```
+
+This will create a tag for the given commit, tags are really useful for creating
+checkpoints in your code that you can come back to later on and easily identify.
