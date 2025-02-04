@@ -8,6 +8,7 @@
       defer
       src="https://analytics.bobman.dev/script.js"
       data-website-id="5657dfa2-18a6-45d4-8ff6-1bd7ed17dd90"
+      data-domains="bobman.dev"
     ></script>
   {/if}
 </svelte:head>
