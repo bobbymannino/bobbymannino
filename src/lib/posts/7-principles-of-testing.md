@@ -1,7 +1,7 @@
 ---
 title: "7 Principles of Software Testing"
 publishedOn: 2025-02-05
-slug: "seven-principles-of-testing"
+slug: "7-principles-of-testing"
 tagline: "What are the 7 guideline principles of software testing?"
 tags: ["tests"]
 ---
