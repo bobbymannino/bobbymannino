@@ -11,3 +11,5 @@ trying to learn rust and get better equiped with postgres.
 I love programming and hope that one day that will be my full time job.
 
 [bobman.dev](https://bobman.dev)
+
+[blog](https://bobman.dev/blog)
