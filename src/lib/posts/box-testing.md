@@ -1,7 +1,6 @@
 ---
 title: "Box Testing"
 publishedOn: 2025-02-04
-slug: "box-testing"
 tagline: "What is white/black/gray box testing?"
 tags: ["tests"]
 ---

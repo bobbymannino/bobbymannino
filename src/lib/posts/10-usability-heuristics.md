@@ -1,7 +1,6 @@
 ---
 title: "10 Usability Heuristics"
 publishedOn: 2025-03-04
-slug: "10-usability-heuristics"
 tagline: "Learn Jakob Nielsen's 10 usability heuristics for user interface design"
 tags: ["hci", 'ui', 'ux']
 ---

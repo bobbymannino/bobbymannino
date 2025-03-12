@@ -1,7 +1,6 @@
 ---
 title: "ACID Databases"
 publishedOn: 2024-12-23
-slug: "acid-databases"
 tagline: "Atomicity, Consistency, Isolation and Durability"
 tags: ["database", "acid"]
 ---

@@ -1,7 +1,6 @@
 ---
 title: "Which Editor?"
 publishedOn: 2024-12-27
-slug: "which-editor"
 tagline: "Learning the git CLI, and why it's better then a GUI"
 tags: ["zed", "vscode", "vim", "editor"]
 ---

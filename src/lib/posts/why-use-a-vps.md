@@ -1,7 +1,6 @@
 ---
 title: "Why use a VPS?"
 publishedOn: 2024-12-30
-slug: "why-use-a-vps"
 tagline: "Why you should use a VPS"
 tags: ["vps", "hosting", "postgres"]
 ---

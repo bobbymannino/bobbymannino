@@ -1,7 +1,6 @@
 ---
 title: "Postgres Current Setting"
 publishedOn: 2025-01-04
-slug: "postgres-current-setting"
 tagline: "Session/transaction variables in postgres"
 tags: ["sql", "postgres"]
 ---

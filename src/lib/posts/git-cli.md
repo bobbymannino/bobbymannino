@@ -1,7 +1,6 @@
 ---
 title: "Git CLI"
 publishedOn: 2024-12-26
-slug: "git-cli"
 tagline: "Learning the git CLI, and why it's better then a GUI"
 tags: ["git", "cli"]
 ---

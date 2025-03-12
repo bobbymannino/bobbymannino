@@ -1,7 +1,6 @@
 ---
 title: "GitHub CLI"
 publishedOn: 2024-12-26
-slug: "github-cli"
 tagline: "Practicing the GitHub CLI"
 tags: ["github", "cli"]
 ---

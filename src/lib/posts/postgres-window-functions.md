@@ -1,7 +1,6 @@
 ---
 title: "Postgres Window Functions"
 publishedOn: 2024-12-31
-slug: "postgres-window-functions"
 tagline: "Learning what is and how to use window functions in postgres"
 tags: ["database", "postgres", "sql"]
 ---

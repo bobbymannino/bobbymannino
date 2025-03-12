@@ -7,13 +7,15 @@ import matter from "gray-matter";
  */
 export function listPosts() {
   try {
-    const posts = Object.entries(
+    const rawPosts = Object.entries(
       import.meta.glob("./*.md", { eager: true, query: "?raw" }),
     );
 
-    return posts.map(([path, module]) => {
-      return parsePost(module.default);
+    const posts = rawPosts.map(([path, module]) => {
+      return parsePost(module.default, path);
     });
+
+    return posts.filter((post) => post.meta.publishedOn != undefined);
   } catch {
     return [];
   }
@@ -24,27 +26,25 @@ export function listPosts() {
  * @param content The path to the file
  * @returns A string containing the contents of the file
  */
-function parsePost(content: string) {
+function parsePost(content: string, path: string) {
+  const slug = path.slice(2, -3);
   const post = matter(content);
 
   const parsed = v.safeParse(postMetadataSchema, post.data);
 
   if (!parsed.success) {
-    console.error("Failed to parse post");
-    console.error(parsed.issues);
     throw new Error(`Cannot parse file '${content}'`);
   }
 
   return {
     content: post.content,
-    meta: parsed.output,
+    meta: { ...parsed.output, slug },
   };
 }
 
 const postMetadataSchema = v.object({
   title: v.string(),
-  slug: v.string(),
-  publishedOn: v.date(),
+  publishedOn: v.optional(v.date()),
   tagline: v.string(),
   tags: v.array(v.string()),
 });

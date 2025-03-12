@@ -1,7 +1,6 @@
 ---
 title: "Sets And Maps"
 publishedOn: 2025-01-15
-slug: "sets-and-maps"
 tagline: "What are sets and maps? And when to use them?"
 tags: ["maps", "sets"]
 ---

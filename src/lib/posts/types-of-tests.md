@@ -1,7 +1,6 @@
 ---
 title: "Types of Tests"
 publishedOn: 2025-02-06
-slug: "types-of-tests"
 tagline: "What are the different types of software tests?"
 tags: ["tests"]
 ---

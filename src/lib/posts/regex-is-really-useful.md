@@ -1,7 +1,6 @@
 ---
 title: "Regex is Really Useful"
 publishedOn: 2025-01-09
-slug: "regex-is-really-useful"
 tagline: "Is regex worth learning about? Yes."
 tags: ["regex"]
 ---
