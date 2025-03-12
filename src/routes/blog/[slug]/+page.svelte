@@ -5,10 +5,10 @@
   import ListItem from "$lib/renderers/list-item.svelte";
   import List from "$lib/renderers/list.svelte";
   import Table from "$lib/renderers/table.svelte";
-  import type { PageData } from "./$types";
+  import type { PageProps } from "./$types";
   import MD from "svelte-markdown";
 
-  let { data }: { data: PageData } = $props();
+  let { data }: PageProps = $props();
 </script>
 
 <Meta
@@ -18,6 +18,13 @@
 />
 
 <div class="container">
+  {#if data.post.meta.thumbnailSrc}
+    <img
+      src="/blog/{data.post.meta.thumbnailSrc}"
+      alt={data.post.meta.thumbnailAlt}
+      class="aspect-blog-img w-full object-cover"
+    />
+  {/if}
   <article class="card">
     <MD
       source={data.post.content}

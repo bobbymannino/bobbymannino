@@ -3,6 +3,8 @@ title: "Box Testing"
 publishedOn: 2025-02-04
 tagline: "What is white/black/gray box testing?"
 tags: ["tests"]
+thumbnailSrc: "box-testing.png"
+thumbnailAlt: "A black, gray, and white box"
 ---
 
 # Box Testing

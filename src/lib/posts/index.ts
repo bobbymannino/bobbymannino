@@ -47,6 +47,8 @@ const postMetadataSchema = v.object({
   publishedOn: v.optional(v.date()),
   tagline: v.string(),
   tags: v.array(v.string()),
+  thumbnailSrc: v.optional(v.string()),
+  thumbnailAlt: v.optional(v.string()),
 });
 
 type PostMetadata = v.InferOutput<typeof postMetadataSchema>;

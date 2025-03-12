@@ -14,28 +14,13 @@
   --color-accent-950: #0e295d;
 
   --font-sans: "Inter", sans-serif;
+
+  --aspect-blog-img: 7 / 2;
 }
 
 :root {
   @apply accent-accent-600;
 }
-
-/* Scrollbar styles, not sure wether to add these or not?
-::-webkit-scrollbar {
-  width: 0.6rem;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-accent-600;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent-700;
-} */
 
 @layer base {
   html {
@@ -111,7 +96,7 @@
   }
 }
 
-@variant hoverable (@media (hover: hover));
+@custom-variant hoverable (@media (hover: hover));
 
 @utility input {
   padding: 0.25rem;
