@@ -2,6 +2,8 @@
 title: "Regex is Really Useful"
 publishedOn: 2025-01-09
 tagline: "Is regex worth learning about? Yes."
+thumbnailSrc: "regex.jpg"
+thumbnailAlt: "Regex"
 tags: ["regex"]
 ---
 
