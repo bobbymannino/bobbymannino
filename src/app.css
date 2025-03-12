@@ -127,6 +127,10 @@
   }
 }
 
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
 @utility container {
   margin-inline: auto;
   padding: calc(var(--spacing) * 4);

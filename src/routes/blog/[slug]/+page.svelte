@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Image from "$components/image.svelte";
   import Meta from "$components/meta.svelte";
   import Code from "$lib/renderers/code.svelte";
   import Codespan from "$lib/renderers/codespan.svelte";
@@ -19,10 +20,10 @@
 
 <div class="container">
   {#if data.post.meta.thumbnailSrc}
-    <img
+    <Image
       src="/blog/{data.post.meta.thumbnailSrc}"
       alt={data.post.meta.thumbnailAlt}
-      class="aspect-blog-img w-full object-cover"
+      class="aspect-blog-img object-cover"
     />
   {/if}
   <article class="card">
