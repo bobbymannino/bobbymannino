@@ -127,10 +127,10 @@ being
   temp := 22;
 
   if temp > 40 then
-    writeln('It is wayyy too hot');
+    writeln('It is wayyy too hot')
   else
   if temp > 20 then
-    writeln('It is getting hot now');
+    writeln('It is getting hot now')
   else
     writeln('Winter is upon us');
 
@@ -151,7 +151,7 @@ being
   hour := 15;
 
   if (hour > 12) and (temp > 20) then
-    writeln('Is it this hot at this time normally?');
+    writeln('Is it this hot at this time normally?')
   else
     writeln('Boring...');
 
