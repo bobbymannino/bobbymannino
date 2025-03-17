@@ -72,6 +72,19 @@ Integration testing is one above unit testing, it tests that a combination of
 components work together as expected. The goal of this is to test that
 interactions between components and unit tests are passing.
 
+Example:
+
+```javascript
+function add(a, b) {
+  return a + b;
+}
+
+function mul(a, b) {
+  return a * b
+}
+
+expect(add(mul(1, 2), mul(0, 500))).toBe(2);
+```
 ### System Testing
 
 This type of testing is used when you want to test the entire system, this could
