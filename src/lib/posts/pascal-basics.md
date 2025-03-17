@@ -1,6 +1,7 @@
 ---
 title: "Pascal Basics"
 tagline: "Learn the basics of pascal"
+publishedOn: 2025-03-17
 tags: ["pascal"]
 ---
 
