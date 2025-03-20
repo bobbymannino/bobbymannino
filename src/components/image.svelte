@@ -6,7 +6,7 @@
   type Props = {
     src: string;
     alt?: string;
-    class?: App.ClsxType;
+    class?: App.Clsx;
   };
 
   let { src, alt, class: klass }: Props = $props();

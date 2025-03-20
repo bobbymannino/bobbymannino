@@ -15,7 +15,11 @@ export function listPosts() {
       return parsePost(module.default, path);
     });
 
-    return posts.filter((post) => post.meta.publishedOn != undefined);
+    const publishedPosts = posts.filter(
+      (post) => post.meta.publishedOn != undefined,
+    );
+
+    return publishedPosts;
   } catch {
     return [];
   }

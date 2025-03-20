@@ -7,7 +7,7 @@
   --color-accent-300: #83d3ff;
   --color-accent-400: #48b9ff;
   --color-accent-500: #1e96ff;
-  --color-accent-600: #0675ff;
+  --color-accent-600: #0675ff; /** This is the "one" */
   --color-accent-700: #0061ff;
   --color-accent-800: #084ac5;
   --color-accent-900: #0d439b;
@@ -16,6 +16,7 @@
   --font-sans: "Inter", sans-serif;
 
   --aspect-blog-img: 7 / 2;
+  --aspect-thumbnail: 3 / 2;
 }
 
 :root {

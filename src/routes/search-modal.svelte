@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Modal from "$components/modal.svelte";
-  import { navigating, page } from "$app/state";
   import { goto } from "$app/navigation";
+  import { navigating, page } from "$app/state";
+  import Modal from "$components/modal.svelte";
   import XIcon from "$lib/icons/x.svelte";
   import Fuse from "fuse.js";
 
@@ -41,7 +41,9 @@
 
 <Modal onclose={() => (query = "")} bind:this={modal}>
   <div class="flex flex-wrap items-center justify-between">
-    <h2>search <span class="text-accent-600">blog</span></h2>
+    <h2>
+      search <span class="text-accent-600">blog</span>
+    </h2>
     <button
       tabindex="0"
       onclick={() => modal.close()}

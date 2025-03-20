@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Props = { class?: App.ClsxType };
+  type Props = { class?: App.Clsx };
 
   let { class: klass }: Props = $props();
 </script>

@@ -1,9 +1,7 @@
 <script lang="ts">
-  type Props = {
-    class?: string;
-  };
+  type Props = { class?: App.Clsx };
 
-  let { class: clazz }: Props = $props();
+  let { class: klass }: Props = $props();
 </script>
 
 <svg
@@ -16,7 +14,7 @@
   stroke-width="2"
   stroke-linecap="round"
   stroke-linejoin="round"
-  class={clazz}
+  class={klass}
 >
   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
   <path d="M18 6l-12 12" />

@@ -12,7 +12,7 @@ declare global {
     // interface PageState {}
     // interface Platform {}
 
-    type ClsxType = string | ClsxType[] | Record<string, boolean>;
+    type Clsx = string | Record<string, boolean> | Clsx[];
   }
 }
 

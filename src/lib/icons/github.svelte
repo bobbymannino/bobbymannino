@@ -1,12 +1,10 @@
 <script lang="ts">
-  type Props = {
-    class?: string;
-  };
+  type Props = { class?: App.Clsx };
 
-  let { class: clazz }: Props = $props();
+  let { class: klass }: Props = $props();
 </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class={clazz}>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class={klass}>
   <path
     fill="currentColor"
     fill-rule="evenodd"
