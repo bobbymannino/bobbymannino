@@ -17,7 +17,7 @@
   {href}
   target="_blank"
   rel="noopener"
-  class="ring-on-focus-visible group/pc relative block bg-gray-50 p-2 transition-opacity group-has-[a:hover]/pcg:not-hover:opacity-25"
+  class="ring-on-focus-visible group/pc relative block bg-gray-50 p-2 transition-opacity group-has-[a:hover]/pcg:not-hover:opacity-25 dark:bg-zinc-800"
   tabindex="0"
 >
   <enhanced:img
@@ -26,7 +26,9 @@
     class="aspect-thumbnail mb-2 object-cover"
   />
 
-  <span class="text-xl font-semibold">{title}</span>
+  <span class="text-xl font-semibold text-zinc-950 dark:text-white"
+    >{title}</span
+  >
 
   <div
     title={label}
