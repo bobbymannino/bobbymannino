@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from "$app/state";
   import { onMount } from "svelte";
   import "../app.css";
   import type { LayoutProps } from "./$types";
@@ -9,7 +10,7 @@
   import Meta from "./meta.svelte";
   import SearchModal from "./search-modal.svelte";
 
-  let { children, data }: LayoutProps = $props();
+  let { children }: LayoutProps = $props();
 
   onMount(() => {
     console.log(
@@ -18,7 +19,8 @@
     );
     console.log("%cyou found me 👋", "font-size:1rem;color:green");
 
-    if (data.q) searchModal.open(data.q);
+    if (page.url.searchParams.has("query"))
+      searchModal.open(page.url.searchParams.get("query"));
   });
 
   let searchModal: { open: (query?: string) => void } = $state({
