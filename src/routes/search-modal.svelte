@@ -6,7 +6,7 @@
   import Fuse from "fuse.js";
 
   let query = $state("");
-  let modal: { close: () => void; open: () => void };
+  let modal: { close: () => void; open: (query?: string) => void };
 
   const fuse = new Fuse(page.data.posts, {
     keys: ["meta.title", "meta.tags", "meta.tagline"],
@@ -15,7 +15,9 @@
 
   const filteredPosts = $derived(fuse.search(query).map((p) => p.item));
 
-  export function open() {
+  export function open(q?: string) {
+    if (q) query = q;
+
     modal.open();
   }
 

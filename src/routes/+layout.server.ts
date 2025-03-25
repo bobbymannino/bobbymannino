@@ -3,8 +3,10 @@ import type { LayoutServerLoad } from "./$types";
 
 export const prerender = true;
 
-export const load: LayoutServerLoad = () => {
+export const load: LayoutServerLoad = ({ url }) => {
   const posts = listPosts();
 
-  return { posts };
+  const q = url.searchParams.get("q");
+
+  return { posts, q };
 };
