@@ -15,11 +15,12 @@ export function listPosts() {
       return parsePost(module.default, path);
     });
 
-    const publishedPosts = posts.filter(
-      (post) => post.meta.publishedOn != undefined,
-    );
+    const publishedPosts = posts.filter((post) => !!post.meta.publishedOn);
 
-    return publishedPosts;
+    return publishedPosts as {
+      content: string;
+      meta: PostMetadata & { publishedOn: Date };
+    }[];
   } catch {
     return [];
   }

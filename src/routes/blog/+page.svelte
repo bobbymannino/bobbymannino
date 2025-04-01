@@ -27,7 +27,7 @@
   );
 
   let filteredPosts = $derived.by(() => {
-    if (tags.length < 1) return sortedPosts;
+    if (tags.length < 2) return sortedPosts;
 
     return sortedPosts.filter((p) => {
       for (const postTag of p.meta.tags) {
@@ -38,15 +38,15 @@
     });
   });
 
-  let chips = $derived.by(() => {
+  type PostTag = {
+    text: string;
+    value: string;
+  };
+
+  const chips = $derived.by(() => {
     const allTags = data.posts.flatMap((p) => p.meta.tags);
 
-    type Chip = {
-      text: string;
-      value: string;
-    };
-
-    const map = new Map<string, Chip>();
+    const map = new Map<string, PostTag>();
 
     for (const tag of allTags) {
       map.set(tag, { text: `#${tag}`, value: tag });
