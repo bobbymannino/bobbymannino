@@ -26,5 +26,6 @@ export const projects: Project[] = [
     title: "Bingoverse",
     thumbnail: Bingoverse,
     status: "Development",
+    href: "https://bingoverse.bobman.dev",
   },
 ];
