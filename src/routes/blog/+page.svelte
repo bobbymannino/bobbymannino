@@ -27,7 +27,7 @@
   );
 
   let filteredPosts = $derived.by(() => {
-    if (tags.length < 2) return sortedPosts;
+    if (tags.length < 1) return sortedPosts;
 
     return sortedPosts.filter((p) => {
       for (const postTag of p.meta.tags) {
