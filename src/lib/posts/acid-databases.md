@@ -5,7 +5,7 @@ tagline: "Atomicity, Consistency, Isolation and Durability"
 tags: ["database", "acid"]
 ---
 
-# What is ACID?
+# ACID Databases
 
 ACID is an acronym that stands for Atomicity, Consistency, Isolation, and
 Durability. These are the four key properties of a transaction in a database
