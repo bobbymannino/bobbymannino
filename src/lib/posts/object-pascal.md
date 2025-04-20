@@ -1,6 +1,5 @@
 ---
 title: "Object Pascal"
-publishedOn: 2025-04-20
 tagline: "Learn object pascal through examples"
 tags: ["pascal"]
 ---
