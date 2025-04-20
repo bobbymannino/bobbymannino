@@ -51,7 +51,7 @@ const postMetadataSchema = v.object({
   title: v.string(),
   publishedOn: v.optional(v.date()),
   tagline: v.string(),
-  tags: v.array(v.string()),
+  tags: v.fallback(v.array(v.string()), []),
   thumbnailSrc: v.optional(v.string()),
   thumbnailAlt: v.optional(v.string()),
 });

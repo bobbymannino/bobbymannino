@@ -207,7 +207,6 @@ end.
 
 An example of using these 2 classes would look something like this:
 
-
 ```pascal
 program DemoClasses;
 
