@@ -54,6 +54,7 @@
 
 pre code.hljs {
   display: block;
+  white-space: pre-wrap;
   overflow-x: auto;
   padding: 1em;
 }

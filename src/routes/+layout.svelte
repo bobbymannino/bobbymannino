@@ -23,7 +23,7 @@
       searchModal.open(page.url.searchParams.get("query"));
   });
 
-  let searchModal: { open: (query?: string) => void } = $state({
+  let searchModal: { open: (query?: string | null) => void } = $state({
     open: () => {},
   });
 </script>
@@ -35,7 +35,7 @@
 
 <SearchModal bind:this={searchModal} />
 <Header openSearchModal={searchModal.open} />
-<main id="main-content" class="scroll-mt-16">
+<main id="main-content">
   {@render children()}
 </main>
 <Footer />

@@ -34,6 +34,35 @@
     font-optical-sizing: auto;
   }
 
+  * {
+    scroll-margin-block-start: 7rem;
+
+    @media (width >= theme(--breakpoint-sm)) {
+      scroll-margin-block-start: 5rem;
+    }
+
+    @media (width >= theme(--breakpoint-md)) {
+      scroll-margin-block-start: 3rem;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin-block-start: 6.9rem;
+
+    @media (width >= theme(--breakpoint-sm)) {
+      scroll-margin-block-start: 6.5rem;
+    }
+
+    @media (width >= theme(--breakpoint-md)) {
+      scroll-margin-block-start: 6rem;
+    }
+  }
+
   h1 {
     font-size: 2.6rem;
     font-weight: 900;
@@ -136,15 +165,13 @@
 @utility container {
   margin-inline: auto;
   padding: calc(var(--spacing) * 4);
-  scroll-margin-block-start: 5rem;
 
   @media (width >= theme(--breakpoint-md)) {
     padding: calc(var(--spacing) * 6);
-    scroll-margin-block-start: 3.5rem;
   }
 
   @media (width >= theme(--breakpoint-lg)) {
-    max-width: 1024px;
+    max-width: theme(--breakpoint-lg);
   }
 }
 
