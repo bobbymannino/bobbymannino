@@ -13,37 +13,52 @@ programming language. Object Pascal is used to create applications for Windows,
 Mac, and Linux. You can create a class by using this syntax:
 
 ```pascal
+unit clsPerson_u;
+
+interface
+
+uses
+  Classes, System.SysUtils;
+
 type
   TPerson = class(TObject)
-  // Can only be accessed from within this class
+
+  // PRIVATE Can only be accessed from within this class
   private
-    fAge: smallint;
     fName: string;
-    procedure SetName(const aName: string);
-    function GetName: string;
-  // Can only be accessed from within this class or any class that inherits it
-  published
-    fMale: boolean;
-  // Can be accessed from within the class and within an instance
+    fAge: smallint;
+    procedure SetAge(const aAge: smallint);
+    function GetAge: smallint;
+
+  // PUBLIC Can be accessed from within the class and within an instance
   public
-    constructor Create(const aName: string; const aAge: smallint);
+    // Properties in public can be set/get with dot notation
+    fMale: boolean;
+
+    constructor Create(const aName: string; const aAge: smallint; aMale: boolean = true);
     destructor Destroy; override;
 
     // Procedures do not have a return value
+
     procedure SetName(const aName: string);
     // Functions do have a return value
     function GetName: string;
 
+    function ToString: string;
+
+  // PUBLISHED Can only be accessed from within this class or any class that inherits it
+  published
     // Properties do not have to have both read and write
     property age: smallint read GetAge write SetAge;
   end;
 
 implementation
 
-constructor TPerson.Create(const aName: string; const aAge: smallint);
+constructor TPerson.Create(const aName: string; const aAge: smallint; aMale: boolean = true);
 begin
   fName := aName;
   fAge := aAge;
+  fMale := aMale;
 end;
 
 destructor TPerson.Destroy;
@@ -56,6 +71,17 @@ begin
   fName := aName;
 end;
 
+function TPerson.ToString: string;
+begin
+  WriteLn('TPerson:');
+  WriteLn('Name: ' + fName);
+  WriteLn('Age: ' + inttostr(fAge));
+  if fMale then
+    WriteLn('Male: true')
+  else
+    WriteLn('Male: false');
+end;
+
 function TPerson.GetName: string;
 begin
   Result := fName;
@@ -64,11 +90,8 @@ end;
 procedure TPerson.SetAge(const aAge: smallint);
 begin
   if aAge < 0 then
-  begin
-    ShowMessage('Age must be 0 or higher');
+    raise Exception.Create('Age must be 0 or higher');
 
-    Exit;
-  end;
   fAge := aAge;
 end;
 
@@ -76,6 +99,18 @@ function TPerson.GetAge: smallint;
 begin
   Result := fAge;
 end;
+
+end.
+```
+
+To use the class you can do something like this:
+
+```pascal
+e1 := TPerson.Create('bob', 21); // Uses `true` as default for 3rd param
+e1.age := 10;
+e1.age := -1; // This will raise an error
+WriteLn(e1.ToString);
+e1.Free; // Free the resources
 ```
 
 You start by declaring the type of the class with a name `TPerson` in this case.
