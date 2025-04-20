@@ -3,9 +3,10 @@
     title: string;
     description: string;
     tags?: string[];
+    img?: string;
   };
 
-  let { title, description, tags }: Props = $props();
+  let { img, title, description, tags }: Props = $props();
 </script>
 
 <svelte:head>
@@ -15,6 +16,11 @@
 
   {#if tags?.length}
     <meta name="keywords" content={tags.join(", ")} />
+  {/if}
+
+  {#if img}
+    <meta name="og:image" content={img} />
+    <meta name="twitter:image" content={img} />
   {/if}
 
   <meta name="description" content={description} />

@@ -8,6 +8,7 @@
   import Table from "$lib/renderers/table.svelte";
   import type { PageProps } from "./$types";
   import MD from "svelte-markdown";
+  import { PUBLIC_URL } from "$env/static/public";
 
   let { data }: PageProps = $props();
 </script>
@@ -16,6 +17,9 @@
   title="{data.post.meta.title} | Bobby Mannino"
   description="Read a blog post written by Bobby Mannino"
   tags={data.post.meta.tags}
+  img={data.post.meta.thumbnailSrc
+    ? `${PUBLIC_URL}/blog/${data.post.meta.thumbnailSrc}`
+    : undefined}
 />
 
 <div class="container">
