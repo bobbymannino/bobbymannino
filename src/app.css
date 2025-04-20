@@ -67,9 +67,9 @@
   }
 
   p {
+    @apply text-lg;
+
     text-wrap: pretty;
-    line-height: 1.6;
-    font-size: 1.1rem;
     color: var(--color-zinc-800);
 
     a {
