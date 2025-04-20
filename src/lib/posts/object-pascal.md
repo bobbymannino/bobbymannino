@@ -3,6 +3,8 @@ title: "Object Pascal"
 publishedOn: 2025-04-20
 tagline: "Learn object pascal through examples"
 tags: ["pascal"]
+thumbnailSrc: "object-pascal.png"
+thumbnailAlt: "Object pascal in Delphi"
 ---
 
 # Object Pascal
