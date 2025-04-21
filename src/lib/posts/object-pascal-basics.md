@@ -1,13 +1,13 @@
 ---
-title: "Object Pascal"
+title: "Object Pascal Basics"
 publishedOn: 2025-04-20
 tagline: "Learn object pascal through examples"
-tags: ["pascal"]
-thumbnailSrc: "object-pascal.png"
-thumbnailAlt: "Object pascal in Delphi"
+tags: ["oop", "pascal"]
+thumbnailSrc: "object-pascal-basics.png"
+thumbnailAlt: "Object pascal basics in Delphi"
 ---
 
-# Object Pascal
+# Object Pascal Basics
 
 Object Pascal is a programming language that is part of the Delphi development
 environment. It is an object-oriented language that is based on the Pascal
