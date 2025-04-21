@@ -211,7 +211,7 @@
     }
 
     th {
-      @apply border border-zinc-300 px-2 dark:border-zinc-800;
+      @apply border border-zinc-300 px-2 py-1 dark:border-zinc-800;
     }
   }
 
@@ -221,7 +221,7 @@
     }
 
     td {
-      @apply border border-zinc-200 px-2 dark:border-zinc-700;
+      @apply border border-zinc-200 px-2 py-1 dark:border-zinc-700;
     }
   }
 }
