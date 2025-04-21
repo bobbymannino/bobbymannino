@@ -29,9 +29,15 @@
   }
 
   body {
-    @apply bg-zinc-100 font-sans dark:bg-black;
+    @apply flex flex-col bg-zinc-100 font-sans dark:bg-black;
 
+    min-height: 100vh;
+    min-height: 100lvh;
     font-optical-sizing: auto;
+  }
+
+  #main-content {
+    flex-grow: 1;
   }
 
   * {
