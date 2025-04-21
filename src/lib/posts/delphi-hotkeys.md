@@ -1,5 +1,6 @@
 ---
 title: "Delphi Hotkeys"
+publishedOn: 2025-04-21
 tagline: "Time is money"
 tags: ["hotkeys", "delphi"]
 ---
@@ -22,11 +23,16 @@ after a lot of time searching I have come up with a list that I use often:
 | Save All        | `Ctrl` + `Shift` + `S`   |
 | Undo            | `Ctrl` + `Z`             |
 | Redo command    | `Ctrl` + `Shift` + `Z`   |
-| Format Code     | `Ctrl` + `D`             |
 | Add to Project  | `Shift` + `F11`          |
 | Project Options | `Ctrl` + `Shift` + `F11` |
-| Next Tab        | `Alt` + `Page Down`        |
+| Next Tab        | `Alt` + `Page Down`      |
 | Previous Tab    | `Alt` + `Page Up`        |
+
+### Formatting
+
+| Action      | Hotkey       |
+| ----------- | ------------ |
+| Format File | `Ctrl` + `D` |
 
 ### Forms & Units
 
@@ -35,6 +41,7 @@ after a lot of time searching I have come up with a list that I use often:
 | Use Unit        | `Alt` + `F11`          |
 | View Forms      | `Shift` + `F12`        |
 | View Units      | `Ctrl` + `F12`         |
+| Toggle GUI/Unit | `F12`                  |
 | Toggle GUI/Code | `Alt` + `F12`          |
 | Rename          | `Ctrl` + `Shift` + `E` |
 | Find Unit       | `Ctrl` + `Shift` + `A` |
@@ -89,6 +96,25 @@ after a lot of time searching I have come up with a list that I use often:
 | Action        | Hotkey                 |
 | ------------- | ---------------------- |
 | New/Edit Item | `Ctrl` + `Shift` + `T` |
+
+### Folding
+
+| Action           | Hotkey                       |
+| ---------------- | ---------------------------- |
+| Fold/Expand      | `Ctrl` + `Shift` + `K` + `T` |
+| Fold All Classes | `Ctrl` + `Shift` + `K` + `C` |
+| Fold All Methods | `Ctrl` + `Shift` + `K` + `M` |
+| Expand All       | `Ctrl` + `Shift` + `K` + `A` |
+
+### Panels
+
+| Action           | Hotkey                  |
+| ---------------- | ----------------------- |
+| Messages         | `Alt` + `Shift` + `M`   |
+| Tool Palette     | `Ctrl` + `Alt` + `P`    |
+| Structure        | `Alt` + `Shift` + `F11` |
+| Object Inspector | `F11`                   |
+| Project          | `Ctrl` + `Alt` + `F11`  |
 
 ---
 
