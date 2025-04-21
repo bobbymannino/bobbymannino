@@ -9,15 +9,10 @@
 <script lang="ts">
   import Image from "$components/image.svelte";
   import Meta from "$components/meta.svelte";
-  import Code from "$lib/renderers/code.svelte";
-  import Codespan from "$lib/renderers/codespan.svelte";
-  import ListItem from "$lib/renderers/list-item.svelte";
-  import List from "$lib/renderers/list.svelte";
-  import Table from "$lib/renderers/table.svelte";
   import type { PageProps } from "./$types";
-  import MD from "svelte-markdown";
   import Toc from "./toc.svelte";
   import { PUBLIC_URL } from "$env/static/public";
+  import Markdown from "$components/markdown.svelte";
 
   let { data }: PageProps = $props();
 
@@ -47,11 +42,10 @@
       />
     {/if}
     <div class="card">
-      <MD
-        on:parsed={(e) => {
-          const _headings = e.detail.tokens.filter(
-            (obj) => obj.type == "heading",
-          );
+      <Markdown
+        markdown={data.post.content}
+        onparsed={(tokens) => {
+          const _headings = tokens.filter((obj) => obj.type == "heading");
 
           headings = _headings.map((h) => ({
             text: h.text,
@@ -62,14 +56,6 @@
               .replace(/\s/g, "-")
               .toLowerCase(),
           }));
-        }}
-        source={data.post.content}
-        renderers={{
-          listitem: ListItem,
-          list: List,
-          table: Table,
-          code: Code,
-          codespan: Codespan,
         }}
       />
 
