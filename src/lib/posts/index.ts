@@ -1,5 +1,6 @@
 import * as v from "valibot";
 import matter from "gray-matter";
+import { dev } from "$app/environment";
 
 /**
  * Returns an array of posts
@@ -11,16 +12,18 @@ export function listPosts() {
       import.meta.glob("./*.md", { eager: true, query: "?raw" }),
     );
 
-    const posts = rawPosts.map(([path, module]) => {
+    let posts = rawPosts.map(([path, module]) => {
       return parsePost(module.default, path);
     });
 
-    const publishedPosts = posts.filter((post) => !!post.meta.publishedOn);
+    if (!dev) posts = posts.filter((post) => !!post.meta.publishedOn);
+    else
+      posts = posts.map((p) => {
+        if (p.meta.publishedOn) return p;
+        return { ...p, meta: { ...p.meta, publishedOn: new Date() } };
+      });
 
-    return publishedPosts as {
-      content: string;
-      meta: PostMetadata & { publishedOn: Date };
-    }[];
+    return posts as (Post & { meta: { publishedOn: Date } })[];
   } catch {
     return [];
   }
