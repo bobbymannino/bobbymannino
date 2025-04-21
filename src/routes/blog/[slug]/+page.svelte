@@ -28,7 +28,7 @@
     : undefined}
 />
 
-<div class="container grid-cols-[18rem_1fr] gap-6 lg:grid">
+<div class="container grid-cols-[17rem_1fr] gap-6 lg:grid">
   <aside class="top-22 h-fit lg:sticky">
     <Toc {headings} />
   </aside>
@@ -52,7 +52,6 @@
             level: h.depth,
             id: h.text
               .replace(/[^\w\s]/g, "")
-              .replace(/\s\s/g, " ")
               .replace(/\s/g, "-")
               .toLowerCase(),
           }));
