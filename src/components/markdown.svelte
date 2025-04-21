@@ -1,6 +1,7 @@
 <script lang="ts">
   import Code from "$lib/renderers/code.svelte";
   import Codespan from "$lib/renderers/codespan.svelte";
+  import Link from "$lib/renderers/link.svelte";
   import ListItem from "$lib/renderers/list-item.svelte";
   import List from "$lib/renderers/list.svelte";
   import Table from "$lib/renderers/table.svelte";
@@ -29,5 +30,6 @@
     table: Table,
     code: Code,
     codespan: Codespan,
+    link: Link,
   }}
 />
