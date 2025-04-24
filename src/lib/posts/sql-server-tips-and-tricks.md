@@ -66,6 +66,32 @@ Something else to consider is readability which can greatly impact developers
 who are familiarizing themselves with the codebase. Overall it has the potential
 to cause issues down the line, so save your future self the trouble and avoid *.
 
+```sql
+create table [User] (
+    UserId int identity(1, 1) primary key,
+    FirstName varchar(44) not null,
+    LastName varchar(44) not null,
+    CreatedAt datetime not null default getdate()
+);
+
+-- This will return all 4 columns which in this case is okay at the moment but
+-- in the future could not be
+create function ListUsers()
+returns table as
+return (select * from [User]);
+
+-- Add hashed password column sometime in the future
+alter table [User]
+add Pwd varchar(max) not null unique;
+
+-- Now calling `ListUsers` will return all 5 columns which is a security
+-- vulnerability. To stop this alter the function to use explicit columns
+
+alter function ListUsers()
+returns table as
+return (select UserId, FirstName, LastName from [User]);
+```
+
 ### 3. Use `EXISTS` over `IN`
 
 Most of the time when checking for the existence of a record it is more
