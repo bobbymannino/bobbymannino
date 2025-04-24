@@ -65,3 +65,12 @@ performance that will be hit as it is more rare to need every column than not.
 Something else to consider is readability which can greatly impact developers
 who are familiarizing themselves with the codebase. Overall it has the potential
 to cause issues down the line, so save your future self the trouble and avoid *.
+
+### 3. Use `EXISTS` over `IN`
+
+Most of the time when checking for the existence of a record it is more
+efficient to use `EXISTS` then `IN`. The reason for this is when using `EXISTS`
+as soon as a record is found it stops scanning whereas `IN` will carry on until
+it has checked all rows. There is absolutely a use for `IN` and it is a very
+useful tool but if the aim is simply to check if a record exists then `IN` will
+be less efficient.
