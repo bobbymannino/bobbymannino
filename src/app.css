@@ -58,6 +58,7 @@
   h4,
   h5,
   h6 {
+    text-wrap: balance;
     scroll-margin-block-start: 6.9rem;
 
     @media (width >= theme(--breakpoint-sm)) {
@@ -73,7 +74,6 @@
     font-size: 2.6rem;
     font-weight: 900;
     line-height: 1.11;
-    text-wrap: balance;
     color: var(--color-accent-600);
   }
 
@@ -81,7 +81,6 @@
     font-weight: 700;
     font-size: 1.9rem;
     line-height: 1.13;
-    text-wrap: balance;
     color: var(--color-zinc-900);
 
     @media (prefers-color-scheme: dark) {
@@ -89,16 +88,34 @@
     }
   }
 
-  h3 {
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: 600;
     font-size: 1.6rem;
     line-height: 1.1;
-    text-wrap: balance;
     color: var(--color-zinc-800);
 
     @media (prefers-color-scheme: dark) {
       color: var(--color-zinc-200);
     }
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.09;
+  }
+
+  h5 {
+    font-size: 1.3rem;
+  }
+
+  h6 {
+    font-size: 1.2rem;
   }
 
   p {
