@@ -74,3 +74,28 @@ as soon as a record is found it stops scanning whereas `IN` will carry on until
 it has checked all rows. There is absolutely a use for `IN` and it is a very
 useful tool but if the aim is simply to check if a record exists then `IN` will
 be less efficient.
+
+Let's look at an example where using `EXISTS` is more efficient than `IN`:
+
+```sql
+-- Using IN (less efficient)
+select CustomerID, CustomerName
+from Customers
+where CustomerID in (
+    select OrderCustomerID
+    from Orders
+    where OrderAmount > 1000
+);
+
+-- Using EXISTS (more efficient)
+select CustomerID, CustomerName
+from Customers c
+where exists (
+    select 1
+    from Orders o
+    where o.OrderCustomerID = c.CustomerID
+    and o.OrderAmount > 1000
+);
+```
+
+The `EXISTS` version can stop searching as soon as it finds a matching record for each customer, while the `IN` version must build a complete list of matching customer IDs from Orders before it can perform the comparison. For large datasets, this difference in execution can significantly impact performance.
