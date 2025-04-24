@@ -51,7 +51,7 @@
             text: h.text,
             level: h.depth,
             id: h.text
-              .replace(/[^\w\s]/g, "")
+              .replace(/[^\w\s-]/g, "")
               .replace(/\s/g, "-")
               .toLowerCase(),
           }));
