@@ -1,14 +1,15 @@
 ---
 title: "SQL Server Tips & Tricks"
-tagline: "5 SQL Server Tips & Tricks"
+publishedOn: 2025-04-24
+tagline: "4 SQL Server Tips & Tricks"
 tags: ["sql", "tips"]
 ---
 
 # SQL Server Tips & Tricks
 
 There are many different versions and dialects of SQL: PostgreSQL, MySQL,
-SQLite, SQL Server and many more. In this post I will go over 5 useful tips that
-may come in handy when working with SQL Server.
+SQLite, SQL Server and many more. In this post I will go over a few useful tips
+that may come in handy when working with SQL Server.
 
 ## Tips & Tricks
 
@@ -124,4 +125,322 @@ where exists (
 );
 ```
 
-The `EXISTS` version can stop searching as soon as it finds a matching record for each customer, while the `IN` version must build a complete list of matching customer IDs from Orders before it can perform the comparison. For large datasets, this difference in execution can significantly impact performance.
+The `EXISTS` version can stop searching as soon as it finds a matching record
+for each customer, while the `IN` version must build a complete list of matching
+customer IDs from Orders before it can perform the comparison. For large
+datasets, this difference in execution can significantly impact performance.
+
+### 4. Utilize Built-in Functions
+
+SQL Server has a huge assortment of built-in functions that can save you time.
+Whilst there are too many to go over in this post I have picked out a few of my
+most used functions and added examples for each.
+
+#### String Functions
+
+##### `CONCAT`
+
+This function is used to add 2 or more strings together
+
+###### Syntax
+
+```sql
+CONCAT(<StringA>, <StringB>[, <StringC>, ...])
+```
+
+###### Create full name
+
+```sql
+select concat(FirstName, ' ', LastName) as FullName from [User];
+-- Bob Man
+-- Will Draw
+-- AJ Draw
+```
+
+##### `LEFT`/`RIGHT`
+
+These 2 functions do the same thing but from different sides. `LEFT` will start
+from the left side of the string and `RIGHT` will start from the right side of
+the string and take x amount of characters (`LEFT` is similar to `.slice()` in
+JS).
+
+###### Syntax
+
+```sql
+LEFT(<String>, <CharactersToTake>)
+```
+
+###### Take first 2 characters of string
+
+```sql
+select left(FirstName, 2) as FirstNameShort from [User];
+-- Bo
+-- Wi
+-- AJ
+```
+
+###### Take last 3 characters of string
+
+```sql
+select right(FirstName, 3) as FirstNameEnd from [User];
+-- Bob
+-- ill
+-- AJ
+```
+
+##### `STUFF`
+
+`STUFF` is a function that has multiple steps, firstly it deletes a certain
+amount of characters from a starting index in a string, and then it inserts a
+substring into the main string from the same starting index.
+
+###### Syntax
+
+```sql
+STUFF(<StartingString>, <StartIndex>, <EndIndex>, <ReplaceWithString>)
+```
+
+###### Replace first 1 characters with "Person: "
+
+```sql
+select stuff(FirstName, 1, 2, 'Person: ') from [User];
+-- Person: ob
+-- Person: ill
+-- Person: J
+```
+
+###### Replace entire string with "Bob"
+
+```sql
+select stuff(FirstName, 1, len(FirstName), 'Bob') as Bob from [User];
+-- Bob
+-- Bob
+-- Bob
+```
+
+###### Get initials
+
+```sql
+select stuff(FirstName, 2, len(FirstName) - 1, concat('.', left(LastName, 1), '.')) as Initial from [User];
+-- B.M.
+-- A.D.
+-- W.D.
+```
+
+#### Date Functions
+
+##### `FORMAT`
+
+Formats a date string into a specified format.
+
+###### Syntax
+
+```sql
+FORMAT(<Date>, <FormatString>)
+```
+
+###### Format date as "MM/dd/yyyy"
+
+```sql
+select format(getdate(), 'MM/dd/yyyy') as FormattedDate;
+-- 07/01/2023
+```
+
+###### Format date as "dd-MMM-yyyy"
+
+```sql
+select format(getdate(), 'dd-MMM-yyyy') as FormattedDate;
+-- 01-Jul-2023
+```
+
+##### `DAY`/`MONTH`/`YEAR`
+
+These functions extract a value (day, month, year) from a given date.
+
+###### Syntax
+
+```sql
+DAY(<Date>)
+MONTH(<Date>)
+YEAR(<Date>)
+```
+
+###### Get day of the month
+
+```sql
+select day('1979-12-22 00:00:00') as DayOfMonth;
+-- 22
+```
+
+###### Get month of the year
+
+```sql
+select month('1979-12-22 00:00:00') as MonthOfYear;
+-- 12
+```
+
+###### Get year
+
+```sql
+select year('1979-12-22 00:00:00') as Year;
+-- 1979
+```
+
+##### `DATEADD`
+
+Add an interval to a date.
+
+###### Syntax
+
+```sql
+DATEADD(<Interval>, <Number>, <Date>)
+```
+
+###### Add 7 days from now
+
+```sql
+select dateadd(day, 7, getdate()) as OneWeekAway;
+-- 2023-07-08 14:30:00.000
+```
+
+###### Subtract 30 days from now
+
+```sql
+select dateadd(day, -30, getdate()) as OneMonthAgo;
+-- 2023-05-31 14:30:00.000
+```
+
+#### Aggregate Number Functions
+
+##### `MIN`/`MAX`
+
+Get the maximum or minimum value.
+
+###### Syntax
+
+```sql
+MIN(<Column>)
+MAX(<Column>)
+```
+
+###### Get minimum value
+
+```sql
+select min(age) as MinAge from [User];
+-- 18
+```
+
+###### Get maximum value
+
+```sql
+select max(age) as MaxAge from [User];
+-- 65
+```
+
+##### `AVG`
+
+Calculates the average of all non-NULL values in a column.
+
+###### Syntax
+
+```sql
+AVG(<Column>)
+```
+
+###### Get average value
+
+```sql
+select avg(age) as AvgAge from [User];
+-- 34.5
+```
+
+##### `SUM`
+
+Calculates the sum of all non-NULL values in a column.
+
+###### Syntax
+
+```sql
+SUM(<Column>)
+```
+
+###### Get sum of all values
+
+```sql
+select sum(OrderAmount) as TotalSales from Orders;
+-- 15750.25
+```
+
+#### Special Functions
+
+##### `CAST`
+
+Converts an expression from one data type to another.
+
+###### Syntax
+
+```sql
+CAST(<Expression> AS <DataType>)
+```
+
+###### Convert string to integer
+
+```sql
+select cast('100' as int) as ConvertedValue;
+-- 100
+```
+
+###### Convert decimal to string
+
+```sql
+select cast(123.45 as varchar(10)) as StringValue;
+-- 123.45
+```
+
+##### `NULLIF`
+
+Returns NULL if the two specified expressions are equal; otherwise, returns the first expression.
+
+###### Syntax
+
+```sql
+NULLIF(<Expression1>, <Expression2>)
+```
+
+###### Avoid division by zero
+
+```sql
+select 100 / nullif(0, 0) as SafeDivision;
+-- NULL (instead of error)
+```
+
+###### Return NULL for specific value
+
+```sql
+select nullif(FirstName, 'Unknown') as SafeName from [User];
+-- Returns NULL if FirstName is 'Unknown', otherwise returns FirstName
+```
+
+##### `COALESCE`
+
+Returns the first non-NULL expression among its arguments.
+
+###### Syntax
+
+```sql
+COALESCE(<Expression1>, <Expression2>[, <Expression3>, ...])
+```
+
+###### Provide default value for NULL
+
+```sql
+select coalesce(MiddleName, '') as MiddleNameOrEmpty from [User];
+-- Returns MiddleName if not NULL, otherwise returns an empty string
+```
+
+###### Use fallback values in order
+
+```sql
+select coalesce(PreferredName, FirstName, 'Customer') as DisplayName from [User];
+-- Returns first non-NULL value in the list
+```
