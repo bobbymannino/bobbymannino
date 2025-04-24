@@ -53,3 +53,15 @@ create table [User] (
     FullName as (FirstName + ' ' + LastName) persisted
 );
 ```
+
+### 2. Avoid *
+
+It is best practice to never use * in production. The reason behind this is
+quite simple: it is not safe. It may work at the moment and even save you typing
+out each column but what happens if a column is added later and is sensitive? It
+will get sent to the server anyway which is not what we want. Another measure is
+performance that will be hit as it is more rare to need every column than not.
+
+Something else to consider is readability which can greatly impact developers
+who are familiarizing themselves with the codebase. Overall it has the potential
+to cause issues down the line, so save your future self the trouble and avoid *.
