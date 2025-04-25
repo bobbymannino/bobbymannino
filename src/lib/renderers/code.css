@@ -59,10 +59,6 @@ pre code.hljs {
   padding: 1em;
 }
 
-code.hljs {
-  padding: 3px 5px;
-}
-
 .hljs {
   color: var(--highlightjs-base05);
   background: var(--highlightjs-base00);
@@ -183,5 +179,3 @@ code.hljs {
 .hljs-meta-keyword {
   font-weight: bold;
 }
-
-/* Light Theme */
