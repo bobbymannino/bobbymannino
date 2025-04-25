@@ -25,7 +25,7 @@
 
 <div>
   <div
-    class="flex items-center justify-between bg-zinc-200 p-2 text-xs font-medium dark:bg-zinc-950 dark:text-zinc-100"
+    class="flex items-center justify-between border-b border-zinc-300 bg-zinc-200 p-2 text-xs font-medium dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
   >
     <span class="uppercase">{lang}</span>
     <button
