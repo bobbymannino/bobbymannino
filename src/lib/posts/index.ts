@@ -63,5 +63,8 @@ type PostMetadata = v.InferOutput<typeof postMetadataSchema>;
 
 export type Post = {
   content: string;
-  meta: PostMetadata;
+  meta: PostMetadata & {
+    slug: string;
+    publishedOn: Date;
+  };
 };
