@@ -19,7 +19,7 @@
         <GithubIcon class="size-6" />
       </a>
       <p>
-        <small>&copy; bobman.dev 2024</small>
+        <small>&copy; bobman.dev {new Date().getFullYear()}</small>
       </p>
     </div>
     <div class="not-hoverable:hidden">
