@@ -2,9 +2,9 @@ import type { PageLoad } from "./$types";
 
 export const prerender = false;
 
-export const load = (async ({ url }) => {
+export const load: PageLoad = async ({ url }) => {
   const sortBy = url.searchParams.get("sortBy") || "date-desc";
   const tags = url.searchParams.get("tags")?.split(",") || [];
 
   return { sortBy, tags };
-}) satisfies PageLoad;
+};

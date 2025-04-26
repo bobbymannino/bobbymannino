@@ -1,8 +1,8 @@
+import { PUBLIC_URL } from "$env/static/public";
 import { listPosts } from "$lib/posts";
+import type { RequestHandler } from "./$types";
 
-const BASE_URL = "https://bobman.dev/";
-
-export function GET() {
+export const GET: RequestHandler = () => {
   return new Response(
     `<?xml version="1.0" encoding="UTF-8" ?>
 		<urlset
@@ -14,18 +14,18 @@ export function GET() {
 			xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 		>
 		  <url>
-				<loc>${BASE_URL}</loc>
+				<loc>${PUBLIC_URL}/</loc>
 				<priority>1.0</priority>
 			</url>
 			<url>
-			  <loc>${BASE_URL}blog/</loc>
+			  <loc>${PUBLIC_URL}/blog/</loc>
 				<priority>0.8</priority>
 			</url>${listPosts()
         .map(
           (p) =>
             `
 			<url>
-			  <loc>${BASE_URL}blog/${p.meta.slug}/</loc>
+			  <loc>${PUBLIC_URL}/blog/${p.meta.slug}/</loc>
 				<priority>0.8</priority>
 			</url>`,
         )
@@ -33,4 +33,4 @@ export function GET() {
 		</urlset>`.trim(),
     { headers: { "Content-Type": "application/xml" } },
   );
-}
+};
