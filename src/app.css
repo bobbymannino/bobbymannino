@@ -235,6 +235,12 @@
   tbody {
     tr {
       @apply even:bg-zinc-100 dark:even:bg-zinc-800;
+
+      &:nth-child(even) {
+        code {
+          @apply bg-white dark:bg-zinc-900;
+        }
+      }
     }
 
     td {
