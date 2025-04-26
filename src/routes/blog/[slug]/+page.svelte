@@ -21,7 +21,7 @@
 
 <Meta
   title="{data.post.meta.title} | Bobby Mannino"
-  description="Read a blog post written by Bobby Mannino"
+  description={data.post.meta.tagline}
   tags={data.post.meta.tags}
   img={data.post.meta.thumbnailSrc
     ? `${PUBLIC_URL}/blog/${data.post.meta.thumbnailSrc}`
