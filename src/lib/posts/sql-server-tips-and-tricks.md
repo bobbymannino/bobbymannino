@@ -2,7 +2,7 @@
 title: "SQL Server Tips & Tricks"
 publishedOn: 2025-04-24
 tagline: "4 SQL Server Tips & Tricks"
-tags: ["sql", "tips"]
+tags: ["sql", "tips", 'sql-server']
 ---
 
 # SQL Server Tips & Tricks
