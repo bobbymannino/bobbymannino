@@ -12,18 +12,18 @@ export function listPosts() {
       import.meta.glob("./*.md", { eager: true, query: "?raw" }),
     );
 
-    let posts = rawPosts.map(([path, module]) => {
+    const allPosts = rawPosts.map(([path, module]) => {
       return parsePost(module.default, path);
     });
 
-    if (!dev) posts = posts.filter((post) => !!post.meta.publishedOn);
-    else
-      posts = posts.map((p) => {
-        if (p.meta.publishedOn) return p;
-        return { ...p, meta: { ...p.meta, publishedOn: new Date() } };
-      });
+    const publishedPosts = dev
+      ? allPosts.map((p) => {
+          if (p.meta.publishedOn) return p;
+          return { ...p, meta: { ...p.meta, publishedOn: new Date() } };
+        })
+      : allPosts.filter((post) => !!post.meta.publishedOn);
 
-    return posts as (Post & { meta: { publishedOn: Date } })[];
+    return publishedPosts;
   } catch {
     return [];
   }
@@ -36,35 +36,33 @@ export function listPosts() {
  */
 function parsePost(content: string, path: string) {
   const slug = path.slice(2, -3);
-  const post = matter(content);
+  const raw = matter(content);
 
-  const parsed = v.safeParse(postMetadataSchema, post.data);
+  const parsed = v.safeParse(postSchema, {
+    content: raw.content,
+    meta: { ...raw.data, slug },
+  });
 
   if (!parsed.success) {
     throw new Error(`Cannot parse file '${content}'`);
   }
 
-  return {
-    content: post.content,
-    meta: { ...parsed.output, slug },
-  };
+  return parsed.output;
 }
 
-const postMetadataSchema = v.object({
-  title: v.string(),
-  publishedOn: v.optional(v.date()),
-  tagline: v.string(),
-  tags: v.fallback(v.array(v.string()), []),
-  thumbnailSrc: v.optional(v.string()),
-  thumbnailAlt: v.optional(v.string()),
+const stringSchema = v.pipe(v.string(), v.trim(), v.minLength(1));
+
+const postSchema = v.object({
+  content: stringSchema,
+  meta: v.object({
+    title: stringSchema,
+    publishedOn: v.optional(v.date()),
+    tagline: stringSchema,
+    slug: stringSchema,
+    tags: v.fallback(v.array(stringSchema), []),
+    thumbnailSrc: v.optional(stringSchema),
+    thumbnailAlt: v.optional(stringSchema),
+  }),
 });
 
-type PostMetadata = v.InferOutput<typeof postMetadataSchema>;
-
-export type Post = {
-  content: string;
-  meta: PostMetadata & {
-    slug: string;
-    publishedOn: Date;
-  };
-};
+export type Post = v.InferOutput<typeof postSchema>;
