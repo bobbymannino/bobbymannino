@@ -105,13 +105,16 @@
           {/each}
         </ul>
         <div class="flex items-center gap-2">
-          <p>
-            Published {data.post.meta.publishedOn.toLocaleDateString()}
-          </p>
-          <button class="hover:text-accent-600 cursor-pointer" onclick={share}>
+          <button
+            class="hover:text-accent-600 cursor-pointer text-zinc-400 dark:text-zinc-600"
+            onclick={share}
+          >
             <span class="sr-only">Share Post</span>
             <ShareIcon class="size-5" />
           </button>
+          <p>
+            Published {data.post.meta.publishedOn.toLocaleDateString()}
+          </p>
         </div>
       </div>
     </div>
