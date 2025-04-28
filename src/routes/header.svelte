@@ -14,7 +14,7 @@
     { href: "/#technologies", text: "technologies" },
     { href: "/#projects", text: "projects" },
     { href: "/#contact", text: "contact" },
-    { func: () => openSearchModal(), icon: SearchIcon },
+    { func: () => openSearchModal(), icon: SearchIcon, text: "Search" },
   ];
 </script>
 
@@ -35,12 +35,13 @@
       <ul class="flex flex-wrap items-stretch">
         {#each links as link}
           <li>
-            {#if !!link["func"]}
+            {#if "func" in link}
               <button
                 tabindex="0"
                 onclick={() => link.func()}
                 class="ring-on-focus-visible after:bg-accent-600 relative isolate block size-8 cursor-pointer overflow-hidden p-2 text-zinc-800 transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:transition-transform after:content-[''] hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
               >
+                <span class="sr-only">{link.text}</span>
                 <link.icon class="size-4" />
               </button>
             {:else}
