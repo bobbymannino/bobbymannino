@@ -7,25 +7,45 @@
 </script>
 
 <script lang="ts">
+  import { page } from "$app/state";
   import Image from "$components/image.svelte";
+  import Markdown from "$components/markdown.svelte";
   import Meta from "$components/meta.svelte";
+  import ShareIcon from "$lib/icons/share-icon.svelte";
   import type { PageProps } from "./$types";
   import Toc from "./toc.svelte";
-  import { PUBLIC_URL } from "$env/static/public";
-  import Markdown from "$components/markdown.svelte";
 
   let { data }: PageProps = $props();
 
   let headings: Heading[] = $state([]);
+
+  async function share() {
+    const payload = {
+      url: page.url.toString(),
+      title: data.post.meta.title,
+      text: data.post.meta.tagline,
+    };
+
+    if (navigator.canShare(payload)) await navigator.share(payload);
+    else await navigator.clipboard.writeText(page.url.toString());
+  }
 </script>
+
+<svelte:head>
+  <meta property="article:author" content="Bobby Mannino" />
+  <meta
+    property="article:published_time"
+    content={data.post.meta.publishedOn.toString()}
+  />
+  <meta property="article:tag" content={data.post.meta.tags.join(", ")} />
+</svelte:head>
 
 <Meta
   title="{data.post.meta.title} | Bobby Mannino"
   description={data.post.meta.tagline}
   tags={data.post.meta.tags}
-  img={data.post.meta.thumbnailSrc
-    ? `${PUBLIC_URL}/blog/${data.post.meta.thumbnailSrc}`
-    : undefined}
+  type="article"
+  img="{page.url.toString()}/og"
 />
 
 <div class="container grid-cols-[17rem_1fr] gap-6 lg:grid">
@@ -60,7 +80,7 @@
 
       <hr />
 
-      <div class="flex flex-wrap items-center justify-between">
+      <div class="flex flex-wrap items-center justify-between gap-2">
         <ul class="flex flex-wrap gap-2">
           {#each data.post.meta.tags as tag}
             <li>
@@ -76,9 +96,15 @@
             </li>
           {/each}
         </ul>
-        <p>
-          Published {data.post.meta.publishedOn.toLocaleDateString()}
-        </p>
+        <div class="flex items-center gap-2">
+          <p>
+            Published {data.post.meta.publishedOn.toLocaleDateString()}
+          </p>
+          <button class="hover:text-accent-600 cursor-pointer" onclick={share}>
+            <span class="sr-only">Share Post</span>
+            <ShareIcon class="size-5" />
+          </button>
+        </div>
       </div>
     </div>
   </article>

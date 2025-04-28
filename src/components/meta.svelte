@@ -4,26 +4,33 @@
     description: string;
     tags?: string[];
     img?: string;
+    /** @default "website" */
+    type?: "website" | "article";
   };
 
-  let { img, title, description, tags }: Props = $props();
+  let { img, title, description, tags, type = "website" }: Props = $props();
 </script>
 
 <svelte:head>
   <title>{title}</title>
-  <meta name="og:title" content={title} />
+  <meta property="og:title" content={title} />
   <meta name="twitter:title" content={title} />
+
+  <meta name="description" content={description} />
+  <meta property="og:description" content={description} />
+  <meta name="twitter:description" content={description} />
 
   {#if tags?.length}
     <meta name="keywords" content={tags.join(", ")} />
   {/if}
 
   {#if img}
-    <meta name="og:image" content={img} />
+    <meta property="og:image" content={img} />
     <meta name="twitter:image" content={img} />
+    <meta name="twitter:card" content="summary_large_image" />
+  {:else}
+    <meta name="twitter:card" content="summary" />
   {/if}
 
-  <meta name="description" content={description} />
-  <meta name="og:description" content={description} />
-  <meta name="twitter:description" content={description} />
+  <meta property="og:type" content={type} />
 </svelte:head>
