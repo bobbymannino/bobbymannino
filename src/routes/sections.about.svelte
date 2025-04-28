@@ -19,7 +19,9 @@
     <enhanced:img
       src="$lib/images/lego-me.png"
       alt="Bobby Mannino"
-      class="w-32"
+      class="size-32"
+      height="128"
+      width="128"
     />
 
     <p>
