@@ -18,5 +18,13 @@ export const GET: RequestHandler = async ({ params, locals }) => {
 
   const jpeg = await componentToJpeg(Card, { width, height, props });
 
-  return new Response(jpeg, { headers: { "Content-Type": "image/jpeg" } });
+  return new Response(jpeg, {
+    headers: {
+      "Content-Type": "image/jpeg",
+      "Content-Disposition": `inline; filename="${params.slug}.jpg"`,
+      // Instructs browsers and CDNs to cache this image for ~1 month
+      // since it's unlikely to change and will improve load performance
+      "Cache-Control": "public, max-age=2500000, immutable",
+    },
+  });
 };
