@@ -19,6 +19,12 @@
   --aspect-thumbnail: 3 / 2;
 }
 
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  src: url("/inter/inter@variable.ttf");
+}
+
 :root {
   @apply accent-accent-600;
 }

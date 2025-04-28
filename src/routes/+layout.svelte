@@ -4,7 +4,6 @@
   import "../app.css";
   import type { LayoutProps } from "./$types";
   import Analytics from "./analytics.svelte";
-  import Fonts from "./fonts.svelte";
   import Footer from "./footer.svelte";
   import Header from "./header.svelte";
   import Meta from "./meta.svelte";
@@ -28,9 +27,7 @@
   });
 </script>
 
-<!-- BTS  -->
 <Analytics />
-<Fonts />
 <Meta />
 
 <SearchModal bind:this={searchModal} />

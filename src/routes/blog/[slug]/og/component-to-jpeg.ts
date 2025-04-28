@@ -1,6 +1,6 @@
 import { read } from "$app/server";
-import robotoRegular from "$lib/roboto/roboto@400.ttf";
-import robotoBlack from "$lib/roboto/roboto@900.ttf";
+import fontRegular from "$lib/inter/inter@400.ttf";
+import fontBold from "$lib/inter/inter@900.ttf";
 import satori from "satori";
 import { html as toReact } from "satori-html";
 import sharp from "sharp";
@@ -28,16 +28,16 @@ export async function componentToJpeg<T extends Component<any>>(
     height,
     fonts: [
       {
-        name: "Roboto",
+        name: "Inter",
         style: "normal",
-        weight: 800,
-        data: await read(robotoBlack).arrayBuffer(),
+        weight: 700,
+        data: await read(fontBold).arrayBuffer(),
       },
       {
-        name: "Roboto",
+        name: "Inter",
         style: "normal",
         weight: 400,
-        data: await read(robotoRegular).arrayBuffer(),
+        data: await read(fontRegular).arrayBuffer(),
       },
     ],
   });
