@@ -23,6 +23,7 @@
   <enhanced:img
     alt={title}
     src={thumbnail}
+    loading="lazy"
     class="aspect-thumbnail mb-2 h-auto w-full object-cover"
   />
 
