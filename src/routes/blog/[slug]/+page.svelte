@@ -31,8 +31,11 @@
       url,
     };
 
-    if (navigator.canShare(payload)) await navigator.share(payload);
-    else await navigator.clipboard.writeText(url);
+    try {
+      await navigator.share(payload);
+    } catch {
+      await navigator.clipboard.writeText(url);
+    }
   }
 </script>
 
