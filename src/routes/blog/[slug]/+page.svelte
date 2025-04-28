@@ -11,6 +11,7 @@
   import Image from "$components/image.svelte";
   import Markdown from "$components/markdown.svelte";
   import Meta from "$components/meta.svelte";
+  import { PUBLIC_URL } from "$env/static/public";
   import ShareIcon from "$lib/icons/share-icon.svelte";
   import type { PageProps } from "./$types";
   import Toc from "./toc.svelte";
@@ -19,15 +20,19 @@
 
   let headings: Heading[] = $state([]);
 
+  const url = $derived(PUBLIC_URL + page.url.pathname);
+
   async function share() {
+    const url = PUBLIC_URL + page.url.pathname;
+
     const payload = {
-      url: page.url.toString(),
       title: data.post.meta.title,
       text: data.post.meta.tagline,
+      url,
     };
 
     if (navigator.canShare(payload)) await navigator.share(payload);
-    else await navigator.clipboard.writeText(page.url.toString());
+    else await navigator.clipboard.writeText(url);
   }
 </script>
 
@@ -45,7 +50,7 @@
   description={data.post.meta.tagline}
   tags={data.post.meta.tags}
   type="article"
-  img="{page.url.toString()}/og"
+  img="{url}/og"
 />
 
 <div class="container grid-cols-[17rem_1fr] gap-6 lg:grid">
