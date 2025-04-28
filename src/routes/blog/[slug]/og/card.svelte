@@ -8,7 +8,7 @@
 </script>
 
 <div
-  style="width: 738px; height: 360px; background-color: white; border-bottom: 36px solid #0675ff; display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; gap: 8px; padding: 16px;"
+  style="width: 738px; text-align: right; height: 360px; background-color: white; border-bottom: 36px solid #0675ff; display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; gap: 8px; padding: 16px;"
 >
   <div
     style="display: flex; color: #0675ff; position: absolute; left: 8px; top: 8px;"
