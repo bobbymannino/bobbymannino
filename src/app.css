@@ -22,6 +22,8 @@
 @font-face {
   font-family: "Inter";
   font-style: normal;
+  font-display: swap;
+  font-optical-sizing: auto;
   src: url("/inter/inter@variable.ttf");
 }
 
