@@ -4,11 +4,12 @@
   import Select from "$components/select.svelte";
   import type { PageData } from "./$types";
   import BlogPostCard from "$components/blog-post-card.svelte";
+  import { page } from "$app/state";
 
   let { data }: { data: PageData } = $props();
 
-  let sortBy = $state(data.sortBy);
-  let tags = $state(data.tags);
+  let sortBy = $state(page.url.searchParams.get("sortBy") || "date-desc");
+  let tags = $state(page.url.searchParams.get("tags")?.split(",") || []);
 
   let sortedPosts = $derived(
     [...data.posts].sort((a, b) => {
