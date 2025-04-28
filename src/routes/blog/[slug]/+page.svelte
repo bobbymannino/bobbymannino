@@ -94,6 +94,7 @@
             <li>
               <p>
                 <a
+                  rel="noopener noreferrer"
                   tabindex="0"
                   href="/blog?tags={tag}"
                   class="text-accent-600 ring-on-focus-visible hover:underline"
