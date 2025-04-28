@@ -1,6 +1,6 @@
-import CPCTravel from "$lib/images/cpc-travel.png?enhanced?w=400";
-import CPCBureau from "$lib/images/cpc-bureau.png?enhanced?w=400";
-import Bingoverse from "$lib/images/bingoverse.png?enhanced?w=400";
+import CPCTravel from "$lib/images/cpc-travel.png?enhanced&w=400";
+import CPCBureau from "$lib/images/cpc-bureau.png?enhanced&w=400";
+import Bingoverse from "$lib/images/bingoverse.png?enhanced&w=400";
 
 export type Project = {
   title: string;
