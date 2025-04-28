@@ -16,10 +16,12 @@
     </h1>
 
     <br />
+
     <enhanced:img
       src="$lib/images/lego-me.png"
       alt="Bobby Mannino"
-      class="size-32"
+      loading="eager"
+      fetchpriority="high"
       height="128"
       width="128"
     />

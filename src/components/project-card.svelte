@@ -23,7 +23,7 @@
   <enhanced:img
     alt={title}
     src={thumbnail}
-    class="aspect-thumbnail mb-2 h-auto w-full object-cover"
+    class="aspect-thumbnail mb-2 object-cover"
   />
 
   <span class="text-xl font-semibold text-zinc-950 dark:text-white"
