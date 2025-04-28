@@ -18,12 +18,11 @@
     <br />
 
     <enhanced:img
-      src="$lib/images/lego-me.png"
+      src="$lib/images/lego-me.png?w=256"
       alt="Bobby Mannino"
       loading="eager"
       fetchpriority="high"
-      height="128"
-      width="128"
+      class="size-32"
     />
 
     <p>
