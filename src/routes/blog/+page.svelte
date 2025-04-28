@@ -5,11 +5,17 @@
   import type { PageData } from "./$types";
   import BlogPostCard from "$components/blog-post-card.svelte";
   import { page } from "$app/state";
+  import { onMount } from "svelte";
 
   let { data }: { data: PageData } = $props();
 
-  let sortBy = $state(page.url.searchParams.get("sortBy") || "date-desc");
-  let tags = $state(page.url.searchParams.get("tags")?.split(",") || []);
+  let sortBy = $state("date-desc");
+  let tags = $state([]);
+
+  onMount(() => {
+    sortBy = page.url.searchParams.get("sortBy") || "date-desc";
+    tags = page.url.searchParams.get("tags")?.split(",") || [];
+  });
 
   let sortedPosts = $derived(
     [...data.posts].sort((a, b) => {

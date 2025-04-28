@@ -11,18 +11,18 @@
     "lint": "prettier --check ."
   },
   "dependencies": {
+    "satori": "^0.12.2",
+    "satori-html": "^0.3.2",
+    "svelte-markdown": "^0.4.1",
+    "sharp": "^0.34.1"
+  },
+  "devDependencies": {
     "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
     "runed": "^0.25.0",
-    "satori": "^0.12.2",
-    "satori-html": "^0.3.2",
     "svelte-inview": "^4.0.4",
-    "svelte-markdown": "^0.4.1",
     "valibot": "^1.0.0",
-    "sharp": "^0.34.1"
-  },
-  "devDependencies": {
     "@sveltejs/adapter-node": "^5.2.12",
     "@sveltejs/enhanced-img": "^0.4.4",
     "@sveltejs/kit": "^2.20.7",
