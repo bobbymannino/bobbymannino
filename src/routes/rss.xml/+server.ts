@@ -41,6 +41,8 @@ function postToXml(post: Post) {
           <pubDate>${publishedOn.toUTCString()}</pubDate>
           <link>${url}</link>
           <guid>${url}</guid>
+          <enclosure url="${url}/og" length="0" type="image/jpeg" />
+          <media:content url="${url}/og" width="738" height="360" medium="image" xmlns:media="http://search.yahoo.com/mrss/" />
         </item>
       `;
 }
