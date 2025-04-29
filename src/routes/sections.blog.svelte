@@ -1,18 +1,20 @@
-<script lang="ts">
+<script>
   import { hacker } from "$lib/hacker";
   import { inview } from "svelte-inview";
 </script>
 
 <section class="container" id="blog">
   <div class="card">
-    <h1
-      use:inview={{ unobserveOnEnter: true }}
-      on:inview_enter={(e) => {
-        const clean = hacker(e.detail.node);
-        return () => clean();
-      }}
-    >
-      blog
+    <h1>
+      <a
+        use:inview={{ unobserveOnEnter: true }}
+        on:inview_enter={(e) => {
+          const clean = hacker(e.detail.node);
+          return () => clean();
+        }}
+        href="/blog"
+        rel="noopener noreferrer">blog</a
+      >
     </h1>
 
     <p>

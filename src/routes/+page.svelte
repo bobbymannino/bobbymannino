@@ -10,7 +10,7 @@
 <Meta title="Bobby Mannino" description="Software Engineering Undergraduate" />
 
 <AboutSection />
-<TechSection />
 <ProjectsSection />
-<ContactSection />
+<TechSection />
 <BlogSection />
+<ContactSection />

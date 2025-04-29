@@ -4,7 +4,7 @@
   import BeakerIcon from "$lib/icons/beaker-icon.svelte";
   import type { Project } from "$lib/projects";
 
-  let { status, thumbnail, title, href }: Project = $props();
+  let { status, thumbnail, title, href, languages, year }: Project = $props();
 
   const label: string = $derived.by(() => {
     if (status == "Beta") return `${title} is in beta`;
@@ -27,9 +27,16 @@
     class="aspect-thumbnail mb-2 h-auto w-full object-cover"
   />
 
-  <span class="text-xl font-semibold text-zinc-950 dark:text-white"
-    >{title}</span
-  >
+  <div>
+    <span class="text-xl font-semibold text-zinc-950 dark:text-white">
+      {title}
+      <span class="opacity-33">{year}</span>
+    </span>
+    <br />
+    <span class="font-xs text-zinc-600 dark:text-zinc-400"
+      >{new Intl.ListFormat().format(languages)}</span
+    >
+  </div>
 
   <div
     title={label}

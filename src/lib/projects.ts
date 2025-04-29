@@ -6,26 +6,34 @@ export type Project = {
   title: string;
   href?: string;
   thumbnail: string;
+  year: number;
+  languages: string[];
   status: "Released" | "Beta" | "Development";
 };
 
 export const projects: Project[] = [
   {
-    title: "CPC Travel",
-    href: "https://www.cpc-travel.co.uk",
-    thumbnail: CPCTravel,
-    status: "Released",
+    title: "Bingoverse",
+    thumbnail: Bingoverse,
+    status: "Development",
+    languages: ["sveltekit", "postgres"],
+    href: "https://bingoverse.bobman.dev",
+    year: 2025,
   },
   {
     title: "CPC Bureau de Change",
     href: "https://www.cpc-bureau-de-change.co.uk",
     thumbnail: CPCBureau,
+    languages: ["sveltekit", "postgres"],
     status: "Released",
+    year: 2022,
   },
   {
-    title: "Bingoverse",
-    thumbnail: Bingoverse,
-    status: "Development",
-    href: "https://bingoverse.bobman.dev",
+    title: "CPC Travel",
+    href: "https://www.cpc-travel.co.uk",
+    thumbnail: CPCTravel,
+    languages: ["sveltekit", "postgres", "firebase", "stripe"],
+    status: "Released",
+    year: 2020,
   },
 ];
