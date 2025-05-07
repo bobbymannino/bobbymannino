@@ -17,7 +17,7 @@
   {href}
   target="_blank"
   rel="noopener"
-  class="ring-on-focus-visible group/pc relative block bg-gray-50 p-2 transition-opacity group-has-[a:hover]/pcg:not-hover:opacity-25 dark:bg-zinc-800"
+  class="ring-on-focus-visible group/pc hoverable:group-has-[a:hover]/pcg:not-hover:opacity-25 relative block bg-gray-50 p-2 transition-opacity dark:bg-zinc-800"
   tabindex="0"
 >
   <enhanced:img
