@@ -12,6 +12,7 @@
     <div class="flex items-center gap-2">
       <a
         target="_blank"
+        rel="noopener noreferrer"
         href="https://www.github.com/bobbymannino/bobbymannino"
         class="hover:text-accent-600 text-zinc-800 dark:text-zinc-100"
         title="See this repo on GitHub"
