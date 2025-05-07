@@ -4,6 +4,7 @@
   import "../app.css";
   import type { LayoutProps } from "./$types";
   import Analytics from "./analytics.svelte";
+  import BackToTop from "./back-to-top.svelte";
   import Footer from "./footer.svelte";
   import Header from "./header.svelte";
   import Meta from "./meta.svelte";
@@ -36,3 +37,4 @@
   {@render children()}
 </main>
 <Footer />
+<BackToTop />
