@@ -2,9 +2,10 @@
   type Props = {
     title: string;
     publishedOn: Date;
+    readingTime: number;
   };
 
-  let { title, publishedOn }: Props = $props();
+  let { title, publishedOn, readingTime }: Props = $props();
 </script>
 
 <div
@@ -16,7 +17,7 @@
     {@render note("bobman.dev")}
   </div>
   {@render heading1(title)}
-  {@render paragraph(`${publishedOn.toLocaleDateString()} • By Bobby Mannino`)}
+  {@render paragraph(`${publishedOn.toLocaleDateString()} • ${readingTime} min read • By Bobby Mannino`)}
 </div>
 
 {#snippet heading1(text: string)}

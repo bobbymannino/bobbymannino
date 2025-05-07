@@ -61,15 +61,49 @@
     <Toc {headings} />
   </aside>
 
-  <article>
-    {#if data.post.meta.thumbnailSrc}
-      <Image
-        src="/blog/{data.post.meta.thumbnailSrc}"
-        alt={data.post.meta.thumbnailAlt}
-        class="aspect-blog-img object-cover"
-      />
-    {/if}
-    <div class="card">
+  <div class="card">
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <ul class="flex flex-wrap gap-2">
+        {#each data.post.meta.tags as tag}
+          <li>
+            <p>
+              <a
+                rel="noopener noreferrer"
+                tabindex="0"
+                href="/blog?tags={tag}"
+                class="text-accent-600 ring-on-focus-visible hover:underline"
+              >
+                #{tag}
+              </a>
+            </p>
+          </li>
+        {/each}
+      </ul>
+      <div class="flex items-center gap-2">
+        <button
+          class="hover:text-accent-600 cursor-pointer text-zinc-400 dark:text-zinc-600"
+          onclick={share}
+        >
+          <span class="sr-only">Share Post</span>
+          <ShareIcon class="size-5" />
+        </button>
+        <p>
+          Published {data.post.meta.publishedOn.toLocaleDateString()} • {data
+            .post.meta.readingTime} min read
+        </p>
+      </div>
+    </div>
+
+    <hr />
+
+    <article class="space-y-4 md:space-y-6">
+      {#if data.post.meta.thumbnailSrc}
+        <Image
+          src="/blog/{data.post.meta.thumbnailSrc}"
+          alt={data.post.meta.thumbnailAlt}
+          class="aspect-blog-img object-cover"
+        />
+      {/if}
       <Markdown
         markdown={data.post.content}
         onparsed={(tokens) => {
@@ -85,39 +119,6 @@
           }));
         }}
       />
-
-      <hr />
-
-      <div class="flex flex-wrap items-center justify-between gap-2">
-        <ul class="flex flex-wrap gap-2">
-          {#each data.post.meta.tags as tag}
-            <li>
-              <p>
-                <a
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  href="/blog?tags={tag}"
-                  class="text-accent-600 ring-on-focus-visible hover:underline"
-                >
-                  #{tag}
-                </a>
-              </p>
-            </li>
-          {/each}
-        </ul>
-        <div class="flex items-center gap-2">
-          <button
-            class="hover:text-accent-600 cursor-pointer text-zinc-400 dark:text-zinc-600"
-            onclick={share}
-          >
-            <span class="sr-only">Share Post</span>
-            <ShareIcon class="size-5" />
-          </button>
-          <p>
-            Published {data.post.meta.publishedOn.toLocaleDateString()}
-          </p>
-        </div>
-      </div>
-    </div>
-  </article>
+    </article>
+  </div>
 </div>

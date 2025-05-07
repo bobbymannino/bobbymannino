@@ -15,7 +15,7 @@
     <h2 class="group-hover:underline">{meta.title}</h2>
     <p>
       <small>
-        {meta.publishedOn.toLocaleDateString()}
+        {meta.publishedOn.toLocaleDateString()} • {meta.readingTime} min read
       </small>
     </p>
   </div>

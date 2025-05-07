@@ -14,6 +14,7 @@ export const GET: RequestHandler = async ({ params, locals }) => {
   const props: ComponentProps<typeof Card> = {
     title: post.meta.title,
     publishedOn: post.meta.publishedOn,
+    readingTime: post.meta.readingTime,
   };
 
   const jpeg = await componentToJpeg(Card, { width, height, props });

@@ -82,7 +82,7 @@
             </b>
           </p>
           <p class="group-hover:underline">
-            {post.meta.publishedOn.toLocaleDateString()}
+            {post.meta.publishedOn.toLocaleDateString()} • {post.meta.readingTime} min read
           </p>
         </a>
       </li>
