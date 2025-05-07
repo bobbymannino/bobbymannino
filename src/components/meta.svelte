@@ -1,14 +1,23 @@
 <script lang="ts">
+  import { PUBLIC_URL } from "$env/static/public";
+
   type Props = {
     title: string;
     description: string;
     tags?: string[];
+    /** @default `${PUBLIC_URL}/favicon.png` */
     img?: string;
     /** @default "website" */
     type?: "website" | "article";
   };
 
-  let { img, title, description, tags, type = "website" }: Props = $props();
+  let {
+    img = `${PUBLIC_URL}/favicon.png`,
+    title,
+    description,
+    tags,
+    type = "website",
+  }: Props = $props();
 </script>
 
 <svelte:head>
@@ -24,13 +33,9 @@
     <meta name="keywords" content={tags.join(", ")} />
   {/if}
 
-  {#if img}
-    <meta property="og:image" content={img} />
-    <meta name="twitter:image" content={img} />
-    <meta name="twitter:card" content="summary_large_image" />
-  {:else}
-    <meta name="twitter:card" content="summary" />
-  {/if}
+  <meta property="og:image" content={img} />
+  <meta name="twitter:image" content={img} />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <meta property="og:type" content={type} />
 </svelte:head>
