@@ -13,20 +13,30 @@
   let tags = $state([]);
 
   onMount(() => {
-    sortBy = page.url.searchParams.get("sortBy") || "date-desc";
+    sortBy = page.url.searchParams.get("sortBy") || "-date";
     tags = page.url.searchParams.get("tags")?.split(",") || [];
   });
 
   let sortedPosts = $derived(
     [...data.posts].sort((a, b) => {
       switch (sortBy) {
-        case "title-asc":
+        // A-Z
+        case "title":
           return a.meta.title.localeCompare(b.meta.title);
-        case "title-desc":
+        // Z-A
+        case "-title":
           return b.meta.title.localeCompare(a.meta.title);
-        case "date-asc":
+        // Shortest-Longest
+        case "readingTime":
+          return a.meta.readingTime - b.meta.readingTime;
+        // Longest-Shortest
+        case "-readingTime":
+          return b.meta.readingTime - a.meta.readingTime;
+        // Old-New
+        case "date":
           return a.meta.publishedOn.getTime() - b.meta.publishedOn.getTime();
-        case "date-desc":
+        // New-Old
+        case "-date":
         default:
           return b.meta.publishedOn.getTime() - a.meta.publishedOn.getTime();
       }
@@ -80,10 +90,12 @@
         name="sortBy"
         bind:value={sortBy}
         options={[
-          { value: "date-desc", text: "Date (New-Old)" },
-          { value: "date-asc", text: "Date (Old-New)" },
-          { value: "title-desc", text: "Title (Z-A)" },
-          { value: "title-asc", text: "Title (A-Z)" },
+          { value: "-date", text: "Newest to Oldest" },
+          { value: "date", text: "Oldest to Newest" },
+          { value: "title", text: "A to Z" },
+          { value: "-title", text: "Z to A" },
+          { value: "readingTime", text: "Shortest to Longest" },
+          { value: "-readingTime", text: "Longest to Shortest" },
         ]}
       />
     </div>
