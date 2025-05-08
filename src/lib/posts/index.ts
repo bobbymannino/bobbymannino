@@ -33,10 +33,10 @@ export function listPosts() {
  * Calculates the reading time based on words per minute
  *
  * @param content The content to calculate reading time for
- * @param wordsPerMinute Words per minute reading speed (default: 200)
+ * @param wordsPerMinute Words per minute reading speed @default 100
  * @returns Reading time in minutes
  */
-function calculateReadingTime(content: string, wordsPerMinute = 200): number {
+function calculateReadingTime(content: string, wordsPerMinute = 100): number {
   const words = content.trim().split(/\s+/).length;
   const minutes = words / wordsPerMinute;
   return Math.max(1, Math.round(minutes));
