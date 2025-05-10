@@ -19,7 +19,7 @@ previous row.
 The `LAG` function takes the following syntax:
 
 ```sql
-LAG(column [, offset] [, default_value]) OVER (PARTITION BY partition_column ORDER BY order_column)
+LAG(column [, offset] [, default_value]) OVER ([PARTITION BY partition_column] ORDER BY order_column)
 ```
 
 If there is no prior row the result will be `null`. To use it to get the
