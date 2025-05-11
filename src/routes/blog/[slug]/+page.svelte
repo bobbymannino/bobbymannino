@@ -72,6 +72,7 @@
               <a
                 rel="noopener noreferrer"
                 tabindex="0"
+                style:--vtn="{data.post.meta.slug}-{tag}"
                 href="/blog?tags={tag}"
                 class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
               >

@@ -25,7 +25,7 @@
     <ul class="flex flex-wrap gap-1" aria-label="Blog post tags">
       {#each meta.tags as tag}
         <li>
-          <p class="text-accent-600">
+          <p class="text-accent-600" style:--vtn="{meta.slug}-{tag}">
             <small>
               #{tag}
             </small>
