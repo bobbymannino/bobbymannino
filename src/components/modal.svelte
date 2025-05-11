@@ -5,11 +5,11 @@
   let dialog: HTMLDialogElement;
 
   function handleKeyUp(event: KeyboardEvent) {
-    if (event.key === "Meta") isMetaKeyPressed = false;
+    if (event.key == "Meta") isMetaKeyPressed = false;
   }
 
   function handleKeyDown(event: KeyboardEvent) {
-    if (event.key === "Meta") isMetaKeyPressed = true;
+    if (event.key == "Meta") isMetaKeyPressed = true;
 
     if (isMetaKeyPressed && event.key === "k") {
       open();
@@ -30,14 +30,16 @@
     children: Snippet;
     onopen?: () => void;
     onclose?: () => void;
+    id?: string;
   };
 
-  let { children, onopen, onclose }: Props = $props();
+  let { id, children, onopen, onclose }: Props = $props();
 </script>
 
 <svelte:window onkeydown={handleKeyDown} onkeyup={handleKeyUp} />
 
 <dialog
+  {id}
   {onclose}
   bind:this={dialog}
   class="w-full max-w-full touch-none bg-transparent pt-6 backdrop:bg-black/50"
