@@ -31,7 +31,7 @@
     <button
       onclick={() => copyTextToClipboard(text)}
       tabindex="0"
-      class="hover:text-accent-600 ring-on-focus-visible flex cursor-pointer items-center gap-1"
+      class="hover:text-accent-600 ring-on-focus-visible active:text-accent-700 flex cursor-pointer items-center gap-1 active:scale-95"
     >
       <DuplicateIcon class="size-4" />
       <span>Copy</span>

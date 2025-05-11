@@ -73,7 +73,7 @@
                 rel="noopener noreferrer"
                 tabindex="0"
                 href="/blog?tags={tag}"
-                class="text-accent-600 ring-on-focus-visible hover:underline"
+                class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
               >
                 #{tag}
               </a>
@@ -83,7 +83,7 @@
       </ul>
       <div class="flex items-center gap-2">
         <button
-          class="hover:text-accent-600 ring-on-focus-visible cursor-pointer text-zinc-400 dark:text-zinc-600"
+          class="hover:text-accent-600 ring-on-focus-visible active:text-accent-700 cursor-pointer text-zinc-400 active:scale-95 dark:text-zinc-600"
           onclick={share}
           tabindex="0"
         >
