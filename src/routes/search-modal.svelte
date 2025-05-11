@@ -140,4 +140,11 @@
       </li>
     {/each}
   </ul>
+  {#if filteredPosts.length}
+    <div class="not-hoverable:hidden">
+      <br />
+      <kbd>&uarr;</kbd>
+      <kbd>&darr;</kbd>
+    </div>
+  {/if}
 </Modal>
