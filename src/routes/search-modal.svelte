@@ -26,7 +26,7 @@
   ) {
     if (event.key === "Escape") {
       event.preventDefault();
-      event.currentTarget.blur();
+      modal.close();
     }
 
     if (event.key === "Enter") {
@@ -82,7 +82,8 @@
             </b>
           </p>
           <p class="group-hover:underline">
-            {post.meta.publishedOn.toLocaleDateString()} • {post.meta.readingTime} min read
+            {post.meta.publishedOn.toLocaleDateString()} • {post.meta
+              .readingTime} min read
           </p>
         </a>
       </li>
