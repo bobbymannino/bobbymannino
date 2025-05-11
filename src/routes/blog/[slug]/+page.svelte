@@ -14,6 +14,7 @@
   import { PUBLIC_URL } from "$env/static/public";
   import ShareIcon from "$lib/icons/share-icon.svelte";
   import type { PageProps } from "./$types";
+  import Timeline from "./timeline.svelte";
   import Toc from "./toc.svelte";
 
   let { data }: PageProps = $props();
@@ -56,6 +57,7 @@
   img="{url}/og"
 />
 
+<Timeline />
 <div class="container grid-cols-[17rem_1fr] gap-6 lg:grid">
   <aside class="top-22 h-fit lg:sticky">
     <Toc {headings} />
