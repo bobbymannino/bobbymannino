@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Post } from "$lib/posts";
+  import { textToId } from "../routes/blog/[slug]/+page.svelte";
 
   type Props = Post;
 
@@ -12,7 +13,10 @@
   class="group ring-on-focus-visible @container block"
 >
   <div class="flex-wrap items-start justify-between @lg:flex">
-    <h2 class="group-hover:underline">
+    <h2
+      class="group-hover:underline"
+      style:--vtn="post-title-{textToId(meta.title)}"
+    >
       {meta.title}
     </h2>
     <p style:--vtn="post-{meta.slug}-meta">

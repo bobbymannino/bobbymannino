@@ -4,6 +4,13 @@
     id: string;
     level: number;
   };
+
+  export function textToId(text: string) {
+    return text
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s/g, "-")
+      .toLowerCase();
+  }
 </script>
 
 <script lang="ts">
@@ -116,10 +123,7 @@
           headings = _headings.map((h) => ({
             text: h.text,
             level: h.depth,
-            id: h.text
-              .replace(/[^\w\s-]/g, "")
-              .replace(/\s/g, "-")
-              .toLowerCase(),
+            id: textToId(h.text),
           }));
         }}
       />
