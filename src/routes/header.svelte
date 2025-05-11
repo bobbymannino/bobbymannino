@@ -39,7 +39,7 @@
               <button
                 tabindex="0"
                 onclick={() => link.func()}
-                class="ring-on-focus-visible after:bg-accent-600 relative isolate block size-8 cursor-pointer overflow-hidden p-2 text-zinc-800 transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:transition-transform after:content-[''] hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
+                class="ring-on-focus-visible after:bg-accent-600 relative isolate block size-8 cursor-pointer overflow-hidden p-2 text-zinc-800 not-motion-reduce:transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:content-[''] not-motion-reduce:after:transition-transform hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
               >
                 <span class="sr-only">{link.text}</span>
                 <link.icon class="size-4" />
@@ -48,7 +48,7 @@
               <a
                 tabindex="0"
                 href={link.href}
-                class="ring-on-focus-visible after:bg-accent-600 relative isolate block overflow-hidden px-3 py-1 text-zinc-800 transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:transition-transform after:content-[''] hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
+                class="ring-on-focus-visible after:bg-accent-600 relative isolate block overflow-hidden px-3 py-1 text-zinc-800 not-motion-reduce:transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:content-[''] not-motion-reduce:after:transition-transform hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
               >
                 {link.text}
               </a>

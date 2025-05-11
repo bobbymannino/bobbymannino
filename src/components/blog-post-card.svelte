@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Post } from "$lib/posts";
+  import { textToId } from "../routes/blog/[slug]/+page.svelte";
 
   type Props = Post;
 
@@ -12,8 +13,13 @@
   class="group ring-on-focus-visible @container block"
 >
   <div class="flex-wrap items-start justify-between @lg:flex">
-    <h2 class="group-hover:underline">{meta.title}</h2>
-    <p>
+    <h2
+      class="group-hover:underline"
+      style:--vtn="post-title-{textToId(meta.title)}"
+    >
+      {meta.title}
+    </h2>
+    <p style:--vtn="post-{meta.slug}-meta">
       <small>
         {meta.publishedOn.toLocaleDateString()} • {meta.readingTime} min read
       </small>
@@ -25,7 +31,7 @@
     <ul class="flex flex-wrap gap-1" aria-label="Blog post tags">
       {#each meta.tags as tag}
         <li>
-          <p class="text-accent-600">
+          <p class="text-accent-600" style:--vtn="post-{meta.slug}-tags-{tag}">
             <small>
               #{tag}
             </small>

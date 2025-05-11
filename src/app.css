@@ -33,7 +33,7 @@
 
 @layer base {
   html {
-    @apply selection:bg-accent-600 scroll-smooth selection:text-white;
+    @apply selection:bg-accent-600 not-motion-reduce:scroll-smooth selection:text-white;
   }
 
   body {

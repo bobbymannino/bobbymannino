@@ -9,7 +9,7 @@
 
   let { headings }: Props = $props();
 
-  const lg = new MediaQuery("width >= 64rem");
+  const lg = new MediaQuery("width >= 64rem", false);
 
   let isOpen = $state(false);
 </script>
@@ -39,7 +39,7 @@
   {#if isOpen || lg.current}
     <br />
 
-    {@render list(headings)}
+    {@render list(headings, 1)}
   {/if}
 </div>
 

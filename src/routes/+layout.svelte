@@ -9,6 +9,7 @@
   import Header from "./header.svelte";
   import Meta from "./meta.svelte";
   import SearchModal from "./search-modal.svelte";
+  import ViewTransitions from "./view-transitions.svelte";
 
   let { children }: LayoutProps = $props();
 
@@ -30,6 +31,7 @@
 
 <Analytics />
 <Meta />
+<!-- <ViewTransitions /> -->
 
 <SearchModal bind:this={searchModal} />
 <Header openSearchModal={searchModal.open} />
