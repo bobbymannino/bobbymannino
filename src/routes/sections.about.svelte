@@ -15,14 +15,12 @@
       about bob
     </h1>
 
-    <br />
-
     <enhanced:img
       src="$lib/images/lego-me.png?w=256"
       alt="Bobby Mannino"
       loading="eager"
       fetchpriority="high"
-      class="size-32"
+      class="mt-4 size-32"
     />
 
     <p>
