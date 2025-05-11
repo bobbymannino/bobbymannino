@@ -1,6 +1,6 @@
 <div
   aria-hidden="true"
-  class="bg-accent-600 fixed top-0 left-0 z-10 h-1 w-full"
+  class="bg-accent-600 fixed top-0 left-0 z-10 h-1 w-full origin-left"
 ></div>
 
 <style>
@@ -14,7 +14,6 @@
   }
 
   div {
-    transform-origin: left;
     animation: progress linear;
     animation-timeline: scroll();
 
