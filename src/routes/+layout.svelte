@@ -38,5 +38,5 @@
 <main id="main-content">
   {@render children()}
 </main>
-<Footer />
 <BackToTop />
+<Footer />
