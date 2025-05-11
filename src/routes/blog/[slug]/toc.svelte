@@ -18,7 +18,8 @@
   <button
     disabled={lg.current}
     onclick={() => (isOpen = !isOpen)}
-    class="block w-full"
+    class="ring-on-focus-visible block w-full"
+    tabindex="0"
     aria-label="{isOpen ? 'Close' : 'Open'} table of contents"
   >
     <h6 class="flex items-center gap-1">
@@ -45,7 +46,8 @@
 {#snippet heading(heading: Heading)}
   <a
     href="#{heading.id}"
-    class="p-1 group-hover:not-hover:opacity-75 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+    tabindex="0"
+    class="ring-on-focus-visible p-1 group-hover:not-hover:opacity-75 hover:bg-zinc-100 dark:hover:bg-zinc-800"
     >{heading.text}</a
   >
 {/snippet}

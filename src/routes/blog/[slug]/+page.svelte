@@ -81,8 +81,9 @@
       </ul>
       <div class="flex items-center gap-2">
         <button
-          class="hover:text-accent-600 cursor-pointer text-zinc-400 dark:text-zinc-600"
+          class="hover:text-accent-600 ring-on-focus-visible cursor-pointer text-zinc-400 dark:text-zinc-600"
           onclick={share}
+          tabindex="0"
         >
           <span class="sr-only">Share Post</span>
           <ShareIcon class="size-5" />

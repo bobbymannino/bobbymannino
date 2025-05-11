@@ -30,7 +30,8 @@
     <span class="uppercase">{lang}</span>
     <button
       onclick={() => copyTextToClipboard(text)}
-      class="hover:text-accent-600 flex cursor-pointer items-center gap-1"
+      tabindex="0"
+      class="hover:text-accent-600 ring-on-focus-visible flex cursor-pointer items-center gap-1"
     >
       <DuplicateIcon class="size-4" />
       <span>Copy</span>
