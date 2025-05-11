@@ -31,7 +31,7 @@
 
 <Analytics />
 <Meta />
-<ViewTransitions />
+<!-- <ViewTransitions /> -->
 
 <SearchModal bind:this={searchModal} />
 <Header openSearchModal={searchModal.open} />
