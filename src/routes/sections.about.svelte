@@ -25,7 +25,7 @@
 
     <p>
       hey, im bob, i study software engineering in a university in the south of
-      england. im 20 years old and absolutely in love with programming. my goal
+      england. i am 21 years old and absolutely in love with programming. my goal
       is to get a placement year in university and then when the time comes to
       graduate i can call upon the experience to help me land a job
     </p>
