@@ -34,6 +34,13 @@ after a lot of time searching I have come up with a list that I use often:
 | ----------- | ------------ |
 | Format File | `Ctrl` + `D` |
 
+### Declarations
+
+| Action           | Hotkey                 |
+| ---------------- | ---------------------- |
+| Declare Variable | `Ctrl` + `Shift` + `V` |
+| Declare Field | `Ctrl` + `Shift` + `D` |
+
 ### Forms & Units
 
 | Action          | Hotkey                 |
