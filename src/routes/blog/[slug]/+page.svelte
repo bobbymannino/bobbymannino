@@ -21,6 +21,7 @@
   import { PUBLIC_URL } from "$env/static/public";
   import ShareIcon from "$lib/icons/share-icon.svelte";
   import type { PageProps } from "./$types";
+  import NextPrev from "./next-prev.svelte";
   import Timeline from "./timeline.svelte";
   import Toc from "./toc.svelte";
 
@@ -59,9 +60,9 @@
 <Meta
   title="{data.post.meta.title} | Bobby Mannino"
   description={data.post.meta.tagline}
-  tags={data.post.meta.tags}
   type="article"
   img="{url}/og"
+  tags={data.post.meta.tags}
 />
 
 <Timeline />
@@ -127,6 +128,7 @@
           }));
         }}
       />
+      <NextPrev nextPost={data.nextPost} prevPost={data.prevPost} />
     </article>
   </div>
 </div>

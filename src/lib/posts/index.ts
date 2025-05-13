@@ -23,7 +23,9 @@ export function listPosts() {
         })
       : allPosts.filter((post) => !!post.meta.publishedOn);
 
-    return publishedPosts;
+    return publishedPosts.sort(
+      (a, b) => b.meta.publishedOn.getTime() - a.meta.publishedOn.getTime(),
+    );
   } catch {
     return [];
   }
