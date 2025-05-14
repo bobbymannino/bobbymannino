@@ -17,6 +17,8 @@ type Options = {
 };
 
 export function hacker(node: HTMLElement, options?: Options) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
   const text = node.textContent || "";
   const textLength = text.length;
 
