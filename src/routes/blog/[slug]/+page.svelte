@@ -19,8 +19,8 @@
   import Markdown from "$components/markdown.svelte";
   import Meta from "$components/meta.svelte";
   import { PUBLIC_URL } from "$env/static/public";
-  import ShareIcon from "$lib/icons/share-icon.svelte";
   import type { PageProps } from "./$types";
+  import Info from "./info.svelte";
   import NextPrev from "./next-prev.svelte";
   import Timeline from "./timeline.svelte";
   import Toc from "./toc.svelte";
@@ -30,22 +30,6 @@
   let headings: Heading[] = $state([]);
 
   const url = $derived(PUBLIC_URL + page.url.pathname);
-
-  async function share() {
-    const url = PUBLIC_URL + page.url.pathname;
-
-    const payload = {
-      title: data.post.meta.title,
-      text: data.post.meta.tagline,
-      url,
-    };
-
-    try {
-      await navigator.share(payload);
-    } catch {
-      await navigator.clipboard.writeText(url);
-    }
-  }
 </script>
 
 <svelte:head>
@@ -72,39 +56,7 @@
   </aside>
 
   <div class="card">
-    <div class="flex flex-wrap items-center justify-between gap-2">
-      <ul class="flex flex-wrap gap-2">
-        {#each data.post.meta.tags as tag}
-          <li>
-            <p>
-              <a
-                rel="noopener noreferrer"
-                tabindex="0"
-                style:--vtn="post-{data.post.meta.slug}-tags-{tag}"
-                href="/blog?tags={tag}"
-                class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
-              >
-                #{tag}
-              </a>
-            </p>
-          </li>
-        {/each}
-      </ul>
-      <div class="flex items-center gap-2">
-        <button
-          class="hover:text-accent-600 ring-on-focus-visible active:text-accent-700 cursor-pointer text-zinc-400 active:scale-95 dark:text-zinc-600"
-          onclick={share}
-          tabindex="0"
-        >
-          <span class="sr-only">Share Post</span>
-          <ShareIcon class="size-5" />
-        </button>
-        <p style:--vtn="post-{data.post.meta.slug}-meta">
-          Published {data.post.meta.publishedOn.toLocaleDateString()} • {data
-            .post.meta.readingTime} min read
-        </p>
-      </div>
-    </div>
+    <Info post={data.post} />
 
     <hr />
 
