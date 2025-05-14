@@ -18,5 +18,7 @@
   {id}
   style={depth == 1 ? `--vtn: post-title-${id}` : ""}
 >
-  {@render children()}
+  <a href="#{id}">
+    {@render children()}
+  </a>
 </svelte:element>
