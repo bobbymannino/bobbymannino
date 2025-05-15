@@ -1,7 +1,9 @@
 ---
 title: "GitHub Actions"
 tagline: "Save your time and automate it!"
-tags: ["github"]
+tags: ["github", "ci/cd"]
+thumbnailSrc: "github-actions.jpg"
+thumbnailAlt: "GitHub Actions"
 ---
 
 # GitHub Actions
