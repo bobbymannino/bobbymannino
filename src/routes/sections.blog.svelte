@@ -13,6 +13,7 @@
           return () => clean();
         }}
         href="/blog"
+        tabindex="-1"
         rel="noopener noreferrer">blog</a
       >
     </h1>
