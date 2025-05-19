@@ -141,10 +141,11 @@
     {/each}
   </ul>
   {#if filteredPosts.length}
-    <div class="not-hoverable:hidden">
+    <div class="not-hoverable:hidden" aria-hidden="true">
       <br />
-      <kbd>&uarr;</kbd>
-      <kbd>&darr;</kbd>
+      <kbd>↑</kbd>
+      <kbd>↓</kbd>
+      <kbd>⏎</kbd>
     </div>
   {/if}
 </Modal>
