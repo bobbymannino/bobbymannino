@@ -100,6 +100,13 @@
       />
     </div>
 
+    <a
+      tabindex="0"
+      href="#blog-list"
+      class="bg-accent-600 ring-on-focus-visible absolute z-50 px-2 py-1 text-white not-focus-visible:pointer-events-none not-focus-visible:opacity-0"
+      >Skip tags</a
+    >
+
     <ChipSelection
       {chips}
       bind:selection={tags}
@@ -107,7 +114,10 @@
       legend="Filter by tags"
     />
 
-    <ul class="grid gap-4">
+    <ul
+      class="grid scroll-mt-36 gap-4 sm:scroll-mt-30 md:scroll-mt-26"
+      id="blog-list"
+    >
       {#each filteredPosts as post}
         <li>
           <BlogPostCard {...post} />
