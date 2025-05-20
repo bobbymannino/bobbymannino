@@ -7,4 +7,10 @@
   let { text, href }: Props = $props();
 </script>
 
-<a target="_blank" {href} rel="noopener noreferrer">{text}</a>
+<a
+  target="_blank"
+  {href}
+  rel="noopener noreferrer"
+  tabindex="0"
+  class="ring-on-focus-visible hover:underline">{text}</a
+>

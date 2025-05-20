@@ -18,7 +18,7 @@
   {id}
   style={depth == 1 ? `--vtn: post-title-${id}` : ""}
 >
-  <a href="#{id}">
+  <a href="#{id}" class="ring-on-focus-visible hover:underline" tabindex="0">
     {@render children()}
   </a>
 </svelte:element>
