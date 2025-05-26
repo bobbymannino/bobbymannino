@@ -9,6 +9,7 @@ export type Project = {
   year: number;
   languages: string[];
   status: "Released" | "Beta" | "Development";
+  status: "Released" | "Beta" | "Development" | "Private";
 };
 
 export const projects: Project[] = [

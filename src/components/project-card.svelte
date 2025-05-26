@@ -2,6 +2,7 @@
   import RocketIcon from "$lib/icons/rocket-icon.svelte";
   import CogIcon from "$lib/icons/cog-icon.svelte";
   import BeakerIcon from "$lib/icons/beaker-icon.svelte";
+  import EyeCrossedOutIcon from "$lib/icons/eye-crossed-out.svelte";
   import type { Project } from "$lib/projects";
 
   let { status, thumbnail, title, href, languages, year }: Project = $props();
@@ -9,6 +10,7 @@
   const label: string = $derived.by(() => {
     if (status == "Beta") return `${title} is in beta`;
     if (status == "Released") return `${title} has been released`;
+    if (status == "Private") return `${title} is a private system`;
     return `${title} is in development`;
   });
 </script>
@@ -51,6 +53,9 @@
     {:else if status == "Beta"}
       <span class="sr-only">In beta</span>
       <BeakerIcon />
+    {:else if status == "Private"}
+      <span class="sr-only">Private</span>
+      <EyeCrossedOutIcon />
     {/if}
   </div>
 </a>
