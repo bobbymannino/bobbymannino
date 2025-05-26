@@ -1,6 +1,7 @@
 import CPCTravel from "$lib/images/cpc-travel.png?enhanced&w=400";
 import CPCBureau from "$lib/images/cpc-bureau.png?enhanced&w=400";
 import Bingoverse from "$lib/images/bingoverse.png?enhanced&w=400";
+import FriaryMillTraining from "$lib/images/friary-mill-training.png?enhanced&w=400";
 
 export type Project = {
   title: string;
@@ -8,7 +9,6 @@ export type Project = {
   thumbnail: string;
   year: number;
   languages: string[];
-  status: "Released" | "Beta" | "Development";
   status: "Released" | "Beta" | "Development" | "Private";
 };
 
@@ -19,6 +19,13 @@ export const projects: Project[] = [
     status: "Development",
     languages: ["sveltekit", "postgres"],
     href: "https://bingoverse.bobman.dev",
+    year: 2025,
+  },
+  {
+    title: "Friary Mill Training",
+    thumbnail: FriaryMillTraining,
+    status: "Private",
+    languages: ["nextjs", "postgres", "dufs"],
     year: 2025,
   },
   {
