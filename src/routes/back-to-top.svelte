@@ -19,5 +19,5 @@
   tabindex="0"
 >
   <span class="sr-only">Scroll to top</span>
-  <ChevronUpIcon />
+  <ChevronUpIcon class="size-8" />
 </button>
