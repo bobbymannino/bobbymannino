@@ -9,7 +9,7 @@
       use:inview={{ unobserveOnEnter: true }}
       on:inview_enter={(e) => {
         const clean = hacker(e.detail.node);
-        return () => clean();
+        return () => clean?.();
       }}
     >
       about bob
@@ -25,9 +25,9 @@
 
     <p>
       hey, im bob, i study software engineering in a university in the south of
-      england. i am 21 years old and absolutely in love with programming. my goal
-      is to get a placement year in university and then when the time comes to
-      graduate i can call upon the experience to help me land a job
+      england. i am 21 years old and absolutely in love with programming. my
+      goal is to get a placement year in university and then when the time comes
+      to graduate i can call upon the experience to help me land a job
     </p>
 
     <p>

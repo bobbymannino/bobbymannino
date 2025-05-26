@@ -13,3 +13,8 @@ I love programming and hope that one day that will be my full time job.
 [bobman.dev](https://bobman.dev)
 
 [blog](https://bobman.dev/blog)
+
+---
+
+Note: All the icons are from [Iconists](https://iconists.co) using the
+configuration: solid, rounded, 3 radii, 2 line width.
