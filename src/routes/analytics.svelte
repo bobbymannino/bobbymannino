@@ -5,9 +5,9 @@
 <svelte:head>
   {#if !dev}
     <script
-      src="https://tracking.bobman.dev/api/script.js"
-      data-site-id="1"
       defer
+      data-domain="bobman.dev"
+      src="https://tracking.bobman.dev/js/script.js"
     ></script>
   {/if}
 </svelte:head>
