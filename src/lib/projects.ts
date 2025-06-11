@@ -1,5 +1,6 @@
-import CPCTravel from "$lib/images/cpc-travel.png?enhanced&w=400";
+import BSLFlashcards from "$lib/images/bsl-flashcards.png?enhanced&w=400";
 import CPCBureau from "$lib/images/cpc-bureau.png?enhanced&w=400";
+import CPCTravel from "$lib/images/cpc-travel.png?enhanced&w=400";
 import FriaryMillTraining from "$lib/images/friary-mill-training.png?enhanced&w=400";
 
 export type Project = {
@@ -13,6 +14,11 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "BSL Flashcards",
+    thumbnail: BSLFlashcards,
+    status: "Released",
+    languages: ["sveltekit"],
+    href: "https://bsl-flashcards.bobman.dev",
     year: 2025,
   },
   {
