@@ -1,6 +1,5 @@
 import CPCTravel from "$lib/images/cpc-travel.png?enhanced&w=400";
 import CPCBureau from "$lib/images/cpc-bureau.png?enhanced&w=400";
-import Bingoverse from "$lib/images/bingoverse.png?enhanced&w=400";
 import FriaryMillTraining from "$lib/images/friary-mill-training.png?enhanced&w=400";
 
 export type Project = {
@@ -14,11 +13,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Bingoverse",
-    thumbnail: Bingoverse,
-    status: "Development",
-    languages: ["sveltekit", "postgres"],
-    href: "https://bingoverse.bobman.dev",
     year: 2025,
   },
   {
