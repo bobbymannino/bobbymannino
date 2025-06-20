@@ -5,6 +5,7 @@
     <p>
       It seems we've encountered an error. Try refreshing the page or head <a
         href="/"
+        tabindex="0"
         class="text-accent-600 hover:underline">home</a
       >.
     </p>
