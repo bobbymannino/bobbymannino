@@ -6,6 +6,8 @@
 
 <Meta title="World | Bobby Mannino" description="A very simple 3d world" />
 
-<Canvas>
-  <World />
-</Canvas>
+<div class="h-200 w-full">
+  <Canvas>
+    <World />
+  </Canvas>
+</div>

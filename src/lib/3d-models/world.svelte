@@ -46,14 +46,10 @@ Command: npx @threlte/gltf@3.0.1 -t -T -d true world.glb
     <T.Mesh
       geometry={gltf.nodes.Earth.geometry}
       material={gltf.materials["Material.001"]}
-      rotation={[0.39, 0.65, 0]}
-      scale={1.35}
     />
     <T.Mesh
       geometry={gltf.nodes.Clouds.geometry}
       material={gltf.materials["Material.003"]}
-      rotation={[0.39, 0.65, 0]}
-      scale={1.38}
     />
   {:catch err}
     {@render error?.({ error: err })}
