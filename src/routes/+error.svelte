@@ -7,6 +7,9 @@
         href="/"
         tabindex="0"
         class="text-accent-600 hover:underline">home</a
+      >, or you can
+      <a href="/world" tabindex="0" class="text-accent-600 hover:underline"
+        >see the world</a
       >.
     </p>
   </div>
