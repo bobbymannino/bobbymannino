@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /world
 
 Sitemap: https://bobman.dev/sitemap.xml
