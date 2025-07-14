@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
+  import { page } from "$app/state";
   import { hacker } from "$lib/hacker";
   import { inview } from "svelte-inview";
+
+  const latestBlogPost = page.data.posts[0];
 </script>
 
 <section class="container" id="blog">
@@ -27,5 +30,12 @@
       of sorts, written in such a way that i can understand and revise quicker then
       i could reading somebody elses blog.
     </p>
+
+    <div>
+      <h4 class="opacity-40">Latest Post</h4>
+      <a href="/" class="ring-on-focus-visible group mt-2 block">
+        <h3 class="group-hover:underline">{latestBlogPost.meta.title}</h3>
+      </a>
+    </div>
   </div>
 </section>
