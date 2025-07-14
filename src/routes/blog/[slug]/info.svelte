@@ -51,6 +51,7 @@
   <div class="flex items-center gap-2 text-zinc-500">
     <span style:--vtn="post-{post.meta.slug}-meta">
       <time
+        title={post.meta.publishedOn.toUTCString()}
         aria-label="Published on"
         class="inline-flex items-center gap-1"
         datetime="{post.meta.publishedOn.getFullYear()}-{(
