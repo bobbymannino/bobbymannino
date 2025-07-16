@@ -116,3 +116,9 @@ Display the count of matches for a variable in the current directory:
 ```shell
 fd -e md -x grep -c 'my_variable_name' {}
 ```
+
+Output the number of files that contains the word 'bob':
+
+```shell
+fd -t f -x grep -c 'bob' {} | grep -v '^0$' | wc -l
+```
