@@ -7,6 +7,7 @@
     "git/github",
     "html/css",
     "svelte/kit",
+    "pascal/delphi",
     "react/next",
     "postgres/sql",
     "rust",
@@ -20,7 +21,7 @@
       use:inview={{ unobserveOnEnter: true }}
       on:inview_enter={(e) => {
         const clean = hacker(e.detail.node);
-        return () => clean();
+        return () => clean?.();
       }}
     >
       technologies
@@ -32,14 +33,15 @@
     </p>
 
     <p>
-      at the moment i am focusing my attention of learning more postgres/sql as
-      well as staying on top web technologies such as svelte and next.
+      at the moment i am focusing my attention of learning rust at a level where
+      i would be able to write a full api backend with websockets.
     </p>
 
     <p>
-      my favourite language to type out would be typescript or sql, i enjoy the
-      complexity of relational databases as well as the simplicity of
-      typescript.
+      my favorite language to type out would be typescript or sql, i enjoy the
+      complexity of relational databases as well as the simplicity and type
+      safety of typescript. i am also currently really enjoying rust, its strict
+      types and unusual syntax is refreshing and so far i am enjoying it deeply
     </p>
   </div>
 </section>
