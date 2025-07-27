@@ -1,12 +1,7 @@
 <script lang="ts">
   import { hacker } from "$lib/hacker";
+  import { socials } from "$lib/socials";
   import { inview } from "svelte-inview";
-
-  const links = [
-    ["github", "https://www.github.com/bobbymannino"],
-    ["email", "mailto:manninobobby@icloud.com"],
-    ["linkedin", "https://www.linkedin.com/in/bobbymannino/"],
-  ];
 </script>
 
 <section class="container" id="contact">
@@ -22,7 +17,7 @@
     </h1>
 
     <ul class="flex flex-wrap gap-4">
-      {#each links as [text, href]}
+      {#each socials as { platform, href }}
         <li>
           <h2>
             <a
@@ -31,7 +26,7 @@
               class="ring-on-focus-visible hover:underline"
               tabindex="0"
             >
-              #{text}
+              #{platform}
             </a>
           </h2>
         </li>
