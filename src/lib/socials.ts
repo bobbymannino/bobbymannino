@@ -1,7 +1,7 @@
 import {
   PUBLIC_EMAIL,
   PUBLIC_GITHUB_URL,
-  PUBLIC_LINKEDIN,
+  PUBLIC_LINKEDIN_URL,
 } from "$env/static/public";
 import EnvelopeIcon from "$lib/icons/envelope-icon.svelte";
 import GithubIcon from "$lib/icons/github.svelte";
@@ -31,7 +31,7 @@ export const socials: Social[] = [
   {
     platform: "linkedin",
     title: "see me me on linkedin",
-    href: PUBLIC_LINKEDIN,
+    href: PUBLIC_LINKEDIN_URL,
     icon: LinkedinIcon,
   },
 ];
