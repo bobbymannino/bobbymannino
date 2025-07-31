@@ -7,7 +7,8 @@
   --color-accent-300: #83d3ff;
   --color-accent-400: #48b9ff;
   --color-accent-500: #1e96ff;
-  --color-accent-600: #0675ff; /** This is the "one" */
+  --color-accent-600: #0675ff;
+  --color-accent-600: oklch(0.5496 0.2615 258.65);
   --color-accent-700: #0061ff;
   --color-accent-800: #084ac5;
   --color-accent-900: #0d439b;
