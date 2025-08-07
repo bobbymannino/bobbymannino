@@ -16,7 +16,7 @@
 </script>
 
 <section class="container" id="technologies">
-  <div class="card">
+  <div class="card group/highlight">
     <h1
       use:inview={{ unobserveOnEnter: true }}
       on:inview_enter={(e) => {
@@ -29,7 +29,9 @@
 
     <p>
       these are technologies i have an interest in or have some amount of
-      knowledge in; <b>{new Intl.ListFormat().format(techs)}</b>
+      knowledge in; <b class="highlight"
+        >{new Intl.ListFormat().format(techs)}</b
+      >
     </p>
 
     <p>

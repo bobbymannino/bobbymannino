@@ -181,6 +181,20 @@
   @apply ring-accent-600 has-focus-visible:ring-3 has-focus-visible:transition-shadow has-focus-visible:outline-none;
 }
 
+@utility highlight {
+  @apply inline motion-safe:transition-all motion-safe:duration-400;
+  @apply to-accent-200 dark:to-accent-900 bg-gradient-to-r from-transparent from-50% to-50%;
+
+  background-size: 200%;
+  background-position: 0 0;
+
+  @media (hover: hover) {
+    .group\/highlight:hover & {
+      background-position: -100% 0;
+    }
+  }
+}
+
 @utility pile {
   display: grid;
   place-items: center;

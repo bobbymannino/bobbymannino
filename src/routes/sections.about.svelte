@@ -4,7 +4,7 @@
 </script>
 
 <section class="container" id="about">
-  <div class="card">
+  <div class="card group/highlight">
     <h1
       use:inview={{ unobserveOnEnter: true }}
       on:inview_enter={(e) => {
@@ -24,17 +24,31 @@
     />
 
     <p>
-      hey, im bob, i study software engineering in a university in the south of
-      england. i am 21 years old and absolutely in love with programming. my
-      goal is to get a placement year in university and then when the time comes
-      to graduate i can call upon the experience to help me land a job
+      hey, <span class="highlight">im <b>bob</b></span>, i study software
+      engineering in a university in the south of england. i am
+      <span class="highlight group-hover/highlight:delay-200">21 years old</span
+      >
+      and absolutely
+      <span class="highlight group-hover/highlight:delay-400"
+        >love programming!</span
+      > my goal is spend this academic year learning the most out of my placement
+      so when the time comes (post uni) i am prepared to get a fulltime job
     </p>
 
     <p>
       for now i spend my spare time making mini projects and improving my
-      skills. the current project im working on is a gym tracker. it will be
-      able to track your workouts, create routines and give you statistics on
-      how you are doing
+      skills. the current project im working on is an online bingo project using
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://svelte.dev/docs/kit">sveltekit</a
+      >
+      as the frontend and
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.rust-lang.org">rust</a
+      > as the backend
     </p>
   </div>
 </section>
