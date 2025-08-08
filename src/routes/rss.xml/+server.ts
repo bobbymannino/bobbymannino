@@ -1,4 +1,4 @@
-import { PUBLIC_URL } from "$env/static/public";
+import { PUBLIC_EMAIL, PUBLIC_URL } from "$env/static/public";
 import type { Post } from "$lib/posts";
 import type { RequestHandler } from "./$types";
 
@@ -41,6 +41,7 @@ function postToXml(post: Post) {
           <pubDate>${publishedOn.toUTCString()}</pubDate>
           <link>${url}</link>
           <guid>${url}</guid>
+          <author>${PUBLIC_EMAIL}</author>
           <enclosure url="${url}/og" length="0" type="image/jpeg" />
           <media:content url="${url}/og" width="738" height="360" medium="image" xmlns:media="http://search.yahoo.com/mrss/" />
         </item>
