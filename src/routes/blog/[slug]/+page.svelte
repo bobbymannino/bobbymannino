@@ -62,11 +62,18 @@
 
     <article class="space-y-4 md:space-y-6">
       {#if data.post.meta.thumbnailSrc}
-        <Image
-          src="/blog/{data.post.meta.thumbnailSrc}"
-          alt={data.post.meta.thumbnailAlt}
-          class="aspect-blog-img object-cover"
-        />
+        <a
+          href={data.post.meta.thumbnailSrc}
+          target="_blank"
+          class="block"
+          title="Open image in new tab"
+        >
+          <Image
+            src="/blog/{data.post.meta.thumbnailSrc}"
+            alt={data.post.meta.thumbnailAlt}
+            class="aspect-blog-img object-cover"
+          />
+        </a>
       {/if}
       <Markdown
         markdown={data.post.content}
