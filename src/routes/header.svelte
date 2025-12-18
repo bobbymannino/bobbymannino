@@ -38,7 +38,7 @@
             {#if "func" in link}
               <button
                 tabindex="0"
-                onclick={() => link.func()}
+                onclick={() => link.func?.()}
                 class="ring-on-focus-visible after:bg-accent-600 relative isolate block size-8 cursor-pointer overflow-hidden p-2 text-zinc-800 not-motion-reduce:transition-colors after:absolute after:inset-0 after:-z-10 after:origin-bottom after:scale-y-0 after:content-[''] not-motion-reduce:after:transition-transform hover:text-white hover:after:origin-top hover:after:scale-y-100 dark:text-zinc-100"
               >
                 <span class="sr-only">{link.text}</span>
