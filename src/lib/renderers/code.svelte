@@ -15,7 +15,7 @@
 
   let { text, lang }: Props = $props();
 
-  let html = $state(text);
+  let html = $derived(text);
 
   onMount(() => {
     const code = hljs.highlight(text, { language: lang });
