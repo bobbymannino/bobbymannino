@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Blockquote from "$lib/renderers/blockquote.svelte";
   import Code from "$lib/renderers/code.svelte";
   import Codespan from "$lib/renderers/codespan.svelte";
   import Heading from "$lib/renderers/heading.svelte";
@@ -33,5 +34,6 @@
     codespan: Codespan,
     link: Link,
     heading: Heading,
+    blockquote: Blockquote,
   }}
 />
