@@ -1,7 +1,7 @@
 ---
 title: "Project Planning"
 tagline: "How I go about planning a project"
-publishedOn: 2025-01-14
+publishedOn: 2026-01-14
 tags: ["project-management"]
 ---
 
