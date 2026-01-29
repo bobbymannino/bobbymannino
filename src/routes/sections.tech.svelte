@@ -12,6 +12,8 @@
     "postgres/sql",
     "rust",
     "c/c#",
+    "docker/kubernetes",
+    "nginx",
   ];
 </script>
 
