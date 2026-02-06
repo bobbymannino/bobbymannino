@@ -15,12 +15,9 @@
 
   let { post }: Props = $props();
 
-  let canShare = $state(false);
-  let copied = $state(false);
+  const canShare = $derived(typeof navigator !== "undefined" && "share" in navigator);
 
-  $effect(() => {
-    canShare = typeof navigator !== "undefined" && "share" in navigator;
-  });
+  let copied = $state(false);
 
   async function share() {
     const url = PUBLIC_URL + page.url.pathname;
@@ -71,23 +68,15 @@
         title={post.meta.publishedOn.toUTCString()}
         aria-label="Published on"
         class="inline-flex items-center gap-1"
-        datetime="{post.meta.publishedOn.getFullYear()}-{(
-          post.meta.publishedOn.getMonth() + 1
-        )
+        datetime="{post.meta.publishedOn.getFullYear()}-{(post.meta.publishedOn.getMonth() + 1)
           .toFixed()
-          .padStart(2, '0')}-{post.meta.publishedOn
-          .getDate()
-          .toFixed()
-          .padStart(2, '0')}"
+          .padStart(2, '0')}-{post.meta.publishedOn.getDate().toFixed().padStart(2, '0')}"
       >
         <CalendarIcon class="size-5" />
         {post.meta.publishedOn?.toDateString()}
         •
       </time>
-      <span
-        aria-label="Reading duration"
-        class="inline-flex items-center gap-1"
-      >
+      <span aria-label="Reading duration" class="inline-flex items-center gap-1">
         <ClockIcon class="size-5" />
         {post.meta.readingTime} min •
       </span>
