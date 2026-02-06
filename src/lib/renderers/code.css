@@ -59,6 +59,32 @@ pre code.hljs {
   padding: 1em;
 }
 
+/* Line numbers styling */
+pre.with-line-numbers code.hljs {
+  padding-left: 0;
+}
+
+pre.with-line-numbers code.hljs .hljs-ln {
+  display: block;
+}
+
+pre.with-line-numbers code.hljs .hljs-ln-numbers {
+  display: inline-block;
+  width: 3ch;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin-right: 1em;
+  text-align: right;
+  color: var(--highlightjs-base03);
+  border-right: 1px solid var(--highlightjs-base03);
+  user-select: none;
+  font-family: monospace;
+}
+
+pre.with-line-numbers code.hljs .hljs-ln-code {
+  padding-left: 0.5em;
+}
+
 .hljs {
   color: var(--highlightjs-base05);
   background: var(--highlightjs-base00);
