@@ -11,7 +11,11 @@
   function handleKeyDown(event: KeyboardEvent) {
     if (event.key == "Meta") isMetaKeyPressed = true;
 
-    if (isMetaKeyPressed && event.key === "k") {
+    if (
+      (isMetaKeyPressed || event.ctrlKey) &&
+      event.key.toLowerCase() === "k"
+    ) {
+      event.preventDefault();
       open();
 
       onopen?.();
