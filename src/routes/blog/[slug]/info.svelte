@@ -4,6 +4,8 @@
   import CalendarIcon from "$lib/icons/calendar-icon.svelte";
   import ClockIcon from "$lib/icons/clock-icon.svelte";
   import ShareIcon from "$lib/icons/share-icon.svelte";
+  import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
+  import CheckIcon from "$lib/icons/check-icon.svelte";
 
   type Post = App.PageData["posts"][number];
 
@@ -12,6 +14,10 @@
   };
 
   let { post }: Props = $props();
+
+  const canShare = $derived(typeof navigator !== "undefined" && "share" in navigator);
+
+  let copied = $state(false);
 
   async function share() {
     const url = PUBLIC_URL + page.url.pathname;
@@ -22,10 +28,18 @@
       url,
     };
 
-    try {
-      await navigator.share(payload);
-    } catch {
+    if (canShare) {
+      try {
+        await navigator.share(payload);
+      } catch {
+        // User cancelled or error occurred
+      }
+    } else {
       await navigator.clipboard.writeText(url);
+      copied = true;
+      setTimeout(() => {
+        copied = false;
+      }, 2000);
     }
   }
 </script>
@@ -54,23 +68,15 @@
         title={post.meta.publishedOn.toUTCString()}
         aria-label="Published on"
         class="inline-flex items-center gap-1"
-        datetime="{post.meta.publishedOn.getFullYear()}-{(
-          post.meta.publishedOn.getMonth() + 1
-        )
+        datetime="{post.meta.publishedOn.getFullYear()}-{(post.meta.publishedOn.getMonth() + 1)
           .toFixed()
-          .padStart(2, '0')}-{post.meta.publishedOn
-          .getDate()
-          .toFixed()
-          .padStart(2, '0')}"
+          .padStart(2, '0')}-{post.meta.publishedOn.getDate().toFixed().padStart(2, '0')}"
       >
         <CalendarIcon class="size-5" />
         {post.meta.publishedOn?.toDateString()}
         •
       </time>
-      <span
-        aria-label="Reading duration"
-        class="inline-flex items-center gap-1"
-      >
+      <span aria-label="Reading duration" class="inline-flex items-center gap-1">
         <ClockIcon class="size-5" />
         {post.meta.readingTime} min •
       </span>
@@ -80,8 +86,16 @@
       onclick={share}
       tabindex="0"
     >
-      <ShareIcon class="size-5" />
-      <span>Share</span>
+      {#if canShare}
+        <ShareIcon class="size-5" />
+        <span>Share</span>
+      {:else if copied}
+        <CheckIcon class="size-5" />
+        <span>Copied</span>
+      {:else}
+        <DuplicateIcon class="size-5" />
+        <span>Copy</span>
+      {/if}
     </button>
   </div>
 </div>
