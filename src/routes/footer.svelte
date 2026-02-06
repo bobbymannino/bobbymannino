@@ -1,12 +1,6 @@
 <script lang="ts">
   import { browser } from "$app/environment";
   import { socials } from "$lib/socials";
-  import DeploymentStatus from "$components/deployment-status.svelte";
-  import {
-    PUBLIC_DOKPLOY_URL,
-    PUBLIC_DOKPLOY_PROJECT_ID,
-    PUBLIC_DOKPLOY_APPLICATION_ID,
-  } from "$env/static/public";
 
   const cmdOrCtrl = $derived(
     browser && navigator.platform.includes("Mac") ? "⌘" : "Ctrl",
@@ -32,16 +26,9 @@
         <small>&copy; bobman.dev {new Date().getFullYear()}</small>
       </p>
     </div>
-    <div class="flex items-center gap-3">
-      <DeploymentStatus
-        dokployUrl={PUBLIC_DOKPLOY_URL}
-        projectId={PUBLIC_DOKPLOY_PROJECT_ID}
-        applicationId={PUBLIC_DOKPLOY_APPLICATION_ID}
-      />
-      <div class="not-hoverable:hidden">
-        <kbd>{cmdOrCtrl}</kbd>
-        <kbd>K</kbd>
-      </div>
+    <div class="not-hoverable:hidden">
+      <kbd>{cmdOrCtrl}</kbd>
+      <kbd>K</kbd>
     </div>
   </div>
 </footer>
