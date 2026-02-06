@@ -4,6 +4,8 @@
   import CalendarIcon from "$lib/icons/calendar-icon.svelte";
   import ClockIcon from "$lib/icons/clock-icon.svelte";
   import ShareIcon from "$lib/icons/share-icon.svelte";
+  import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
+  import CheckIcon from "$lib/icons/check-icon.svelte";
 
   type Post = App.PageData["posts"][number];
 
@@ -12,6 +14,13 @@
   };
 
   let { post }: Props = $props();
+
+  let canShare = $state(false);
+  let copied = $state(false);
+
+  $effect(() => {
+    canShare = typeof navigator !== "undefined" && "share" in navigator;
+  });
 
   async function share() {
     const url = PUBLIC_URL + page.url.pathname;
@@ -22,10 +31,18 @@
       url,
     };
 
-    try {
-      await navigator.share(payload);
-    } catch {
+    if (canShare) {
+      try {
+        await navigator.share(payload);
+      } catch {
+        // User cancelled or error occurred
+      }
+    } else {
       await navigator.clipboard.writeText(url);
+      copied = true;
+      setTimeout(() => {
+        copied = false;
+      }, 2000);
     }
   }
 </script>
@@ -80,8 +97,16 @@
       onclick={share}
       tabindex="0"
     >
-      <ShareIcon class="size-5" />
-      <span>Share</span>
+      {#if canShare}
+        <ShareIcon class="size-5" />
+        <span>Share</span>
+      {:else if copied}
+        <CheckIcon class="size-5" />
+        <span>Copied</span>
+      {:else}
+        <DuplicateIcon class="size-5" />
+        <span>Copy</span>
+      {/if}
     </button>
   </div>
 </div>
