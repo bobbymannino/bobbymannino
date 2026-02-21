@@ -53,7 +53,7 @@
     tabindex="0"
     style={`--toc-level:${heading.tocLevel};`}
     class="toc-link ring-on-focus-visible block w-full p-1 group-hover:not-hover:opacity-75 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-    >{heading.text}</a
+    >{heading.text.replace(/`/g, "")}</a
   >
 {/snippet}
 
