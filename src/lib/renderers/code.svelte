@@ -37,7 +37,7 @@
 
 <div>
   <div
-    class="flex items-center justify-between border-b border-zinc-300 bg-zinc-200 p-2 text-xs font-medium dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+    class="flex items-center justify-between border-b border-zinc-300 bg-zinc-200 p-2 text-xs font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
   >
     <span class="uppercase">{lang}</span>
     <button
