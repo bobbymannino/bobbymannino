@@ -30,7 +30,6 @@ export const projects: Project[] = [
   },
   {
     title: "CPC Bureau de Change",
-    href: "https://www.cpc-bureau-de-change.co.uk",
     thumbnail: CPCBureau,
     languages: ["sveltekit", "postgres"],
     status: "Released",
@@ -38,7 +37,6 @@ export const projects: Project[] = [
   },
   {
     title: "CPC Travel",
-    href: "https://www.cpc-travel.co.uk",
     thumbnail: CPCTravel,
     languages: ["sveltekit", "postgres", "firebase", "stripe"],
     status: "Released",
