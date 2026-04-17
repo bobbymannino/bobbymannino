@@ -8,6 +8,7 @@
   import Header from "./header.svelte";
   import Meta from "./meta.svelte";
   import SearchModal from "./search-modal.svelte";
+  import Analytics from "./analytics.svelte";
 
   let { children }: LayoutProps = $props();
 
@@ -27,7 +28,7 @@
   });
 </script>
 
-<!-- <Analytics /> -->
+<Analytics />
 <Meta />
 <!-- <ViewTransitions /> -->
 
