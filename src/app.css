@@ -2,6 +2,14 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 300ms;
+    animation-timing-function: ease;
+  }
+}
+
 @theme {
   --color-accent-50: #edf8ff;
   --color-accent-100: #d6eeff;

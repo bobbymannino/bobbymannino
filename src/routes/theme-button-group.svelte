@@ -25,7 +25,19 @@
       "(prefers-color-scheme: dark)",
     ).matches;
     const isDark = next === "dark" || (next === "system" && prefersDark);
-    document.documentElement.classList.toggle("dark", isDark);
+    const toggle = () =>
+      document.documentElement.classList.toggle("dark", isDark);
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reduceMotion || !document.startViewTransition) {
+      toggle();
+      return;
+    }
+
+    document.startViewTransition(toggle);
   }
 
   function selectTheme(next: Theme) {
