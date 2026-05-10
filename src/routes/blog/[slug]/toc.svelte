@@ -93,7 +93,7 @@
     if (!headings.length) return;
 
     const update = () => {
-      const threshold = window.innerHeight * 0.67; // higher = more inclusive
+      const threshold = window.innerHeight * 0.5; // higher = more inclusive
       let best: string | null = null;
       for (const h of headings) {
         const el = document.getElementById(h.id);
@@ -156,7 +156,7 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="stroke-accent-600 transition-[stroke-dashoffset] duration-500 ease-out"
+              class="stroke-accent-600 transition-[stroke-dashoffset] duration-500 ease-out motion-reduce:duration-0"
               style:stroke-dasharray={pathInfo.total}
               style:stroke-dashoffset={pathInfo.total - activeLength}
             />
@@ -171,8 +171,8 @@
               href="#{h.id}"
               style:padding-left="{xOf(h.tocLevel) + TEXT_GAP}px"
               class={[
-                "ring-on-focus-visible block w-full truncate pr-2 text-sm transition-colors duration-300",
-                activeId === h.id ? "text-accent-600 opacity-100" : "opacity-50 hover:opacity-80",
+                "ring-on-focus-visible block w-full truncate pr-2 text-sm transition-all duration-250 motion-reduce:duration-0",
+                activeId === h.id ? "text-accent-600 opacity-100" : "opacity-50 hover:opacity-85",
               ]}
             >
               {h.text.replace(/`/g, "")}
