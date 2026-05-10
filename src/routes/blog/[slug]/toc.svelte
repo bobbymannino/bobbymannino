@@ -7,18 +7,101 @@
     headings: Heading[];
   };
 
-  type TocHeading = Heading & {
-    tocLevel: number;
-  };
-
   let { headings }: Props = $props();
 
   const lg = new MediaQuery("width >= 64rem", false);
-
   let isOpen = $state(false);
+  let activeId = $state<string | null>(null);
+
+  const ITEM_H = 32;
+  const INDENT = 12;
+  const BASE_X = 7;
+
+  const minLevel = $derived(headings.length ? Math.min(...headings.map((h) => h.level)) : 1);
+
+  const flatHeadings = $derived(headings.map((h) => ({ ...h, tocLevel: h.level - minLevel })));
+
+  const maxTocLevel = $derived(flatHeadings.length ? Math.max(...flatHeadings.map((h) => h.tocLevel)) : 0);
+
+  const svgWidth = $derived(BASE_X + maxTocLevel * INDENT + BASE_X + 2);
+  const svgHeight = $derived(flatHeadings.length * ITEM_H);
+
+  const activeIndex = $derived(flatHeadings.findIndex((h) => h.id === activeId));
+
+  function xOf(tocLevel: number) {
+    return BASE_X + tocLevel * INDENT;
+  }
+
+  type PathInfo = { d: string; lengths: number[]; total: number };
+
+  function buildTreePath(fh: typeof flatHeadings): PathInfo {
+    if (!fh.length) return { d: "", lengths: [], total: 0 };
+
+    let d = "";
+    let length = 0;
+    const lengths: number[] = [];
+    let prevX = xOf(fh[0].tocLevel);
+    let prevY = 0;
+
+    for (let i = 0; i < fh.length; i++) {
+      const x = xOf(fh[i].tocLevel);
+      const yMid = i * ITEM_H + ITEM_H / 2;
+
+      if (i === 0) {
+        d += `M ${x} 0 V ${yMid}`;
+        length += yMid;
+      } else if (x !== prevX) {
+        const yBoundary = i * ITEM_H;
+        d += ` V ${yBoundary} H ${x} V ${yMid}`;
+        length += yBoundary - prevY + Math.abs(x - prevX) + (yMid - yBoundary);
+      } else {
+        d += ` V ${yMid}`;
+        length += yMid - prevY;
+      }
+
+      lengths.push(length);
+      prevX = x;
+      prevY = yMid;
+    }
+
+    const finalY = fh.length * ITEM_H;
+    d += ` V ${finalY}`;
+    const total = length + (finalY - prevY);
+
+    return { d, lengths, total };
+  }
+
+  const pathInfo = $derived(buildTreePath(flatHeadings));
+
+  const activeLength = $derived(
+    activeIndex < 0
+      ? 0
+      : activeIndex === flatHeadings.length - 1
+        ? pathInfo.total
+        : (pathInfo.lengths[activeIndex] ?? 0),
+  );
+
+  $effect(() => {
+    if (!headings.length) return;
+
+    const update = () => {
+      const threshold = window.innerHeight * 0.67; // higher = more inclusive
+      let best: string | null = null;
+      for (const h of headings) {
+        const el = document.getElementById(h.id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= threshold) best = h.id;
+      }
+      activeId = best ?? headings[0]?.id ?? null;
+    };
+
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => window.removeEventListener("scroll", update);
+  });
 </script>
 
-<div class="toc bg-white p-2 md:p-3 dark:bg-zinc-900 dark:text-white">
+<div class="bg-white p-2 md:p-3 dark:bg-zinc-900 dark:text-white">
   <button
     disabled={lg.current}
     onclick={() => (isOpen = !isOpen)}
@@ -41,74 +124,48 @@
   </button>
 
   {#if isOpen || lg.current}
-    <br />
+    <div class="mt-3 flex">
+      {#if flatHeadings.length > 0}
+        <svg width={svgWidth} height={svgHeight} class="shrink-0 overflow-visible" aria-hidden="true">
+          {#if pathInfo.d}
+            <path
+              d={pathInfo.d}
+              fill="none"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="stroke-zinc-300 dark:stroke-zinc-600"
+            />
 
-    {@render list(headings.map((h) => ({ ...h, tocLevel: h.level })))}
+            <path
+              d={pathInfo.d}
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="stroke-accent-600 transition-[stroke-dashoffset] duration-500 ease-out"
+              style:stroke-dasharray={pathInfo.total}
+              style:stroke-dashoffset={pathInfo.total - activeLength}
+            />
+          {/if}
+        </svg>
+      {/if}
+
+      <ol class="min-w-0 flex-1">
+        {#each flatHeadings as h}
+          <li style:height="{ITEM_H}px" class="flex items-center">
+            <a
+              href="#{h.id}"
+              class={[
+                "ring-on-focus-visible block w-full truncate px-2 text-sm transition-colors duration-300",
+                activeId === h.id ? "text-accent-600 opacity-100" : "opacity-50 hover:opacity-80",
+              ]}
+            >
+              {h.text.replace(/`/g, "")}
+            </a>
+          </li>
+        {/each}
+      </ol>
+    </div>
   {/if}
 </div>
-
-{#snippet heading(heading: TocHeading)}
-  <a
-    href="#{heading.id}"
-    tabindex="0"
-    style={`--toc-level:${heading.tocLevel};`}
-    class="toc-link ring-on-focus-visible block w-full p-1 group-hover:not-hover:opacity-75 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-    >{heading.text.replace(/`/g, "")}</a
-  >
-{/snippet}
-
-{#snippet list(headings: TocHeading[])}
-  <ol class="group grid">
-    {#each headings as h}
-      {#if h.level > 1}
-        {@render list([{ ...h, level: h.level - 1 }])}
-      {:else}
-        {@render heading(h)}
-      {/if}
-    {/each}
-  </ol>
-{/snippet}
-
-<style>
-  .toc {
-    --toc-indent: 0.75rem;
-    --toc-line-color: rgb(228 228 231);
-  }
-
-  :global(.dark) .toc {
-    --toc-line-color: rgb(63 63 70);
-  }
-
-  .toc-link {
-    position: relative;
-    padding-left: calc(0.25rem + (var(--toc-level, 1) - 1) * var(--toc-indent));
-  }
-
-  .toc-link::before {
-    content: "";
-    position: absolute;
-    left: 0.25rem;
-    top: 0;
-    bottom: 0;
-    width: calc((var(--toc-level, 1) - 1) * var(--toc-indent));
-    background-image: repeating-linear-gradient(
-      to right,
-      var(--toc-line-color) 0 1px,
-      transparent 1px var(--toc-indent)
-    );
-    pointer-events: none;
-  }
-
-  .toc-link:first-child::before {
-    top: 25%;
-  }
-
-  .toc-link:last-child::before {
-    bottom: 25%;
-  }
-
-  .toc-link:first-child:last-child::before {
-    top: 25%;
-    bottom: 25%;
-  }
-</style>
