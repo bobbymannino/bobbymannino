@@ -2,28 +2,15 @@ import { read } from "$app/server";
 import fontRegular from "$lib/inter/inter@400.ttf";
 import fontBold from "$lib/inter/inter@900.ttf";
 import satori from "satori";
-import { html as toReact } from "satori-html";
 import sharp from "sharp";
-import type { Component, ComponentProps } from "svelte";
-import { render } from "svelte/server";
 
-export async function componentToJpeg<T extends Component<any>>(
-  component: T,
-  {
-    props,
-    width,
-    height,
-  }: {
-    props: ComponentProps<T>;
-    width: number;
-    height: number;
-  },
+type Node = Parameters<typeof satori>[0];
+
+export async function nodeToJpeg(
+  node: Node,
+  { width, height }: { width: number; height: number },
 ) {
-  const { body: html } = render(component, { props });
-
-  const reactNode = toReact(html);
-
-  const svg = await satori(reactNode, {
+  const svg = await satori(node, {
     width,
     height,
     fonts: [
@@ -42,7 +29,5 @@ export async function componentToJpeg<T extends Component<any>>(
     ],
   });
 
-  const buffer = Buffer.from(svg);
-
-  return await sharp(buffer).jpeg().toBuffer();
+  return await sharp(Buffer.from(svg)).jpeg().toBuffer();
 }
