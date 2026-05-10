@@ -23,6 +23,7 @@
   const ITEM_H = 32;
   const INDENT = 12;
   const BASE_X = 7;
+  const TEXT_GAP = 12;
 
   const minLevel = $derived(headings.length ? Math.min(...headings.map((h) => h.level)) : 1);
 
@@ -131,9 +132,14 @@
   </button>
 
   {#if isOpen || lg.current}
-    <div class="mt-3 flex">
+    <div class="relative mt-3">
       {#if flatHeadings.length > 0}
-        <svg width={svgWidth} height={svgHeight} class="shrink-0 overflow-visible" aria-hidden="true">
+        <svg
+          width={svgWidth}
+          height={svgHeight}
+          class="pointer-events-none absolute top-0 left-0 overflow-visible"
+          aria-hidden="true"
+        >
           {#if pathInfo.d}
             <path
               d={pathInfo.d}
@@ -158,13 +164,14 @@
         </svg>
       {/if}
 
-      <ol class="min-w-0 flex-1">
+      <ol class="min-w-0">
         {#each flatHeadings as h}
           <li style:height="{ITEM_H}px" class="flex items-center">
             <a
               href="#{h.id}"
+              style:padding-left="{xOf(h.tocLevel) + TEXT_GAP}px"
               class={[
-                "ring-on-focus-visible block w-full truncate px-2 text-sm transition-colors duration-300",
+                "ring-on-focus-visible block w-full truncate pr-2 text-sm transition-colors duration-300",
                 activeId === h.id ? "text-accent-600 opacity-100" : "opacity-50 hover:opacity-80",
               ]}
             >
