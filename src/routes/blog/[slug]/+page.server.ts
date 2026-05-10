@@ -11,7 +11,15 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   const prevPost = posts[postIdx - 1];
   const nextPost = posts[postIdx + 1];
 
-  return { post: posts[postIdx], prevPost, nextPost };
+  const post = posts[postIdx];
+  const relatedPosts = posts
+    .filter(
+      (p, i) =>
+        i !== postIdx && p.meta.tags.some((t) => post.meta.tags.includes(t)),
+    )
+    .slice(0, 2);
+
+  return { post, prevPost, nextPost, relatedPosts };
 };
 
 export const entries: EntryGenerator = () => {
