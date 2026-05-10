@@ -43,6 +43,7 @@
     <button
       onclick={copy}
       tabindex="0"
+      title="Copy code to the clipboard"
       class="hover:text-accent-600 ring-on-focus-visible active:text-accent-700 flex cursor-pointer items-center gap-1 active:scale-95"
     >
       {#if copied}

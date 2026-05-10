@@ -85,6 +85,7 @@
       class="hover:text-accent-600 ring-on-focus-visible active:text-accent-700 inline-flex cursor-pointer items-center gap-1 active:scale-95"
       onclick={share}
       tabindex="0"
+      title="Share this post"
     >
       {#if canShare}
         <ShareIcon class="size-5" />
