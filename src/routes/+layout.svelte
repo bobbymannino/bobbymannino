@@ -13,14 +13,10 @@
   let { children }: LayoutProps = $props();
 
   onMount(() => {
-    console.log(
-      "%cbobman.dev",
-      "font-weight:900;font-size:2.5rem;color:#0675ff",
-    );
+    console.log("%cbobman.dev", "font-weight:900;font-size:2.5rem;color:#0675ff");
     console.log("%cyou found me 👋", "font-size:1rem;color:green");
 
-    if (page.url.searchParams.has("query"))
-      searchModal.open(page.url.searchParams.get("query"));
+    if (page.url.searchParams.has("query")) searchModal.open(page.url.searchParams.get("query"));
   });
 
   let searchModal: { open: (query?: string | null) => void } = $state({
@@ -30,7 +26,6 @@
 
 <Analytics />
 <Meta />
-<!-- <ViewTransitions /> -->
 
 <SearchModal bind:this={searchModal} />
 <Header openSearchModal={searchModal.open} />

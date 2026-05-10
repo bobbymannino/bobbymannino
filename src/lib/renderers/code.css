@@ -30,26 +30,24 @@
   --highlightjs-base0F: #e53935; /* Deprecated, Embedded Tags */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Theme */
-    --highlightjs-base00: #232323; /* Default Background */
-    --highlightjs-base01: #303030; /* Lighter Background */
-    --highlightjs-base02: #353535; /* Selection Background */
-    --highlightjs-base03: #a9a9a9; /* Comments, Invisibles, Line Highlighting */
-    --highlightjs-base04: #b2ccd6; /* Dark Foreground */
-    --highlightjs-base05: #e3e3e3; /* Default Foreground */
-    --highlightjs-base06: #e3e3e3; /* Light Foreground */
-    --highlightjs-base07: #ffffff; /* Light Background */
-    --highlightjs-base08: #f07178; /* Variables, XML Tags */
-    --highlightjs-base09: #f78c6c; /* Integers, Constants */
-    --highlightjs-base0A: #ffcb6b; /* Classes, Bold Text */
-    --highlightjs-base0B: #c3e88d; /* Strings, Markup Code */
-    --highlightjs-base0C: #89ddff; /* Support, Escape Characters */
-    --highlightjs-base0D: #82aaff; /* Functions, Methods */
-    --highlightjs-base0E: #c792ea; /* Keywords, Selectors */
-    --highlightjs-base0F: #ff5370; /* Deprecated, Embedded Tags */
-  }
+:root.dark {
+  /* Dark Theme */
+  --highlightjs-base00: #232323; /* Default Background */
+  --highlightjs-base01: #303030; /* Lighter Background */
+  --highlightjs-base02: #353535; /* Selection Background */
+  --highlightjs-base03: #a9a9a9; /* Comments, Invisibles, Line Highlighting */
+  --highlightjs-base04: #b2ccd6; /* Dark Foreground */
+  --highlightjs-base05: #e3e3e3; /* Default Foreground */
+  --highlightjs-base06: #e3e3e3; /* Light Foreground */
+  --highlightjs-base07: #ffffff; /* Light Background */
+  --highlightjs-base08: #f07178; /* Variables, XML Tags */
+  --highlightjs-base09: #f78c6c; /* Integers, Constants */
+  --highlightjs-base0A: #ffcb6b; /* Classes, Bold Text */
+  --highlightjs-base0B: #c3e88d; /* Strings, Markup Code */
+  --highlightjs-base0C: #89ddff; /* Support, Escape Characters */
+  --highlightjs-base0D: #82aaff; /* Functions, Methods */
+  --highlightjs-base0E: #c792ea; /* Keywords, Selectors */
+  --highlightjs-base0F: #ff5370; /* Deprecated, Embedded Tags */
 }
 
 pre code.hljs {

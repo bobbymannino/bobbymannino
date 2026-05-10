@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-accent-50: #edf8ff;
   --color-accent-100: #d6eeff;
@@ -92,7 +94,7 @@
     line-height: 1.13;
     color: var(--color-zinc-900);
 
-    @media (prefers-color-scheme: dark) {
+    :where(.dark) & {
       color: var(--color-zinc-100);
     }
   }
@@ -106,7 +108,7 @@
     line-height: 1.1;
     color: var(--color-zinc-800);
 
-    @media (prefers-color-scheme: dark) {
+    :where(.dark) & {
       color: var(--color-zinc-200);
     }
   }
@@ -137,7 +139,7 @@
       @apply text-accent-600 hover:underline;
     }
 
-    @media (prefers-color-scheme: dark) {
+    :where(.dark) & {
       color: var(--color-zinc-200);
     }
   }
@@ -147,7 +149,7 @@
     border: none;
     background-color: var(--color-zinc-200);
 
-    @media (prefers-color-scheme: dark) {
+    :where(.dark) & {
       background-color: var(--color-zinc-800);
     }
   }
@@ -167,7 +169,7 @@
   width: 100%;
   color: var(--color-zinc-900);
 
-  @media (prefers-color-scheme: dark) {
+  :where(.dark) & {
     background-color: var(--color-zinc-700);
     color: var(--color-zinc-200);
   }
@@ -229,7 +231,7 @@
     margin-block-start: calc(var(--spacing) * 4);
   }
 
-  @media (prefers-color-scheme: dark) {
+  :where(.dark) & {
     background-color: var(--color-zinc-900);
   }
 

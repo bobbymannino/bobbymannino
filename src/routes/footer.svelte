@@ -1,14 +1,13 @@
 <script lang="ts">
   import { browser } from "$app/environment";
   import { socials } from "$lib/socials";
+  import ThemeButtonGroup from "./theme-button-group.svelte";
 
-  const cmdOrCtrl = $derived(
-    browser && navigator.platform.includes("Mac") ? "⌘" : "Ctrl",
-  );
+  const cmdOrCtrl = $derived(browser && navigator.platform.startsWith("Mac") ? "⌘" : "Ctrl");
 </script>
 
 <footer class="bg-white dark:bg-zinc-900">
-  <div class="wrap container flex items-center justify-between">
+  <div class="wrap container flex flex-wrap items-center justify-between gap-4">
     <div class="flex items-center gap-2">
       {#each socials as { href, icon: Icon, title }}
         <a
@@ -26,6 +25,7 @@
         <small>&copy; bobman.dev {new Date().getFullYear()}</small>
       </p>
     </div>
+    <ThemeButtonGroup />
     <div class="not-hoverable:hidden">
       <kbd>{cmdOrCtrl}</kbd>
       <kbd>K</kbd>
