@@ -20,6 +20,7 @@
   import Meta from "$components/meta.svelte";
   import { PUBLIC_URL } from "$env/static/public";
   import type { PageProps } from "./$types";
+  import Comments from "./comments.svelte";
   import Info from "./info.svelte";
   import NextPrev from "./next-prev.svelte";
   import RelatedPosts from "./related-posts.svelte";
@@ -86,5 +87,7 @@
     </div>
 
     <RelatedPosts posts={data.relatedPosts} />
+
+    <Comments />
   </div>
 </div>
