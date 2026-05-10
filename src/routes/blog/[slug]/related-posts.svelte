@@ -10,7 +10,8 @@
 
 {#if posts.length > 0}
   <section class="card space-y-4">
-    <h2>Related posts</h2>
+    <h2 id="related-posts"><a href="#related-posts" class="hover:underline">Related posts</a></h2>
+
     <ul class="grid gap-4">
       {#each posts as post}
         <li>

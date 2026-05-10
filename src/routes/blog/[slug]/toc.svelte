@@ -5,9 +5,16 @@
 
   type Props = {
     headings: Heading[];
+    showRelatedPostsLink: boolean;
   };
 
-  let { headings }: Props = $props();
+  let props: Props = $props();
+  const headings = $derived.by(() => {
+    let { headings } = props;
+    if (props.showRelatedPostsLink) headings = [...headings, { id: "related-posts", level: 1, text: "Related Posts" }];
+    headings = [...headings, { id: "comments", level: 1, text: "Comments" }];
+    return headings;
+  });
 
   const lg = new MediaQuery("width >= 64rem", false);
   let isOpen = $state(false);

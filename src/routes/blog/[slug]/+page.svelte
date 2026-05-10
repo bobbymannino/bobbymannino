@@ -51,7 +51,7 @@
 <Timeline />
 <div class="container grid-cols-[17rem_1fr] gap-6 lg:grid">
   <aside class="top-22 h-fit lg:sticky">
-    <Toc {headings} />
+    <Toc {headings} showRelatedPostsLink={data.relatedPosts.length > 0} />
   </aside>
 
   <div class="space-y-6">
