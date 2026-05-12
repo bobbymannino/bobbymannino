@@ -8,6 +8,9 @@
       document.startViewTransition(async () => {
         resolve();
         await navigation.complete;
+        if (navigation.type === "link" && !navigation.to?.url.hash) {
+          window.scrollTo({ top: 0 });
+        }
       });
     });
   });
