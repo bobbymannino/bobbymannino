@@ -1,0 +1,7 @@
+[run]
+# Equivalent to always passing `--bun`, aliases `node` to `bun` for all scripts
+bun = true
+
+[install]
+# Only install package versions published at least 3 days ago (3 * 24 * 3600 = 259200s)
+minimumReleaseAge = 259200
