@@ -2,14 +2,13 @@
 title: "10 Usability Heuristics"
 publishedOn: 2025-03-04
 tagline: "Learn Jakob Nielsen's 10 usability heuristics for user interface design"
-tags: ["hci", 'ui', 'ux']
+tags: ["hci", "ui", "ux"]
 ---
 
 # 10 Usability Heuristics
 
 These 10 principles are designed to guide the design of user interfaces that are
-easy to use and understand. They were set out by a man called Jakob Nielsen in
-1994.
+easy to use and understand. They were set out by a man called Jakob Nielsen in 1994.
 
 ## 1. Visibility of System Status
 
@@ -66,7 +65,7 @@ dig in memory for something.
 
 ## 7. Flexibility and Efficiency
 
-The world is *very* big, there are lots of people, and those people have
+The world is _very_ big, there are lots of people, and those people have
 different ways of completing the same task. Some people live by the keyboard and
 do not like using a mouse, some people like a trackpad and gestures.
 

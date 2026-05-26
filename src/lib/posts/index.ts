@@ -8,9 +8,7 @@ import * as v from "valibot";
  */
 export function listPosts() {
   try {
-    const rawPosts = Object.entries(
-      import.meta.glob("./*.md", { eager: true, query: "?raw" }),
-    );
+    const rawPosts = Object.entries(import.meta.glob("./*.md", { eager: true, query: "?raw" }));
 
     const allPosts = rawPosts.map(([path, module]) => {
       return parsePost(module.default, path);
@@ -23,9 +21,7 @@ export function listPosts() {
         })
       : allPosts.filter((post) => !!post.meta.publishedOn);
 
-    return publishedPosts.sort(
-      (a, b) => b.meta.publishedOn.getTime() - a.meta.publishedOn.getTime(),
-    );
+    return publishedPosts.sort((a, b) => b.meta.publishedOn.getTime() - a.meta.publishedOn.getTime());
   } catch {
     return [];
   }

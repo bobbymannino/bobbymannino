@@ -3,10 +3,7 @@
   import Meta from "$components/meta.svelte";
 </script>
 
-<Meta
-  title="Error {page.status} | Bobby Mannino"
-  description="Something has gone wrong"
-/>
+<Meta title="Error {page.status} | Bobby Mannino" description="Something has gone wrong" />
 
 <div class="container">
   <div class="card">

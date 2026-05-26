@@ -11,10 +11,7 @@
   function handleKeyDown(event: KeyboardEvent) {
     if (event.key == "Meta") isMetaKeyPressed = true;
 
-    if (
-      (isMetaKeyPressed || event.ctrlKey) &&
-      event.key.toLowerCase() === "k"
-    ) {
+    if ((isMetaKeyPressed || event.ctrlKey) && event.key.toLowerCase() === "k") {
       event.preventDefault();
       open();
 
@@ -42,12 +39,7 @@
 
 <svelte:window onkeydown={handleKeyDown} onkeyup={handleKeyUp} />
 
-<dialog
-  {id}
-  {onclose}
-  bind:this={dialog}
-  class="w-full max-w-full touch-none bg-transparent pt-6 backdrop:bg-black/50"
->
+<dialog {id} {onclose} bind:this={dialog} class="w-full max-w-full touch-none bg-transparent pt-6 backdrop:bg-black/50">
   <div class="mx-auto w-full max-w-prose bg-zinc-50 p-6 dark:bg-zinc-800">
     {@render children()}
   </div>

@@ -1,8 +1,4 @@
-import {
-  PUBLIC_EMAIL,
-  PUBLIC_GITHUB_URL,
-  PUBLIC_LINKEDIN_URL,
-} from "$env/static/public";
+import { PUBLIC_EMAIL, PUBLIC_GITHUB_URL, PUBLIC_LINKEDIN_URL } from "$env/static/public";
 import EnvelopeIcon from "$lib/icons/envelope-icon.svelte";
 import GithubIcon from "$lib/icons/github.svelte";
 import LinkedinIcon from "$lib/icons/linkedin-icon.svelte";

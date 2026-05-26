@@ -35,9 +35,7 @@
       <span class="opacity-33">{year}</span>
     </span>
     <br />
-    <span class="font-xs text-zinc-600 dark:text-zinc-400"
-      >{new Intl.ListFormat().format(languages)}</span
-    >
+    <span class="font-xs text-zinc-600 dark:text-zinc-400">{new Intl.ListFormat().format(languages)}</span>
   </div>
 
   <div

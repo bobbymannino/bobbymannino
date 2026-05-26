@@ -44,10 +44,7 @@
     {:then src}
       <img {src} {alt} class={["w-full", klass]} />
     {:catch error}
-      <div
-        class={["flex-center w-full bg-gray-200", klass]}
-        aria-label="Failed to load image"
-      >
+      <div class={["flex-center w-full bg-gray-200", klass]} aria-label="Failed to load image">
         <PictureCrossedOutIcon />
       </div>
     {/await}
@@ -57,11 +54,7 @@
 </div>
 
 {#snippet loading()}
-  <div
-    class={["flex-center w-full animate-pulse bg-gray-200", klass]}
-    aria-busy="true"
-    aria-label="Loading image..."
-  >
+  <div class={["flex-center w-full animate-pulse bg-gray-200", klass]} aria-busy="true" aria-label="Loading image...">
     <LoaderIcon class="animate-spin" />
   </div>
 {/snippet}

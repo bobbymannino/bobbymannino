@@ -21,9 +21,7 @@
     modal.open();
   }
 
-  function handleInputKeyDown(
-    event: KeyboardEvent & { currentTarget: HTMLInputElement },
-  ) {
+  function handleInputKeyDown(event: KeyboardEvent & { currentTarget: HTMLInputElement }) {
     if (event.key == "Escape") {
       event.preventDefault();
       modal.close();
@@ -34,11 +32,8 @@
     }
   }
 
-  function handleWindowKeyDown(
-    event: KeyboardEvent & { currentTarget: Window },
-  ) {
-    if (!document.querySelector<HTMLDialogElement>("#search-modal")?.open)
-      return;
+  function handleWindowKeyDown(event: KeyboardEvent & { currentTarget: Window }) {
+    if (!document.querySelector<HTMLDialogElement>("#search-modal")?.open) return;
 
     const results = document.querySelectorAll("#search-modal-results li");
 
@@ -55,9 +50,7 @@
         results[0].querySelector("a").focus();
       }
     } else {
-      const current = [...results].find((result) =>
-        result.querySelector("a")?.matches(":focus"),
-      );
+      const current = [...results].find((result) => result.querySelector("a")?.matches(":focus"));
 
       if (current) {
         if (event.key == "ArrowUp") {
@@ -133,8 +126,7 @@
             </b>
           </p>
           <p class="group-hover:underline">
-            {post.meta.publishedOn.toLocaleDateString()} • {post.meta
-              .readingTime} min read
+            {post.meta.publishedOn.toLocaleDateString()} • {post.meta.readingTime} min read
           </p>
         </a>
       </li>

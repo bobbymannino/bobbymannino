@@ -27,15 +27,14 @@
         href={resolve("/blog")}
         class="text-accent-600 ring-on-focus-visible hover:underline"
         tabindex="0">blog</a
-      > for things or projects that have interested me, to me its like a notebook
-      of sorts, written in such a way that i can understand and revise quicker then
-      i could reading somebody elses blog.
+      > for things or projects that have interested me, to me its like a notebook of sorts, written in such a way that i can
+      understand and revise quicker then i could reading somebody elses blog.
     </p>
 
     <div>
       <h4 class="opacity-40">Latest Post</h4>
       <a
-        href={resolve("/blog/[slug]", { slug:latestBlogPost.meta.slug })}
+        href={resolve("/blog/[slug]", { slug: latestBlogPost.meta.slug })}
         class="ring-on-focus-visible group mt-2 block"
       >
         <h3 class="group-hover:underline">{latestBlogPost.meta.title}</h3>

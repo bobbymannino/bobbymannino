@@ -20,9 +20,7 @@
     href="/blog/{nextPost.meta.slug}"
     rel="noreferrer noopener"
   >
-    <ChevronLeftIcon
-      class="size-6 translate-x-2 transition-transform group-hover:translate-x-0"
-    />
+    <ChevronLeftIcon class="size-6 translate-x-2 transition-transform group-hover:translate-x-0" />
     <span>{nextPost.meta.title}</span>
   </a>
 {/if}
@@ -34,8 +32,6 @@
     rel="noreferrer noopener"
   >
     <span>{prevPost.meta.title}</span>
-    <ChevronRightIcon
-      class="size-6 transition-transform not-motion-reduce:-translate-x-2 group-hover:translate-x-0"
-    />
+    <ChevronRightIcon class="size-6 transition-transform not-motion-reduce:-translate-x-2 group-hover:translate-x-0" />
   </a>
 {/if}

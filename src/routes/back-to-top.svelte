@@ -2,9 +2,7 @@
   import ChevronUpIcon from "$lib/icons/chevron-up-icon.svelte";
   import { scrollY, innerHeight } from "svelte/reactivity/window";
 
-  const scrolled = $derived(
-    (scrollY.current || 0) > (innerHeight.current || 0) / 2,
-  );
+  const scrolled = $derived((scrollY.current || 0) > (innerHeight.current || 0) / 2);
 </script>
 
 <button

@@ -51,7 +51,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         run: npm install
@@ -85,7 +85,7 @@ jobs:
 
     # List each step in the job
     steps:
-        # The name for the step, this will appear in the GUI on GitHub
+      # The name for the step, this will appear in the GUI on GitHub
       - name: Checkout code
         # The action to use, which refers to a GH repository
         # actions/checkout is a GitHub own action that is used to checkout the
@@ -96,7 +96,7 @@ jobs:
         uses: actions/setup-node@v4
         # Some actions can take in variables that alter the behavior/version
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         # Steps can also take a `run` argument which will run a command on the
@@ -126,7 +126,7 @@ on:
       - main
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 # Job(s) here
 ```

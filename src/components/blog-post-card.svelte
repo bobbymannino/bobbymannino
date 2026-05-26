@@ -7,16 +7,9 @@
   let { meta }: Props = $props();
 </script>
 
-<a
-  href="/blog/{meta.slug}"
-  tabindex="0"
-  class="group ring-on-focus-visible @container block"
->
+<a href="/blog/{meta.slug}" tabindex="0" class="group ring-on-focus-visible @container block">
   <div class="flex-wrap items-start justify-between @lg:flex">
-    <h2
-      class="group-hover:underline"
-      style:--vtn="post-title-{textToId(meta.title)}"
-    >
+    <h2 class="group-hover:underline" style:--vtn="post-title-{textToId(meta.title)}">
       {meta.title}
     </h2>
     <p style:--vtn="post-{meta.slug}-meta">

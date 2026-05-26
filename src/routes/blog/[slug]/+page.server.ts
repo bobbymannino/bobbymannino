@@ -13,10 +13,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 
   const post = posts[postIdx];
   const relatedPosts = posts
-    .filter(
-      (p, i) =>
-        i !== postIdx && p.meta.tags.some((t) => post.meta.tags.includes(t)),
-    )
+    .filter((p, i) => i !== postIdx && p.meta.tags.some((t) => post.meta.tags.includes(t)))
     .slice(0, 2);
 
   return { post, prevPost, nextPost, relatedPosts };

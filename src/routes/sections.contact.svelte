@@ -20,12 +20,7 @@
       {#each socials as { platform, href }}
         <li>
           <h2>
-            <a
-              {href}
-              target="_blank"
-              class="ring-on-focus-visible hover:underline"
-              tabindex="0"
-            >
+            <a {href} target="_blank" class="ring-on-focus-visible hover:underline" tabindex="0">
               #{platform}
             </a>
           </h2>

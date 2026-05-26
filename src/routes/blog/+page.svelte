@@ -69,16 +69,11 @@
       map.set(tag, { text: `#${tag}`, value: tag });
     }
 
-    return Array.from(map.values()).sort((a, b) =>
-      a.text.localeCompare(b.text),
-    );
+    return Array.from(map.values()).sort((a, b) => a.text.localeCompare(b.text));
   });
 </script>
 
-<Meta
-  title="Blog | Bobby Mannino"
-  description="Read posts about what I have learnt or enjoy"
-/>
+<Meta title="Blog | Bobby Mannino" description="Read posts about what I have learnt or enjoy" />
 
 <div class="container">
   <div class="card">
@@ -107,17 +102,9 @@
       >Skip tags</a
     >
 
-    <ChipSelection
-      {chips}
-      bind:selection={tags}
-      name="tags"
-      legend="Filter by tags"
-    />
+    <ChipSelection {chips} bind:selection={tags} name="tags" legend="Filter by tags" />
 
-    <ul
-      class="grid scroll-mt-36 gap-4 sm:scroll-mt-30 md:scroll-mt-26"
-      id="blog-list"
-    >
+    <ul class="grid scroll-mt-36 gap-4 sm:scroll-mt-30 md:scroll-mt-26" id="blog-list">
       {#each filteredPosts as post}
         <li>
           <BlogPostCard {...post} />

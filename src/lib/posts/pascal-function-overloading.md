@@ -15,7 +15,6 @@ or different numbers of arguments. This is called function overloading. Some
 languages do not have this feature (such as JavaScript) but some do (such as
 Pascal).
 
-
 ## Example
 
 This program uses 3 different `Add` functions and the compiler will choose the

@@ -30,7 +30,7 @@ This will only capture specific urls prefixed `http://`, `https://`, `www.`.
 There are regexs for much more complicated urls but for a demonstration this
 will do.
 
-https?://(?<domain>[^/]+)/(?<path>.*)
+https?://(?<domain>[^/]+)/(?<path>.\*)
 
 ### Getting Date Components from a Date
 

@@ -30,22 +30,20 @@
     </h1>
 
     <p>
-      these are technologies i have an interest in or have some amount of
-      knowledge in; <b class="highlight"
+      these are technologies i have an interest in or have some amount of knowledge in; <b class="highlight"
         >{new Intl.ListFormat().format(techs)}</b
       >
     </p>
 
     <p>
-      at the moment i am focusing my attention of learning rust at a level where
-      i would be able to write a full api backend with websockets.
+      at the moment i am focusing my attention of learning rust at a level where i would be able to write a full api
+      backend with websockets.
     </p>
 
     <p>
-      my favorite language to type out would be typescript or sql, i enjoy the
-      complexity of relational databases as well as the simplicity and type
-      safety of typescript. i am also currently really enjoying rust, its strict
-      types and unusual syntax is refreshing and so far i am enjoying it deeply
+      my favorite language to type out would be typescript or sql, i enjoy the complexity of relational databases as
+      well as the simplicity and type safety of typescript. i am also currently really enjoying rust, its strict types
+      and unusual syntax is refreshing and so far i am enjoying it deeply
     </p>
   </div>
 </section>

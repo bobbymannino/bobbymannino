@@ -211,8 +211,7 @@ In this example we are replacing the bad words if the name they are being called
 is 'bob' or 'Bob'
 
 ```typescript
-const str =
-  "Bob is bad. Will is naughty, Tom is naughty, Tom is bad, Bob is good, bob is naughty.";
+const str = "Bob is bad. Will is naughty, Tom is naughty, Tom is bad, Bob is good, bob is naughty.";
 
 const xp = new RegExp(/(?<=(B|b)ob\sis\s)(bad|naughty)/, "g");
 

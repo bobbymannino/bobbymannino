@@ -13,11 +13,7 @@
   const id = $derived(textToId(text));
 </script>
 
-<svelte:element
-  this={`h${depth}`}
-  {id}
-  style={depth == 1 ? `--vtn: post-title-${id}` : ""}
->
+<svelte:element this={`h${depth}`} {id} style={depth == 1 ? `--vtn: post-title-${id}` : ""}>
   <a href="#{id}" class="ring-on-focus-visible hover:underline" tabindex="0">
     {@render children()}
   </a>

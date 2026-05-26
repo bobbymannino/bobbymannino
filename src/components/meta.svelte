@@ -11,13 +11,7 @@
     type?: "website" | "article";
   };
 
-  let {
-    img = `${PUBLIC_URL}/favicon.png`,
-    title,
-    description,
-    tags,
-    type = "website",
-  }: Props = $props();
+  let { img = `${PUBLIC_URL}/favicon.png`, title, description, tags, type = "website" }: Props = $props();
 </script>
 
 <svelte:head>

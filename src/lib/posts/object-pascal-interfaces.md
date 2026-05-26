@@ -17,7 +17,7 @@ reusable.
 
 Interfaces are a really practical way to clump logical methods into smaller
 groups. A simple example would be using them for something like humans,
-employees, managers, CEO where each level up the chain can inherit *some* (not
+employees, managers, CEO where each level up the chain can inherit _some_ (not
 all) the methods below it. What about if an employee wants to increase their
 wage? I think you should not be able to update your own salary so you could
 create an interface that allows you to update other peoples salaries but not

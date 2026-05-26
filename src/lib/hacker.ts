@@ -1,5 +1,4 @@
-const CHARS =
-  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@£$%^&*()_-/\\?~";
+const CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@£$%^&*()_-/\\?~";
 
 const randomChar = () => CHARS[Math.floor(Math.random() * CHARS.length)];
 
@@ -32,9 +31,7 @@ export function hacker(node: HTMLElement, options?: Options) {
         delay: 1000,
       };
 
-  node.textContent = Array.from({ length: textLength })
-    .map(randomChar)
-    .join("");
+  node.textContent = Array.from({ length: textLength }).map(randomChar).join("");
 
   let i = 0;
 

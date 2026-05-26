@@ -1,7 +1,4 @@
-<div
-  aria-hidden="true"
-  class="bg-accent-600 fixed top-0 left-0 z-10 h-1 w-full origin-left"
-></div>
+<div aria-hidden="true" class="bg-accent-600 fixed top-0 left-0 z-10 h-1 w-full origin-left"></div>
 
 <style>
   @keyframes progress {

@@ -80,11 +80,12 @@ function add(a, b) {
 }
 
 function mul(a, b) {
-  return a * b
+  return a * b;
 }
 
 expect(add(mul(1, 2), mul(0, 500))).toBe(2);
 ```
+
 ### System Testing
 
 This type of testing is used when you want to test the entire system, this could

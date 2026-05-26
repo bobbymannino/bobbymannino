@@ -3,9 +3,7 @@ import type { Post } from "$lib/posts";
 import type { RequestHandler } from "./$types";
 
 const title = escapeXml("Bobby Mannino's Blog");
-const description = escapeXml(
-  "Some things I have learnt and would like to remember",
-);
+const description = escapeXml("Some things I have learnt and would like to remember");
 
 const preXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

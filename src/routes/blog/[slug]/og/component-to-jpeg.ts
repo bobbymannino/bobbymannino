@@ -6,10 +6,7 @@ import sharp from "sharp";
 
 type Node = Parameters<typeof satori>[0];
 
-export async function nodeToJpeg(
-  node: Node,
-  { width, height }: { width: number; height: number },
-) {
+export async function nodeToJpeg(node: Node, { width, height }: { width: number; height: number }) {
   const svg = await satori(node, {
     width,
     height,
