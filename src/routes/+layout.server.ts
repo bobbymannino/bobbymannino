@@ -1,5 +1,5 @@
-import type { LayoutServerLoad } from "./$types";
+import { listPosts } from "$lib/posts";
 
 export const prerender = true;
 
-export const load: LayoutServerLoad = ({ locals }) => locals;
+export const load = () => ({ posts: listPosts() });

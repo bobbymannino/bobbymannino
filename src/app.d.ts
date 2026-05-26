@@ -5,9 +5,7 @@ import type { Post } from "$lib/posts";
 declare global {
   namespace App {
     // interface Error {}
-    interface Locals {
-      posts: Post[];
-    }
+    // interface Locals {}
     interface PageData {
       posts: Post[];
     }

@@ -1,12 +1,12 @@
-import type { RequestHandler } from "./$types";
+import { listPosts } from "$lib/posts";
 import { nodeToJpeg } from "./component-to-jpeg";
 import { error } from "@sveltejs/kit";
 
 const width = 738;
 const height = 360;
 
-export const GET: RequestHandler = async ({ params, locals }) => {
-  const post = locals.posts.find((post) => post.meta.slug == params.slug);
+export const GET = async ({ params }) => {
+  const post = listPosts().find((post) => post.meta.slug == params.slug);
   if (!post) error(404, { message: "No post with that slug found" });
 
   const publishedOn = post.meta.publishedOn || new Date();
