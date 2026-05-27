@@ -1,6 +1,6 @@
 import { PUBLIC_EMAIL, PUBLIC_URL } from "$env/static/public";
+import { listPosts } from "$lib/posts";
 import type { Post } from "$lib/posts";
-import type { RequestHandler } from "./$types";
 
 const title = escapeXml("Bobby Mannino's Blog");
 const description = escapeXml("Some things I have learnt and would like to remember");
@@ -46,8 +46,8 @@ function postToXml(post: Post) {
       `;
 }
 
-export const GET: RequestHandler = async ({ locals }) => {
-  return new Response(insertXml(locals.posts.map(postToXml).join("")), {
+export const GET = () => {
+  return new Response(insertXml(listPosts().map(postToXml).join("")), {
     headers: { "Content-Type": "application/rss+xml" },
   });
 };
