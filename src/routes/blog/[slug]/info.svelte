@@ -68,9 +68,7 @@
         title={post.meta.publishedOn.toUTCString()}
         aria-label="Published on"
         class="inline-flex items-center gap-1"
-        datetime="{post.meta.publishedOn.getFullYear()}-{(post.meta.publishedOn.getMonth() + 1)
-          .toFixed()
-          .padStart(2, '0')}-{post.meta.publishedOn.getDate().toFixed().padStart(2, '0')}"
+        datetime={post.meta.publishedOn.toISOString().slice(0, 10)}
       >
         <CalendarIcon class="size-5" />
         {post.meta.publishedOn?.toDateString()}
