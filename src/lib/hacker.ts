@@ -43,8 +43,8 @@ export function hacker(node: HTMLElement, options?: Options) {
         .join("");
   }, 33);
 
-  let decrementInterval: NodeJS.Timer;
-  setTimeout(() => {
+  let decrementInterval: NodeJS.Timeout;
+  const timeout = setTimeout(() => {
     decrementInterval = setInterval(() => {
       i++;
 
@@ -57,6 +57,7 @@ export function hacker(node: HTMLElement, options?: Options) {
   }, _options.delay);
 
   return () => {
+    clearTimeout(timeout);
     clearInterval(shuffleInterval);
     clearInterval(decrementInterval);
   };
