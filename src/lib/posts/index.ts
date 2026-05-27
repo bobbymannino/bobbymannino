@@ -3,7 +3,8 @@ import matter from "gray-matter";
 import * as v from "valibot";
 
 /**
- * Returns an array of posts
+ * Returns an array of posts, newest first
+ *
  * @returns An array of posts
  */
 export function listPosts() {
