@@ -15,10 +15,10 @@
 
 <script lang="ts">
   import { page } from "$app/state";
-  import Image from "$components/image.svelte";
   import Markdown from "$components/markdown.svelte";
   import Meta from "$components/meta.svelte";
   import { PUBLIC_URL } from "$env/static/public";
+  import type { Picture } from "@sveltejs/enhanced-img";
   import type { PageProps } from "./$types";
   import Comments from "./comments.svelte";
   import Info from "./info.svelte";
@@ -32,6 +32,35 @@
   let headings: Heading[] = $state([]);
 
   const url = $derived(PUBLIC_URL + page.url.pathname);
+
+  const thumbnails = import.meta.glob<{ default: Picture }>(
+    "/src/lib/images/blog/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
+    { eager: true, query: { enhanced: true, w: "640;1280" } },
+  );
+
+  const thumbnailUrls = import.meta.glob<string>("/src/lib/images/blog/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}", {
+    eager: true,
+    // query: "?url",
+    import: "default",
+  });
+
+  const thumbnailPlaceholders = import.meta.glob<string>(
+    "/src/lib/images/blog/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
+    { eager: true, query: { w: "60", blur: "2", format: "webp", inline: true }, import: "default" },
+  );
+
+  const thumbnail = $derived.by(() => {
+    const src = data.post.meta.thumbnailSrc;
+    if (!src) return null;
+    const key = Object.keys(thumbnails).find((k) => k.endsWith(`/${src}`));
+    if (!key) return null;
+    console.log(thumbnailPlaceholders[key]);
+    return {
+      picture: thumbnails[key].default,
+      url: thumbnailUrls[key],
+      placeholder: thumbnailPlaceholders[key],
+    };
+  });
 </script>
 
 <svelte:head>
@@ -61,12 +90,15 @@
       <hr />
 
       <article class="space-y-4 md:space-y-6">
-        {#if data.post.meta.thumbnailSrc}
-          <a href={data.post.meta.thumbnailSrc} target="_blank" class="block" title="Open image in new tab">
-            <Image
-              src="/blog/{data.post.meta.thumbnailSrc}"
+        {#if thumbnail}
+          <a href={thumbnail.url} target="_blank" rel="noopener noreferrer" class="block" title="Open image in new tab">
+            <enhanced:img
+              src={thumbnail.picture}
               alt={data.post.meta.thumbnailAlt}
-              class="aspect-blog-img object-cover"
+              sizes="(max-width: 768px) 100vw, 1280px"
+              style="background-image:url({thumbnail.placeholder});background-size:cover;background-position:center;"
+              class="aspect-blog-img w-full object-cover"
+              fetchpriority="high"
             />
           </a>
         {/if}
