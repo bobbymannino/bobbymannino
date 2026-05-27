@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import type { Snippet } from "svelte";
   import hljs from "highlight.js";
   import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
@@ -16,14 +15,11 @@
 
   let { text, lang }: Props = $props();
 
-  let html = $derived(text);
+  const html = $derived(
+    hljs.getLanguage(lang) ? hljs.highlight(text, { language: lang }).value : hljs.highlightAuto(text).value,
+  );
   let copied = $state(false);
   let timer: null | NodeJS.Timeout = $state(null);
-
-  onMount(() => {
-    const code = hljs.highlight(text, { language: lang });
-    html = code.value;
-  });
 
   function copy() {
     copied = true;
