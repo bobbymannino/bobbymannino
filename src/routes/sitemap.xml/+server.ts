@@ -1,8 +1,10 @@
 import { PUBLIC_URL } from "$env/static/public";
-import { listPosts } from "$lib/posts";
+import { listPostsMeta } from "$lib/posts";
 
-export const GET = () => {
-  const posts = listPosts();
+export const prerender = true;
+
+export const GET = async () => {
+  const posts = await listPostsMeta();
 
   return new Response(
     `<?xml version="1.0" encoding="UTF-8" ?>

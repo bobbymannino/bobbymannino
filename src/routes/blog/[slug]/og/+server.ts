@@ -1,4 +1,4 @@
-import { listPosts } from "$lib/posts";
+import { getPost } from "$lib/posts";
 import { nodeToJpeg } from "./component-to-jpeg";
 import { error } from "@sveltejs/kit";
 
@@ -6,7 +6,7 @@ const width = 738;
 const height = 360;
 
 export const GET = async ({ params, url }) => {
-  const post = listPosts().find((post) => post.meta.slug == params.slug);
+  const post = await getPost(params.slug);
   if (!post) error(404, { message: "No post with that slug found" });
 
   const dark = url.searchParams.has("dark");

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Post } from "$lib/posts";
+  import type { PostPreview } from "$lib/posts";
   import { textToId } from "../routes/blog/[slug]/+page.svelte";
 
-  type Props = Post;
+  type Props = PostPreview;
 
   let { meta }: Props = $props();
 </script>

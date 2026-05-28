@@ -3,29 +3,40 @@ import matter from "gray-matter";
 import * as v from "valibot";
 
 /**
- * Returns an array of posts, newest first
- *
- * @returns An array of posts
+ * Lazy per-file loaders for the raw markdown. Because the glob is *not* eager,
+ * a post's body is only imported when its loader is invoked, so an individual
+ * post page pulls in just its own markdown instead of every post's content.
  */
-export function listPosts() {
-  try {
-    const rawPosts = Object.entries(import.meta.glob("./*.md", { eager: true, query: "?raw" }));
+const postFiles = import.meta.glob("./*.md", { query: "?raw", import: "default" }) as Record<
+  string,
+  () => Promise<string>
+>;
 
-    const allPosts = rawPosts.map(([path, module]) => {
-      return parsePost(module.default, path);
-    });
+const stringSchema = v.pipe(v.string(), v.trim(), v.minLength(1));
 
-    const publishedPosts = dev
-      ? allPosts.map((p) => {
-          if (p.meta.publishedOn) return p;
-          return { ...p, meta: { ...p.meta, publishedOn: new Date() } };
-        })
-      : allPosts.filter((post) => !!post.meta.publishedOn);
+const metaSchema = v.object({
+  title: stringSchema,
+  publishedOn: v.optional(v.date()),
+  tagline: stringSchema,
+  slug: stringSchema,
+  tags: v.fallback(v.array(stringSchema), []),
+  thumbnailSrc: v.optional(stringSchema),
+  thumbnailAlt: v.optional(stringSchema),
+  readingTime: v.number(),
+});
 
-    return publishedPosts.sort((a, b) => b.meta.publishedOn.getTime() - a.meta.publishedOn.getTime());
-  } catch {
-    return [];
-  }
+const postSchema = v.object({
+  content: stringSchema,
+  meta: metaSchema,
+});
+
+export type PostMeta = v.InferOutput<typeof metaSchema>;
+/** A post without its (potentially large) markdown body. */
+export type PostPreview = { meta: PostMeta };
+export type Post = v.InferOutput<typeof postSchema>;
+
+function pathToSlug(path: string): string {
+  return path.slice(2, -3);
 }
 
 /**
@@ -42,42 +53,82 @@ function calculateReadingTime(content: string, wordsPerMinute = 100): number {
 }
 
 /**
- * Given a path to a post, will return the content of the file
+ * Parses a raw markdown file (frontmatter + body) into a fully typed post.
  *
- * @param content The path to the file
- * @returns A string containing the contents of the file
+ * @param raw The raw contents of the markdown file
+ * @param path The glob path of the file, used to derive the slug
+ * @returns The parsed post
  */
-function parsePost(content: string, path: string) {
-  const slug = path.slice(2, -3);
-  const raw = matter(content);
-  const readingTime = calculateReadingTime(raw.content);
+function parsePost(raw: string, path: string): Post {
+  const slug = pathToSlug(path);
+  const parsed = matter(raw);
+  const readingTime = calculateReadingTime(parsed.content);
 
-  const parsed = v.safeParse(postSchema, {
-    content: raw.content,
-    meta: { ...raw.data, slug, readingTime },
+  const result = v.safeParse(postSchema, {
+    content: parsed.content,
+    meta: { ...parsed.data, slug, readingTime },
   });
 
-  if (!parsed.success) {
-    throw new Error(`Cannot parse file '${content}'`);
+  if (!result.success) {
+    throw new Error(`Cannot parse post '${slug}'`);
   }
 
-  return parsed.output;
+  return result.output;
 }
 
-const stringSchema = v.pipe(v.string(), v.trim(), v.minLength(1));
+/** In dev, posts without a publish date are treated as published "now". */
+function withDevDate<T extends PostPreview>(post: T): T {
+  if (!dev || post.meta.publishedOn) return post;
+  return { ...post, meta: { ...post.meta, publishedOn: new Date() } };
+}
 
-const postSchema = v.object({
-  content: stringSchema,
-  meta: v.object({
-    title: stringSchema,
-    publishedOn: v.optional(v.date()),
-    tagline: stringSchema,
-    slug: stringSchema,
-    tags: v.fallback(v.array(stringSchema), []),
-    thumbnailSrc: v.optional(stringSchema),
-    thumbnailAlt: v.optional(stringSchema),
-    readingTime: v.number(),
-  }),
-});
+function isPublished(post: PostPreview): boolean {
+  return dev || !!post.meta.publishedOn;
+}
 
-export type Post = v.InferOutput<typeof postSchema>;
+function byNewest(a: PostPreview, b: PostPreview): number {
+  return (b.meta.publishedOn?.getTime() ?? 0) - (a.meta.publishedOn?.getTime() ?? 0);
+}
+
+/**
+ * Returns lightweight metadata for every published post, newest first.
+ *
+ * The markdown body is intentionally omitted so it is never serialized to
+ * pages that only need to list or link posts.
+ *
+ * @returns An array of post metadata
+ */
+export async function listPostsMeta(): Promise<PostPreview[]> {
+  try {
+    const posts = await Promise.all(
+      Object.entries(postFiles).map(async ([path, load]) => parsePost(await load(), path)),
+    );
+
+    return posts
+      .map(withDevDate)
+      .filter(isPublished)
+      .sort(byNewest)
+      .map(({ meta }) => ({ meta }));
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Loads a single post including its markdown body, lazily importing only that
+ * post's file.
+ *
+ * @param slug The slug of the post to load
+ * @returns The post, or null if it does not exist or is not published
+ */
+export async function getPost(slug: string): Promise<Post | null> {
+  const entry = Object.entries(postFiles).find(([path]) => pathToSlug(path) === slug);
+  if (!entry) return null;
+
+  const [path, load] = entry;
+  const post = withDevDate(parsePost(await load(), path));
+
+  if (!isPublished(post)) return null;
+
+  return post;
+}

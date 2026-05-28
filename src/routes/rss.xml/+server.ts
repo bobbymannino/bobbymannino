@@ -1,6 +1,8 @@
 import { PUBLIC_EMAIL, PUBLIC_URL } from "$env/static/public";
-import { listPosts } from "$lib/posts";
-import type { Post } from "$lib/posts";
+import { listPostsMeta } from "$lib/posts";
+import type { PostPreview } from "$lib/posts";
+
+export const prerender = true;
 
 const title = escapeXml("Bobby Mannino's Blog");
 const description = escapeXml("Some things I have learnt and would like to remember");
@@ -28,8 +30,9 @@ function escapeXml(raw: string) {
     .replace(/'/g, "&apos;");
 }
 
-function postToXml(post: Post) {
-  const { title, tagline, publishedOn, slug } = post.meta;
+function postToXml(post: PostPreview) {
+  const { title, tagline, slug } = post.meta;
+  const publishedOn = post.meta.publishedOn ?? new Date();
   const url = `${PUBLIC_URL}/blog/${slug}`;
 
   return `
@@ -46,8 +49,10 @@ function postToXml(post: Post) {
       `;
 }
 
-export const GET = () => {
-  return new Response(insertXml(listPosts().map(postToXml).join("")), {
+export const GET = async () => {
+  const posts = await listPostsMeta();
+
+  return new Response(insertXml(posts.map(postToXml).join("")), {
     headers: { "Content-Type": "application/rss+xml" },
   });
 };

@@ -1,4 +1,4 @@
-import { listPosts } from "$lib/posts/index.js";
+import { listPostsMeta } from "$lib/posts/index.js";
 import { error } from "@sveltejs/kit";
 
 export const load = async ({ parent, params }) => {
@@ -11,8 +11,8 @@ export const load = async ({ parent, params }) => {
   return { posts: filtered, tag };
 };
 
-export const entries = () => {
-  const posts = listPosts();
+export const entries = async () => {
+  const posts = await listPostsMeta();
   const tags = [...new Set(posts.map((p) => p.meta.tags).flat())];
 
   return tags.map((tag) => ({ tag: tag.replace(/\//g, "-") }));
