@@ -19,6 +19,7 @@
     tabindex="0"
     href="/blog/{prevPost.meta.slug}"
     rel="noreferrer noopener"
+    title="Previous post"
   >
     <ChevronLeftIcon class="size-6 translate-x-2 transition-transform group-hover:translate-x-0" />
     <span>{prevPost.meta.title}</span>
@@ -30,6 +31,7 @@
     tabindex="0"
     href="/blog/{nextPost.meta.slug}"
     rel="noreferrer noopener"
+    title="Next post"
   >
     <span>{nextPost.meta.title}</span>
     <ChevronRightIcon class="size-6 transition-transform not-motion-reduce:-translate-x-2 group-hover:translate-x-0" />
