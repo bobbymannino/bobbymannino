@@ -6,6 +6,7 @@
   import ShareIcon from "$lib/icons/share-icon.svelte";
   import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
   import CheckIcon from "$lib/icons/check-icon.svelte";
+  import { findSeries } from "$lib/series";
 
   type Post = App.PageData["posts"][number];
 
@@ -18,6 +19,7 @@
   const canShare = $derived(typeof navigator !== "undefined" && "share" in navigator);
 
   let copied = $state(false);
+  const series = $derived(post.meta.series ? findSeries(post.meta.series) : null);
 
   async function share() {
     const url = PUBLIC_URL + page.url.pathname;
@@ -45,23 +47,37 @@
 </script>
 
 <div class="flex flex-wrap items-center justify-between gap-2">
-  <ul class="flex flex-wrap gap-2">
-    {#each post.meta.tags as tag}
-      <li>
-        <p>
-          <a
-            rel="noopener noreferrer"
-            tabindex="0"
-            style:--vtn="post-{post.meta.slug}-tags-{tag}"
-            href="/blog/tags/{tag.replace(/\//g, '-')}"
-            class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
-          >
-            #{tag}
-          </a>
-        </p>
-      </li>
-    {/each}
-  </ul>
+  <div class="space-y-1">
+    {#if series}
+      <p>
+        <a
+          rel="noopener noreferrer"
+          tabindex="0"
+          href="/series/{series.slug}"
+          class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
+        >
+          Series: {series.title}
+        </a>
+      </p>
+    {/if}
+    <ul class="flex flex-wrap gap-2">
+      {#each post.meta.tags as tag}
+        <li>
+          <p>
+            <a
+              rel="noopener noreferrer"
+              tabindex="0"
+              style:--vtn="post-{post.meta.slug}-tags-{tag}"
+              href="/blog/tags/{tag.replace(/\//g, '-')}"
+              class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
+            >
+              #{tag}
+            </a>
+          </p>
+        </li>
+      {/each}
+    </ul>
+  </div>
   <div class="flex items-center gap-2 text-zinc-500">
     <span style:--vtn="post-{post.meta.slug}-meta">
       <time

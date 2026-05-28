@@ -73,6 +73,7 @@ const postSchema = v.object({
     publishedOn: v.optional(v.date()),
     tagline: stringSchema,
     slug: stringSchema,
+    series: v.optional(stringSchema),
     tags: v.fallback(v.array(stringSchema), []),
     thumbnailSrc: v.optional(stringSchema),
     thumbnailAlt: v.optional(stringSchema),
