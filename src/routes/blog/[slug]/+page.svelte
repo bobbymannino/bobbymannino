@@ -40,7 +40,6 @@
 
   const thumbnailUrls = import.meta.glob<string>("/src/lib/images/blog/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}", {
     eager: true,
-    // query: "?url",
     import: "default",
   });
 

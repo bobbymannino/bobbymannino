@@ -53,7 +53,7 @@
             rel="noopener noreferrer"
             tabindex="0"
             style:--vtn="post-{post.meta.slug}-tags-{tag}"
-            href="/blog?tags={tag}"
+            href="/blog/tags/{tag.replace(/\//g, '-')}"
             class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
           >
             #{tag}
