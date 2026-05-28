@@ -1,8 +1,9 @@
 import { PUBLIC_URL } from "$env/static/public";
 import { listPosts } from "$lib/posts";
-import type { RequestHandler } from "./$types";
 
-export const GET: RequestHandler = () => {
+export const GET = () => {
+  const posts = listPosts();
+
   return new Response(
     `<?xml version="1.0" encoding="UTF-8" ?>
 		<urlset
@@ -20,13 +21,26 @@ export const GET: RequestHandler = () => {
 			<url>
 			  <loc>${PUBLIC_URL}/blog/</loc>
 				<priority>0.8</priority>
-			</url>${listPosts()
+			</url>
+			<url>
+			  <loc>${PUBLIC_URL}/blog/tags/</loc>
+				<priority>0.7</priority>
+			</url>${posts
         .map(
           (p) =>
             `
 			<url>
 			  <loc>${PUBLIC_URL}/blog/${p.meta.slug}/</loc>
 				<priority>0.8</priority>
+			</url>`,
+        )
+        .join("")}${[...new Set(posts.flatMap((p) => p.meta.tags))]
+        .map(
+          (t) =>
+            `
+			<url>
+			  <loc>${PUBLIC_URL}/blog/tags/${t}/</loc>
+				<priority>0.6</priority>
 			</url>`,
         )
         .join("")}
