@@ -54,7 +54,6 @@
     if (!src) return null;
     const key = Object.keys(thumbnails).find((k) => k.endsWith(`/${src}`));
     if (!key) return null;
-    console.log(thumbnailPlaceholders[key]);
     return {
       picture: thumbnails[key].default,
       url: thumbnailUrls[key],
