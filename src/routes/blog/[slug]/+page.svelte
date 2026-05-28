@@ -74,6 +74,7 @@
   description={data.post.meta.tagline}
   type="article"
   img="{url}/og"
+  imgDark="{url}/og?dark"
   tags={data.post.meta.tags}
 />
 

@@ -7,11 +7,12 @@
     tags?: string[];
     /** @default `${PUBLIC_URL}/favicon.png` */
     img?: string;
+    imgDark?: string;
     /** @default "website" */
     type?: "website" | "article";
   };
 
-  let { img = `${PUBLIC_URL}/favicon.png`, title, description, tags, type = "website" }: Props = $props();
+  let { img = `${PUBLIC_URL}/favicon.png`, imgDark, title, description, tags, type = "website" }: Props = $props();
 </script>
 
 <svelte:head>
@@ -28,7 +29,12 @@
   {/if}
 
   <meta property="og:image" content={img} />
-  <meta name="twitter:image" content={img} />
+  {#if imgDark}
+    <meta name="twitter:image" content={img} media="(prefers-color-scheme: light)" />
+    <meta name="twitter:image" content={imgDark} media="(prefers-color-scheme: dark)" />
+  {:else}
+    <meta name="twitter:image" content={img} />
+  {/if}
   <meta name="twitter:card" content="summary_large_image" />
 
   <meta property="og:type" content={type} />
