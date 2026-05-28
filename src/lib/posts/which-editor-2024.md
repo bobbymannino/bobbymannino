@@ -1,15 +1,15 @@
 ---
-title: "Which Editor?"
+title: "Which Editor (2024)"
 publishedOn: 2024-12-27
-tagline: "Learning the git CLI, and why it's better then a GUI"
+tagline: "Which editor should you use?"
 tags: ["zed", "vscode", "vim", "editor"]
 ---
 
-# Which Editor
+# Which Editor (2024)
 
 ## VS Code
 
-### Advantages
+### VS Code Advantages
 
 - Cross-platform
 - Stable
@@ -19,14 +19,14 @@ tags: ["zed", "vscode", "vim", "editor"]
 - Supports basically every language
 - Intergrated Git control
 
-### Disadvantages
+### VS Code Disadvantages
 
 - Slow due to being electron based
 - Crowded, this can be a plus but for me I prefer a minimal IDE
 
 ## Vim
 
-### Advantages
+### Vim Advantages
 
 - Cross-platform
 - Stable
@@ -34,19 +34,19 @@ tags: ["zed", "vscode", "vim", "editor"]
 - No need to install anything
 - On every machine
 
-### Disadvantages
+### Vim Disadvantages
 
 - Learning curve
 
 ## Zed
 
-### Advantages
+### Zed Advantages
 
 - Cross-platform
 - Quick as it's rust based
 - Minimal
 
-### Disadvantages
+### Zed Disadvantages
 
 - Doesn't support too many extensions (at the time of writing it is still in
   beta)
