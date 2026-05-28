@@ -3,6 +3,7 @@ title: "Which Editor (2026)"
 publishedOn: 2026-05-28
 tagline: "Which editor should you use?"
 tags: ["zed", "vscode", "vim", "athas", "cursor", "editor"]
+series: "which-editor"
 ---
 
 # Which Editor (2026)
