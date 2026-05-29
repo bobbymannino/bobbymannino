@@ -16,8 +16,8 @@
 	<h1>Series: {series}</h1>
 
 	<div class="posts">
-		{#each posts as post (post.slug)}
-			<BlogPostCard {post} />
+		{#each posts as post (post.meta.slug)}
+			<BlogPostCard {...post} />
 		{/each}
 	</div>
 </main>

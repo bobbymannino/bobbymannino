@@ -62,6 +62,15 @@
       </li>
     {/each}
   </ul>
+  {#if post.meta.series}
+    <p class="text-zinc-500">
+      Part of the
+      <a href="/series/{post.meta.series}" class="text-accent-600 ring-on-focus-visible hover:underline">
+        {post.meta.series}
+      </a>
+      series
+    </p>
+  {/if}
   <div class="flex items-center gap-2 text-zinc-500">
     <span style:--vtn="post-{post.meta.slug}-meta">
       <time

@@ -1,13 +1,13 @@
 import type { EntryGenerator } from "./$types";
-import { getPosts } from "$lib/posts";
+import { listPosts } from "$lib/posts";
 
-export const entries: EntryGenerator = async () => {
-	const posts = await getPosts();
+export const entries: EntryGenerator = () => {
+	const posts = listPosts();
 
 	const series = new Set<string>();
 
 	for (const post of posts) {
-		if (post.series) series.add(post.series);
+		if (post.meta.series) series.add(post.meta.series);
 	}
 
 	return Array.from(series).map((series) => ({ series }));

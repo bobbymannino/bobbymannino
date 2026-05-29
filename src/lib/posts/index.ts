@@ -74,6 +74,7 @@ const postSchema = v.object({
     tagline: stringSchema,
     slug: stringSchema,
     tags: v.fallback(v.array(stringSchema), []),
+    series: v.optional(stringSchema),
     thumbnailSrc: v.optional(stringSchema),
     thumbnailAlt: v.optional(stringSchema),
     readingTime: v.number(),

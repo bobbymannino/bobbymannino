@@ -1,16 +1,16 @@
 export const prerender = true;
 
 import type { PageLoad } from "./$types";
-import { getPosts } from "$lib/posts";
+import { listPosts } from "$lib/posts";
 
-export const load: PageLoad = async () => {
-	const posts = await getPosts();
+export const load: PageLoad = () => {
+	const posts = listPosts();
 
 	const counts = new Map<string, number>();
 
 	for (const post of posts) {
-		if (!post.series) continue;
-		counts.set(post.series, (counts.get(post.series) ?? 0) + 1);
+		if (!post.meta.series) continue;
+		counts.set(post.meta.series, (counts.get(post.meta.series) ?? 0) + 1);
 	}
 
 	const series = Array.from(counts.entries())
