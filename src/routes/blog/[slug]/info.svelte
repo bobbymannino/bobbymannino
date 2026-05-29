@@ -6,6 +6,8 @@
   import ShareIcon from "$lib/icons/share-icon.svelte";
   import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
   import CheckIcon from "$lib/icons/check-icon.svelte";
+  import { getSeries } from "$lib/posts/series";
+  import { resolve } from "$app/paths";
 
   type Post = App.PageData["posts"][number];
 
@@ -14,6 +16,8 @@
   };
 
   let { post }: Props = $props();
+
+  const series = $derived(post.meta.series ? getSeries(post.meta.series) : null);
 
   const canShare = $derived(typeof navigator !== "undefined" && "share" in navigator);
 
@@ -44,57 +48,69 @@
   }
 </script>
 
-<div class="flex flex-wrap items-center justify-between gap-2">
-  <ul class="flex flex-wrap gap-2">
-    {#each post.meta.tags as tag}
-      <li>
-        <p>
-          <a
-            rel="noopener noreferrer"
-            tabindex="0"
-            style:--vtn="post-{post.meta.slug}-tags-{tag}"
-            href="/blog/tags/{tag.replace(/\//g, '-')}"
-            class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
-          >
-            #{tag}
-          </a>
-        </p>
-      </li>
-    {/each}
-  </ul>
-  <div class="flex items-center gap-2 text-zinc-500">
-    <span style:--vtn="post-{post.meta.slug}-meta">
-      <time
-        title={post.meta.publishedOn.toUTCString()}
-        aria-label="Published on"
-        class="inline-flex items-center gap-1"
-        datetime={post.meta.publishedOn.toISOString().slice(0, 10)}
-      >
-        <CalendarIcon class="size-5" />
-        {post.meta.publishedOn?.toDateString()}
-        •
-      </time>
-      <span aria-label="Reading duration" class="inline-flex items-center gap-1">
-        <ClockIcon class="size-5" />
-        {post.meta.readingTime} min •
-      </span>
-    </span>
-    <button
-      class="hover:text-accent-600 ring-on-focus-visible active:text-accent-700 inline-flex cursor-pointer items-center gap-1 active:scale-95"
-      onclick={share}
+<div class="space-y-3">
+  {#if series}
+    <a
+      href={resolve("/blog/series/[slug]", { slug: series.slug })}
       tabindex="0"
-      title="Share this post"
+      class="bg-accent-600 hover:bg-accent-700 ring-on-focus-visible inline-block w-fit px-2 py-1 text-sm text-white focus-visible:ring-offset-2 active:scale-95"
     >
-      {#if canShare}
-        <ShareIcon class="size-5" />
-        <span>Share</span>
-      {:else if copied}
-        <CheckIcon class="size-5" />
-        <span>Copied</span>
-      {:else}
-        <DuplicateIcon class="size-5" />
-        <span>Copy</span>
-      {/if}
-    </button>
+      Part of the {series.title} series
+    </a>
+  {/if}
+
+  <div class="flex flex-wrap items-center justify-between gap-2">
+    <ul class="flex flex-wrap gap-2">
+      {#each post.meta.tags as tag}
+        <li>
+          <p>
+            <a
+              rel="noopener noreferrer"
+              tabindex="0"
+              style:--vtn="post-{post.meta.slug}-tags-{tag}"
+              href="/blog/tags/{tag.replace(/\//g, '-')}"
+              class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
+            >
+              #{tag}
+            </a>
+          </p>
+        </li>
+      {/each}
+    </ul>
+    <div class="flex items-center gap-2 text-zinc-500">
+      <span style:--vtn="post-{post.meta.slug}-meta">
+        <time
+          title={post.meta.publishedOn.toUTCString()}
+          aria-label="Published on"
+          class="inline-flex items-center gap-1"
+          datetime={post.meta.publishedOn.toISOString().slice(0, 10)}
+        >
+          <CalendarIcon class="size-5" />
+          {post.meta.publishedOn?.toDateString()}
+          •
+        </time>
+        <span aria-label="Reading duration" class="inline-flex items-center gap-1">
+          <ClockIcon class="size-5" />
+          {post.meta.readingTime} min •
+        </span>
+      </span>
+      <button
+        class="hover:text-accent-600 ring-on-focus-visible active:text-accent-700 inline-flex cursor-pointer items-center gap-1 active:scale-95"
+        onclick={share}
+        tabindex="0"
+        title="Share this post"
+      >
+        {#if canShare}
+          <ShareIcon class="size-5" />
+          <span>Share</span>
+        {:else if copied}
+          <CheckIcon class="size-5" />
+          <span>Copied</span>
+        {:else}
+          <DuplicateIcon class="size-5" />
+          <span>Copy</span>
+        {/if}
+      </button>
+    </div>
   </div>
 </div>
