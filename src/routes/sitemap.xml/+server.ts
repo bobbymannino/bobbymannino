@@ -1,5 +1,6 @@
 import { PUBLIC_URL } from "$env/static/public";
 import { listPosts } from "$lib/posts";
+import { series } from "$lib/posts/series";
 
 export const GET = () => {
   const posts = listPosts();
@@ -29,7 +30,16 @@ export const GET = () => {
 			<url>
 			  <loc>${PUBLIC_URL}/blog/tags/</loc>
 				<priority>0.7</priority>
-			</url>${posts
+			</url>${series
+        .map(
+          (s) =>
+            `
+			<url>
+			  <loc>${PUBLIC_URL}/blog/series/${s.slug}/</loc>
+				<priority>0.6</priority>
+			</url>`,
+        )
+        .join("")}${posts
         .map(
           (p) =>
             `
