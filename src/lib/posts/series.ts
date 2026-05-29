@@ -1,8 +1,13 @@
-type Series = {
+export type Series = {
   title: string;
   slug: string;
   description: string;
 };
+
+/** Finds a series by its slug */
+export function getSeries(slug: string) {
+  return series.find((s) => s.slug === slug) ?? null;
+}
 
 /** A list of blog series */
 export const series: Series[] = [
