@@ -7,6 +7,7 @@
   import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
   import CheckIcon from "$lib/icons/check-icon.svelte";
   import { getSeries } from "$lib/posts/series";
+  import { resolve } from "$app/paths";
 
   type Post = App.PageData["posts"][number];
 
@@ -50,7 +51,7 @@
 <div class="space-y-3">
   {#if series}
     <a
-      href="/blog/series/{series.slug}"
+      href={resolve("/blog/series/[slug]", { slug: series.slug })}
       tabindex="0"
       class="bg-accent-600 hover:bg-accent-700 ring-on-focus-visible inline-block w-fit px-2 py-1 text-sm text-white focus-visible:ring-offset-2 active:scale-95"
     >
