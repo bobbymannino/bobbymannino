@@ -13,16 +13,16 @@
     <ul class="space-y-4">
       {#each series as { title, slug, description } (slug)}
         <li>
-          <h3>
-            <a
-              href={resolve("/blog/series/[slug]", { slug })}
-              tabindex="0"
-              class="ring-on-focus-visible hover:underline"
-            >
+          <a
+            href={resolve("/blog/series/[slug]", { slug })}
+            tabindex="0"
+            class="ring-on-focus-visible block hover:underline"
+          >
+            <h3>
               {title}
-            </a>
-          </h3>
-          <p>{description}</p>
+            </h3>
+            <p>{description}</p>
+          </a>
         </li>
       {/each}
     </ul>
