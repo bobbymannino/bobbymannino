@@ -2,6 +2,7 @@
 title: "Which Editor (2024)"
 publishedOn: 2024-12-27
 tagline: "Which editor should you use?"
+series: which-editor
 tags: ["zed", "vscode", "vim", "editor"]
 ---
 
