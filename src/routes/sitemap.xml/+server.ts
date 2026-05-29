@@ -23,6 +23,10 @@ export const GET = () => {
 				<priority>0.8</priority>
 			</url>
 			<url>
+			  <loc>${PUBLIC_URL}/blog/series/</loc>
+				<priority>0.7</priority>
+			</url>
+			<url>
 			  <loc>${PUBLIC_URL}/blog/tags/</loc>
 				<priority>0.7</priority>
 			</url>${posts
