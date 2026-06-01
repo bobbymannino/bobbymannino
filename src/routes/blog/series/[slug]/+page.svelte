@@ -13,9 +13,9 @@
     <h1>{data.series.title}</h1>
     <p>{data.series.description}</p>
 
-    {#if data.posts.length > 0}
+    {#if data.seriesPosts.length > 0}
       <ol class="grid gap-4">
-        {#each data.posts as post}
+        {#each data.seriesPosts as post (post.meta.slug)}
           <li>
             <BlogPostCard {...post} />
           </li>

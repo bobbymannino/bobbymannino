@@ -9,7 +9,7 @@
   let sortBy = $state("-date");
 
   let sortedPosts = $derived(
-    [...data.posts].sort((a, b) => {
+    [...data.filteredPosts].sort((a, b) => {
       switch (sortBy) {
         case "title":
           return a.meta.title.localeCompare(b.meta.title);

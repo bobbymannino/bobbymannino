@@ -12,7 +12,7 @@ export const load = async ({ parent, params }) => {
     .filter((p) => p.meta.series === slug)
     .sort((a, b) => b.meta.publishedOn.getTime() - a.meta.publishedOn.getTime());
 
-  return { series: matchedSeries, posts: seriesPosts };
+  return { series: matchedSeries, seriesPosts };
 };
 
 export const entries = () => {

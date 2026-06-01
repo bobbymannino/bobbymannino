@@ -5,10 +5,10 @@ export const load = async ({ parent, params }) => {
   const { posts } = await parent();
   const { tag } = params;
 
-  const filtered = posts.filter((p) => p.meta.tags.map((tag) => tag.replace(/\//g, "-")).includes(tag));
-  if (filtered.length === 0) error(404, `No posts found for tag "${tag}"`);
+  const filteredPosts = posts.filter((p) => p.meta.tags.map((tag) => tag.replace(/\//g, "-")).includes(tag));
+  if (filteredPosts.length === 0) error(404, `No posts found for tag "${tag}"`);
 
-  return { posts: filtered, tag };
+  return { filteredPosts, tag };
 };
 
 export const entries = () => {
