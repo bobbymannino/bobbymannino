@@ -1,4 +1,4 @@
-import type { Post } from "$lib/posts";
+import type { PostMeta } from "$lib/posts";
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
@@ -7,7 +7,7 @@ declare global {
     // interface Error {}
     // interface Locals {}
     interface PageData {
-      posts: Post[];
+      posts: PostMeta[];
     }
     // interface PageState {}
     // interface Platform {}

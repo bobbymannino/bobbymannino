@@ -1,6 +1,6 @@
 import { error } from "@sveltejs/kit";
 import type { EntryGenerator, PageServerLoad } from "./$types";
-import { listPosts } from "$lib/posts";
+import { getPost, listPosts } from "$lib/posts";
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { posts } = await parent();
@@ -11,7 +11,9 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   const prevPost = posts[postIdx + 1];
   const nextPost = posts[postIdx - 1];
 
-  const post = posts[postIdx];
+  const post = getPost(params.slug);
+  if (!post) error(404, "Sorry, we couldn't find that post");
+
   const relatedPosts = posts
     .filter((p, i) => i !== postIdx && p.meta.tags.some((t) => post.meta.tags.includes(t)))
     .slice(0, 2);

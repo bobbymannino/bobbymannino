@@ -1,5 +1,5 @@
-import { listPosts } from "$lib/posts";
+import { listPostMetas } from "$lib/posts";
 
 export const prerender = true;
 
-export const load = () => ({ posts: listPosts() });
+export const load = () => ({ posts: listPostMetas() });

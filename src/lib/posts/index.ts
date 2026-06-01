@@ -29,6 +29,25 @@ export function listPosts() {
 }
 
 /**
+ * Returns an array of post metadata (no content), newest first
+ *
+ * @returns An array of post metadata
+ */
+export function listPostMetas(): PostMeta[] {
+  return listPosts().map(({ meta }) => ({ meta }));
+}
+
+/**
+ * Returns a single post (including content) by its slug
+ *
+ * @param slug The slug of the post to find
+ * @returns The matching post, or undefined if none exists
+ */
+export function getPost(slug: string) {
+  return listPosts().find((post) => post.meta.slug === slug) ?? null;
+}
+
+/**
  * Calculates the reading time based on words per minute
  *
  * @param content The content to calculate reading time for
@@ -66,8 +85,7 @@ function parsePost(content: string, path: string) {
 
 const stringSchema = v.pipe(v.string(), v.trim(), v.minLength(1));
 
-const postSchema = v.object({
-  content: stringSchema,
+const postMetaSchema = v.object({
   meta: v.object({
     title: stringSchema,
     publishedOn: v.optional(v.date()),
@@ -81,4 +99,10 @@ const postSchema = v.object({
   }),
 });
 
+const postSchema = v.object({
+  ...postMetaSchema.entries,
+  content: stringSchema,
+});
+
 export type Post = v.InferOutput<typeof postSchema>;
+export type PostMeta = v.InferOutput<typeof postMetaSchema>;
