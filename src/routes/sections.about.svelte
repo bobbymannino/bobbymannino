@@ -34,10 +34,8 @@
 
     <p>
       for now i spend my spare time making mini projects and improving my skills. the current project im working on is
-      an online bingo project using
-      <a target="_blank" rel="noopener noreferrer" href="https://svelte.dev/docs/kit">sveltekit</a>
-      as the frontend and
-      <a target="_blank" rel="noopener noreferrer" href="https://www.rust-lang.org">rust</a> as the backend
+      an alternative to <a target="_blank" rel="noopener noreferrer" href="https://plane.so">plane.so</a>, aimed at being
+      something i can and will use in my daily life to track projects
     </p>
   </div>
 </section>
