@@ -61,7 +61,7 @@
 
   <div class="flex flex-wrap items-center justify-between gap-2">
     <ul class="flex flex-wrap gap-2">
-      {#each post.meta.tags as tag}
+      {#each post.meta.tags.sort((a, b) => a.localeCompare(b)) as tag}
         <li>
           <p>
             <a
