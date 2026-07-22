@@ -2,6 +2,7 @@
 title: "Logical Replication in Postgres"
 tagline: "Logical replication in postgres through publications and subscriptions"
 tags: ["sql", "postgres"]
+publishedOn: 2026-07-22
 ---
 
 # Logical Replication in Postgres
