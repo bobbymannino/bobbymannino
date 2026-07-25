@@ -28,6 +28,7 @@ export const variables = defineEnvVars({
   },
   SENTRY_DSN: {
     public: true,
+    static: true,
     description: "Sentry DSN, read at runtime. Leave unset to disable error reporting",
     schema: v.optional(v.pipe(v.string(), v.url())),
   },
