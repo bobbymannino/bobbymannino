@@ -1,7 +1,7 @@
 <script lang="ts">
+  import { URL } from "$app/env/public";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { PUBLIC_URL } from "$env/static/public";
   import CalendarIcon from "$lib/icons/calendar-icon.svelte";
   import CheckIcon from "$lib/icons/check-icon.svelte";
   import ClockIcon from "$lib/icons/clock-icon.svelte";
@@ -24,7 +24,7 @@
   let copied = $state(false);
 
   async function share() {
-    const url = PUBLIC_URL + page.url.pathname;
+    const url = URL + page.url.pathname;
 
     const payload = {
       title: post.meta.title,

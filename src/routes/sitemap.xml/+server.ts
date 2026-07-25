@@ -1,4 +1,4 @@
-import { PUBLIC_URL } from "$env/static/public";
+import { URL } from "$app/env/public";
 import { listPosts } from "$lib/posts";
 import { series } from "$lib/posts/series";
 
@@ -16,26 +16,26 @@ export const GET = () => {
 			xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 		>
 		  <url>
-				<loc>${PUBLIC_URL}/</loc>
+				<loc>${URL}/</loc>
 				<priority>1.0</priority>
 			</url>
 			<url>
-			  <loc>${PUBLIC_URL}/blog/</loc>
+			  <loc>${URL}/blog/</loc>
 				<priority>0.8</priority>
 			</url>
 			<url>
-			  <loc>${PUBLIC_URL}/blog/series/</loc>
+			  <loc>${URL}/blog/series/</loc>
 				<priority>0.7</priority>
 			</url>
 			<url>
-			  <loc>${PUBLIC_URL}/blog/tags/</loc>
+			  <loc>${URL}/blog/tags/</loc>
 				<priority>0.7</priority>
 			</url>${series
         .map(
           (s) =>
             `
 			<url>
-			  <loc>${PUBLIC_URL}/blog/series/${s.slug}/</loc>
+			  <loc>${URL}/blog/series/${s.slug}/</loc>
 				<priority>0.6</priority>
 			</url>`,
         )
@@ -44,7 +44,7 @@ export const GET = () => {
           (p) =>
             `
 			<url>
-			  <loc>${PUBLIC_URL}/blog/${p.meta.slug}/</loc>
+			  <loc>${URL}/blog/${p.meta.slug}/</loc>
 				<priority>0.8</priority>
 			</url>`,
         )
@@ -53,7 +53,7 @@ export const GET = () => {
           (t) =>
             `
 			<url>
-			  <loc>${PUBLIC_URL}/blog/tags/${t}/</loc>
+			  <loc>${URL}/blog/tags/${t}/</loc>
 				<priority>0.6</priority>
 			</url>`,
         )

@@ -1,4 +1,4 @@
-import { PUBLIC_EMAIL, PUBLIC_URL } from "$env/static/public";
+import { EMAIL, URL } from "$app/env/public";
 import { listPosts } from "$lib/posts";
 import type { Post } from "$lib/posts";
 
@@ -11,8 +11,8 @@ const preXml = `<?xml version="1.0" encoding="UTF-8"?>
     <title>${title}</title>
     <description>${description}</description>
     <language>en-gb</language>
-    <link>${PUBLIC_URL}/blog</link>
-    <atom:link href="${PUBLIC_URL}/rss.xml" rel="self" type="application/rss+xml"/>`;
+    <link>${URL}/blog</link>
+    <atom:link href="${URL}/rss.xml" rel="self" type="application/rss+xml"/>`;
 
 const postXml = `  </channel>
 </rss>`;
@@ -30,7 +30,7 @@ function escapeXml(raw: string) {
 
 function postToXml(post: Post) {
   const { title, tagline, publishedOn, slug } = post.meta;
-  const url = `${PUBLIC_URL}/blog/${slug}`;
+  const url = `${URL}/blog/${slug}`;
 
   return `
         <item>
@@ -39,7 +39,7 @@ function postToXml(post: Post) {
           <pubDate>${publishedOn.toUTCString()}</pubDate>
           <link>${url}</link>
           <guid>${url}</guid>
-          <author>${PUBLIC_EMAIL}</author>
+          <author>${EMAIL}</author>
           <enclosure url="${url}/og" length="0" type="image/jpeg" />
           <media:content url="${url}/og" width="738" height="360" medium="image" xmlns:media="http://search.yahoo.com/mrss/" />
         </item>

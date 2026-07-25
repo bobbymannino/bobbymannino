@@ -1,10 +1,11 @@
+import { SENTRY_DSN } from "$app/env/public";
 import { error } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
 
 export const POST: RequestHandler = async ({ request, fetch }) => {
-  if (!process.env.SENTRY_DSN) error(404);
+  if (!SENTRY_DSN) error(404);
 
-  const dsn = new URL(process.env.SENTRY_DSN);
+  const dsn = new URL(SENTRY_DSN);
   const projectId = dsn.pathname.replace(/^\//, "");
   const upstream = `${dsn.protocol}//${dsn.host}/api/${projectId}/envelope/?sentry_key=${dsn.username}`;
 

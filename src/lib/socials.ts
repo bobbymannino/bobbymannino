@@ -1,4 +1,4 @@
-import { PUBLIC_EMAIL, PUBLIC_GITHUB_URL, PUBLIC_LINKEDIN_URL } from "$env/static/public";
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from "$app/env/public";
 import EnvelopeIcon from "$lib/icons/envelope-icon.svelte";
 import GithubIcon from "$lib/icons/github.svelte";
 import LinkedinIcon from "$lib/icons/linkedin-icon.svelte";
@@ -15,19 +15,19 @@ export const socials: Social[] = [
   {
     platform: "github",
     title: "see this repo on github",
-    href: PUBLIC_GITHUB_URL,
+    href: GITHUB_URL,
     icon: GithubIcon,
   },
   {
     platform: "email",
     title: "send me an email",
-    href: `mailto:${PUBLIC_EMAIL}`,
+    href: `mailto:${EMAIL}`,
     icon: EnvelopeIcon,
   },
   {
     platform: "linkedin",
     title: "see me me on linkedin",
-    href: PUBLIC_LINKEDIN_URL,
+    href: LINKEDIN_URL,
     icon: LinkedinIcon,
   },
 ];

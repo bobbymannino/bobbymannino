@@ -1,18 +1,18 @@
 <script lang="ts">
-  import { PUBLIC_URL } from "$env/static/public";
+  import { URL } from "$app/env/public";
 
   type Props = {
     title: string;
     description: string;
     tags?: string[];
-    /** @default `${PUBLIC_URL}/favicon.png` */
+    /** @default `${URL}/favicon.png` */
     img?: string;
     imgDark?: string;
     /** @default "website" */
     type?: "website" | "article";
   };
 
-  let { img = `${PUBLIC_URL}/favicon.png`, imgDark, title, description, tags, type = "website" }: Props = $props();
+  let { img = `${URL}/favicon.png`, imgDark, title, description, tags, type = "website" }: Props = $props();
 </script>
 
 <svelte:head>

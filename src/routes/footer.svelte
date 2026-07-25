@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
+  import { browser } from "$app/env";
   import { socials } from "$lib/socials";
   import ThemeButtonGroup from "./theme-button-group.svelte";
 

@@ -14,10 +14,10 @@
 </script>
 
 <script lang="ts">
+  import { URL } from "$app/env/public";
   import { page } from "$app/state";
   import Markdown from "$components/markdown.svelte";
   import Meta from "$components/meta.svelte";
-  import { PUBLIC_URL } from "$env/static/public";
   import type { Picture } from "@sveltejs/enhanced-img";
   import type { PageProps } from "./$types";
   import Comments from "./comments.svelte";
@@ -31,7 +31,7 @@
 
   let headings: Heading[] = $state([]);
 
-  const url = $derived(PUBLIC_URL + page.url.pathname);
+  const url = $derived(URL + page.url.pathname);
 
   const thumbnails = import.meta.glob<{ default: Picture }>(
     "/src/lib/images/blog/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",

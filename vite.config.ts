@@ -30,6 +30,7 @@ export default defineConfig(({ mode }) => {
           "$components/*": "./src/components/*",
         },
         experimental: {
+          explicitEnvironmentVariables: true,
           instrumentation: {
             server: true,
           },
