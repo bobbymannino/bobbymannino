@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { projects } from "$lib/projects";
   import ProjectCard from "$components/project-card.svelte";
+  import { projects } from "$lib/projects";
 </script>
 
 <ul class="group/pcg grid gap-4 md:grid-cols-2 md:gap-2 lg:grid-cols-3">

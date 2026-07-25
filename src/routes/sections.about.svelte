@@ -3,13 +3,13 @@
   import { inview } from "svelte-inview";
 
   function bob() {
-    const name = 'bob'
-    throw new Error(`${name} is good`)
+    const name = "bob";
+    throw new Error(`${name} is good`);
   }
 </script>
 
 <section class="container" id="about">
-  <div class="card group/highlight">
+  <div class="group/highlight card">
     <h1
       use:inview={{ unobserveOnEnter: true }}
       oninview_enter={(e) => {
@@ -20,9 +20,7 @@
       about bob
     </h1>
 
-    <button onclick={bob}>
-      error
-    </button>
+    <button onclick={bob}> error </button>
 
     <enhanced:img
       src="$lib/images/lego-me.png?w=256"
@@ -43,8 +41,8 @@
 
     <p>
       for now i spend my spare time making mini projects and improving my skills. the current project im working on is
-      an alternative to <a target="_blank" rel="noopener noreferrer" href="https://plane.so">plane.so</a>, aimed at being
-      something i can and will use in my daily life to track projects
+      an alternative to <a target="_blank" rel="noopener noreferrer" href="https://plane.so">plane.so</a>, aimed at
+      being something i can and will use in my daily life to track projects
     </p>
   </div>
 </section>

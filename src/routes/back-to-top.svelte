@@ -8,7 +8,7 @@
 <button
   onclick={() => window.scrollTo({ top: 0 })}
   class={[
-    "active:text-accent-700 text-accent-600 ring-on-focus-visible sticky bottom-2 left-2 mb-2 w-fit cursor-pointer bg-white p-1 not-motion-reduce:transition-opacity hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800",
+    "text-accent-600 ring-on-focus-visible active:text-accent-700 sticky bottom-2 left-2 mb-2 w-fit cursor-pointer bg-white p-1 not-motion-reduce:transition-opacity hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800",
     ,
     {
       "pointer-events-none opacity-0": !scrolled,

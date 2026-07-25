@@ -35,7 +35,7 @@
       <h4 class="opacity-40">Latest Post</h4>
       <a
         href={resolve("/blog/[slug]", { slug: latestBlogPost.meta.slug })}
-        class="ring-on-focus-visible group mt-2 block"
+        class="group ring-on-focus-visible mt-2 block"
       >
         <h3 class="group-hover:underline">{latestBlogPost.meta.title}</h3>
       </a>

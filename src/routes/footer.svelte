@@ -14,7 +14,7 @@
           tabindex="0"
           target="_blank"
           rel="noopener noreferrer"
-          class="hover:text-accent-600 ring-on-focus-visible text-zinc-800 dark:text-zinc-100"
+          class="ring-on-focus-visible hover:text-accent-600 text-zinc-800 dark:text-zinc-100"
           {href}
           {title}
         >

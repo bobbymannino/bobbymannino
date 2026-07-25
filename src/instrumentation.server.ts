@@ -1,5 +1,4 @@
 import * as Sentry from "@sentry/sveltekit";
-
 import { version } from "../package.json";
 
 Sentry.init({

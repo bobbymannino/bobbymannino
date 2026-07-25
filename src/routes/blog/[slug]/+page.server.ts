@@ -1,6 +1,6 @@
+import { getPost, listPosts } from "$lib/posts";
 import { error } from "@sveltejs/kit";
 import type { EntryGenerator, PageServerLoad } from "./$types";
-import { getPost, listPosts } from "$lib/posts";
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { posts } = await parent();

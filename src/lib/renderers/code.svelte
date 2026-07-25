@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-  import hljs from "highlight.js";
-  import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
-  import "./code.css";
-  import { copyTextToClipboard } from "$lib/utils";
   import CheckIcon from "$lib/icons/check-icon.svelte";
+  import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
+  import { copyTextToClipboard } from "$lib/utils";
+  import "./code.css";
+  import hljs from "highlight.js";
+  import type { Snippet } from "svelte";
 
   type Props = {
     children: Snippet;
@@ -40,7 +40,7 @@
       onclick={copy}
       tabindex="0"
       title="Copy code to the clipboard"
-      class="hover:text-accent-600 ring-on-focus-visible active:text-accent-700 flex cursor-pointer items-center gap-1 active:scale-95"
+      class="ring-on-focus-visible hover:text-accent-600 active:text-accent-700 flex cursor-pointer items-center gap-1 active:scale-95"
     >
       {#if copied}
         <CheckIcon class="size-4" />

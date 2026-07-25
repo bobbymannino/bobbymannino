@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
   import { copyTextToClipboard } from "$lib/utils";
+  import type { Snippet } from "svelte";
   import { textToId } from "../../routes/blog/[slug]/+page.svelte";
 
   type Props = {

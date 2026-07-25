@@ -1,13 +1,13 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
   import { page } from "$app/state";
   import { PUBLIC_URL } from "$env/static/public";
   import CalendarIcon from "$lib/icons/calendar-icon.svelte";
-  import ClockIcon from "$lib/icons/clock-icon.svelte";
-  import ShareIcon from "$lib/icons/share-icon.svelte";
-  import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
   import CheckIcon from "$lib/icons/check-icon.svelte";
+  import ClockIcon from "$lib/icons/clock-icon.svelte";
+  import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
+  import ShareIcon from "$lib/icons/share-icon.svelte";
   import { getSeries } from "$lib/posts/series";
-  import { resolve } from "$app/paths";
 
   type Post = App.PageData["posts"][number];
 
@@ -53,7 +53,7 @@
     <a
       href={resolve("/blog/series/[slug]", { slug: series.slug })}
       tabindex="0"
-      class="bg-accent-600 hover:bg-accent-700 ring-on-focus-visible inline-block w-fit px-2 py-1 text-sm text-white focus-visible:ring-offset-2 active:scale-95"
+      class="bg-accent-600 ring-on-focus-visible hover:bg-accent-700 inline-block w-fit px-2 py-1 text-sm text-white focus-visible:ring-offset-2 active:scale-95"
     >
       Part of the {series.title} series
     </a>
@@ -95,7 +95,7 @@
         </span>
       </span>
       <button
-        class="hover:text-accent-600 ring-on-focus-visible active:text-accent-700 inline-flex cursor-pointer items-center gap-1 active:scale-95"
+        class="ring-on-focus-visible hover:text-accent-600 active:text-accent-700 inline-flex cursor-pointer items-center gap-1 active:scale-95"
         onclick={share}
         tabindex="0"
         title="Share this post"

@@ -18,7 +18,7 @@
 </script>
 
 <section class="container" id="technologies">
-  <div class="card group/highlight">
+  <div class="group/highlight card">
     <h1
       use:inview={{ unobserveOnEnter: true }}
       on:inview_enter={(e) => {

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import RocketIcon from "$lib/icons/rocket-icon.svelte";
-  import CogIcon from "$lib/icons/cog-icon.svelte";
   import BeakerIcon from "$lib/icons/beaker-icon.svelte";
+  import CogIcon from "$lib/icons/cog-icon.svelte";
   import EyeCrossedOutIcon from "$lib/icons/eye-crossed-out.svelte";
+  import RocketIcon from "$lib/icons/rocket-icon.svelte";
   import type { Project } from "$lib/projects";
 
   let { status, thumbnail, title, href, languages, year }: Project = $props();
@@ -19,7 +19,7 @@
   {href}
   target="_blank"
   rel="noopener"
-  class="ring-on-focus-visible group/pc hoverable:group-has-[a:hover]/pcg:not-hover:opacity-25 relative block bg-gray-50 p-2 transition-opacity dark:bg-zinc-800"
+  class="group/pc ring-on-focus-visible hoverable:group-has-[a:hover]/pcg:not-hover:opacity-25 relative block bg-gray-50 p-2 transition-opacity dark:bg-zinc-800"
   tabindex="0"
 >
   <enhanced:img

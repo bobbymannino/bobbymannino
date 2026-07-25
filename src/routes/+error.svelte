@@ -23,7 +23,7 @@
 <Meta title="Error {status} | Bobby Mannino" description="Something has gone wrong" />
 
 <section class="container" id="error">
-  <div class="card group/highlight">
+  <div class="group/highlight card">
     <p
       class="text-accent-600 font-mono text-7xl leading-none font-black tracking-tighter md:text-9xl"
       aria-hidden="true"
@@ -45,11 +45,11 @@
       <a
         href="/blog"
         tabindex="0"
-        class="ring-on-focus-visible bg-accent-700 hover:bg-accent-800 px-3 py-2 text-white ring-white"
+        class="bg-accent-700 ring-on-focus-visible hover:bg-accent-800 px-3 py-2 text-white ring-white"
       >
         read the blog
       </a>
-      <a href="/" tabindex="0" class="ring-on-focus-visible text-accent-700 px-3 py-2 hover:underline">head home</a>
+      <a href="/" tabindex="0" class="text-accent-700 ring-on-focus-visible px-3 py-2 hover:underline">head home</a>
     </div>
   </div>
 </section>

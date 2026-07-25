@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Logo from "./logo.svelte";
   import SearchIcon from "$lib/icons/search.svelte";
+  import Logo from "./logo.svelte";
 
   type Props = {
     openSearchModal: () => void;

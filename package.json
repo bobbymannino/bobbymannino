@@ -10,8 +10,8 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "format": "prettier --write .",
-    "lint": "prettier --check ."
+    "format": "oxfmt",
+    "lint": "oxfmt --check && oxlint"
   },
   "dependencies": {
     "@giscus/svelte": "^3.1.0",
@@ -31,9 +31,8 @@
     "fuse.js": "^7.5.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
-    "prettier": "^3.9.6",
-    "prettier-plugin-svelte": "^4.1.1",
-    "prettier-plugin-tailwindcss": "^0.8.1",
+    "oxfmt": "^0.60.0",
+    "oxlint": "^1.75.0",
     "runed": "^0.37.1",
     "svelte": "^5.56.7",
     "svelte-check": "^4.7.3",

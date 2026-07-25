@@ -15,7 +15,7 @@
 
 {#if prevPost}
   <a
-    class="active:text-accent-700 text-accent-600 ring-on-focus-visible group flex cursor-pointer items-center gap-2 bg-white p-1 hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+    class="group text-accent-600 ring-on-focus-visible active:text-accent-700 flex cursor-pointer items-center gap-2 bg-white p-1 hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800"
     tabindex="0"
     href="/blog/{prevPost.meta.slug}"
     rel="noreferrer noopener"
@@ -27,7 +27,7 @@
 {/if}
 {#if nextPost}
   <a
-    class="active:text-accent-700 text-accent-600 ring-on-focus-visible group flex cursor-pointer items-center justify-end gap-2 bg-white p-1 hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+    class="group text-accent-600 ring-on-focus-visible active:text-accent-700 flex cursor-pointer items-center justify-end gap-2 bg-white p-1 hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800"
     tabindex="0"
     href="/blog/{nextPost.meta.slug}"
     rel="noreferrer noopener"

@@ -1,7 +1,7 @@
 <script lang="ts">
   import ChevronDownIcon from "$lib/icons/chevron-down-icon.svelte";
-  import type { Heading } from "./+page.svelte";
   import { MediaQuery } from "svelte/reactivity";
+  import type { Heading } from "./+page.svelte";
 
   type Props = {
     headings: Heading[];

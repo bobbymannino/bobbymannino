@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "sortPackageJson": true,
+  "sortImports": {
+    "newlinesBetween": false
+  },
+  "sortTailwindcss": true,
+  "svelte": true
+}
