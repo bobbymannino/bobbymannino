@@ -12,7 +12,7 @@
   <div class="card group/highlight">
     <h1
       use:inview={{ unobserveOnEnter: true }}
-      on:inview_enter={(e) => {
+      oninview_enter={(e) => {
         const clean = hacker(e.detail.node);
         return () => clean?.();
       }}
