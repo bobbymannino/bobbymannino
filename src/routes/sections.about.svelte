@@ -1,6 +1,11 @@
 <script lang="ts">
   import { hacker } from "$lib/hacker";
   import { inview } from "svelte-inview";
+
+  function bob() {
+    const name = 'bob'
+    throw new Error(`${name} is good`)
+  }
 </script>
 
 <section class="container" id="about">
@@ -14,6 +19,10 @@
     >
       about bob
     </h1>
+
+    <button onclick={bob}>
+      error
+    </button>
 
     <enhanced:img
       src="$lib/images/lego-me.png?w=256"
