@@ -1,9 +1,44 @@
 import { sveltekit } from "@sveltejs/kit/vite";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { enhancedImages } from "@sveltejs/enhanced-img";
+import { sentrySvelteKit } from "@sentry/sveltekit";
+import adapter from "@sveltejs/adapter-node";
 
-export default defineConfig({
-  plugins: [enhancedImages(), sveltekit(), tailwindcss()],
-  assetsInclude: ["**/*.md"],
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+
+  return {
+    plugins: [
+      sentrySvelteKit({
+        telemetry: false,
+        release: {
+          create: false,
+          finalize: false,
+        },
+        sentryUrl: env.SENTRY_URL,
+        org: env.SENTRY_ORG,
+        project: env.SENTRY_PROJECT,
+        authToken: env.SENTRY_AUTH_TOKEN,
+      }),
+      enhancedImages(),
+      tailwindcss(),
+      sveltekit({
+        adapter: adapter(),
+        alias: {
+          $components: "./src/components",
+          "$components/*": "./src/components/*",
+        },
+        experimental: {
+          instrumentation: {
+            server: true,
+          },
+        },
+      }),
+    ],
+    assetsInclude: ["**/*.md"],
+    build: {
+      sourcemap: true,
+    },
+  };
 });
