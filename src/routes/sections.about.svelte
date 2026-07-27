@@ -24,12 +24,12 @@
     />
 
     <p>
-      hey, <span class="highlight">im <b>bob</b></span>, i study software engineering in a university in the south of
-      england. i am
-      <span class="highlight group-hover/highlight:delay-200">22 years old</span>
+      hey, <span class="motion-safe:highlight">im <b>bob</b></span>, i study software engineering in a university in the
+      south of england. i am
+      <span class="motion-safe:highlight group-hover/highlight:delay-200">22 years old</span>
       and absolutely
-      <span class="highlight group-hover/highlight:delay-400">love programming!</span> my goal is spend this academic year
-      learning the most out of my placement so when the time comes (post uni) i am prepared to get a fulltime job
+      <span class="motion-safe:highlight group-hover/highlight:delay-400">love programming!</span> my goal is spend this academic
+      year learning the most out of my placement so when the time comes (post uni) i am prepared to get a fulltime job
     </p>
 
     <p>
