@@ -30,7 +30,7 @@
     </h1>
 
     <p>
-      these are technologies i have an interest in or have some amount of knowledge in; <b class="highlight"
+      these are technologies i have an interest in or have some amount of knowledge in; <b class="motion-safe:highlight"
         >{new Intl.ListFormat().format(techs)}</b
       >
     </p>
