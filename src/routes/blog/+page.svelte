@@ -4,6 +4,7 @@
   import ChipSelection from "$components/chip-selection.svelte";
   import Meta from "$components/meta.svelte";
   import Select from "$components/select.svelte";
+  import { reveal } from "$lib/actions/reveal";
   import { onMount } from "svelte";
   import type { PageData } from "./$types";
 
@@ -104,7 +105,7 @@
 
     <ChipSelection {chips} bind:selection={tags} name="tags" legend="Filter by tags" />
 
-    <ul class="grid scroll-mt-36 gap-4 sm:scroll-mt-30 md:scroll-mt-26" id="blog-list">
+    <ul use:reveal class="grid scroll-mt-36 gap-4 sm:scroll-mt-30 md:scroll-mt-26" id="blog-list">
       {#each filteredPosts as post}
         <li>
           <BlogPostCard {...post} />
