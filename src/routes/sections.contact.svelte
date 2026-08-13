@@ -1,20 +1,11 @@
 <script lang="ts">
-  import { hacker } from "$lib/hacker";
+  import { scramble } from "$lib/actions/scramble";
   import { socials } from "$lib/socials";
-  import { inview } from "svelte-inview";
 </script>
 
 <section class="container" id="contact">
   <div class="card">
-    <h1
-      use:inview={{ unobserveOnEnter: true }}
-      on:inview_enter={(e) => {
-        const clean = hacker(e.detail.node);
-        return () => clean();
-      }}
-    >
-      contact
-    </h1>
+    <h1 use:scramble>contact</h1>
 
     <ul class="flex flex-wrap gap-4">
       {#each socials as { platform, href }}

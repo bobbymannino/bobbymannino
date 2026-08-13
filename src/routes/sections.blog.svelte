@@ -1,8 +1,7 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { hacker } from "$lib/hacker";
-  import { inview } from "svelte-inview";
+  import { scramble } from "$lib/actions/scramble";
 
   const latestBlogPost = page.data.posts[0];
 </script>
@@ -10,16 +9,7 @@
 <section class="container" id="blog">
   <div class="card">
     <h1>
-      <a
-        use:inview={{ unobserveOnEnter: true }}
-        on:inview_enter={(e) => {
-          const clean = hacker(e.detail.node);
-          return () => clean?.();
-        }}
-        href={resolve("/blog")}
-        tabindex="-1"
-        rel="noopener noreferrer">blog</a
-      >
+      <a use:scramble href={resolve("/blog")} tabindex="-1" rel="noopener noreferrer">blog</a>
     </h1>
 
     <p>

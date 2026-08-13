@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { hacker } from "$lib/hacker";
-  import { inview } from "svelte-inview";
+  import { scramble } from "$lib/actions/scramble";
 
   const techs = [
     "js/ts",
@@ -19,15 +18,7 @@
 
 <section class="container" id="technologies">
   <div class="group/highlight card">
-    <h1
-      use:inview={{ unobserveOnEnter: true }}
-      on:inview_enter={(e) => {
-        const clean = hacker(e.detail.node);
-        return () => clean?.();
-      }}
-    >
-      technologies
-    </h1>
+    <h1 use:scramble>technologies</h1>
 
     <p>
       these are technologies i have an interest in or have some amount of knowledge in; <b class="motion-safe:highlight"

@@ -1,19 +1,10 @@
 <script lang="ts">
-  import { hacker } from "$lib/hacker";
-  import { inview } from "svelte-inview";
+  import { scramble } from "$lib/actions/scramble";
 </script>
 
 <section class="container" id="about">
   <div class="group/highlight card">
-    <h1
-      use:inview={{ unobserveOnEnter: true }}
-      oninview_enter={(e) => {
-        const clean = hacker(e.detail.node);
-        return () => clean?.();
-      }}
-    >
-      about bob
-    </h1>
+    <h1 use:scramble>about bob</h1>
 
     <enhanced:img
       src="$lib/images/lego-me.png?w=256"
