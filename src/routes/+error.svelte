@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
   import Meta from "$components/meta.svelte";
+  import { scramble } from "$lib/actions/scramble";
 
   const status = $derived(page.status);
   const message = $derived(page.error?.message);
@@ -27,11 +28,12 @@
     <p
       class="text-accent-600 font-mono text-7xl leading-none font-black tracking-tighter md:text-9xl"
       aria-hidden="true"
+      use:scramble
     >
       {status}
     </p>
 
-    <h1>{headline}</h1>
+    <h1 use:scramble>{headline}</h1>
 
     <p>{subtext}</p>
 
