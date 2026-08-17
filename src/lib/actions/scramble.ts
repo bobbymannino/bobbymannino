@@ -1,4 +1,4 @@
-import { animate, onScroll, scrambleText } from "animejs";
+import { onScroll, scrambleText, animate } from "animejs";
 import type { Action } from "svelte/action";
 
 type Options = {

@@ -1,15 +1,15 @@
-import { animate, onScroll, stagger } from "animejs";
+import { onScroll, stagger, waapi } from "animejs";
 import type { Action } from "svelte/action";
 
 type Options = {
   /**
    * How long each child takes to fade in (in ms)
-   * @default 500
+   * @default 333
    */
   duration?: number;
   /**
    * Gap between each child starting (in ms)
-   * @default 80
+   * @default 50
    */
   stagger?: number;
   /**
@@ -25,12 +25,12 @@ type Options = {
 export const reveal: Action<HTMLElement, Options | undefined> = (node, options) => {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const { duration = 500, stagger: gap = 80, distance = 16 } = options ?? {};
+  const { duration = 333, stagger: gap = 50, distance = 16 } = options ?? {};
 
   const children = Array.from(node.children) as HTMLElement[];
   for (const child of children) child.style.opacity = "0";
 
-  const animation = animate(children, {
+  const animation = waapi.animate(children, {
     opacity: [0, 1],
     y: [distance, 0],
     duration,
