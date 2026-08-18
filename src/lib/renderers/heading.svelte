@@ -19,7 +19,12 @@
 </script>
 
 <svelte:element this={`h${depth}`} {id} style={depth == 1 ? `--vtn: post-title-${id}` : ""}>
-  <a href="#{id}" onclick={copyLink} class="ring-on-focus-visible hover:underline" tabindex="0">
+  <a
+    href="#{id}"
+    onclick={copyLink}
+    class="ring-on-focus-visible relative before:absolute before:right-[calc(100%+.25rem)] hover:underline hover:before:content-['#']"
+    tabindex="0"
+  >
     {@render children()}
   </a>
 </svelte:element>
