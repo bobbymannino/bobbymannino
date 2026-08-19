@@ -1,9 +1,11 @@
 <script lang="ts">
   import { browser } from "$app/env";
+  import { formatDateRelative } from "$lib/date-utils";
   import { socials } from "$lib/socials";
   import ThemeButtonGroup from "./theme-button-group.svelte";
 
   const cmdOrCtrl = $derived(browser && navigator.platform.startsWith("Mac") ? "⌘" : "Ctrl");
+  const builtAt = new Date(__BUILD_DATE__);
 </script>
 
 <footer class="bg-white dark:bg-zinc-900">
@@ -26,9 +28,14 @@
       </p>
     </div>
     <ThemeButtonGroup />
-    <div class="not-hoverable:hidden">
-      <kbd>{cmdOrCtrl}</kbd>
-      <kbd>K</kbd>
+    <div class="flex items-center gap-4">
+      <small class="text-zinc-500 dark:text-zinc-400" title="{builtAt.toUTCString()} ({formatDateRelative(builtAt)})">
+        Built {builtAt.toLocaleDateString()} {builtAt.toLocaleTimeString()}
+      </small>
+      <div class="not-hoverable:hidden">
+        <kbd>{cmdOrCtrl}</kbd>
+        <kbd>K</kbd>
+      </div>
     </div>
   </div>
 </footer>
