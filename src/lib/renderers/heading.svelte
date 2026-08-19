@@ -22,7 +22,7 @@
   <a
     href="#{id}"
     onclick={copyLink}
-    class="ring-on-focus-visible relative before:absolute before:right-[calc(100%+.25rem)] hover:underline hover:before:content-['#']"
+    class="ring-on-focus-visible relative before:opacity-50 before:absolute before:right-[calc(100%+.25rem)] hover:underline hover:before:content-['#']"
     tabindex="0"
   >
     {@render children()}
