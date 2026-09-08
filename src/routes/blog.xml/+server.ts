@@ -12,7 +12,14 @@ const preXml = `<?xml version="1.0" encoding="UTF-8"?>
     <description>${description}</description>
     <language>en-gb</language>
     <link>${URL}/blog</link>
-    <atom:link href="${URL}/blog.xml" rel="self" type="application/rss+xml"/>`;
+    <atom:link href="${URL}/blog.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>${URL}/favicon.png</url>
+      <title>${title}</title>
+      <link>${URL}/blog</link>
+      <width>144</width>
+      <height>144</height>
+    </image>`;
 
 const postXml = `  </channel>
 </rss>`;
