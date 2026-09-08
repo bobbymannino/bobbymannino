@@ -6,7 +6,7 @@ const title = escapeXml("Bobby Mannino's Blog");
 const description = escapeXml("Some things I have learnt and would like to remember");
 
 const preXml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>${title}</title>
     <description>${description}</description>
@@ -35,6 +35,17 @@ function escapeXml(raw: string) {
     .replace(/'/g, "&apos;");
 }
 
+/**
+ * Wraps raw text in a CDATA section, splitting any `]]>` so it cannot end the
+ * section early
+ *
+ * @param raw The text to wrap
+ * @returns A CDATA section containing the text
+ */
+function toCdata(raw: string) {
+  return `<![CDATA[${raw.replace(/]]>/g, "]]]]><![CDATA[>")}]]>`;
+}
+
 function postToXml(post: Post) {
   const { title, tagline, publishedOn, slug } = post.meta;
   const url = `${URL}/blog/${slug}`;
@@ -43,6 +54,7 @@ function postToXml(post: Post) {
         <item>
           <title>${escapeXml(title)}</title>
           <description>${escapeXml(tagline)}</description>
+          <content:encoded>${toCdata(post.content)}</content:encoded>
           <pubDate>${publishedOn.toUTCString()}</pubDate>
           <link>${url}</link>
           <guid>${url}</guid>
