@@ -1,5 +1,4 @@
 import { dev } from "$app/env";
-import matter from "gray-matter";
 import * as v from "valibot";
 
 /**
@@ -60,6 +59,61 @@ function calculateReadingTime(content: string, wordsPerMinute = 100): number {
   return Math.max(1, Math.round(minutes));
 }
 
+const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---[ \t]*\r?\n?/;
+const DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * Reads a single frontmatter scalar
+ *
+ * Supports quoted strings, `YYYY-MM-DD` dates and bare words
+ *
+ * @param raw The trimmed text to the right of the `key:`
+ * @returns The parsed value
+ */
+function parseScalar(raw: string): string | Date {
+  if (raw.startsWith('"') && raw.endsWith('"')) return raw.slice(1, -1);
+  if (raw.startsWith("'") && raw.endsWith("'")) return raw.slice(1, -1);
+  if (DATE.test(raw)) return new Date(raw);
+  return raw;
+}
+
+/**
+ * Splits a markdown file into its frontmatter and its body
+ *
+ * The frontmatter is a small YAML subset: one `key: value` per line, where a
+ * value is a quoted string, a bare word, a `YYYY-MM-DD` date or a `[a, b]` list
+ *
+ * @param file The raw contents of a markdown file
+ * @returns The frontmatter data and the remaining content
+ */
+function parseFrontmatter(file: string): { data: Record<string, unknown>; content: string } {
+  const match = FRONTMATTER.exec(file);
+
+  if (!match) return { data: {}, content: file };
+
+  const data: Record<string, unknown> = {};
+
+  for (const line of match[1].split("\n")) {
+    const separator = line.indexOf(":");
+    if (separator < 0) continue;
+
+    const key = line.slice(0, separator).trim();
+    const value = line.slice(separator + 1).trim();
+    if (!key || !value) continue;
+
+    data[key] =
+      value.startsWith("[") && value.endsWith("]")
+        ? value
+            .slice(1, -1)
+            .split(",")
+            .map((item) => parseScalar(item.trim()))
+            .filter((item) => item !== "")
+        : parseScalar(value);
+  }
+
+  return { data, content: file.slice(match[0].length) };
+}
+
 /**
  * Given a path to a post, will return the content of the file
  *
@@ -68,7 +122,7 @@ function calculateReadingTime(content: string, wordsPerMinute = 100): number {
  */
 function parsePost(content: string, path: string) {
   const slug = path.slice(2, -3);
-  const raw = matter(content);
+  const raw = parseFrontmatter(content);
   const readingTime = calculateReadingTime(raw.content);
 
   const parsed = v.safeParse(postSchema, {

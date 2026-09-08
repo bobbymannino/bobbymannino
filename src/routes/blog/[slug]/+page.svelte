@@ -1,18 +1,3 @@
-<script lang="ts" module>
-  export type Heading = {
-    text: string;
-    id: string;
-    level: number;
-  };
-
-  export function textToId(text: string) {
-    return text
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s/g, "-")
-      .toLowerCase();
-  }
-</script>
-
 <script lang="ts">
   import { URL } from "$app/env/public";
   import { page } from "$app/state";
@@ -28,8 +13,6 @@
   import Toc from "./toc.svelte";
 
   let { data }: PageProps = $props();
-
-  let headings: Heading[] = $state([]);
 
   const url = $derived(URL + page.url.pathname);
 
@@ -79,7 +62,7 @@
 <Timeline />
 <div class="container grid-cols-[17rem_1fr] gap-6 lg:grid">
   <aside class="top-22 h-fit lg:sticky">
-    <Toc {headings} showRelatedPostsLink={data.relatedPosts.length > 0} />
+    <Toc headings={data.headings} showRelatedPostsLink={data.relatedPosts.length > 0} />
   </aside>
 
   <div class="space-y-6">
@@ -101,18 +84,7 @@
             />
           </a>
         {/if}
-        <Markdown
-          markdown={data.post.content}
-          onparsed={(tokens) => {
-            const _headings = tokens.filter((obj) => obj.type == "heading");
-
-            headings = _headings.map((h) => ({
-              text: h.text,
-              level: h.depth,
-              id: textToId(h.text),
-            }));
-          }}
-        />
+        <Markdown html={data.html} />
         <NextPrev nextPost={data.nextPost} prevPost={data.prevPost} />
       </article>
     </div>

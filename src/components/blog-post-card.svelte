@@ -1,6 +1,6 @@
 <script lang="ts">
+  import { textToId } from "$lib/headings";
   import type { PostMeta } from "$lib/posts";
-  import { textToId } from "../routes/blog/[slug]/+page.svelte";
 
   type Props = PostMeta;
 

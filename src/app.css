@@ -281,3 +281,46 @@
     }
   }
 }
+
+@utility markdown {
+  & > * + * {
+    margin-block-start: calc(var(--spacing) * 4);
+
+    @media (width >= theme(--breakpoint-md)) {
+      margin-block-start: calc(var(--spacing) * 6);
+    }
+  }
+
+  ul {
+    @apply list-inside list-disc marker:text-zinc-400;
+  }
+
+  ol {
+    @apply list-inside list-decimal marker:text-zinc-400;
+  }
+
+  li {
+    @apply text-lg text-zinc-800 dark:text-zinc-200;
+  }
+
+  blockquote {
+    @apply bg-gray-100 p-4 dark:bg-zinc-800;
+  }
+
+  :not(pre) > code {
+    @apply inline-block bg-zinc-100 px-1 py-0.5 dark:bg-zinc-800;
+  }
+
+  table {
+    @apply blog-post-table;
+  }
+
+  [data-copy] [data-copy-state="done"],
+  [data-copy][data-copied] [data-copy-state="idle"] {
+    display: none;
+  }
+
+  [data-copy][data-copied] [data-copy-state="done"] {
+    @apply flex;
+  }
+}

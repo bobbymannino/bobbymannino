@@ -1,3 +1,4 @@
+import { renderMarkdown } from "$lib/markdown";
 import { getPost, listPosts } from "$lib/posts";
 import { error } from "@sveltejs/kit";
 import type { EntryGenerator, PageServerLoad } from "./$types";
@@ -18,7 +19,9 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     .filter((p, i) => i !== postIdx && p.meta.tags.some((t) => post.meta.tags.includes(t)))
     .slice(0, 2);
 
-  return { post, prevPost, nextPost, relatedPosts };
+  const { html, headings } = renderMarkdown(post.content);
+
+  return { post: { meta: post.meta }, html, headings, prevPost, nextPost, relatedPosts };
 };
 
 export const entries: EntryGenerator = () => {

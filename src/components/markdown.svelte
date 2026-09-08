@@ -1,39 +1,34 @@
 <script lang="ts">
-  import Blockquote from "$lib/renderers/blockquote.svelte";
-  import Code from "$lib/renderers/code.svelte";
-  import Codespan from "$lib/renderers/codespan.svelte";
-  import Heading from "$lib/renderers/heading.svelte";
-  import Link from "$lib/renderers/link.svelte";
-  import ListItem from "$lib/renderers/list-item.svelte";
-  import List from "$lib/renderers/list.svelte";
-  import Table from "$lib/renderers/table.svelte";
-  import MD from "svelte-markdown";
-
-  type Token = {
-    type: string;
-    text: string;
-    depth: number;
-  };
+  import "$lib/code.css";
+  import { copyTextToClipboard } from "$lib/utils";
 
   type Props = {
-    onparsed?: (tokens: Token[]) => void;
-    markdown: string;
+    html: string;
   };
 
-  let { onparsed, markdown }: Props = $props();
+  let { html }: Props = $props();
+
+  /** Copies a code block, or a heading's permalink, when its control is clicked */
+  function onclick(event: MouseEvent) {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const copyButton = target.closest("[data-copy]");
+
+    if (copyButton) {
+      const code = copyButton.closest("[data-code-block]")?.querySelector("code");
+      if (!code) return;
+
+      copyTextToClipboard(code.textContent ?? "");
+      copyButton.setAttribute("data-copied", "");
+      setTimeout(() => copyButton.removeAttribute("data-copied"), 2000);
+
+      return;
+    }
+
+    const headingLink = target.closest<HTMLAnchorElement>("[data-heading-link]");
+    if (headingLink) copyTextToClipboard(headingLink.href);
+  }
 </script>
 
-<MD
-  on:parsed={(e) => onparsed?.(e.detail.tokens)}
-  source={markdown}
-  renderers={{
-    listitem: ListItem,
-    list: List,
-    table: Table,
-    code: Code,
-    codespan: Codespan,
-    link: Link,
-    heading: Heading,
-    blockquote: Blockquote,
-  }}
-/>
+<div {onclick} class="markdown">{@html html}</div>
