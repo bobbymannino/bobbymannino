@@ -64,7 +64,7 @@ export const GET = () => {
   return new Response(insertXml(listPosts().map(postToXml).join("")), {
     headers: {
       "Content-Type": "application/rss+xml",
-      // "Cache-Control": "public, max-age=600",
+      "Cache-Control": "public, max-age=600",
     },
   });
 };
