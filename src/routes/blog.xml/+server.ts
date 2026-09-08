@@ -1,4 +1,4 @@
-import { URL as URLS } from "$app/env/public";
+import { EMAIL, URL as URLS } from "$app/env/public";
 import { listPosts } from "$lib/posts";
 import type { Post } from "$lib/posts";
 import { marked } from "marked";
@@ -51,9 +51,10 @@ function postToXml(post: Post) {
         <item>
           <title>${escapeXml(title)}</title>
           <link>${url}</link>
-          <guid isPermaLink="false">bobmandev:blog:${slug}</guid>
+          <guid isPermaLink="true">${url}</guid>
           <pubDate>${publishedOn.toUTCString()}</pubDate>
           <description>${escapeXml(tagline)}</description>
+          <author>${escapeXml(EMAIL)}</author>
           <content:encoded>${cdata(renderContent(post.content))}</content:encoded>
         </item>
       `;
