@@ -31,6 +31,7 @@ export default defineConfig(({ mode }) => {
         },
         experimental: {
           explicitEnvironmentVariables: true,
+          remoteFunctions: true,
           instrumentation: {
             server: true,
           },
