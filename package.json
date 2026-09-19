@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "bun --bun vite dev",
     "build": "vite build",
-    "start": "node build/index.js",
-    "preview": "vite preview",
+    "start": "bun build/index.js",
+    "preview": "bun --bun vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "format": "oxfmt",
