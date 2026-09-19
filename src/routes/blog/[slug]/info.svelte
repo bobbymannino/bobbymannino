@@ -2,6 +2,7 @@
   import { URL as URLS } from "$app/env/public";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
+  import PostLikeButton from "$components/post-like-button.svelte";
   import { CalendarIcon, CheckIcon, ClockIcon, DuplicateIcon, ShareIcon } from "$lib/icons";
   import { getSeries } from "$lib/posts/series";
 
@@ -91,6 +92,10 @@
           <ClockIcon class="size-5" />
           {post.meta.readingTime} min •
         </span>
+      </span>
+      <span class="inline-flex items-center gap-1">
+        <PostLikeButton slug={post.meta.slug} />
+        •
       </span>
       <button
         class="ring-on-focus-visible hover:text-accent-600 active:text-accent-700 inline-flex cursor-pointer items-center gap-1 active:scale-95"

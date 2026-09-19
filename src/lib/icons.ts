@@ -10,6 +10,7 @@ export { default as XIcon } from "central-icons/IconCrossMedium";
 export { default as EnvelopeIcon } from "central-icons/IconEmail1";
 export { default as EyeCrossedOutIcon } from "central-icons/IconEyeSlash";
 export { default as GithubIcon } from "central-icons/IconGithub";
+export { default as HeartIcon } from "central-icons/IconHeart";
 export { default as BeakerIcon } from "central-icons/IconLab";
 export { default as LinkedinIcon } from "central-icons/IconLinkedin";
 export { default as SearchIcon } from "central-icons/IconMagnifyingGlass";
