@@ -32,4 +32,12 @@ export const variables = defineEnvVars({
     description: "Sentry DSN, read at runtime. Leave unset to disable error reporting",
     schema: v.optional(v.pipe(v.string(), v.url())),
   },
+  DRAGONFLY_URL: {
+    description: "Dragonfly connection URL used to store anonymous post likes",
+    schema: v.optional(v.pipe(v.string(), v.url()), "redis://127.0.0.1:6379"),
+  },
+  ANONYMOUS_LIKE_SECRET: {
+    description: "Secret used to sign anonymous like identifiers",
+    schema: v.optional(v.pipe(v.string(), v.minLength(32))),
+  },
 });
