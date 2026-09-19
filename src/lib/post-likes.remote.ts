@@ -13,6 +13,12 @@ function ensurePostExists(slug: string) {
   if (!getPost(slug)) error(404, "Post not found");
 }
 
+export const getPostLikeCount = query(statusInputSchema, async ({ slug }) => {
+  ensurePostExists(slug);
+
+  return (await readPostLikeStatus(slug, null)).count;
+});
+
 export const getPostLikeStatus = query(statusInputSchema, async ({ slug }) => {
   const { cookies } = getRequestEvent();
   ensurePostExists(slug);

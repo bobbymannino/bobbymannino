@@ -1,10 +1,30 @@
 <script lang="ts">
   import { textToId } from "$lib/headings";
+  import { HeartIcon } from "$lib/icons";
+  import { getPostLikeCount } from "$lib/post-likes.remote";
   import type { PostMeta } from "$lib/posts";
+  import { onMount } from "svelte";
 
   type Props = PostMeta;
 
   let { meta }: Props = $props();
+  let likeCount = $state<number | null>(null);
+
+  onMount(() => {
+    let mounted = true;
+
+    getPostLikeCount({ slug: meta.slug })
+      .then((count) => {
+        if (mounted) likeCount = count;
+      })
+      .catch(() => {
+        if (mounted) likeCount = null;
+      });
+
+    return () => {
+      mounted = false;
+    };
+  });
 </script>
 
 <a href="/blog/{meta.slug}" tabindex="0" class="group ring-on-focus-visible @container block">
@@ -13,8 +33,10 @@
       {meta.title}
     </h2>
     <p style:--vtn="post-{meta.slug}-meta">
-      <small>
-        {meta.publishedOn.toLocaleDateString()} • {meta.readingTime} min read
+      <small class="inline-flex items-center gap-1">
+        {meta.publishedOn?.toLocaleDateString()} • {meta.readingTime} min read •
+        <HeartIcon class="size-4" />
+        {likeCount ?? "…"}
       </small>
     </p>
   </div>
