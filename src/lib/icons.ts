@@ -20,3 +20,4 @@ export { default as CogIcon } from "central-icons/IconSettingsGear1";
 export { default as ShareIcon } from "central-icons/IconShareOs";
 export { default as DuplicateIcon } from "central-icons/IconSquareBehindSquare1";
 export { default as SunIcon } from "central-icons/IconSun";
+export { default as LoadingIcon } from "central-icons/IconLoader";
