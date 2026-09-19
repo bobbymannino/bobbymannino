@@ -1,0 +1,29 @@
+{
+  "languages": {
+    "Markdown": { "formatter": { "language_server": { "name": "oxfmt" } } },
+    "TypeScript": {
+      "formatter": [
+        { "code_action": "source.fixSafe.oxc" },
+        { "language_server": { "name": "oxfmt" } },
+      ],
+    },
+  },
+  "lsp": {
+    "oxfmt": {
+      "initialization_options": {
+        "settings": {
+          "fmt.configPath": ".oxfmtrc.json",
+          "run": "onSave",
+        },
+      },
+    },
+    "oxlint": {
+      "initialization_options": {
+        "settings": {
+          "fmt.configPath": ".oxlintrc.json",
+          "run": "onType",
+        },
+      },
+    },
+  },
+}
