@@ -1,6 +1,8 @@
 <script>
-  import { URL } from "$app/env/public";
+  import { URL as URLS } from "$app/env/public";
   import { page } from "$app/state";
+
+  const URL = URLS.split(",")[0];
 </script>
 
 <svelte:head>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { URL } from "$app/env/public";
+  import { URL as URLS } from "$app/env/public";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
   import CalendarIcon from "$lib/icons/calendar-icon.svelte";
@@ -17,9 +17,15 @@
 
   let { post }: Props = $props();
 
-  const series = $derived(post.meta.series ? getSeries(post.meta.series) : null);
+  const URL = URLS.split(",")[0];
 
-  const canShare = $derived(typeof navigator !== "undefined" && "share" in navigator);
+  const series = $derived(
+    post.meta.series ? getSeries(post.meta.series) : null,
+  );
+
+  const canShare = $derived(
+    typeof navigator !== "undefined" && "share" in navigator,
+  );
 
   let copied = $state(false);
 
@@ -89,7 +95,10 @@
           {post.meta.publishedOn?.toDateString()}
           •
         </time>
-        <span aria-label="Reading duration" class="inline-flex items-center gap-1">
+        <span
+          aria-label="Reading duration"
+          class="inline-flex items-center gap-1"
+        >
           <ClockIcon class="size-5" />
           {post.meta.readingTime} min •
         </span>

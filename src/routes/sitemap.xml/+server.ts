@@ -1,8 +1,9 @@
-import { URL } from "$app/env/public";
+import { URL as URLS } from "$app/env/public";
 import { listPosts } from "$lib/posts";
 import { series } from "$lib/posts/series";
 
 export const GET = () => {
+  const URL = URLS.split(",")[0];
   const posts = listPosts();
 
   return new Response(

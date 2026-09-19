@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { URL } from "$app/env/public";
+  import { URL as URLS } from "$app/env/public";
   import { page } from "$app/state";
   import Markdown from "$components/markdown.svelte";
   import Meta from "$components/meta.svelte";
@@ -14,6 +14,8 @@
 
   let { data }: PageProps = $props();
 
+  const URL = URLS.split(",")[0];
+
   const url = $derived(URL + page.url.pathname);
 
   const thumbnails = import.meta.glob<{ default: Picture }>(
@@ -21,14 +23,21 @@
     { eager: true, query: { enhanced: true, w: "640;1280" } },
   );
 
-  const thumbnailUrls = import.meta.glob<string>("/src/lib/images/blog/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}", {
-    eager: true,
-    import: "default",
-  });
+  const thumbnailUrls = import.meta.glob<string>(
+    "/src/lib/images/blog/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
+    {
+      eager: true,
+      import: "default",
+    },
+  );
 
   const thumbnailPlaceholders = import.meta.glob<string>(
     "/src/lib/images/blog/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
-    { eager: true, query: { w: "60", blur: "2", format: "webp", inline: true }, import: "default" },
+    {
+      eager: true,
+      query: { w: "60", blur: "2", format: "webp", inline: true },
+      import: "default",
+    },
   );
 
   const thumbnail = $derived.by(() => {
@@ -46,7 +55,10 @@
 
 <svelte:head>
   <meta property="article:author" content="Bobby Mannino" />
-  <meta property="article:published_time" content={data.post.meta.publishedOn.toString()} />
+  <meta
+    property="article:published_time"
+    content={data.post.meta.publishedOn.toString()}
+  />
   <meta property="article:tag" content={data.post.meta.tags.join(", ")} />
 </svelte:head>
 
@@ -62,7 +74,10 @@
 <Timeline />
 <div class="container grid-cols-[17rem_1fr] gap-6 lg:grid">
   <aside class="top-22 h-fit lg:sticky">
-    <Toc headings={data.headings} showRelatedPostsLink={data.relatedPosts.length > 0} />
+    <Toc
+      headings={data.headings}
+      showRelatedPostsLink={data.relatedPosts.length > 0}
+    />
   </aside>
 
   <div class="space-y-6">
@@ -73,7 +88,13 @@
 
       <article class="space-y-4 md:space-y-6">
         {#if thumbnail}
-          <a href={thumbnail.url} target="_blank" rel="noopener noreferrer" class="block" title="Open image in new tab">
+          <a
+            href={thumbnail.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+            title="Open image in new tab"
+          >
             <enhanced:img
               src={thumbnail.picture}
               alt={data.post.meta.thumbnailAlt}

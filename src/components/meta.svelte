@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { URL } from "$app/env/public";
+  import { URL as URLS } from "$app/env/public";
 
   type Props = {
     title: string;
@@ -12,7 +12,16 @@
     type?: "website" | "article";
   };
 
-  let { img = `${URL}/favicon.png`, imgDark, title, description, tags, type = "website" }: Props = $props();
+  const URL = URLS.split(",")[0];
+
+  let {
+    img = `${URL}/favicon.png`,
+    imgDark,
+    title,
+    description,
+    tags,
+    type = "website",
+  }: Props = $props();
 </script>
 
 <svelte:head>
@@ -30,8 +39,16 @@
 
   <meta property="og:image" content={img} />
   {#if imgDark}
-    <meta name="twitter:image" content={img} media="(prefers-color-scheme: light)" />
-    <meta name="twitter:image" content={imgDark} media="(prefers-color-scheme: dark)" />
+    <meta
+      name="twitter:image"
+      content={img}
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="twitter:image"
+      content={imgDark}
+      media="(prefers-color-scheme: dark)"
+    />
   {:else}
     <meta name="twitter:image" content={img} />
   {/if}
