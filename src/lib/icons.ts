@@ -1,3 +1,6 @@
+import type { Component } from "svelte";
+import { render } from "svelte/server";
+
 export { default as ThemeIcon } from "central-icons/IconAppearanceDarkMode";
 export { default as CalendarIcon } from "central-icons/IconCalendar1";
 export { default as CheckIcon } from "central-icons/IconCheckmark1";
@@ -21,3 +24,8 @@ export { default as ShareIcon } from "central-icons/IconShareOs";
 export { default as DuplicateIcon } from "central-icons/IconSquareBehindSquare1";
 export { default as SunIcon } from "central-icons/IconSun";
 export { default as LoadingIcon } from "central-icons/IconLoader";
+
+/** Renders an icon component to an HTML string, so markdown HTML stays in sync with the icon package */
+export function renderIcon(Icon: Component<Record<string, unknown>>, klass = "size-4") {
+  return render(Icon, { props: { class: klass } }).body;
+}

@@ -1,9 +1,7 @@
 import { textToId, type Heading } from "$lib/headings";
-import { CheckIcon, DuplicateIcon } from "$lib/icons";
+import { CheckIcon, DuplicateIcon, renderIcon } from "$lib/icons";
 import hljs from "highlight.js";
 import { Marked, Renderer } from "marked";
-import type { Component } from "svelte";
-import { render } from "svelte/server";
 
 function escapeHtml(raw: string) {
   return raw
@@ -12,11 +10,6 @@ function escapeHtml(raw: string) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
-}
-
-/** Renders an icon component to an HTML string, so markdown HTML stays in sync with the icon package */
-function renderIcon(Icon: Component<Record<string, unknown>>) {
-  return render(Icon, { props: { class: "size-4" } }).body;
 }
 
 const CHECK_ICON = renderIcon(CheckIcon);
