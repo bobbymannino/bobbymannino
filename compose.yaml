@@ -1,0 +1,17 @@
+services:
+  dragonfly:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly:latest
+    command:
+      - --dir=/data
+      - --dbfilename=dump.rdb
+      - --snapshot_cron=* * * * *
+    ports:
+      - "53790:6379"
+    ulimits:
+      memlock: -1
+    volumes:
+      - dragonfly-data:/data
+    restart: unless-stopped
+
+volumes:
+  dragonfly-data:
