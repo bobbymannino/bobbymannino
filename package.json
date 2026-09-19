@@ -16,6 +16,7 @@
   "dependencies": {
     "@giscus/svelte": "^3.1.0",
     "@sentry/sveltekit": "^10.74.0",
+    "central-icons": "npm:@central-icons-svelte/square-filled-radius-0-stroke-2@^1.1.320",
     "marked": "^18.0.13",
     "satori": "^0.33.4",
     "satori-html": "^0.3.2",

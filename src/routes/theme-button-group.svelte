@@ -1,7 +1,5 @@
 <script lang="ts">
-  import MoonIcon from "$lib/icons/moon-icon.svelte";
-  import SunIcon from "$lib/icons/sun-icon.svelte";
-  import ThemeIcon from "$lib/icons/theme-icon.svelte";
+  import { MoonIcon, SunIcon, ThemeIcon } from "$lib/icons";
   import type { Component } from "svelte";
 
   type Theme = "light" | "dark" | "system";

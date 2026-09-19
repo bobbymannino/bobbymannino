@@ -2,7 +2,7 @@
   import { goto } from "$app/navigation";
   import { navigating, page } from "$app/state";
   import Modal from "$components/modal.svelte";
-  import XIcon from "$lib/icons/x.svelte";
+  import { XIcon } from "$lib/icons";
   import Fuse from "fuse.js";
 
   let query = $state("");

@@ -1,7 +1,5 @@
 import { EMAIL, GITHUB_URL, LINKEDIN_URL } from "$app/env/public";
-import EnvelopeIcon from "$lib/icons/envelope-icon.svelte";
-import GithubIcon from "$lib/icons/github.svelte";
-import LinkedinIcon from "$lib/icons/linkedin-icon.svelte";
+import { EnvelopeIcon, GithubIcon, LinkedinIcon } from "$lib/icons";
 import type { Component } from "svelte";
 
 type Social = {

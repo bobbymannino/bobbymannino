@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SearchIcon from "$lib/icons/search.svelte";
+  import { SearchIcon } from "$lib/icons";
   import Logo from "./logo.svelte";
 
   type Props = {

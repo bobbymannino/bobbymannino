@@ -1,8 +1,5 @@
 <script lang="ts">
-  import BeakerIcon from "$lib/icons/beaker-icon.svelte";
-  import CogIcon from "$lib/icons/cog-icon.svelte";
-  import EyeCrossedOutIcon from "$lib/icons/eye-crossed-out.svelte";
-  import RocketIcon from "$lib/icons/rocket-icon.svelte";
+  import { BeakerIcon, CogIcon, EyeCrossedOutIcon, RocketIcon } from "$lib/icons";
   import type { Project } from "$lib/projects";
 
   let { status, thumbnail, title, href, languages, year }: Project = $props();

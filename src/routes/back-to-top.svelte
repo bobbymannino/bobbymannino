@@ -1,5 +1,5 @@
 <script>
-  import ChevronUpIcon from "$lib/icons/chevron-up-icon.svelte";
+  import { ChevronUpIcon } from "$lib/icons";
   import { scrollY, innerHeight } from "svelte/reactivity/window";
 
   const scrolled = $derived((scrollY.current || 0) > (innerHeight.current || 0) / 2);

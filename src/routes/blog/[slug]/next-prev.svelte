@@ -1,6 +1,5 @@
 <script lang="ts">
-  import ChevronLeftIcon from "$lib/icons/chevron-left-icon.svelte";
-  import ChevronRightIcon from "$lib/icons/chevron-right-icon.svelte";
+  import { ChevronLeftIcon, ChevronRightIcon } from "$lib/icons";
 
   type Post = App.PageData["posts"][number];
 

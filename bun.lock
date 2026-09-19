@@ -7,6 +7,7 @@
       "dependencies": {
         "@giscus/svelte": "^3.1.0",
         "@sentry/sveltekit": "^10.74.0",
+        "central-icons": "npm:@central-icons-svelte/square-filled-radius-0-stroke-2@^1.1.320",
         "marked": "^18.0.13",
         "satori": "^0.33.4",
         "satori-html": "^0.3.2",
@@ -500,6 +501,8 @@
     "camelize": ["camelize@1.0.1", "", {}, "sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ=="],
 
     "caniuse-lite": ["caniuse-lite@1.0.30001810", "", {}, "sha512-TITQPUkaz+aVk5GL6NhOdwk1aEaNTSDPsGFWrTuhKGtjTF70jL/Oht2W4c6rXUe5fu7Ie19VIahAXHIIiWWNeg=="],
+
+    "central-icons": ["@central-icons-svelte/square-filled-radius-0-stroke-2@1.1.320", "", { "peerDependencies": { "svelte": ">=4" } }, "sha512-1l7e140kCpGEYmooalm/e2hIlRPJLU82AfJj0Qv+2FcX1qH6NCFmh1Mre7cTpBhQnFKfmFtWHopw8R396sBSKQ=="],
 
     "chokidar": ["chokidar@4.0.3", "", { "dependencies": { "readdirp": "^4.0.1" } }, "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA=="],
 

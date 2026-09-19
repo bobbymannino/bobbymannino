@@ -2,11 +2,7 @@
   import { URL as URLS } from "$app/env/public";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import CalendarIcon from "$lib/icons/calendar-icon.svelte";
-  import CheckIcon from "$lib/icons/check-icon.svelte";
-  import ClockIcon from "$lib/icons/clock-icon.svelte";
-  import DuplicateIcon from "$lib/icons/dupliate-icon.svelte";
-  import ShareIcon from "$lib/icons/share-icon.svelte";
+  import { CalendarIcon, CheckIcon, ClockIcon, DuplicateIcon, ShareIcon } from "$lib/icons";
   import { getSeries } from "$lib/posts/series";
 
   type Post = App.PageData["posts"][number];
@@ -19,13 +15,9 @@
 
   const URL = URLS.split(",")[0];
 
-  const series = $derived(
-    post.meta.series ? getSeries(post.meta.series) : null,
-  );
+  const series = $derived(post.meta.series ? getSeries(post.meta.series) : null);
 
-  const canShare = $derived(
-    typeof navigator !== "undefined" && "share" in navigator,
-  );
+  const canShare = $derived(typeof navigator !== "undefined" && "share" in navigator);
 
   let copied = $state(false);
 
@@ -95,10 +87,7 @@
           {post.meta.publishedOn?.toDateString()}
           •
         </time>
-        <span
-          aria-label="Reading duration"
-          class="inline-flex items-center gap-1"
-        >
+        <span aria-label="Reading duration" class="inline-flex items-center gap-1">
           <ClockIcon class="size-5" />
           {post.meta.readingTime} min •
         </span>
