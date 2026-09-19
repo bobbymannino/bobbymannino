@@ -25,7 +25,12 @@ export { default as DuplicateIcon } from "central-icons/IconSquareBehindSquare1"
 export { default as SunIcon } from "central-icons/IconSun";
 export { default as LoadingIcon } from "central-icons/IconLoader";
 
-/** Renders an icon component to an HTML string, so markdown HTML stays in sync with the icon package */
-export function renderIcon(Icon: Component<Record<string, unknown>>, klass = "size-4") {
-  return render(Icon, { props: { class: klass } }).body;
+/** Renders an icon component to an HTML string for non-component contexts. */
+export function renderIcon(
+  Icon: Component<Record<string, unknown>>,
+  props: Record<string, unknown> = {
+    class: "size-4",
+  },
+) {
+  return render(Icon, { props }).body;
 }

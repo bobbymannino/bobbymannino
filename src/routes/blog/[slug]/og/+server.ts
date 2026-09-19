@@ -1,4 +1,6 @@
+import { HeartIcon, renderIcon } from "$lib/icons";
 import { listPosts } from "$lib/posts";
+import { getPostLikeStatus } from "$lib/server/post-likes";
 import { error } from "@sveltejs/kit";
 import { nodeToJpeg } from "./component-to-jpeg";
 
@@ -16,6 +18,10 @@ export const GET = async ({ params, url }) => {
 
   const publishedOn = post.meta.publishedOn || new Date();
   const meta = `${publishedOn.toLocaleDateString()} • ${post.meta.readingTime} min read • By Bobby Mannino`;
+  const { count: likes } = await getPostLikeStatus(params.slug, null);
+  const heartIcon = `data:image/svg+xml,${encodeURIComponent(
+    renderIcon(HeartIcon, { mode: "raw", size: 20 }).replaceAll("currentColor", metaColor),
+  )}`;
 
   const node = {
     type: "div",
@@ -63,12 +69,29 @@ export const GET = async ({ params, url }) => {
           type: "div",
           props: {
             style: {
+              display: "flex",
+              alignItems: "center",
+              gap: "4px",
               fontSize: "20px",
               marginTop: "8px",
               textAlign: "right",
               color: metaColor,
             },
-            children: meta,
+            children:
+              likes > 0
+                ? [
+                    `${likes}`,
+                    {
+                      type: "img",
+                      props: {
+                        src: heartIcon,
+                        width: 20,
+                        height: 20,
+                      },
+                    },
+                    ` • ${meta}`,
+                  ]
+                : meta,
           },
         },
       ],
@@ -81,7 +104,7 @@ export const GET = async ({ params, url }) => {
     headers: {
       "Content-Type": "image/jpeg",
       "Content-Disposition": `inline; filename="${params.slug}.jpg"`,
-      "Cache-Control": "public, max-age=2500000, immutable",
+      "Cache-Control": "public, max-age=3600",
     },
   });
 };
