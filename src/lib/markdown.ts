@@ -38,7 +38,7 @@ const md = new Marked({ gfm: true }).use({
         ? hljs.highlight(text, { language }).value
         : hljs.highlightAuto(text).value;
 
-      return `<div data-code-block><div class="flex items-center justify-between border-b border-zinc-300 bg-zinc-200 p-2 text-xs font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"><span class="uppercase">${escapeHtml(language)}</span><button type="button" data-copy title="Copy code to the clipboard" class="ring-on-focus-visible hover:text-accent-600 active:text-accent-700 flex cursor-pointer items-center gap-1 active:scale-95"><span data-copy-state="idle" class="flex items-center gap-1">${DUPLICATE_ICON}<span>Copy</span></span><span data-copy-state="done" class="flex items-center gap-1">${CHECK_ICON}<span>Copied</span></span></button></div><pre><code class="hljs">${highlighted}</code></pre></div>`;
+      return `<div data-code-block class="max-w-full overflow-x-auto"><div class="flex items-center justify-between border-b border-zinc-300 bg-zinc-200 p-2 text-xs font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"><span class="uppercase">${escapeHtml(language)}</span><button type="button" data-copy title="Copy code to the clipboard" class="ring-on-focus-visible hover:text-accent-600 active:text-accent-700 flex cursor-pointer items-center gap-1 active:scale-95"><span data-copy-state="idle" class="flex items-center gap-1">${DUPLICATE_ICON}<span>Copy</span></span><span data-copy-state="done" class="flex items-center gap-1">${CHECK_ICON}<span>Copied</span></span></button></div><pre><code class="hljs">${highlighted}</code></pre></div>`;
     },
 
     link({ href, title, tokens }) {
