@@ -23,13 +23,15 @@ certain action such as `music://quinn-xcii/straightjacket`.
 To create a deep-link in **Windows**, you will need to add 2 values in the
 registry.
 
-The first one is to define the protocol handler for your deep-link.
-This is done by creating a new key under `HKEY_CLASSES_ROOT` with the name of
-your protocol (e.g., `yourapp://`). Inside this key, create a string value named
+The first one is to define the protocol handler for your deep-link. This is done
+by creating a new key under `HKEY_CLASSES_ROOT` with the name of your protocol
+(e.g., `yourapp://`). Inside this key, create a string value named
 `URL Protocol` with an empty string as its data.
 
 The second thing is to define the application path so that when the url is
-called it opens the correct application. You can do this by settings a string in `\<your-app>\shell\open\command`. The strings key empty but value should be `"\path\to\your\app.exe" "%1"`.
+called it opens the correct application. You can do this by settings a string in
+`\<your-app>\shell\open\command`. The strings key empty but value should be
+`"\path\to\your\app.exe" "%1"`.
 
 In the end you should have a registry that includes these entries:
 
@@ -57,5 +59,4 @@ application (e.g. it would be `yourapp://quinn-xcii/straightjacket`).
 
 ## Resources
 
-[Delphi Deep-links Demo
-Repo](https://github.com/bobbymannino/delphi-vcl-deeplinks-demo)
+[Delphi Deep-links Demo Repo](https://github.com/bobbymannino/delphi-vcl-deeplinks-demo)

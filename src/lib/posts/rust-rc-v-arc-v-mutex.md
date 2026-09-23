@@ -164,9 +164,9 @@ fn main() {
 }
 ```
 
-This pattern is simple and reliable. For very high contention workloads, consider
-other approaches like atomics or message passing channels depending on the use
-case.
+This pattern is simple and reliable. For very high contention workloads,
+consider other approaches like atomics or message passing channels depending on
+the use case.
 
 ## Conclusion
 
@@ -180,9 +180,9 @@ choosing the right one depends mostly on two things: **threading** and
 - Use `Arc<Mutex<T>>` when multiple threads need to both own and mutate the same
   value.
 
-A good rule of thumb is: start with the simplest model (`Rc` or plain ownership),
-and only move to `Arc` or `Mutex` when your design requires thread sharing or
-shared mutation.
+A good rule of thumb is: start with the simplest model (`Rc` or plain
+ownership), and only move to `Arc` or `Mutex` when your design requires thread
+sharing or shared mutation.
 
 ---
 

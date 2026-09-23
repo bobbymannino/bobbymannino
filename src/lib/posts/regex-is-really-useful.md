@@ -113,7 +113,8 @@ const doesMatch = xp.test(str);
 Single characters are the most basic type of pattern. They match a single
 character in the text. For example, `a` would match `a` and `a` only. There are
 special cases where you can apply a range to a character. For example, `A-Z`
-which will match all upper case english letters. The same will apply for numbers.
+which will match all upper case english letters. The same will apply for
+numbers.
 
 ```typescript
 const xp = new RegExp(/^[a-z]{2}A$/);
@@ -211,7 +212,8 @@ In this example we are replacing the bad words if the name they are being called
 is 'bob' or 'Bob'
 
 ```typescript
-const str = "Bob is bad. Will is naughty, Tom is naughty, Tom is bad, Bob is good, bob is naughty.";
+const str =
+  "Bob is bad. Will is naughty, Tom is naughty, Tom is bad, Bob is good, bob is naughty.";
 
 const xp = new RegExp(/(?<=(B|b)ob\sis\s)(bad|naughty)/, "g");
 

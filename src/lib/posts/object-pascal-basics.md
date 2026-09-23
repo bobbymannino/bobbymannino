@@ -127,16 +127,18 @@ pascal. Afterwards there are 3 sections `private`, `published`, & `public`.
 
 - Public variables/methods can be accessed from within the class or from an
   instance.
-- Published variables/methods can be accessed from within the class or from a class
-  that inherits the class
+- Published variables/methods can be accessed from within the class or from a
+  class that inherits the class
 - Private variables/methods can only be accessed from within this class
 
-In each section you can declare variables or methods but in public you can also declare 3 extra things.
+In each section you can declare variables or methods but in public you can also
+declare 3 extra things.
 
 - Constructor: A constructor is used to create an instance of the class
-- Destructor: A destructor is used to free resources when an instance is destroyed
-- Properties: Properties are used to control access to a variable as well as being
-  able to validate inputs and have computed variables.
+- Destructor: A destructor is used to free resources when an instance is
+  destroyed
+- Properties: Properties are used to control access to a variable as well as
+  being able to validate inputs and have computed variables.
 
 To implement the methods, underneath the type you can write the functions
 prefixed with the class name (e.g. `TPerson.GetAge`).
@@ -145,7 +147,9 @@ Common practice is to name the file/unit something like `clsEmployee_u`. `cls`
 represents that it is a class, `Employee` is what class it is and `_u` is
 because when we use the class in another file we can import it easily.
 
-To use inheritance you can change the object in parenthesis in the type and use keywords such as `override`, `virtual` and `inherited`. An example of a class that inherits from `TPerson` would look something like:
+To use inheritance you can change the object in parenthesis in the type and use
+keywords such as `override`, `virtual` and `inherited`. An example of a class
+that inherits from `TPerson` would look something like:
 
 ```pascal
 unit clsEmployee_u;

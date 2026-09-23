@@ -58,10 +58,13 @@ jobs:
       - name: Create release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "${{ github.ref_name }}" --title "${{ github.ref_name }}" --notes-file release-notes.md
+        run:
+          gh release create "${{ github.ref_name }}" --title "${{
+          github.ref_name }}" --notes-file release-notes.md
 ```
 
-There are special tokens that are automatically populated by GitHub such as `${{ github.ref_name }}` and `${{ github.server_url }}`.
+There are special tokens that are automatically populated by GitHub such as
+`${{ github.ref_name }}` and `${{ github.server_url }}`.
 
 The `release-notes.sh` is a separate bash script that I have decided to write in
 its own file, it is normal for the script to remain within the workflow file but

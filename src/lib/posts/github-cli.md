@@ -10,8 +10,8 @@ tags: ["github", "cli"]
 ## What is the GitHub CLI?
 
 The GitHub CLI is useful for things like cloning repos but also making actions
-that you would otherwise make on GitHub, such as cloning a repo, creating
-an issue, viewing a pull request, creating labels and much more.
+that you would otherwise make on GitHub, such as cloning a repo, creating an
+issue, viewing a pull request, creating labels and much more.
 
 ## My Favorite Commands
 

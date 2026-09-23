@@ -10,9 +10,9 @@ tags: ["math"]
 ## Sagitta
 
 A **sagitta** (pronounced _sah-JIT-uh_) is the height of an arc above its chord:
-the straight line joining the arc's two endpoints. It is useful when laying out curves from a known circle
-radius. It is very useful for knowing how to calculate the size of something
-like contact lenses for your eyes.
+the straight line joining the arc's two endpoints. It is useful when laying out
+curves from a known circle radius. It is very useful for knowing how to
+calculate the size of something like contact lenses for your eyes.
 
 ## Sagitta Formula
 

@@ -51,5 +51,5 @@ from generate_series(0, datediff(day, @start_date, @end_date));
 
 Postgres does also share this function with a small but useful extra feature:
 being able to use dates natively in `generate_series`. To learn more about it in
-postgres [click
-here.](https://www.postgresql.org/docs/current/functions-srf.html)
+postgres
+[click here.](https://www.postgresql.org/docs/current/functions-srf.html)

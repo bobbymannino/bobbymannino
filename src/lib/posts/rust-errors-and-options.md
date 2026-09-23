@@ -1,7 +1,8 @@
 ---
 title: "Rust: Errors and Options"
 publishedOn: 2026-05-10
-tagline: "Learn the basics of handling errors and optionals with Option and Result"
+tagline:
+  "Learn the basics of handling errors and optionals with Option and Result"
 tags: ["rust"]
 ---
 
@@ -123,8 +124,8 @@ fn main() {
 
 ## The `?` operator
 
-The `?` operator is the idiomatic way to propagate errors. It unwraps an `Ok`
-or `Some` value, and on `Err` or `None` it returns early from the function with
+The `?` operator is the idiomatic way to propagate errors. It unwraps an `Ok` or
+`Some` value, and on `Err` or `None` it returns early from the function with
 that value.
 
 ```rs
@@ -156,13 +157,13 @@ fn first_char(s: &str) -> Option<char> {
 ```
 
 > The error type returned by `?` must match (or be convertible into) the error
-> type of the function. For mixing error types, look into crates like
-> `anyhow` or `thiserror`.
+> type of the function. For mixing error types, look into crates like `anyhow`
+> or `thiserror`.
 
 ## Converting between `Option` and `Result`
 
-Sometimes you have an `Option` but the surrounding function returns a
-`Result`, or the other way around. There are helpers for both directions.
+Sometimes you have an `Option` but the surrounding function returns a `Result`,
+or the other way around. There are helpers for both directions.
 
 ```rs
 fn main() {
@@ -178,8 +179,8 @@ fn main() {
 
 ## Conclusion
 
-`Option` and `Result` are how Rust forces you to think about absence and
-failure up front, instead of discovering them at runtime.
+`Option` and `Result` are how Rust forces you to think about absence and failure
+up front, instead of discovering them at runtime.
 
 - Use `Option<T>` when a value might not exist.
 - Use `Result<T, E>` when an operation might fail and you want to explain why.

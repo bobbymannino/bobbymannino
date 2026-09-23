@@ -123,8 +123,8 @@ fn check_age(age: i32) -> Result<()> {
 
 ## Inspecting the cause
 
-Most of the time you just print the error and move on. When you need to react
-to a specific underlying error, use `downcast_ref`.
+Most of the time you just print the error and move on. When you need to react to
+a specific underlying error, use `downcast_ref`.
 
 ```rs
 use anyhow::Result;
@@ -167,8 +167,7 @@ and the application that consumes the library to wrap everything in
 
 ## Conclusion
 
-`anyhow` is the path of least resistance for error handling in application
-code.
+`anyhow` is the path of least resistance for error handling in application code.
 
 - Return `anyhow::Result<T>` from anything fallible.
 - Use `?` freely; the conversions are handled for you.

@@ -43,9 +43,9 @@ Sometimes it's useful to purposely break your tests to find new defects.
 ## 6. Testing is context dependent
 
 This essentially means that the way you test your software will depend on the
-context of the software. For example, testing a web application will be different
-from testing a desktop application, or a banking site will be tested differently
-to a web game.
+context of the software. For example, testing a web application will be
+different from testing a desktop application, or a banking site will be tested
+differently to a web game.
 
 ## 7. Absence of errors fallacy
 

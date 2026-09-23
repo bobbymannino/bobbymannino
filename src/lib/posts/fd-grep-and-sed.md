@@ -7,7 +7,8 @@ tags: ["regex", "cli"]
 
 # `fd`, `grep` and `sed`
 
-These 3 commands are all CLI tools that can enable searching for files, searching for text, find and replace in files
+These 3 commands are all CLI tools that can enable searching for files,
+searching for text, find and replace in files
 
 ## `fd`
 

@@ -152,7 +152,8 @@ internal to the cluster. The Ingress will be the public entry point.
 ## Creating the Ingress
 
 The Ingress defines how HTTP requests enter the cluster. This example expects an
-NGINX Ingress controller and sends requests for `api.example.com` to the Service.
+NGINX Ingress controller and sends requests for `api.example.com` to the
+Service.
 
 ```yaml
 ---
@@ -180,10 +181,10 @@ record should point to the external address assigned to the Ingress controller.
 The exact setup differs between local clusters, virtual private servers and
 managed Kubernetes providers.
 
-This configuration only routes plain HTTP traffic. A public API should use HTTPS,
-which requires a TLS certificate and a `tls` section in the Ingress. Authentication
-still belongs in the API or an authentication-aware gateway; Kubernetes exposing
-the API does not authorize callers by itself.
+This configuration only routes plain HTTP traffic. A public API should use
+HTTPS, which requires a TLS certificate and a `tls` section in the Ingress.
+Authentication still belongs in the API or an authentication-aware gateway;
+Kubernetes exposing the API does not authorize callers by itself.
 
 ## Applying the Configuration
 
@@ -211,9 +212,9 @@ forward a local port directly to the Service:
 kubectl port-forward service/api-service 8080:80
 ```
 
-While that command is running, the API is available at
-`http://localhost:8080`. Port forwarding is useful for development and debugging,
-but it is not a production deployment method.
+While that command is running, the API is available at `http://localhost:8080`.
+Port forwarding is useful for development and debugging, but it is not a
+production deployment method.
 
 ## Scaling the API
 
@@ -262,9 +263,10 @@ kubectl describe ingress api-ingress
 ```
 
 The most common issues are an image the cluster cannot pull, a Service selector
-that does not match the Pod labels, an incorrect `targetPort`, a failing readiness
-probe or a missing Ingress controller. Checking the Pods first and then moving
-outward through the Service and Ingress makes the problem easier to isolate.
+that does not match the Pod labels, an incorrect `targetPort`, a failing
+readiness probe or a missing Ingress controller. Checking the Pods first and
+then moving outward through the Service and Ingress makes the problem easier to
+isolate.
 
 ## What I Learned
 

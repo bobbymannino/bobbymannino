@@ -30,7 +30,8 @@
     <ThemeButtonGroup />
     <div class="flex items-center gap-4">
       <small class="text-zinc-500 dark:text-zinc-400" title="{builtAt.toUTCString()} ({formatDateRelative(builtAt)})">
-        Built {builtAt.toLocaleDateString()} {builtAt.toLocaleTimeString()}
+        Built {builtAt.toLocaleDateString()}
+        {builtAt.toLocaleTimeString()}
       </small>
       <div class="not-hoverable:hidden">
         <kbd>{cmdOrCtrl}</kbd>

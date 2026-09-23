@@ -8,7 +8,8 @@ tags: ["pointers", "delphi"]
 # Pointers in Delphi
 
 If your not too sure what a pointer is I have written another post on that
-[here](/blog/what-are-pointers). Once you have an understanding of pointers it will be easier to understand how they work in Delphi.
+[here](/blog/what-are-pointers). Once you have an understanding of pointers it
+will be easier to understand how they work in Delphi.
 
 ## Compiler Directives
 
@@ -77,7 +78,9 @@ begin
 
 ### Referencing a Pointer's Value
 
-To access the value of a pointer you can use the caret (`^`) but instead of using the caret before a type name you would use it after a (pointer) variable like this:
+To access the value of a pointer you can use the caret (`^`) but instead of
+using the caret before a type name you would use it after a (pointer) variable
+like this:
 
 ```pascal
 type
@@ -118,5 +121,4 @@ WriteLn(PersonPtr.Age);
 
 ## Resources
 
-[Embarcadero Pointer
-Docs](<https://docwiki.embarcadero.com/RADStudio/Sydney/en/Pointers_and_Pointer_Types_(Delphi)>)
+[Embarcadero Pointer Docs](<https://docwiki.embarcadero.com/RADStudio/Sydney/en/Pointers_and_Pointer_Types_(Delphi)>)

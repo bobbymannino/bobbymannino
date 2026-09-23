@@ -67,8 +67,8 @@ for every row.
 
 ### `RANK`
 
-Rank takes each row like `ROW_NUMBER` but in the event of a tie, it will give both
-rows the lower rank and then skip the higher rank.
+Rank takes each row like `ROW_NUMBER` but in the event of a tie, it will give
+both rows the lower rank and then skip the higher rank.
 
 | id  | score | rank |
 | --- | ----- | ---- |

@@ -94,8 +94,7 @@ use it to activate most of my shortcuts.
 
 • `⇪` + `Backspace` Restore (restore the last window size)
 
-• `⇪` + `W`eb Dev with multiple apps in predefined positions and
-sizes
+• `⇪` + `W`eb Dev with multiple apps in predefined positions and sizes
 
 #### Moving Windows
 

@@ -65,9 +65,11 @@ O(N).
 - A map is ordered by insertion order, so you can create a history
 - A map has a `.size` property so you can get the number of elements
 - A map is iterable by default
-- Maps are safe to use with user provided keys, whereas objects may allow object inection attacks
+- Maps are safe to use with user provided keys, whereas objects may allow object
+  inection attacks
 - Maps are optimized for adding/removing key value pairs
-- Maps do not have built in serialization/parsing like objects do, but it is simple to create your own
+- Maps do not have built in serialization/parsing like objects do, but it is
+  simple to create your own
 
 ### Example
 

@@ -15,10 +15,10 @@ The UART protocol is a serial communication protocol that allows data to be
 transmitted between two devices over 1 or 2 wires. It is commonly used in
 embedded systems and microcontrollers.
 
-The way it works is by sending a start bit, followed by 8 data bits, and then
-a stop bit. The start bit is a low signal that indicates the beginning of a
-data frame. The data bits are the actual data being transmitted. The stop bit
-is a high signal that indicates the end of a data frame.
+The way it works is by sending a start bit, followed by 8 data bits, and then a
+stop bit. The start bit is a low signal that indicates the beginning of a data
+frame. The data bits are the actual data being transmitted. The stop bit is a
+high signal that indicates the end of a data frame.
 
 The line at idle is left high so that it is easier to detect a faulty
 wire/connection.

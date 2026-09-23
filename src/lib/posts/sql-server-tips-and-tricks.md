@@ -16,8 +16,8 @@ that may come in handy when working with SQL Server.
 ### 1. Derived Columns
 
 Have you ever wanted to have a column that is derived from one or more columns?
-Well using [Derived Column
-Transformation](https://learn.microsoft.com/en-us/sql/integration-services/data-flow/transformations/derived-column-transformation?view=sql-server-ver16)
+Well using
+[Derived Column Transformation](https://learn.microsoft.com/en-us/sql/integration-services/data-flow/transformations/derived-column-transformation?view=sql-server-ver16)
 you can.
 
 ```sql
@@ -65,7 +65,8 @@ performance that will be hit as it is more rare to need every column than not.
 
 Something else to consider is readability which can greatly impact developers
 who are familiarizing themselves with the codebase. Overall it has the potential
-to cause issues down the line, so save your future self the trouble and avoid \*.
+to cause issues down the line, so save your future self the trouble and avoid
+\*.
 
 ```sql
 create table [User] (
@@ -399,7 +400,8 @@ select cast(123.45 as varchar(10)) as StringValue;
 
 ##### `NULLIF`
 
-Returns NULL if the two specified expressions are equal; otherwise, returns the first expression.
+Returns NULL if the two specified expressions are equal; otherwise, returns the
+first expression.
 
 ###### Syntax
 

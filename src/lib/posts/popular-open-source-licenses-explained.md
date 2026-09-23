@@ -88,7 +88,7 @@ Use Apache 2.0 when you are:
 
 Use GNU GPL v3 when you are:
 
-- Building software and want to allow that software to only be used
-  in open source projects
+- Building software and want to allow that software to only be used in open
+  source projects
 - Keeping the code open source forever
 - Protect against any future patents and putting a price on the code

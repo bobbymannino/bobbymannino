@@ -63,8 +63,8 @@ to come up with a proposal for them but either way it is important for you to
 understand the financial constraints of your project.
 
 If it is a low or no budget solution you will want to look into open source
-software and even if you have a sizable budget sometimes open source is still
-an viable option.
+software and even if you have a sizable budget sometimes open source is still an
+viable option.
 
 In general if I come across software that I like for being open source,
 performant, small or other reasons I will save it to a list with tags so later
@@ -116,6 +116,6 @@ like Trello or Asana to manage your tasks.
 
 ## Step Four: Testing
 
-Include testing within the planning process. This can be done through unit tests,
-integration tests, and user acceptance tests. Make sure to plan for testing at
-each stage of the development cycle.
+Include testing within the planning process. This can be done through unit
+tests, integration tests, and user acceptance tests. Make sure to plan for
+testing at each stage of the development cycle.

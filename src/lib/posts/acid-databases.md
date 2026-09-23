@@ -46,9 +46,9 @@ The above statement wouldn't work as the balance has to be above or equal to 0.
 
 Isolation ensures that the execution of transactions does not interfere with
 each other. This means that transactions are executed independently of each
-other and if there are 2 transactions trying to access/modify the same data
-at the same time, only one can do so at once. This ensures there are no
-'dirty reads'.
+other and if there are 2 transactions trying to access/modify the same data at
+the same time, only one can do so at once. This ensures there are no 'dirty
+reads'.
 
 ## Durability
 

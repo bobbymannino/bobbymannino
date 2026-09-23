@@ -1,6 +1,7 @@
 ---
 title: "Logical Replication in Postgres"
-tagline: "Logical replication in postgres through publications and subscriptions"
+tagline:
+  "Logical replication in postgres through publications and subscriptions"
 tags: ["sql", "postgres"]
 publishedOn: 2026-07-22
 ---
@@ -205,9 +206,9 @@ alter table public.orders
     replica identity using index orders_pkey;
 ```
 
-For a table without a primary key or suitable unique index, `REPLICA IDENTITY
-FULL` records the old row values in WAL so Postgres can find it. It can be much
-more expensive and should be a last resort:
+For a table without a primary key or suitable unique index,
+`REPLICA IDENTITY FULL` records the old row values in WAL so Postgres can find
+it. It can be much more expensive and should be a last resort:
 
 ```sql
 alter table public.legacy_orders

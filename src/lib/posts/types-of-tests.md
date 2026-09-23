@@ -52,7 +52,8 @@ errors.
 
 Note that just because your unit tests pass, does not mean the function works,
 it only works against the tests made. If you want to learn more about testing
-principles, check out the [testing principles post](/blog/7-principles-of-testing).
+principles, check out the
+[testing principles post](/blog/7-principles-of-testing).
 
 Example:
 
