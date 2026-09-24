@@ -91,14 +91,25 @@ function parseFrontmatter(file: string): { data: Record<string, unknown>; conten
 
   if (!match) return { data: {}, content: file };
 
-  const data: Record<string, unknown> = {};
+  const entries: [key: string, value: string][] = [];
 
-  for (const line of match[1].split("\n")) {
+  for (const line of match[1].split(/\r?\n/)) {
+    // Indented lines continue the previous value (formatters wrap long values)
+    if (/^\s/.test(line) && entries.length) {
+      const last = entries[entries.length - 1];
+      last[1] = `${last[1]} ${line.trim()}`.trim();
+      continue;
+    }
+
     const separator = line.indexOf(":");
     if (separator < 0) continue;
 
-    const key = line.slice(0, separator).trim();
-    const value = line.slice(separator + 1).trim();
+    entries.push([line.slice(0, separator).trim(), line.slice(separator + 1).trim()]);
+  }
+
+  const data: Record<string, unknown> = {};
+
+  for (const [key, value] of entries) {
     if (!key || !value) continue;
 
     data[key] =
