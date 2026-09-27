@@ -4,6 +4,7 @@
   import { m } from "$lib/paraglide/messages";
   import { getLocale } from "$lib/paraglide/runtime";
   import { socials } from "$lib/socials";
+  import LocaleSwitcher from "./locale-switcher.svelte";
   import ThemeButtonGroup from "./theme-button-group.svelte";
 
   const cmdOrCtrl = $derived(browser && navigator.platform.startsWith("Mac") ? "⌘" : "Ctrl");
@@ -29,7 +30,10 @@
         <small>&copy; bobman.dev {new Date().getFullYear()}</small>
       </p>
     </div>
-    <ThemeButtonGroup />
+    <div class="flex flex-wrap items-center gap-2">
+      <ThemeButtonGroup />
+      <LocaleSwitcher />
+    </div>
     <div class="flex items-center gap-4">
       <small class="text-zinc-500 dark:text-zinc-400" title="{builtAt.toUTCString()} ({formatDateRelative(builtAt)})">
         {m.built_at({ date: `${builtAt.toLocaleDateString(getLocale())} ${builtAt.toLocaleTimeString(getLocale())}` })}
