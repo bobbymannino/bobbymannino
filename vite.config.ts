@@ -1,3 +1,4 @@
+import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import { sentrySvelteKit } from "@sentry/sveltekit/vite";
 import adapter from "@sveltejs/adapter-node";
 import { enhancedImages } from "@sveltejs/enhanced-img";
@@ -20,6 +21,11 @@ export default defineConfig(({ mode }) => {
         org: env.SENTRY_ORG,
         project: env.SENTRY_PROJECT,
         authToken: env.SENTRY_AUTH_TOKEN,
+      }),
+      paraglideVitePlugin({
+        project: "./project.inlang",
+        outdir: "./src/lib/paraglide",
+        strategy: ["url", "baseLocale"],
       }),
       enhancedImages(),
       tailwindcss(),

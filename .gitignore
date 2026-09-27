@@ -16,6 +16,9 @@ Thumbs.db
 !.env.example
 !.env.test
 
+# Paraglide
+src/lib/paraglide
+
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
