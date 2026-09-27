@@ -1,5 +1,6 @@
 <script lang="ts">
   import { hacker } from "$lib/hacker";
+  import { m } from "$lib/paraglide/messages";
   import { socials } from "$lib/socials";
   import { inview } from "svelte-inview";
 </script>
@@ -13,7 +14,7 @@
         return () => clean();
       }}
     >
-      contact
+      {m.contact_heading()}
     </h1>
 
     <ul class="flex flex-wrap gap-4">

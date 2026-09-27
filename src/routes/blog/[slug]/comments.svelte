@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { m } from "$lib/paraglide/messages";
+  import { getLocale } from "$lib/paraglide/runtime";
   import Giscus from "@giscus/svelte";
 
   let theme = $state<"light" | "dark">("light");
@@ -16,7 +18,7 @@
 </script>
 
 <section class="card space-y-4">
-  <h2 id="comments"><a href="#comments" class="hover:underline">Comments</a></h2>
+  <h2 id="comments"><a href="#comments" class="hover:underline">{m.comments()}</a></h2>
 
   <Giscus
     id="giscus-comments"
@@ -31,5 +33,6 @@
     categoryId="DIC_kwDOMjo6Ds4C8tmA"
     repoId="R_kgDOMjo6Dg"
     {theme}
+    lang={getLocale()}
   />
 </section>

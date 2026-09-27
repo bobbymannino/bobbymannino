@@ -1,5 +1,6 @@
 import { EMAIL, GITHUB_URL, LINKEDIN_URL } from "$app/env/public";
 import { EnvelopeIcon, GithubIcon, LinkedinIcon } from "$lib/icons";
+import { m } from "$lib/paraglide/messages";
 import type { Component } from "svelte";
 
 type Social = {
@@ -12,19 +13,25 @@ type Social = {
 export const socials: Social[] = [
   {
     platform: "github",
-    title: "see this repo on github",
+    get title() {
+      return m.social_github_title();
+    },
     href: GITHUB_URL,
     icon: GithubIcon,
   },
   {
     platform: "email",
-    title: "send me an email",
+    get title() {
+      return m.social_email_title();
+    },
     href: `mailto:${EMAIL}`,
     icon: EnvelopeIcon,
   },
   {
     platform: "linkedin",
-    title: "see me me on linkedin",
+    get title() {
+      return m.social_linkedin_title();
+    },
     href: LINKEDIN_URL,
     icon: LinkedinIcon,
   },

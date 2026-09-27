@@ -4,6 +4,7 @@
   import ChipSelection from "$components/chip-selection.svelte";
   import Meta from "$components/meta.svelte";
   import Select from "$components/select.svelte";
+  import { m } from "$lib/paraglide/messages";
   import { onMount } from "svelte";
   import type { PageData } from "./$types";
 
@@ -73,24 +74,24 @@
   });
 </script>
 
-<Meta title="Blog | Bobby Mannino" description="Read posts about what I have learnt or enjoy" />
+<Meta title={m.blog_meta_title()} description={m.blog_meta_description()} />
 
 <div class="container">
   <div class="card">
     <div class="flex flex-wrap items-start justify-between">
-      <h1>blog</h1>
+      <h1>{m.blog_heading()}</h1>
       <Select
         id="sort-by"
-        label="Sort by"
+        label={m.sort_by()}
         name="sortBy"
         bind:value={sortBy}
         options={[
-          { value: "-date", text: "Newest to Oldest" },
-          { value: "date", text: "Oldest to Newest" },
-          { value: "title", text: "A to Z" },
-          { value: "-title", text: "Z to A" },
-          { value: "readingTime", text: "Shortest to Longest" },
-          { value: "-readingTime", text: "Longest to Shortest" },
+          { value: "-date", text: m.sort_newest() },
+          { value: "date", text: m.sort_oldest() },
+          { value: "title", text: m.sort_a_z() },
+          { value: "-title", text: m.sort_z_a() },
+          { value: "readingTime", text: m.sort_shortest() },
+          { value: "-readingTime", text: m.sort_longest() },
         ]}
       />
     </div>
@@ -99,10 +100,10 @@
       tabindex="0"
       href="#blog-list"
       class="bg-accent-600 ring-on-focus-visible absolute z-50 px-2 py-1 text-white not-focus-visible:pointer-events-none not-focus-visible:opacity-0"
-      >Skip tags</a
+      >{m.skip_tags()}</a
     >
 
-    <ChipSelection {chips} bind:selection={tags} name="tags" legend="Filter by tags" />
+    <ChipSelection {chips} bind:selection={tags} name="tags" legend={m.filter_by_tags()} />
 
     <ul class="grid scroll-mt-36 gap-4 sm:scroll-mt-30 md:scroll-mt-26" id="blog-list">
       {#each filteredPosts as post}

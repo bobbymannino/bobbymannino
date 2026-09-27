@@ -1,6 +1,7 @@
 <script lang="ts">
   import BlogPostCard from "$components/blog-post-card.svelte";
   import Meta from "$components/meta.svelte";
+  import { m } from "$lib/paraglide/messages";
   import type { PageProps } from "./$types";
 
   let { data }: PageProps = $props();
@@ -22,7 +23,7 @@
         {/each}
       </ol>
     {:else}
-      <p>No posts in this series yet.</p>
+      <p>{m.series_empty()}</p>
     {/if}
   </div>
 </div>

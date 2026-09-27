@@ -1,26 +1,28 @@
 <script lang="ts">
   import { page } from "$app/state";
   import Meta from "$components/meta.svelte";
+  import { m } from "$lib/paraglide/messages";
+  import { localizeHref } from "$lib/paraglide/runtime";
 
   const status = $derived(page.status);
   const message = $derived(page.error?.message);
 
   const headline = $derived.by(() => {
-    if (status === 404) return "lost in space";
-    if (status === 403) return "no entry";
-    if (status >= 500) return "something broke";
-    return "well, this is awkward";
+    if (status === 404) return m.error_404_headline();
+    if (status === 403) return m.error_403_headline();
+    if (status >= 500) return m.error_500_headline();
+    return m.error_headline();
   });
 
   const subtext = $derived.by(() => {
-    if (status === 404) return "the page you're looking for doesn't exist (or never did).";
-    if (status === 403) return "you don't have permission to view this page.";
-    if (status >= 500) return "something went wrong on my end. try again in a moment.";
-    return "an unexpected error occurred.";
+    if (status === 404) return m.error_404_subtext();
+    if (status === 403) return m.error_403_subtext();
+    if (status >= 500) return m.error_500_subtext();
+    return m.error_subtext();
   });
 </script>
 
-<Meta title="Error {status} | Bobby Mannino" description="Something has gone wrong" />
+<Meta title="{m.error_title({ status })} | Bobby Mannino" description={m.error_description()} />
 
 <section class="container" id="error">
   <div class="group/highlight card">
@@ -43,13 +45,15 @@
 
     <div class="flex flex-wrap gap-3 pt-2">
       <a
-        href="/blog"
+        href={localizeHref("/blog")}
         tabindex="0"
         class="bg-accent-700 ring-on-focus-visible hover:bg-accent-800 px-3 py-2 text-white ring-white"
       >
-        read the blog
+        {m.error_read_blog()}
       </a>
-      <a href="/" tabindex="0" class="text-accent-700 ring-on-focus-visible px-3 py-2 hover:underline">head home</a>
+      <a href={localizeHref("/")} tabindex="0" class="text-accent-700 ring-on-focus-visible px-3 py-2 hover:underline"
+        >{m.error_head_home()}</a
+      >
     </div>
   </div>
 </section>

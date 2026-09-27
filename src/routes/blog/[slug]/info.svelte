@@ -4,6 +4,8 @@
   import { page } from "$app/state";
   import PostLikeButton from "$components/post-like-button.svelte";
   import { CalendarIcon, CheckIcon, ClockIcon, DuplicateIcon, ShareIcon } from "$lib/icons";
+  import { m } from "$lib/paraglide/messages";
+  import { getLocale, localizeHref } from "$lib/paraglide/runtime";
   import { getSeries } from "$lib/posts/series";
 
   type Post = App.PageData["posts"][number];
@@ -50,11 +52,11 @@
 <div class="space-y-3">
   {#if series}
     <a
-      href={resolve("/blog/series/[slug]", { slug: series.slug })}
+      href={localizeHref(resolve("/blog/series/[slug]", { slug: series.slug }))}
       tabindex="0"
       class="bg-accent-600 ring-on-focus-visible hover:bg-accent-700 inline-block w-fit px-2 py-1 text-sm text-white focus-visible:ring-offset-2 active:scale-95"
     >
-      Part of the {series.title} series
+      {m.part_of_series({ series: series.title })}
     </a>
   {/if}
 
@@ -67,7 +69,7 @@
               rel="noopener noreferrer"
               tabindex="0"
               style:--vtn="post-{post.meta.slug}-tags-{tag}"
-              href="/blog/tags/{tag.replace(/\//g, '-')}"
+              href={localizeHref(`/blog/tags/${tag.replace(/\//g, "-")}`)}
               class="text-accent-600 ring-on-focus-visible active:text-accent-700 inline-block hover:underline active:scale-95"
             >
               #{tag}
@@ -80,17 +82,17 @@
       <span style:--vtn="post-{post.meta.slug}-meta">
         <time
           title={post.meta.publishedOn.toUTCString()}
-          aria-label="Published on"
+          aria-label={m.published_on()}
           class="inline-flex items-center gap-1"
           datetime={post.meta.publishedOn.toISOString().slice(0, 10)}
         >
           <CalendarIcon class="size-5" />
-          {post.meta.publishedOn?.toDateString()}
+          {post.meta.publishedOn?.toLocaleDateString(getLocale(), { dateStyle: "medium" })}
           •
         </time>
-        <span aria-label="Reading duration" class="inline-flex items-center gap-1">
+        <span aria-label={m.reading_duration()} class="inline-flex items-center gap-1">
           <ClockIcon class="size-5" />
-          {post.meta.readingTime} min •
+          {m.minutes_short({ minutes: post.meta.readingTime })} •
         </span>
       </span>
       <span class="inline-flex items-center gap-1">
@@ -101,17 +103,17 @@
         class="ring-on-focus-visible hover:text-accent-600 active:text-accent-700 inline-flex cursor-pointer items-center gap-1 active:scale-95"
         onclick={share}
         tabindex="0"
-        title="Share this post"
+        title={m.share_this_post()}
       >
         {#if canShare}
           <ShareIcon class="size-5" />
-          <span>Share</span>
+          <span>{m.share()}</span>
         {:else if copied}
           <CheckIcon class="size-5" />
-          <span>Copied</span>
+          <span>{m.copied()}</span>
         {:else}
           <DuplicateIcon class="size-5" />
-          <span>Copy</span>
+          <span>{m.copy()}</span>
         {/if}
       </button>
     </div>

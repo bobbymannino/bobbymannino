@@ -16,9 +16,9 @@ calculate the size of something like contact lenses for your eyes.
 
 ## Sagitta Formula
 
-![Sagitta - Solve for S](sagitta-solve-for-s.png)
+![Sagitta - Solve for S](/blog/sagitta-solve-for-s.png)
 
-![Sagitta](sagitta.png)
+![Sagitta](/blog/sagitta.png)
 
 <!--$$
 S = r - \sqrt{r^2 - \left(\frac{L}{2}\right)^2}
@@ -33,7 +33,7 @@ $$-->
 The sagitta formula can be used to solve for the radius of a circle given the
 sagitta and chord length, which is incredibly useful in something like CAD work.
 
-![Sagitta - Solve for R](sagitta-solve-for-r.png)
+![Sagitta - Solve for R](/blog/sagitta-solve-for-r.png)
 
 ---
 

@@ -1,5 +1,7 @@
 <script lang="ts">
   import { hacker } from "$lib/hacker";
+  import { m } from "$lib/paraglide/messages";
+  import { getLocale } from "$lib/paraglide/runtime";
   import { inview } from "svelte-inview";
 
   const techs = [
@@ -26,24 +28,20 @@
         return () => clean?.();
       }}
     >
-      technologies
+      {m.technologies_heading()}
     </h1>
 
     <p>
-      these are technologies i have an interest in or have some amount of knowledge in; <b class="motion-safe:highlight"
-        >{new Intl.ListFormat().format(techs)}</b
-      >
+      {m.technologies_p1()}
+      <b class="motion-safe:highlight">{new Intl.ListFormat(getLocale()).format(techs)}</b>
     </p>
 
     <p>
-      at the moment i am focusing my attention of learning rust at a level where i would be able to write a full api
-      backend with websockets.
+      {m.technologies_p2()}
     </p>
 
     <p>
-      my favorite language to type out would be typescript or sql, i enjoy the complexity of relational databases as
-      well as the simplicity and type safety of typescript. i am also currently really enjoying rust, its strict types
-      and unusual syntax is refreshing and so far i am enjoying it deeply
+      {m.technologies_p3()}
     </p>
   </div>
 </section>

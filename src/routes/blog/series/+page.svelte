@@ -1,20 +1,22 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import Meta from "$components/meta.svelte";
+  import { m } from "$lib/paraglide/messages";
+  import { localizeHref } from "$lib/paraglide/runtime";
   import { series } from "$lib/posts/series";
 </script>
 
-<Meta title="Blog Series | Bobby Mannino" description="Read my blog series" />
+<Meta title={m.series_meta_title()} description={m.series_meta_description()} />
 
 <section class="container" id="series">
   <div class="card">
-    <h1>series</h1>
+    <h1>{m.series_heading()}</h1>
 
     <ul class="space-y-4">
       {#each series as { title, slug, description } (slug)}
         <li>
           <a
-            href={resolve("/blog/series/[slug]", { slug })}
+            href={localizeHref(resolve("/blog/series/[slug]", { slug }))}
             tabindex="0"
             class="ring-on-focus-visible block hover:underline"
           >

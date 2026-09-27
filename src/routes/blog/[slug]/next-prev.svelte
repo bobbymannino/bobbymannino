@@ -1,5 +1,7 @@
 <script lang="ts">
   import { ChevronLeftIcon, ChevronRightIcon } from "$lib/icons";
+  import { m } from "$lib/paraglide/messages";
+  import { localizeHref } from "$lib/paraglide/runtime";
 
   type Post = App.PageData["posts"][number];
 
@@ -16,9 +18,9 @@
   <a
     class="group text-accent-600 ring-on-focus-visible active:text-accent-700 flex cursor-pointer items-center gap-2 bg-white p-1 hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800"
     tabindex="0"
-    href="/blog/{prevPost.meta.slug}"
+    href={localizeHref(`/blog/${prevPost.meta.slug}`)}
     rel="noreferrer noopener"
-    title="Previous post"
+    title={m.previous_post()}
   >
     <ChevronLeftIcon class="size-6 translate-x-2 transition-transform group-hover:translate-x-0" />
     <span>{prevPost.meta.title}</span>
@@ -28,9 +30,9 @@
   <a
     class="group text-accent-600 ring-on-focus-visible active:text-accent-700 flex cursor-pointer items-center justify-end gap-2 bg-white p-1 hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800"
     tabindex="0"
-    href="/blog/{nextPost.meta.slug}"
+    href={localizeHref(`/blog/${nextPost.meta.slug}`)}
     rel="noreferrer noopener"
-    title="Next post"
+    title={m.next_post()}
   >
     <span>{nextPost.meta.title}</span>
     <ChevronRightIcon class="size-6 transition-transform not-motion-reduce:-translate-x-2 group-hover:translate-x-0" />
