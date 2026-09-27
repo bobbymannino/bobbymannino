@@ -15,6 +15,9 @@ function escapeHtml(raw: string) {
 const CHECK_ICON = renderIcon(CheckIcon);
 const DUPLICATE_ICON = renderIcon(DuplicateIcon);
 
+/** Whether the renderer is currently rendering the content of a link */
+let insideLink = false;
+
 const md = new Marked({ gfm: true }).use({
   renderer: {
     heading({ tokens, depth, text: raw }) {
@@ -35,10 +38,22 @@ const md = new Marked({ gfm: true }).use({
     },
 
     link({ href, title, tokens }) {
+      insideLink = true;
       const text = this.parser.parseInline(tokens);
+      insideLink = false;
       const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
 
       return `<a href="${escapeHtml(href)}"${titleAttr} target="_blank" rel="noopener noreferrer" tabindex="0" class="ring-on-focus-visible hover:underline">${text}</a>`;
+    },
+
+    image(token) {
+      const img = Renderer.prototype.image.call(this, token);
+      // An image that is already a link's content must not be wrapped in a second anchor
+      if (insideLink) return img;
+
+      console.log(token);
+
+      return `<a href="${escapeHtml(token.href)}" target="_blank" rel="noopener noreferrer" title="${token.text}" class="ring-on-focus-visible">${img}</a>`;
     },
 
     table(token) {
