@@ -33,9 +33,9 @@
     </p>
 
     <p>
-      for now i spend my spare time making mini projects and improving my skills. the current project im working on is
-      called <a target="_blank" rel="noopener noreferrer" href="https://github.com/bobbymannino/sapere">Sapere</a>, it
-      is aimed at being something i can and will use in my daily life to track projects, issues and store documents
+      for now i spend my spare time making mini projects and improving my skills. the set of projects i am currently
+      working on is learning about hardware programming. i am using ESP32's along with Rust to create mini projects to
+      learn about embedded systems.
     </p>
   </div>
 </section>
