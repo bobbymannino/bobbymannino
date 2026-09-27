@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
   import { ChevronUpIcon } from "$lib/icons";
+  import { m } from "$lib/paraglide/messages";
   import { scrollY, innerHeight } from "svelte/reactivity/window";
 
   const scrolled = $derived((scrollY.current || 0) > (innerHeight.current || 0) / 2);
@@ -16,6 +17,6 @@
   ]}
   tabindex="0"
 >
-  <span class="sr-only">Scroll to top</span>
+  <span class="sr-only">{m.scroll_to_top()}</span>
   <ChevronUpIcon class="size-8" />
 </button>

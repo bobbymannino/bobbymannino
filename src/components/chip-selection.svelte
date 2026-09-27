@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { m } from "$lib/paraglide/messages";
+
   type Chip = {
     text: string;
     value: string;
@@ -13,7 +15,7 @@
     valuesAsHref?: boolean;
   };
 
-  let { chips, legend = "Tags", selection = $bindable([]), name, valuesAsHref = false }: Props = $props();
+  let { chips, legend = m.tags(), selection = $bindable([]), name, valuesAsHref = false }: Props = $props();
 </script>
 
 <fieldset class="flex flex-wrap gap-1">

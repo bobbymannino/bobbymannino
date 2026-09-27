@@ -1,5 +1,7 @@
 <script lang="ts">
   import { SearchIcon } from "$lib/icons";
+  import { m } from "$lib/paraglide/messages";
+  import { localizeHref } from "$lib/paraglide/runtime";
   import Logo from "./logo.svelte";
 
   type Props = {
@@ -9,12 +11,12 @@
   let { openSearchModal }: Props = $props();
 
   const links = [
-    { href: "/#about", text: "about" },
-    { href: "/blog", text: "blog" },
-    { href: "/#technologies", text: "technologies" },
-    { href: "/#projects", text: "projects" },
-    { href: "/#contact", text: "contact" },
-    { func: () => openSearchModal(), icon: SearchIcon, text: "Search" },
+    { href: localizeHref("/#about"), text: m.nav_about() },
+    { href: localizeHref("/blog"), text: m.nav_blog() },
+    { href: localizeHref("/#technologies"), text: m.nav_technologies() },
+    { href: localizeHref("/#projects"), text: m.nav_projects() },
+    { href: localizeHref("/#contact"), text: m.nav_contact() },
+    { func: () => openSearchModal(), icon: SearchIcon, text: m.nav_search() },
   ];
 </script>
 
@@ -24,7 +26,7 @@
       tabindex="0"
       href="#main-content"
       class="bg-accent-600 ring-on-focus-visible absolute z-50 px-2 py-1 text-white not-focus-visible:pointer-events-none not-focus-visible:opacity-0"
-      >Skip to main content</a
+      >{m.skip_to_main_content()}</a
     >
     <Logo />
     <nav>

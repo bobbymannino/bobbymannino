@@ -2,6 +2,7 @@
   import BlogPostCard from "$components/blog-post-card.svelte";
   import Meta from "$components/meta.svelte";
   import Select from "$components/select.svelte";
+  import { m } from "$lib/paraglide/messages";
   import type { PageProps } from "./$types";
 
   let { data }: PageProps = $props();
@@ -29,7 +30,7 @@
   );
 </script>
 
-<Meta title="#{data.tag} | Bobby Mannino" description="Read posts tagged with #{data.tag}" />
+<Meta title="#{data.tag} | Bobby Mannino" description={m.tag_meta_description({ tag: data.tag })} />
 
 <div class="container">
   <div class="card">
@@ -38,16 +39,16 @@
 
       <Select
         id="sort-by"
-        label="Sort by"
+        label={m.sort_by()}
         name="sortBy"
         bind:value={sortBy}
         options={[
-          { value: "-date", text: "Newest to Oldest" },
-          { value: "date", text: "Oldest to Newest" },
-          { value: "title", text: "A to Z" },
-          { value: "-title", text: "Z to A" },
-          { value: "readingTime", text: "Shortest to Longest" },
-          { value: "-readingTime", text: "Longest to Shortest" },
+          { value: "-date", text: m.sort_newest() },
+          { value: "date", text: m.sort_oldest() },
+          { value: "title", text: m.sort_a_z() },
+          { value: "-title", text: m.sort_z_a() },
+          { value: "readingTime", text: m.sort_shortest() },
+          { value: "-readingTime", text: m.sort_longest() },
         ]}
       />
     </div>

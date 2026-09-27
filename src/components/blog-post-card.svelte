@@ -1,6 +1,8 @@
 <script lang="ts">
   import { textToId } from "$lib/headings";
   import { HeartIcon } from "$lib/icons";
+  import { m } from "$lib/paraglide/messages";
+  import { getLocale, localizeHref } from "$lib/paraglide/runtime";
   import { getPostLikeCount } from "$lib/post-likes.remote";
   import type { PostMeta } from "$lib/posts";
   import { onMount } from "svelte";
@@ -27,14 +29,14 @@
   });
 </script>
 
-<a href="/blog/{meta.slug}" tabindex="0" class="group ring-on-focus-visible @container block">
+<a href={localizeHref(`/blog/${meta.slug}`)} tabindex="0" class="group ring-on-focus-visible @container block">
   <div class="flex-wrap items-start justify-between @lg:flex">
     <h2 class="group-hover:underline" style:--vtn="post-title-{textToId(meta.title)}">
       {meta.title}
     </h2>
     <p style:--vtn="post-{meta.slug}-meta">
       <small class="inline-flex items-center gap-1">
-        {meta.publishedOn?.toLocaleDateString()} • {meta.readingTime} min read •
+        {meta.publishedOn?.toLocaleDateString(getLocale())} • {m.min_read({ minutes: meta.readingTime })} •
         <HeartIcon class="size-4" />
         {likeCount ?? "…"}
       </small>
@@ -43,7 +45,7 @@
 
   <div class="flex-wrap items-end justify-between @lg:flex">
     <p>{meta.tagline}</p>
-    <ul class="flex flex-wrap gap-1" aria-label="Blog post tags">
+    <ul class="flex flex-wrap gap-1" aria-label={m.blog_post_tags()}>
       {#each meta.tags as tag}
         <li>
           <p class="text-accent-600" style:--vtn="post-{meta.slug}-tags-{tag}">

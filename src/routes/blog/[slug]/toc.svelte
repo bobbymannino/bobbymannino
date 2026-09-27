@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Heading } from "$lib/headings";
   import { ChevronDownIcon } from "$lib/icons";
+  import { m } from "$lib/paraglide/messages";
   import { MediaQuery } from "svelte/reactivity";
 
   type Props = {
@@ -11,8 +12,9 @@
   let props: Props = $props();
   const headings = $derived.by(() => {
     let { headings } = props;
-    if (props.showRelatedPostsLink) headings = [...headings, { id: "related-posts", level: 1, text: "Related Posts" }];
-    headings = [...headings, { id: "comments", level: 1, text: "Comments" }];
+    if (props.showRelatedPostsLink)
+      headings = [...headings, { id: "related-posts", level: 1, text: m.related_posts() }];
+    headings = [...headings, { id: "comments", level: 1, text: m.comments() }];
     return headings;
   });
 
@@ -115,7 +117,7 @@
     onclick={() => (isOpen = !isOpen)}
     class="ring-on-focus-visible block w-full"
     tabindex="0"
-    aria-label="{isOpen ? 'Close' : 'Open'} table of contents"
+    aria-label={isOpen ? m.close_table_of_contents() : m.open_table_of_contents()}
   >
     <h6 class="flex items-center gap-1">
       <ChevronDownIcon
@@ -127,7 +129,7 @@
           },
         ]}
       />
-      Table of Contents
+      {m.table_of_contents()}
     </h6>
   </button>
 

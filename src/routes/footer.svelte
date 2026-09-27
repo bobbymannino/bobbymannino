@@ -1,6 +1,8 @@
 <script lang="ts">
   import { browser } from "$app/env";
   import { formatDateRelative } from "$lib/date-utils";
+  import { m } from "$lib/paraglide/messages";
+  import { getLocale } from "$lib/paraglide/runtime";
   import { socials } from "$lib/socials";
   import ThemeButtonGroup from "./theme-button-group.svelte";
 
@@ -30,8 +32,7 @@
     <ThemeButtonGroup />
     <div class="flex items-center gap-4">
       <small class="text-zinc-500 dark:text-zinc-400" title="{builtAt.toUTCString()} ({formatDateRelative(builtAt)})">
-        Built {builtAt.toLocaleDateString()}
-        {builtAt.toLocaleTimeString()}
+        {m.built_at({ date: `${builtAt.toLocaleDateString(getLocale())} ${builtAt.toLocaleTimeString(getLocale())}` })}
       </small>
       <div class="not-hoverable:hidden">
         <kbd>{cmdOrCtrl}</kbd>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { MoonIcon, SunIcon, ThemeIcon } from "$lib/icons";
+  import { m } from "$lib/paraglide/messages";
   import type { Component } from "svelte";
 
   type Theme = "light" | "dark" | "system";
@@ -11,9 +12,9 @@
   };
 
   const options: Option[] = [
-    { value: "light", label: "Light", icon: SunIcon },
-    { value: "dark", label: "Dark", icon: MoonIcon },
-    { value: "system", label: "System", icon: ThemeIcon },
+    { value: "light", label: m.theme_light(), icon: SunIcon },
+    { value: "dark", label: m.theme_dark(), icon: MoonIcon },
+    { value: "system", label: m.theme_system(), icon: ThemeIcon },
   ];
 
   let theme: Theme = $state("system");
@@ -53,8 +54,8 @@
   });
 </script>
 
-<fieldset class="flex items-center gap-1 bg-zinc-100 p-1 dark:bg-zinc-800" aria-label="Theme">
-  <legend class="sr-only">Theme</legend>
+<fieldset class="flex items-center gap-1 bg-zinc-100 p-1 dark:bg-zinc-800" aria-label={m.theme()}>
+  <legend class="sr-only">{m.theme()}</legend>
   {#each options as { value, label, icon: Icon } (value)}
     <label
       class="ring-on-has-focus-visible has-checked:bg-accent-600 flex cursor-pointer items-center gap-1 px-2 py-1 text-sm text-zinc-700 hover:opacity-70 has-checked:text-white dark:text-zinc-300"

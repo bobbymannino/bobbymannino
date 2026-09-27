@@ -3,6 +3,8 @@
   import { navigating, page } from "$app/state";
   import Modal from "$components/modal.svelte";
   import { XIcon } from "$lib/icons";
+  import { m } from "$lib/paraglide/messages";
+  import { getLocale, localizeHref } from "$lib/paraglide/runtime";
   import Fuse from "fuse.js";
 
   let query = $state("");
@@ -27,7 +29,7 @@
       modal.close();
     } else if (event.key == "Enter") {
       if (filteredPosts.length) {
-        goto(`/blog/${filteredPosts[0].meta.slug}`);
+        goto(localizeHref(`/blog/${filteredPosts[0].meta.slug}`));
       }
     }
   }
@@ -88,18 +90,20 @@
 <Modal onclose={() => (query = "")} bind:this={modal} id="search-modal">
   <div class="flex flex-wrap items-center justify-between">
     <h2>
-      search <span class="text-accent-600">blog</span>
+      {@html m.search_heading()}
     </h2>
     <button
       tabindex="0"
       onclick={() => modal.close()}
+      aria-label={m.search_close()}
+      title={m.search_close()}
       class="ring-on-focus-visible cursor-pointer bg-zinc-200 p-1 text-lg font-bold text-zinc-800 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600"
     >
       <XIcon class="size-6" />
     </button>
   </div>
   <search class="py-3">
-    <label for="query" class="sr-only">Query</label>
+    <label for="query" class="sr-only">{m.search_query()}</label>
     <input
       tabindex="0"
       autofocus
@@ -109,7 +113,7 @@
       type="search"
       id="query"
       class="input ring-on-focus-visible"
-      placeholder="databases"
+      placeholder={m.search_placeholder()}
     />
   </search>
   <ul class="grid gap-3" id="search-modal-results">
@@ -117,7 +121,7 @@
       <li>
         <a
           tabindex="0"
-          href="/blog/{post.meta.slug}"
+          href={localizeHref(`/blog/${post.meta.slug}`)}
           class="group ring-on-focus-visible flex flex-wrap items-center justify-between"
         >
           <p class="group-hover:underline">
@@ -126,7 +130,7 @@
             </b>
           </p>
           <p class="group-hover:underline">
-            {post.meta.publishedOn.toLocaleDateString()} • {post.meta.readingTime} min read
+            {post.meta.publishedOn.toLocaleDateString(getLocale())} • {m.min_read({ minutes: post.meta.readingTime })}
           </p>
         </a>
       </li>

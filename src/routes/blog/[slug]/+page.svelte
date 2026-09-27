@@ -3,6 +3,7 @@
   import { page } from "$app/state";
   import Markdown from "$components/markdown.svelte";
   import Meta from "$components/meta.svelte";
+  import { m } from "$lib/paraglide/messages";
   import type { Picture } from "@sveltejs/enhanced-img";
   import type { PageProps } from "./$types";
   import Comments from "./comments.svelte";
@@ -79,7 +80,13 @@
 
       <article class="space-y-4 md:space-y-6">
         {#if thumbnail}
-          <a href={thumbnail.url} target="_blank" rel="noopener noreferrer" class="block" title="Open image in new tab">
+          <a
+            href={thumbnail.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+            title={m.open_image_in_new_tab()}
+          >
             <enhanced:img
               src={thumbnail.picture}
               alt={data.post.meta.thumbnailAlt}
