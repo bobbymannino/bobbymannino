@@ -2,6 +2,7 @@ import BSLFlashcards from "$lib/images/bsl-flashcards.png?enhanced&w=400";
 import CPCBureau from "$lib/images/cpc-bureau.png?enhanced&w=400";
 import CPCTravel from "$lib/images/cpc-travel.png?enhanced&w=400";
 import FriaryMillTraining from "$lib/images/friary-mill-training.png?enhanced&w=400";
+import GPUIRSS from "$lib/images/gpui-rss.png?enhanced&w=400";
 import Sapere from "$lib/images/sapere.png?enhanced&w=400";
 
 export type Project = {
@@ -14,6 +15,14 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: "GPUI RSS",
+    thumbnail: GPUIRSS,
+    status: "Released",
+    href: "https://github.com/bobbymannino/gpui-rss",
+    languages: ["rust", "gpui"],
+    year: 2026,
+  },
   {
     title: "Sapere",
     thumbnail: Sapere,
