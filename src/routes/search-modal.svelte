@@ -29,6 +29,7 @@
       modal.close();
     } else if (event.key == "Enter") {
       if (filteredPosts.length) {
+        modal.close();
         goto(localizeHref(`/blog/${filteredPosts[0].meta.slug}`));
       }
     }
