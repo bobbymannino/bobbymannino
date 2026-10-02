@@ -1,6 +1,6 @@
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import { sentrySvelteKit } from "@sentry/sveltekit/vite";
-import adapter from "@sveltejs/adapter-node";
+import adapter from "@sveltejs/adapter-bun";
 import { enhancedImages } from "@sveltejs/enhanced-img";
 import { sveltekit } from "@sveltejs/kit/vite";
 import tailwindcss from "@tailwindcss/vite";
