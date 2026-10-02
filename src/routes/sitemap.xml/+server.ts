@@ -1,7 +1,7 @@
 import { URL as URLS } from "$app/env/public";
-import { localizeHref, locales } from "$lib/paraglide/runtime";
-import { listPosts } from "$lib/posts";
-import { series } from "$lib/posts/series";
+import { localizeHref, locales } from "#lib/paraglide/runtime.js";
+import { listPosts } from "#lib/posts/index.js";
+import { series } from "#lib/posts/series.js";
 
 export const GET = () => {
   const URL = URLS.split(",")[0];

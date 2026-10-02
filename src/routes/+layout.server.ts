@@ -1,4 +1,4 @@
-import { listPostMetas } from "$lib/posts";
+import { listPostMetas } from "#lib/posts/index.js";
 
 export const prerender = true;
 

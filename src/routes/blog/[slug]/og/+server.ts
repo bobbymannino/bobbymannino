@@ -1,7 +1,7 @@
-import { HeartIcon, renderIcon } from "$lib/icons";
-import { listPosts } from "$lib/posts";
-import { getPostLikeStatus } from "$lib/server/post-likes";
 import { error } from "@sveltejs/kit";
+import { HeartIcon, renderIcon } from "#lib/icons.js";
+import { listPosts } from "#lib/posts/index.js";
+import { getPostLikeStatus } from "#lib/server/post-likes.js";
 import { nodeToJpeg } from "./component-to-jpeg";
 
 const width = 738;
@@ -9,7 +9,7 @@ const height = 360;
 
 export const GET = async ({ params, url }) => {
   const post = listPosts().find((post) => post.meta.slug == params.slug);
-  if (!post) error(404, { message: "No post with that slug found" });
+  if (!post) error(404, "No post with that slug found");
 
   const dark = url.searchParams.has("dark");
 

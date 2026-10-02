@@ -1,6 +1,6 @@
-import { renderMarkdown } from "$lib/markdown";
-import { getPost, listPosts } from "$lib/posts";
 import { error } from "@sveltejs/kit";
+import { renderMarkdown } from "#lib/markdown.js";
+import { getPost, listPosts } from "#lib/posts/index.js";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params, parent }) => {

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { HeartIcon, LoadingIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
-  import { getPostLikeStatus, updatePostLike } from "$lib/post-likes.remote";
   import { onMount } from "svelte";
+  import { HeartIcon, LoadingIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { getPostLikeStatus, updatePostLike } from "#lib/post-likes.remote.js";
 
   type Props = {
     slug: string;

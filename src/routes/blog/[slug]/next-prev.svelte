@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { ChevronLeftIcon, ChevronRightIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
-  import { localizeHref } from "$lib/paraglide/runtime";
+  import { ChevronLeftIcon, ChevronRightIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { localizeHref } from "#lib/paraglide/runtime.js";
 
   type Post = App.PageData["posts"][number];
 

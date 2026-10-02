@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { SearchIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
-  import { localizeHref } from "$lib/paraglide/runtime";
+  import { SearchIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { localizeHref } from "#lib/paraglide/runtime.js";
   import Logo from "./logo.svelte";
 
   type Props = {

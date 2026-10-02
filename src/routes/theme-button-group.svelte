@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { MoonIcon, SunIcon, ThemeIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
   import type { Component } from "svelte";
+  import { MoonIcon, SunIcon, ThemeIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
 
   type Theme = "light" | "dark" | "system";
 

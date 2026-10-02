@@ -1,9 +1,9 @@
 <script lang="ts">
   import { browser } from "$app/env";
-  import { formatDateRelative } from "$lib/date-utils";
-  import { m } from "$lib/paraglide/messages";
-  import { getLocale } from "$lib/paraglide/runtime";
-  import { socials } from "$lib/socials";
+  import { formatDateRelative } from "#lib/date-utils.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { getLocale } from "#lib/paraglide/runtime.js";
+  import { socials } from "#lib/socials.js";
   import LocaleSwitcher from "./locale-switcher.svelte";
   import ThemeButtonGroup from "./theme-button-group.svelte";
 

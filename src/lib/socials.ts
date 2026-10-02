@@ -1,7 +1,7 @@
 import { EMAIL, GITHUB_URL, LINKEDIN_URL } from "$app/env/public";
-import { EnvelopeIcon, GithubIcon, LinkedinIcon } from "$lib/icons";
-import { m } from "$lib/paraglide/messages";
 import type { Component } from "svelte";
+import { EnvelopeIcon, GithubIcon, LinkedinIcon } from "#lib/icons.js";
+import { m } from "#lib/paraglide/messages.js";
 
 type Social = {
   platform: string;

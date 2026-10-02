@@ -1,6 +1,6 @@
 <script lang="ts">
-  import "$lib/code.css";
-  import { copyTextToClipboard } from "$lib/utils";
+  import "#lib/code.css";
+  import { copyTextToClipboard } from "#lib/utils.js";
 
   type Props = {
     html: string;

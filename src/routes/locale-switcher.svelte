@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { m } from "$lib/paraglide/messages";
-  import { getLocale, localizeHref, locales } from "$lib/paraglide/runtime";
+  import { m } from "#lib/paraglide/messages.js";
+  import { getLocale, localizeHref, locales } from "#lib/paraglide/runtime.js";
 </script>
 
 <nav aria-label={m.language()}>

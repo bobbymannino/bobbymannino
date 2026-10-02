@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { localizeHref } from "$lib/paraglide/runtime";
+  import { localizeHref } from "#lib/paraglide/runtime.js";
 </script>
 
 <a href={localizeHref("/")} class="group text-accent-600 ring-on-focus-visible" tabindex="0">

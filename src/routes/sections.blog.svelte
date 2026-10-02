@@ -1,10 +1,10 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { hacker } from "$lib/hacker";
-  import { m } from "$lib/paraglide/messages";
-  import { localizeHref } from "$lib/paraglide/runtime";
   import { inview } from "svelte-inview";
+  import { hacker } from "#lib/hacker.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { localizeHref } from "#lib/paraglide/runtime.js";
 
   const latestBlogPost = page.data.posts[0];
 </script>
@@ -18,7 +18,7 @@
           const clean = hacker(e.detail.node);
           return () => clean?.();
         }}
-        href={localizeHref(resolve("/blog"))}
+        href={localizeHref(resolve("blog"))}
         tabindex="-1"
         rel="noopener noreferrer">{m.blog_heading()}</a
       >
@@ -26,10 +26,8 @@
 
     <p>
       {m.blog_intro_before()}
-      <a
-        href={localizeHref(resolve("/blog"))}
-        class="text-accent-600 ring-on-focus-visible hover:underline"
-        tabindex="0">{m.blog_intro_link()}</a
+      <a href={localizeHref(resolve("blog"))} class="text-accent-600 ring-on-focus-visible hover:underline" tabindex="0"
+        >{m.blog_intro_link()}</a
       >
       {m.blog_intro_after()}
     </p>

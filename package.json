@@ -3,6 +3,11 @@
   "version": "2.1.0",
   "private": true,
   "type": "module",
+  "imports": {
+    "#lib": "./src/lib/index.js",
+    "#lib/*": "./src/lib/*",
+    "#components/*": "./src/components/*"
+  },
   "scripts": {
     "dev": "bun --bun vite dev",
     "build": "vite build",
@@ -15,26 +20,26 @@
   },
   "dependencies": {
     "@giscus/svelte": "^3.1.0",
-    "@sentry/sveltekit": "^11.0.0",
-    "central-icons": "npm:@central-icons-svelte/square-filled-radius-0-stroke-2@^1.1.326",
+    "@sentry/sveltekit": "^11.2.0",
+    "central-icons": "npm:@central-icons-svelte/square-filled-radius-0-stroke-2@^1.2.2",
     "marked": "^18.0.14",
-    "satori": "^0.33.5",
+    "satori": "^0.34.1",
     "satori-html": "^0.3.2",
-    "sharp": "^0.35.4"
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@inlang/paraglide-js": "^2.25.4",
-    "@sveltejs/adapter-node": "^5.5.7",
-    "@sveltejs/enhanced-img": "^0.11.0",
-    "@sveltejs/kit": "^2.70.3",
+    "@sveltejs/adapter-node": "^6.0.0",
+    "@sveltejs/enhanced-img": "^1.0.0",
+    "@sveltejs/kit": "^3.0.0",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/bun": "^1.4.2",
     "@typescript/native": "npm:typescript@7",
     "fuse.js": "^7.5.0",
     "highlight.js": "^11.12.0",
-    "oxfmt": "^0.70.0",
-    "oxlint": "^1.85.0",
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
     "runed": "^0.37.1",
     "svelte": "^5.57.1",
     "svelte-check": "^4.7.6",
@@ -42,6 +47,6 @@
     "tailwindcss": "^4.3.3",
     "typescript": "~6",
     "valibot": "^1.5.0",
-    "vite": "^8.3.0"
+    "vite": "^8.3.2"
   }
 }

@@ -31,16 +31,8 @@ export default defineConfig(({ mode }) => {
       tailwindcss(),
       sveltekit({
         adapter: adapter(),
-        alias: {
-          $components: "./src/components",
-          "$components/*": "./src/components/*",
-        },
         experimental: {
-          explicitEnvironmentVariables: true,
           remoteFunctions: true,
-          instrumentation: {
-            server: true,
-          },
         },
       }),
     ],

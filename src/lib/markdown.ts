@@ -1,7 +1,7 @@
-import { textToId, type Heading } from "$lib/headings";
-import { CheckIcon, DuplicateIcon, renderIcon } from "$lib/icons";
 import hljs from "highlight.js";
 import { Marked, Renderer } from "marked";
+import { textToId, type Heading } from "#lib/headings.js";
+import { CheckIcon, DuplicateIcon, renderIcon } from "#lib/icons.js";
 
 function escapeHtml(raw: string) {
   return raw

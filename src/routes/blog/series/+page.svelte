@@ -1,9 +1,9 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import Meta from "$components/meta.svelte";
-  import { m } from "$lib/paraglide/messages";
-  import { localizeHref } from "$lib/paraglide/runtime";
-  import { series } from "$lib/posts/series";
+  import Meta from "#components/meta.svelte";
+  import { m } from "#lib/paraglide/messages.js";
+  import { localizeHref } from "#lib/paraglide/runtime.js";
+  import { series } from "#lib/posts/series.js";
 </script>
 
 <Meta title={m.series_meta_title()} description={m.series_meta_description()} />

@@ -1,11 +1,11 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import BlogPostCard from "$components/blog-post-card.svelte";
-  import ChipSelection from "$components/chip-selection.svelte";
-  import Meta from "$components/meta.svelte";
-  import Select from "$components/select.svelte";
-  import { m } from "$lib/paraglide/messages";
   import { onMount } from "svelte";
+  import BlogPostCard from "#components/blog-post-card.svelte";
+  import ChipSelection from "#components/chip-selection.svelte";
+  import Meta from "#components/meta.svelte";
+  import Select from "#components/select.svelte";
+  import { m } from "#lib/paraglide/messages.js";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();

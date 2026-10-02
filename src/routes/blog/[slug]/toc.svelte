@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Heading } from "$lib/headings";
-  import { ChevronDownIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
   import { MediaQuery } from "svelte/reactivity";
+  import type { Heading } from "#lib/headings.js";
+  import { ChevronDownIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
 
   type Props = {
     headings: Heading[];

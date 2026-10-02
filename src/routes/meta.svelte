@@ -1,7 +1,7 @@
 <script lang="ts">
   import { URL as URLS } from "$app/env/public";
   import { page } from "$app/state";
-  import { baseLocale, getLocale, localizeHref, locales } from "$lib/paraglide/runtime";
+  import { baseLocale, getLocale, localizeHref, locales } from "#lib/paraglide/runtime.js";
 
   const URL = URLS.split(",")[0];
 

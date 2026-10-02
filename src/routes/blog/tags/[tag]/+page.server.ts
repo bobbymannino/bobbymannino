@@ -1,5 +1,5 @@
-import { listPosts } from "$lib/posts/index.js";
 import { error } from "@sveltejs/kit";
+import { listPosts } from "#lib/posts/index.js";
 
 export const load = async ({ parent, params }) => {
   const { posts } = await parent();

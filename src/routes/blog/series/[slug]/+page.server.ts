@@ -1,5 +1,5 @@
-import { getSeries, series } from "$lib/posts/series";
 import { error } from "@sveltejs/kit";
+import { getSeries, series } from "#lib/posts/series.js";
 
 export const load = async ({ parent, params }) => {
   const { posts } = await parent();

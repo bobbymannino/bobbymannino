@@ -1,7 +1,7 @@
 <script lang="ts">
-  import BlogPostCard from "$components/blog-post-card.svelte";
-  import Meta from "$components/meta.svelte";
-  import { m } from "$lib/paraglide/messages";
+  import BlogPostCard from "#components/blog-post-card.svelte";
+  import Meta from "#components/meta.svelte";
+  import { m } from "#lib/paraglide/messages.js";
   import type { PageProps } from "./$types";
 
   let { data }: PageProps = $props();
