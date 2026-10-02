@@ -1,8 +1,8 @@
 <script lang="ts">
-  import ChipSelection from "$components/chip-selection.svelte";
-  import Meta from "$components/meta.svelte";
-  import { m } from "$lib/paraglide/messages";
-  import { localizeHref } from "$lib/paraglide/runtime";
+  import ChipSelection from "#components/chip-selection.svelte";
+  import Meta from "#components/meta.svelte";
+  import { m } from "#lib/paraglide/messages.js";
+  import { localizeHref } from "#lib/paraglide/runtime.js";
   import type { PageProps } from "./$types";
 
   let { data }: PageProps = $props();

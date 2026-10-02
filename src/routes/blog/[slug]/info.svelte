@@ -2,11 +2,11 @@
   import { URL as URLS } from "$app/env/public";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import PostLikeButton from "$components/post-like-button.svelte";
-  import { CalendarIcon, CheckIcon, ClockIcon, DuplicateIcon, ShareIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
-  import { getLocale, localizeHref } from "$lib/paraglide/runtime";
-  import { getSeries } from "$lib/posts/series";
+  import PostLikeButton from "#components/post-like-button.svelte";
+  import { CalendarIcon, CheckIcon, ClockIcon, DuplicateIcon, ShareIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
+  import { getSeries } from "#lib/posts/series.js";
 
   type Post = App.PageData["posts"][number];
 

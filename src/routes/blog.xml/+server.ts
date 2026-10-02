@@ -1,7 +1,7 @@
 import { EMAIL, URL as URLS } from "$app/env/public";
-import { listPosts } from "$lib/posts";
-import type { Post } from "$lib/posts";
 import { marked } from "marked";
+import { listPosts } from "#lib/posts/index.js";
+import type { Post } from "#lib/posts/index.js";
 
 const title = escapeXml("Bobby Mannino's Blog");
 const description = escapeXml("Some things I have learnt and would like to remember");

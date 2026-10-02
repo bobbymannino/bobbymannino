@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { BeakerIcon, CogIcon, EyeCrossedOutIcon, RocketIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
-  import { getLocale } from "$lib/paraglide/runtime";
-  import type { Project } from "$lib/projects";
+  import { BeakerIcon, CogIcon, EyeCrossedOutIcon, RocketIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { getLocale } from "#lib/paraglide/runtime.js";
+  import type { Project } from "#lib/projects.js";
 
   let { status, thumbnail, title, href, languages, year }: Project = $props();
 

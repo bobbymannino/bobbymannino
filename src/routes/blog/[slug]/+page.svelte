@@ -1,10 +1,10 @@
 <script lang="ts">
   import { URL as URLS } from "$app/env/public";
   import { page } from "$app/state";
-  import Markdown from "$components/markdown.svelte";
-  import Meta from "$components/meta.svelte";
-  import { m } from "$lib/paraglide/messages";
   import type { Picture } from "@sveltejs/enhanced-img";
+  import Markdown from "#components/markdown.svelte";
+  import Meta from "#components/meta.svelte";
+  import { m } from "#lib/paraglide/messages.js";
   import type { PageProps } from "./$types";
   import Comments from "./comments.svelte";
   import Info from "./info.svelte";

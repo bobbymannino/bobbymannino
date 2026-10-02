@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { hacker } from "$lib/hacker";
-  import { m } from "$lib/paraglide/messages";
   import { inview } from "svelte-inview";
+  import { hacker } from "#lib/hacker.js";
+  import { m } from "#lib/paraglide/messages.js";
 </script>
 
 <section class="container" id="about">
@@ -17,7 +17,7 @@
     </h1>
 
     <enhanced:img
-      src="$lib/images/lego-me.png?w=256"
+      src="#lib/images/lego-me.png?w=256"
       alt="Bobby Mannino"
       loading="eager"
       fetchpriority="high"

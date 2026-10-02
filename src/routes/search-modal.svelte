@@ -1,11 +1,11 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { navigating, page } from "$app/state";
-  import Modal from "$components/modal.svelte";
-  import { XIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
-  import { getLocale, localizeHref } from "$lib/paraglide/runtime";
   import Fuse from "fuse.js";
+  import Modal from "#components/modal.svelte";
+  import { XIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
 
   let query = $state("");
   let modal: { close: () => void; open: (query?: string | null) => void };

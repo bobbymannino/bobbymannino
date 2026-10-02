@@ -1,8 +1,8 @@
 <script lang="ts">
-  import ProjectCardGrid from "$components/project-card-grid.svelte";
-  import { hacker } from "$lib/hacker";
-  import { m } from "$lib/paraglide/messages";
   import { inview } from "svelte-inview";
+  import ProjectCardGrid from "#components/project-card-grid.svelte";
+  import { hacker } from "#lib/hacker.js";
+  import { m } from "#lib/paraglide/messages.js";
 </script>
 
 <section class="container" id="projects">

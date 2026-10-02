@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { textToId } from "$lib/headings";
-  import { HeartIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
-  import { getLocale, localizeHref } from "$lib/paraglide/runtime";
-  import { getPostLikeCount } from "$lib/post-likes.remote";
-  import type { PostMeta } from "$lib/posts";
   import { onMount } from "svelte";
+  import { textToId } from "#lib/headings.js";
+  import { HeartIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
+  import { getPostLikeCount } from "#lib/post-likes.remote.js";
+  import type { PostMeta } from "#lib/posts/index.js";
 
   type Props = PostMeta;
 

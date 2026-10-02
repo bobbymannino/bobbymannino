@@ -1,8 +1,8 @@
 import { read } from "$app/server";
-import fontRegular from "$lib/inter/inter@400.ttf";
-import fontBold from "$lib/inter/inter@900.ttf";
 import satori from "satori";
 import sharp from "sharp";
+import fontRegular from "#lib/inter/inter@400.ttf";
+import fontBold from "#lib/inter/inter@900.ttf";
 
 type Node = Parameters<typeof satori>[0];
 

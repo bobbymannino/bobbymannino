@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { ChevronUpIcon } from "$lib/icons";
-  import { m } from "$lib/paraglide/messages";
   import { scrollY, innerHeight } from "svelte/reactivity/window";
+  import { ChevronUpIcon } from "#lib/icons.js";
+  import { m } from "#lib/paraglide/messages.js";
 
   const scrolled = $derived((scrollY.current || 0) > (innerHeight.current || 0) / 2);
 </script>

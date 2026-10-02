@@ -1,4 +1,4 @@
-import type { PostMeta } from "$lib/posts";
+import type { PostMeta } from "#lib/posts/index.js";
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces

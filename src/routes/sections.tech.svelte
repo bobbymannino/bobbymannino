@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { hacker } from "$lib/hacker";
-  import { m } from "$lib/paraglide/messages";
-  import { getLocale } from "$lib/paraglide/runtime";
   import { inview } from "svelte-inview";
+  import { hacker } from "#lib/hacker.js";
+  import { m } from "#lib/paraglide/messages.js";
+  import { getLocale } from "#lib/paraglide/runtime.js";
 
   const techs = [
     "js/ts",

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import BlogPostCard from "$components/blog-post-card.svelte";
-  import { m } from "$lib/paraglide/messages";
+  import BlogPostCard from "#components/blog-post-card.svelte";
+  import { m } from "#lib/paraglide/messages.js";
 
   type Post = App.PageData["posts"][number];
 

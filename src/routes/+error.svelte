@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import Meta from "$components/meta.svelte";
-  import { m } from "$lib/paraglide/messages";
-  import { localizeHref } from "$lib/paraglide/runtime";
+  import Meta from "#components/meta.svelte";
+  import { m } from "#lib/paraglide/messages.js";
+  import { localizeHref } from "#lib/paraglide/runtime.js";
 
   const status = $derived(page.status);
   const message = $derived(page.error?.message);

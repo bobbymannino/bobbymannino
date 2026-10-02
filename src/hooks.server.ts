@@ -1,11 +1,11 @@
-import { paraglideMiddleware } from "$lib/paraglide/server";
 import * as Sentry from "@sentry/sveltekit";
-import type { Handle, HandleServerError } from "@sveltejs/kit";
-import { sequence } from "@sveltejs/kit/hooks";
+import { sequence, type Handle, type HandleServerError } from "@sveltejs/kit/hooks";
+import { paraglideMiddleware } from "#lib/paraglide/server.js";
 
 const paraglideHandle: Handle = ({ event, resolve }) =>
   paraglideMiddleware(event.request, ({ request, locale }) => {
-    event.request = request;
+    // `request` is typed readonly in SvelteKit 3, but swapping in paraglide's de-localized request still works
+    (event as { request: Request }).request = request;
 
     return resolve(event, {
       transformPageChunk: ({ html }) => html.replace("%paraglide.lang%", locale),
