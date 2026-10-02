@@ -4,4 +4,4 @@ bun = true
 
 [install]
 # Only install package versions published at least 3 days ago (3 * 24 * 3600 = 259200s)
-# minimumReleaseAge = 259200 # take this out for the time being to update to sveltekit 3
+minimumReleaseAge = 259200
