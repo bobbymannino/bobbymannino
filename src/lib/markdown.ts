@@ -51,8 +51,6 @@ const md = new Marked({ gfm: true }).use({
       // An image that is already a link's content must not be wrapped in a second anchor
       if (insideLink) return img;
 
-      console.log(token);
-
       return `<a href="${escapeHtml(token.href)}" target="_blank" rel="noopener noreferrer" title="${token.text}" class="ring-on-focus-visible">${img}</a>`;
     },
 
