@@ -3,6 +3,7 @@
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
   import PostLikeButton from "#components/post-like-button.svelte";
+  import { formatDateRelative } from "#lib/date-utils.ts";
   import { CalendarIcon, CheckIcon, ClockIcon, DuplicateIcon, ShareIcon } from "#lib/icons.js";
   import { m } from "#lib/paraglide/messages.js";
   import { getLocale, localizeHref } from "#lib/paraglide/runtime.js";
@@ -81,7 +82,7 @@
     <div class="flex items-center gap-2 text-zinc-500">
       <span style:--vtn="post-{post.meta.slug}-meta">
         <time
-          title={post.meta.publishedOn.toUTCString()}
+          title="{post.meta.publishedOn.toUTCString()} ({formatDateRelative(post.meta.publishedOn)})"
           aria-label={m.published_on()}
           class="inline-flex items-center gap-1"
           datetime={post.meta.publishedOn.toISOString().slice(0, 10)}
