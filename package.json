@@ -20,33 +20,33 @@
   },
   "dependencies": {
     "@giscus/svelte": "^3.1.0",
-    "@sentry/sveltekit": "^11.2.0",
+    "@sentry/sveltekit": "^11.6.0",
     "central-icons": "npm:@central-icons-svelte/square-filled-radius-0-stroke-2@^1.2.2",
-    "marked": "^18.0.14",
+    "marked": "^18.1.0",
     "satori": "^0.34.1",
     "satori-html": "^0.3.2",
     "sharp": "^0.35.5"
   },
   "devDependencies": {
-    "@inlang/paraglide-js": "^2.25.4",
+    "@inlang/paraglide-js": "^2.26.0",
     "@sveltejs/adapter-bun": "^1.0.0",
     "@sveltejs/enhanced-img": "^1.0.0",
-    "@sveltejs/kit": "^3.0.0",
+    "@sveltejs/kit": "^3.0.1",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/bun": "^1.4.2",
     "@typescript/native": "npm:typescript@7",
     "fuse.js": "^7.5.0",
     "highlight.js": "^11.12.0",
-    "oxfmt": "^0.71.0",
-    "oxlint": "^1.86.0",
+    "oxfmt": "^0.72.0",
+    "oxlint": "^1.87.0",
     "runed": "^0.37.1",
-    "svelte": "^5.57.1",
+    "svelte": "^5.57.2",
     "svelte-check": "^4.7.6",
     "svelte-inview": "^4.0.4",
     "tailwindcss": "^4.3.3",
     "typescript": "~6",
     "valibot": "^1.5.0",
-    "vite": "^8.3.2"
+    "vite": "^8.3.4"
   }
 }
