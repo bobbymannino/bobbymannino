@@ -3,6 +3,7 @@ import CPCBureau from "#lib/images/cpc-bureau.png?enhanced&w=400";
 import CPCTravel from "#lib/images/cpc-travel.png?enhanced&w=400";
 import FriaryMillTraining from "#lib/images/friary-mill-training.png?enhanced&w=400";
 import GPUIRSS from "#lib/images/gpui-rss.png?enhanced&w=400";
+import Qbit from "#lib/images/qbit.png?enhanced&w=400";
 import Sapere from "#lib/images/sapere.png?enhanced&w=400";
 
 export type Project = {
@@ -15,6 +16,14 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: "qBit",
+    thumbnail: Qbit,
+    status: "Released",
+    href: "https://github.com/bobbymannino/qbit",
+    languages: ["rust", "gpui"],
+    year: 2026,
+  },
   {
     title: "GPUI RSS",
     thumbnail: GPUIRSS,
